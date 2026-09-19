@@ -4,10 +4,13 @@ interface Props {
   description: string;
   href: string;
   tags?: string[];
+  track?: string;
 }
-const { title, description, href, tags = [] } = Astro.props;
+const { title, description, href, tags = [], track } = Astro.props;
+const trackLabel = track === 'html' ? 'HTML' : track === 'js' ? 'JS' : track === 'css' ? 'CSS' : '';
 ---
-<article class="card" data-tags={tags.join(',')}>
+<article class="card" data-tags={tags.join(',')} data-track={track || 'css'}>
+  {trackLabel && <span class="badge" style="margin-bottom:0.35rem">{trackLabel}</span>}
   <h3><a href={href}>{title}</a></h3>
   <p>{description}</p>
   {tags.length > 0 && (

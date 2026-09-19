@@ -1,0 +1,41 @@
+---
+interface Props {
+  tracks?: { id: string; label: string }[];
+  targetSelector?: string;
+}
+const {
+  tracks = [
+    { id: 'html', label: 'HTML' },
+    { id: 'css', label: 'CSS' },
+    { id: 'js', label: 'JS' },
+  ],
+  targetSelector = '[data-track]',
+} = Astro.props;
+---
+<div class="filter-bar" data-track-filter data-target={targetSelector} role="group" aria-label="Filtrar por trilha">
+  <button type="button" class="filter-btn" data-track-btn="all" aria-pressed="true">Todas</button>
+  {tracks.map((t) => (
+    <button type="button" class="filter-btn" data-track-btn={t.id} aria-pressed="false">{t.label}</button>
+  ))}
+</div>
+<script>
+  function initTrackFilters() {
+    document.querySelectorAll('[data-track-filter]').forEach((bar) => {
+      const target = bar.getAttribute('data-target') || '[data-track]';
+      const buttons = bar.querySelectorAll('[data-track-btn]');
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const track = btn.getAttribute('data-track-btn') || 'all';
+          buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+          document.querySelectorAll(target).forEach((card) => {
+            const cardTrack = card.getAttribute('data-track') || '';
+            const show = track === 'all' || cardTrack === track;
+            (card as HTMLElement).style.display = show ? '' : 'none';
+          });
+        });
+      });
+    });
+  }
+  initTrackFilters();
+  document.addEventListener('astro:page-load', initTrackFilters);
+</script>

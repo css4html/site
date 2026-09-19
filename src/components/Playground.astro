@@ -2,15 +2,24 @@
 interface Props {
   html: string;
   css: string;
+  js?: string;
+  showJs?: boolean;
   id?: string;
 }
-const { html, css, id = 'playground' } = Astro.props;
+const { html, css, js = '', id = 'playground' } = Astro.props;
+const showJs = Astro.props.showJs ?? Boolean(js);
 const htmlB64 = Buffer.from(html, 'utf8').toString('base64');
 const cssB64 = Buffer.from(css, 'utf8').toString('base64');
+const jsB64 = Buffer.from(js, 'utf8').toString('base64');
 ---
-<div class="playground" data-playground={id} data-mobile-tab="html">
+<div
+  class="playground"
+  data-playground={id}
+  data-mobile-tab="html"
+  data-show-js={showJs ? '1' : '0'}
+>
   <div class="playground-toolbar" role="toolbar" aria-label="Ações do playground">
-    <button type="button" class="pg-btn" data-action="reset" title="Restaurar HTML e CSS originais">
+    <button type="button" class="pg-btn" data-action="reset" title="Restaurar código original">
       Resetar
     </button>
     <button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">
@@ -19,6 +28,11 @@ const cssB64 = Buffer.from(css, 'utf8').toString('base64');
     <button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">
       Copiar CSS
     </button>
+    {showJs && (
+      <button type="button" class="pg-btn" data-action="copy-js" title="Copiar JavaScript">
+        Copiar JS
+      </button>
+    )}
     <span class="spacer" aria-hidden="true"></span>
     <span class="sr-only" data-status aria-live="polite"></span>
   </div>
@@ -30,6 +44,11 @@ const cssB64 = Buffer.from(css, 'utf8').toString('base64');
     <button type="button" class="playground-tab" role="tab" id={`${id}-tab-css`} aria-controls={`${id}-panel-editors`} aria-selected="false" data-tab="css">
       CSS
     </button>
+    {showJs && (
+      <button type="button" class="playground-tab" role="tab" id={`${id}-tab-js`} aria-controls={`${id}-panel-editors`} aria-selected="false" data-tab="js">
+        JS
+      </button>
+    )}
     <button type="button" class="playground-tab" role="tab" id={`${id}-tab-preview`} aria-controls={`${id}-panel-preview`} aria-selected="false" data-tab="preview">
       Preview
     </button>
@@ -69,6 +88,24 @@ const cssB64 = Buffer.from(css, 'utf8').toString('base64');
           aria-multiline="true"
         ></div>
       </div>
+      {showJs && (
+        <div class="editor-box" data-pane="js">
+          <div class="label">
+            <span id={`${id}-label-js`}>JavaScript</span>
+            <div class="label-actions">
+              <button type="button" class="pg-btn" data-action="copy-js" aria-describedby={`${id}-label-js`}>Copiar</button>
+            </div>
+          </div>
+          <div
+            class="cm-host"
+            data-editor="js"
+            data-initial={jsB64}
+            role="textbox"
+            aria-label="Editor JavaScript"
+            aria-multiline="true"
+          ></div>
+        </div>
+      )}
     </div>
     <div class="preview-panel" id={`${id}-panel-preview`} role="tabpanel" aria-label="Pré-visualização">
       <div class="label"><span>Pré-visualização ao vivo</span></div>
@@ -82,6 +119,7 @@ const cssB64 = Buffer.from(css, 'utf8').toString('base64');
   import { EditorState } from '@codemirror/state';
   import { html as htmlLang } from '@codemirror/lang-html';
   import { css as cssLang } from '@codemirror/lang-css';
+  import { javascript as jsLang } from '@codemirror/lang-javascript';
   import { oneDark } from '@codemirror/theme-one-dark';
 
   function decodeB64(value: string) {
@@ -92,11 +130,18 @@ const cssB64 = Buffer.from(css, 'utf8').toString('base64');
     }
   }
 
-  function buildSrcdoc(html: string, css: string) {
+  function escapeForScript(js: string) {
+    return js.replace(/<\/script/gi, '<\\/script');
+  }
+
+  function buildSrcdoc(html: string, css: string, js: string) {
+    const scriptBlock = js.trim()
+      ? `<script>${escapeForScript(js)}<\/script>`
+      : '';
     return `<!DOCTYPE html><html><head><meta charset="utf-8"><style>
 html,body{margin:0;padding:16px;font-family:system-ui,sans-serif}
 ${css}
-</style></head><body>${html}</body></html>`;
+</style></head><body>${html}${scriptBlock}</body></html>`;
   }
 
   async function copyText(text: string) {
@@ -117,18 +162,23 @@ ${css}
     if ((root as HTMLElement).dataset.ready === '1') return;
     (root as HTMLElement).dataset.ready = '1';
 
+    const showJs = (root as HTMLElement).dataset.showJs === '1';
     const htmlHost = root.querySelector('[data-editor="html"]') as HTMLElement | null;
     const cssHost = root.querySelector('[data-editor="css"]') as HTMLElement | null;
+    const jsHost = root.querySelector('[data-editor="js"]') as HTMLElement | null;
     const iframe = root.querySelector('[data-preview]') as HTMLIFrameElement | null;
     if (!htmlHost || !cssHost || !iframe) return;
+    if (showJs && !jsHost) return;
 
     const initialHtml = decodeB64(htmlHost.dataset.initial || '');
     const initialCss = decodeB64(cssHost.dataset.initial || '');
+    const initialJs = jsHost ? decodeB64(jsHost.dataset.initial || '') : '';
     let htmlCode = initialHtml;
     let cssCode = initialCss;
+    let jsCode = initialJs;
 
     const update = () => {
-      iframe.srcdoc = buildSrcdoc(htmlCode, cssCode);
+      iframe.srcdoc = buildSrcdoc(htmlCode, cssCode, showJs ? jsCode : '');
     };
 
     const sharedTheme = [
@@ -144,6 +194,7 @@ ${css}
         const kind = parent?.getAttribute('data-editor');
         if (kind === 'html') htmlCode = v.state.doc.toString();
         if (kind === 'css') cssCode = v.state.doc.toString();
+        if (kind === 'js') jsCode = v.state.doc.toString();
         update();
       }),
     ];
@@ -164,6 +215,17 @@ ${css}
       }),
     });
 
+    let jsView: EditorView | null = null;
+    if (showJs && jsHost) {
+      jsView = new EditorView({
+        parent: jsHost,
+        state: EditorState.create({
+          doc: jsCode,
+          extensions: [...sharedTheme, jsLang()],
+        }),
+      });
+    }
+
     function setDoc(view: EditorView, value: string) {
       view.dispatch({
         changes: { from: 0, to: view.state.doc.length, insert: value },
@@ -176,8 +238,10 @@ ${css}
         if (action === 'reset') {
           setDoc(htmlView, initialHtml);
           setDoc(cssView, initialCss);
+          if (jsView) setDoc(jsView, initialJs);
           htmlCode = initialHtml;
           cssCode = initialCss;
+          jsCode = initialJs;
           update();
           setStatus(root, 'Código restaurado.');
           (btn as HTMLButtonElement).textContent = 'Resetado!';
@@ -198,6 +262,14 @@ ${css}
           const label = (btn as HTMLButtonElement).textContent || 'Copiar';
           (btn as HTMLButtonElement).textContent = ok ? 'Copiado!' : 'Erro';
           setTimeout(() => { (btn as HTMLButtonElement).textContent = label.includes('CSS') ? 'Copiar CSS' : 'Copiar'; }, 1200);
+          return;
+        }
+        if (action === 'copy-js') {
+          const ok = await copyText(jsCode);
+          setStatus(root, ok ? 'JavaScript copiado.' : 'Não foi possível copiar.');
+          const label = (btn as HTMLButtonElement).textContent || 'Copiar';
+          (btn as HTMLButtonElement).textContent = ok ? 'Copiado!' : 'Erro';
+          setTimeout(() => { (btn as HTMLButtonElement).textContent = label.includes('JS') ? 'Copiar JS' : 'Copiar'; }, 1200);
         }
       });
     });

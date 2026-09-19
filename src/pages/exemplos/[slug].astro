@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 
 const { ex } = Astro.props;
 const { Content } = await render(ex);
+const trackLabel = ex.data.track === 'html' ? 'HTML' : ex.data.track === 'js' ? 'JS' : 'CSS';
 ---
 <BaseLayout title={ex.data.title} description={ex.data.description} current="exemplos">
   <article class="container page-header">
@@ -20,6 +21,7 @@ const { Content } = await render(ex);
     <h1>{ex.data.title}</h1>
     <p>{ex.data.description}</p>
     <div class="meta-row">
+      <span class="badge">{trackLabel}</span>
       <span class={`badge ${ex.data.difficulty}`}>{ex.data.difficulty}</span>
       <ul class="tags" style="margin:0">
         {ex.data.tags.map((t) => <li class="tag">{t}</li>)}
@@ -28,6 +30,6 @@ const { Content } = await render(ex);
     <div class="prose">
       <Content />
     </div>
-    <Playground html={ex.data.html} css={ex.data.css} id={ex.id} />
+    <Playground html={ex.data.html} css={ex.data.css} js={ex.data.js} id={ex.id} />
   </article>
 </BaseLayout>

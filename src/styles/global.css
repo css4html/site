@@ -849,14 +849,20 @@ html[data-theme="light"] .badge.avancado {
 /* Mobile stacked + tabs */
 @media (max-width: 899px) {
   .playground[data-mobile-tab="html"] .editor-box[data-pane="css"],
+  .playground[data-mobile-tab="html"] .editor-box[data-pane="js"],
   .playground[data-mobile-tab="html"] .preview-panel,
   .playground[data-mobile-tab="css"] .editor-box[data-pane="html"],
+  .playground[data-mobile-tab="css"] .editor-box[data-pane="js"],
   .playground[data-mobile-tab="css"] .preview-panel,
+  .playground[data-mobile-tab="js"] .editor-box[data-pane="html"],
+  .playground[data-mobile-tab="js"] .editor-box[data-pane="css"],
+  .playground[data-mobile-tab="js"] .preview-panel,
   .playground[data-mobile-tab="preview"] .editor-panel {
     display: none;
   }
 
-  .playground[data-mobile-tab="preview"] .preview-panel {
+  .playground[data-mobile-tab="preview"] .preview-panel,
+  .playground[data-mobile-tab="js"] .editor-box[data-pane="js"] {
     display: flex;
   }
 }

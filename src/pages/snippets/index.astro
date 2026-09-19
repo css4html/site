@@ -2,17 +2,21 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SnippetCard from '../../components/SnippetCard.astro';
 import TagFilter from '../../components/TagFilter.astro';
+import TrackFilter from '../../components/TrackFilter.astro';
 import { getCollection } from 'astro:content';
 
 const snippets = (await getCollection('snippets')).sort((a, b) => a.data.title.localeCompare(b.data.title, 'pt-BR'));
 const tags = [...new Set(snippets.flatMap((s) => s.data.tags))].sort();
 ---
-<BaseLayout title="Biblioteca de snippets" description="Padrões CSS com tags e filtro." current="snippets">
+<BaseLayout title="Biblioteca de snippets" description="Padrões HTML, CSS e JS com tags e filtro." current="snippets">
   <div class="container page-header">
     <h1>Biblioteca de snippets</h1>
-    <p>Padrões curtos com tags — centralizar, sticky, dark mode, truncate e mais.</p>
+    <p>Padrões curtos com tags — HTML, CSS e JavaScript para colar e adaptar.</p>
   </div>
   <div class="container section" style="padding-top:0">
+    <p style="margin:0 0 0.5rem;font-size:0.9rem;color:var(--color-muted)">Trilha</p>
+    <TrackFilter />
+    <p style="margin:1rem 0 0.5rem;font-size:0.9rem;color:var(--color-muted)">Tags</p>
     <TagFilter tags={tags} />
     <div class="card-grid">
       {snippets.map((sn) => (
@@ -21,6 +25,7 @@ const tags = [...new Set(snippets.flatMap((s) => s.data.tags))].sort();
           description={sn.data.description}
           href={`/snippets/${sn.id}/`}
           tags={sn.data.tags}
+          track={sn.data.track}
         />
       ))}
     </div>

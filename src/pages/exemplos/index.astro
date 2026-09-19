@@ -2,17 +2,21 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ExampleCard from '../../components/ExampleCard.astro';
 import TagFilter from '../../components/TagFilter.astro';
+import TrackFilter from '../../components/TrackFilter.astro';
 import { getCollection } from 'astro:content';
 
 const examples = (await getCollection('examples')).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 const tags = [...new Set(examples.flatMap((e) => e.data.tags))].sort();
 ---
-<BaseLayout title="Exemplos vivos" description="Playground HTML+CSS com pré-visualização ao vivo." current="exemplos">
+<BaseLayout title="Exemplos vivos" description="Playground HTML+CSS+JS com pré-visualização ao vivo." current="exemplos">
   <div class="container page-header">
     <h1>Exemplos vivos</h1>
-    <p>Edite HTML e CSS com CodeMirror e veja o resultado imediatamente. Filtre por tema.</p>
+    <p>Edite HTML, CSS e JavaScript com CodeMirror e veja o resultado imediatamente. Filtre por trilha ou tema.</p>
   </div>
   <div class="container section" style="padding-top:0">
+    <p style="margin:0 0 0.5rem;font-size:0.9rem;color:var(--color-muted)">Trilha</p>
+    <TrackFilter />
+    <p style="margin:1rem 0 0.5rem;font-size:0.9rem;color:var(--color-muted)">Tags</p>
     <TagFilter tags={tags} />
     <div class="card-grid">
       {examples.map((ex) => (
@@ -22,6 +26,7 @@ const tags = [...new Set(examples.flatMap((e) => e.data.tags))].sort();
           href={`/exemplos/${ex.id}/`}
           tags={ex.data.tags}
           difficulty={ex.data.difficulty}
+          track={ex.data.track}
         />
       ))}
     </div>

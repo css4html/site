@@ -4,37 +4,65 @@ import { getCollection } from 'astro:content';
 
 const examples = (await getCollection('examples')).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)).slice(0, 6);
 const snippets = (await getCollection('snippets')).slice(0, 6);
-const lessons = (await getCollection('lessons')).sort((a, b) => a.data.order - b.data.order);
+const lessons = await getCollection('lessons');
+const htmlLessons = lessons.filter((l) => l.data.trail === 'html-do-zero');
+const cssLessons = lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout');
+const jsLessons = lessons.filter((l) => l.data.trail === 'javascript-do-zero');
 const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
 ---
-<BaseLayout title="CSS4HTML — Hub de aprendizado de CSS" current="inicio">
+<BaseLayout title="CSS4HTML — HTML, CSS e JavaScript na prática" current="inicio">
   <section class="hero container">
     <p class="badge">Aprendizado prático · pt-BR</p>
-    <h1>Aprenda CSS com exemplos vivos, snippets e uma trilha clara</h1>
+    <h1>Aprenda HTML, CSS e JavaScript com exemplos vivos</h1>
     <p class="lead">
-      O CSS4HTML é um hub unificado para estudar CSS de verdade: edite código no playground,
-      copie padrões prontos e siga a trilha do zero ao layout — sem marquee e sem enrolação.
+      O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos
+      e siga trilhas claras — do documento HTML ao DOM com JavaScript, passando pelo layout CSS.
     </p>
     <div class="btn-row">
-      <a class="btn btn-primary" href="/trilhas/css-do-zero-ao-layout/">Começar a trilha</a>
+      <a class="btn btn-primary" href="/trilhas/">Ver trilhas</a>
       <a class="btn btn-ghost" href="/exemplos/">Abrir exemplos</a>
     </div>
   </section>
 
   <section class="section container">
-    <h2>Como começar</h2>
-    <p class="section-desc">Três caminhos, um mesmo objetivo: entender CSS na prática.</p>
+    <h2>Três trilhas, um hub</h2>
+    <p class="section-desc">Escolha por onde começar — ou combine as três.</p>
+    <div class="card-grid">
+      <article class="card">
+        <span class="badge">{htmlLessons.length} lições</span>
+        <h3 style="margin-top:0.5rem"><a href="/trilhas/html-do-zero/">HTML do zero à página</a></h3>
+        <p>Estrutura, semântica, formulários, mídia e acessibilidade básica até uma página completa.</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href="/trilhas/html-do-zero/">Começar HTML</a></p>
+      </article>
+      <article class="card">
+        <span class="badge">{cssLessons.length} lições</span>
+        <h3 style="margin-top:0.5rem"><a href="/trilhas/css-do-zero-ao-layout/">CSS do zero ao layout</a></h3>
+        <p>Da cascata ao layout responsivo, tipografia fluida e acessibilidade CSS.</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href="/trilhas/css-do-zero-ao-layout/">Começar CSS</a></p>
+      </article>
+      <article class="card">
+        <span class="badge">{jsLessons.length} lições</span>
+        <h3 style="margin-top:0.5rem"><a href="/trilhas/javascript-do-zero/">JavaScript do zero ao DOM</a></h3>
+        <p>Variáveis, funções, eventos, arrays e um primeiro contato com fetch e o DOM.</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href="/trilhas/javascript-do-zero/">Começar JS</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Como estudar</h2>
+    <p class="section-desc">Três caminhos, o mesmo objetivo: entender a web na prática.</p>
     <ol class="steps">
       <li>
-        <strong>Siga a trilha</strong> — lições curtas ligadas a exemplos e snippets.
-        <div style="margin-top:0.5rem"><a href="/trilhas/css-do-zero-ao-layout/">CSS do zero ao layout →</a></div>
+        <strong>Siga uma trilha</strong> — lições curtas ligadas a exemplos e snippets.
+        <div style="margin-top:0.5rem"><a href="/trilhas/">Todas as trilhas →</a></div>
       </li>
       <li>
-        <strong>Quebre coisas no playground</strong> — HTML + CSS editáveis com pré-visualização ao vivo (CodeMirror).
+        <strong>Quebre coisas no playground</strong> — HTML + CSS (+ JS) editáveis com pré-visualização ao vivo.
         <div style="margin-top:0.5rem"><a href="/exemplos/">Ver exemplos →</a></div>
       </li>
       <li>
-        <strong>Monte seu kit</strong> — filtre a biblioteca por tags como <em>centralizar</em>, <em>sticky</em>, <em>dark mode</em>.
+        <strong>Monte seu kit</strong> — filtre snippets por trilha e tags.
         <div style="margin-top:0.5rem"><a href="/snippets/">Biblioteca de snippets →</a></div>
       </li>
     </ol>
@@ -47,6 +75,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
       {examples.map((ex) => (
         <article class="card">
           <span class={`badge ${ex.data.difficulty}`}>{ex.data.difficulty}</span>
+          <span class="badge" style="margin-left:0.35rem">{ex.data.track.toUpperCase()}</span>
           <h3 style="margin-top:0.5rem"><a href={`/exemplos/${ex.id}/`}>{ex.data.title}</a></h3>
           <p>{ex.data.description}</p>
         </article>
@@ -70,13 +99,8 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
   </section>
 
   <section class="section container">
-    <h2>Trilha e blog</h2>
+    <h2>Do blog</h2>
     <div class="card-grid">
-      <article class="card">
-        <span class="badge">{lessons.length} lições</span>
-        <h3 style="margin-top:0.5rem"><a href="/trilhas/css-do-zero-ao-layout/">CSS do zero ao layout</a></h3>
-        <p>Da cascata ao layout completo, com links para playground e snippets.</p>
-      </article>
       {posts.map((post) => (
         <article class="card">
           <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
@@ -84,5 +108,6 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueO
         </article>
       ))}
     </div>
+    <p style="margin-top:1rem"><a href="/blog/">Todos os posts →</a></p>
   </section>
 </BaseLayout>

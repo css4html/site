@@ -1,6 +1,8 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const track = z.enum(['html', 'css', 'js']).default('css');
+
 const examples = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/examples' }),
   schema: z.object({
@@ -8,8 +10,10 @@ const examples = defineCollection({
     description: z.string(),
     tags: z.array(z.string()).default([]),
     difficulty: z.enum(['iniciante', 'intermediario', 'avancado']).default('iniciante'),
+    track,
     html: z.string(),
-    css: z.string(),
+    css: z.string().default(''),
+    js: z.string().optional(),
     order: z.number().optional(),
   }),
 });
@@ -20,8 +24,9 @@ const snippets = defineCollection({
     title: z.string(),
     description: z.string(),
     tags: z.array(z.string()).default([]),
+    track,
     code: z.string(),
-    language: z.enum(['css', 'html', 'html+css']).default('css'),
+    language: z.enum(['css', 'html', 'html+css', 'js']).default('css'),
   }),
 });
 
@@ -32,6 +37,7 @@ const lessons = defineCollection({
     description: z.string(),
     order: z.number(),
     trail: z.string().default('css-do-zero-ao-layout'),
+    track,
     relatedExamples: z.array(z.string()).default([]),
     relatedSnippets: z.array(z.string()).default([]),
   }),

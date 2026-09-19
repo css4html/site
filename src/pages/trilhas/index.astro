@@ -2,21 +2,48 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const lessons = (await getCollection('lessons')).sort((a, b) => a.data.order - b.data.order);
+const lessons = await getCollection('lessons');
+const trails = [
+  {
+    id: 'html-do-zero',
+    href: '/trilhas/html-do-zero/',
+    title: 'HTML do zero à página',
+    description: 'Estrutura, semântica, links, formulários, tabelas e acessibilidade até uma página completa.',
+    count: lessons.filter((l) => l.data.trail === 'html-do-zero').length,
+  },
+  {
+    id: 'css-do-zero-ao-layout',
+    href: '/trilhas/css-do-zero-ao-layout/',
+    title: 'CSS do zero ao layout',
+    description: 'Da cascata e seletores até layout completo, responsivo moderno e acessibilidade CSS.',
+    count: lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout').length,
+  },
+  {
+    id: 'javascript-do-zero',
+    href: '/trilhas/javascript-do-zero/',
+    title: 'JavaScript do zero ao DOM',
+    description: 'Variáveis, funções, DOM, eventos, arrays/objetos, fetch e um projeto pequeno.',
+    count: lessons.filter((l) => l.data.trail === 'javascript-do-zero').length,
+  },
+];
 ---
-<BaseLayout title="Trilhas" description="Percursos guiados de CSS." current="trilhas">
+<BaseLayout title="Trilhas" description="Percursos guiados de HTML, CSS e JavaScript." current="trilhas">
   <div class="container page-header">
     <h1>Trilhas</h1>
-    <p>Percursos curtos que ligam teoria, playground e snippets.</p>
+    <p>Percursos curtos que ligam teoria, playground e snippets — três áreas irmãs no mesmo hub.</p>
   </div>
   <div class="container section" style="padding-top:0">
-    <article class="card">
-      <span class="badge">{lessons.length} lições</span>
-      <h2 style="margin:0.5rem 0;font-size:1.25rem">
-        <a href="/trilhas/css-do-zero-ao-layout/">CSS do zero ao layout</a>
-      </h2>
-      <p>Da cascata e seletores até layout completo, responsivo moderno e acessibilidade CSS.</p>
-      <p style="margin-top:0.75rem"><a class="btn btn-primary" href="/trilhas/css-do-zero-ao-layout/">Abrir trilha</a></p>
-    </article>
+    <div class="card-grid">
+      {trails.map((trail) => (
+        <article class="card">
+          <span class="badge">{trail.count} lições</span>
+          <h2 style="margin:0.5rem 0;font-size:1.25rem">
+            <a href={trail.href}>{trail.title}</a>
+          </h2>
+          <p>{trail.description}</p>
+          <p style="margin-top:0.75rem"><a class="btn btn-primary" href={trail.href}>Abrir trilha</a></p>
+        </article>
+      ))}
+    </div>
   </div>
 </BaseLayout>

@@ -5,9 +5,9 @@ interface Props {
 const { current = '' } = Astro.props;
 const links = [
   { href: '/', label: 'Início', id: 'inicio' },
+  { href: '/trilhas/', label: 'Trilhas', id: 'trilhas' },
   { href: '/exemplos/', label: 'Exemplos', id: 'exemplos' },
   { href: '/snippets/', label: 'Snippets', id: 'snippets' },
-  { href: '/trilhas/', label: 'Trilhas', id: 'trilhas' },
   { href: '/blog/', label: 'Blog', id: 'blog' },
 ];
 ---
@@ -88,6 +88,14 @@ const links = [
           ))}
         </ul>
       </nav>
+      <p class="drawer-label" style="margin-top:1.25rem">Trilhas</p>
+      <nav aria-label="Trilhas">
+        <ul class="nav">
+          <li><a href="/trilhas/html-do-zero/" data-menu-close>HTML do zero</a></li>
+          <li><a href="/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS do zero ao layout</a></li>
+          <li><a href="/trilhas/javascript-do-zero/" data-menu-close>JavaScript do zero</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 </header>
@@ -115,7 +123,6 @@ const links = [
       });
     }
 
-    // Ensure attribute matches storage (early script in head already set it)
     if (!document.documentElement.getAttribute('data-theme')) {
       apply(preferred());
     }
