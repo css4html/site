@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const examples = (await getCollection('examples')).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)).slice(0, 6);
+const snippets = (await getCollection('snippets')).slice(0, 6);
+const lessons = (await getCollection('lessons')).sort((a, b) => a.data.order - b.data.order);
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+---
+<BaseLayout title="CSS4HTML — Hub de aprendizado de CSS" current="inicio">
+  <section class="hero container">
+    <p class="badge">Aprendizado prático · pt-BR</p>
+    <h1>Aprenda CSS com exemplos vivos, snippets e uma trilha clara</h1>
+    <p class="lead">
+      O CSS4HTML é um hub unificado para estudar CSS de verdade: edite código no playground,
+      copie padrões prontos e siga a trilha do zero ao layout — sem marquee e sem enrolação.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/trilhas/css-do-zero-ao-layout/">Começar a trilha</a>
+      <a class="btn btn-ghost" href="/exemplos/">Abrir exemplos</a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Como começar</h2>
+    <p class="section-desc">Três caminhos, um mesmo objetivo: entender CSS na prática.</p>
+    <ol class="steps">
+      <li>
+        <strong>Siga a trilha</strong> — sete lições curtas ligadas a exemplos e snippets.
+        <div style="margin-top:0.5rem"><a href="/trilhas/css-do-zero-ao-layout/">CSS do zero ao layout →</a></div>
+      </li>
+      <li>
+        <strong>Quebre coisas no playground</strong> — HTML + CSS editáveis com pré-visualização ao vivo (CodeMirror).
+        <div style="margin-top:0.5rem"><a href="/exemplos/">Ver exemplos →</a></div>
+      </li>
+      <li>
+        <strong>Monte seu kit</strong> — filtre a biblioteca por tags como <em>centralizar</em>, <em>sticky</em>, <em>dark mode</em>.
+        <div style="margin-top:0.5rem"><a href="/snippets/">Biblioteca de snippets →</a></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section container">
+    <h2>Exemplos em destaque</h2>
+    <p class="section-desc">Abra, edite e veja o resultado na hora.</p>
+    <div class="card-grid">
+      {examples.map((ex) => (
+        <article class="card">
+          <span class={`badge ${ex.data.difficulty}`}>{ex.data.difficulty}</span>
+          <h3 style="margin-top:0.5rem"><a href={`/exemplos/${ex.id}/`}>{ex.data.title}</a></h3>
+          <p>{ex.data.description}</p>
+        </article>
+      ))}
+    </div>
+    <p style="margin-top:1rem"><a href="/exemplos/">Todos os exemplos →</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Snippets rápidos</h2>
+    <p class="section-desc">Padrões curtos para colar e adaptar.</p>
+    <div class="card-grid">
+      {snippets.map((sn) => (
+        <article class="card">
+          <h3><a href={`/snippets/${sn.id}/`}>{sn.data.title}</a></h3>
+          <p>{sn.data.description}</p>
+        </article>
+      ))}
+    </div>
+    <p style="margin-top:1rem"><a href="/snippets/">Ver biblioteca →</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Trilha e blog</h2>
+    <div class="card-grid">
+      <article class="card">
+        <span class="badge">{lessons.length} lições</span>
+        <h3 style="margin-top:0.5rem"><a href="/trilhas/css-do-zero-ao-layout/">CSS do zero ao layout</a></h3>
+        <p>Da cascata ao layout completo, com links para playground e snippets.</p>
+      </article>
+      {posts.map((post) => (
+        <article class="card">
+          <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+          <p>{post.data.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  current?: string;
+}
+const { current = '' } = Astro.props;
+const links = [
+  { href: '/', label: 'Início', id: 'inicio' },
+  { href: '/exemplos/', label: 'Exemplos', id: 'exemplos' },
+  { href: '/snippets/', label: 'Snippets', id: 'snippets' },
+  { href: '/trilhas/', label: 'Trilhas', id: 'trilhas' },
+  { href: '/blog/', label: 'Blog', id: 'blog' },
+];
+---
+<a class="sr-only" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header">
+  <div class="container inner">
+    <a class="logo" href="/" title="CSS4HTML">
+      <img src="/logo-fanpage.png" alt="" width="32" height="32" />
+      <span>CSS4HTML</span>
+    </a>
+    <nav aria-label="Principal">
+      <ul class="nav">
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={current === link.id ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

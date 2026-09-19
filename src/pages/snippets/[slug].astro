@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const snippets = await getCollection('snippets');
+  return snippets.map((sn) => ({
+    params: { slug: sn.id },
+    props: { sn },
+  }));
+}
+
+const { sn } = Astro.props;
+const { Content } = await render(sn);
+const codeId = `code-${sn.id}`;
+---
+<BaseLayout title={sn.data.title} description={sn.data.description} current="snippets">
+  <article class="container page-header">
+    <p><a href="/snippets/">← Snippets</a></p>
+    <h1>{sn.data.title}</h1>
+    <p>{sn.data.description}</p>
+    <div class="meta-row">
+      <ul class="tags" style="margin:0">
+        {sn.data.tags.map((t) => <li class="tag">{t}</li>)}
+      </ul>
+    </div>
+    <div class="code-block" id={codeId}>
+      <button class="copy-btn" type="button" data-copy={codeId}>Copiar</button>
+      <code>{sn.data.code}</code>
+    </div>
+    <div class="prose" style="margin-top:1.5rem">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+<script>
+  document.querySelectorAll('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const id = btn.getAttribute('data-copy');
+      const el = id ? document.getElementById(id) : null;
+      const code = el?.querySelector('code')?.textContent || '';
+      try {
+        await navigator.clipboard.writeText(code);
+        btn.textContent = 'Copiado!';
+        setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
+      } catch {
+        btn.textContent = 'Erro';
+      }
+    });
+  });
+</script>

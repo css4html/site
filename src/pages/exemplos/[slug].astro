@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Playground from '../../components/Playground.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const examples = await getCollection('examples');
+  return examples.map((ex) => ({
+    params: { slug: ex.id },
+    props: { ex },
+  }));
+}
+
+const { ex } = Astro.props;
+const { Content } = await render(ex);
+---
+<BaseLayout title={ex.data.title} description={ex.data.description} current="exemplos">
+  <article class="container page-header">
+    <p><a href="/exemplos/">← Exemplos</a></p>
+    <h1>{ex.data.title}</h1>
+    <p>{ex.data.description}</p>
+    <div class="meta-row">
+      <span class={`badge ${ex.data.difficulty}`}>{ex.data.difficulty}</span>
+      <ul class="tags" style="margin:0">
+        {ex.data.tags.map((t) => <li class="tag">{t}</li>)}
+      </ul>
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+    <Playground html={ex.data.html} css={ex.data.css} id={ex.id} />
+  </article>
+</BaseLayout>
