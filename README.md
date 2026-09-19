@@ -31,7 +31,6 @@ src/content/blog/       # posts
 src/components/Playground.astro
 src/content.config.ts
 public/                 # favicon, logo, CNAME
-archive/                # site antigo (PHP/demos) — só referência
 CNAME                   # css4html.com.br
 ```
 
