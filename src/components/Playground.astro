@@ -8,20 +8,72 @@ const { html, css, id = 'playground' } = Astro.props;
 const htmlB64 = Buffer.from(html, 'utf8').toString('base64');
 const cssB64 = Buffer.from(css, 'utf8').toString('base64');
 ---
-<div class="playground-wrap" data-playground={id}>
-  <div class="editor-panel">
-    <div class="editor-box">
-      <div class="label"><span>HTML</span></div>
-      <div class="cm-host" data-editor="html" data-initial={htmlB64}></div>
-    </div>
-    <div class="editor-box">
-      <div class="label"><span>CSS</span></div>
-      <div class="cm-host" data-editor="css" data-initial={cssB64}></div>
-    </div>
+<div class="playground" data-playground={id} data-mobile-tab="html">
+  <div class="playground-toolbar" role="toolbar" aria-label="Ações do playground">
+    <button type="button" class="pg-btn" data-action="reset" title="Restaurar HTML e CSS originais">
+      Resetar
+    </button>
+    <button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">
+      Copiar HTML
+    </button>
+    <button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">
+      Copiar CSS
+    </button>
+    <span class="spacer" aria-hidden="true"></span>
+    <span class="sr-only" data-status aria-live="polite"></span>
   </div>
-  <div class="preview-panel">
-    <div class="label"><span>Pré-visualização ao vivo</span></div>
-    <iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts allow-same-origin"></iframe>
+
+  <div class="playground-tabs" role="tablist" aria-label="Painéis do playground">
+    <button type="button" class="playground-tab" role="tab" id={`${id}-tab-html`} aria-controls={`${id}-panel-editors`} aria-selected="true" data-tab="html">
+      HTML
+    </button>
+    <button type="button" class="playground-tab" role="tab" id={`${id}-tab-css`} aria-controls={`${id}-panel-editors`} aria-selected="false" data-tab="css">
+      CSS
+    </button>
+    <button type="button" class="playground-tab" role="tab" id={`${id}-tab-preview`} aria-controls={`${id}-panel-preview`} aria-selected="false" data-tab="preview">
+      Preview
+    </button>
+  </div>
+
+  <div class="playground-wrap">
+    <div class="editor-panel" id={`${id}-panel-editors`} role="tabpanel" aria-label="Editores">
+      <div class="editor-box" data-pane="html">
+        <div class="label">
+          <span id={`${id}-label-html`}>HTML</span>
+          <div class="label-actions">
+            <button type="button" class="pg-btn" data-action="copy-html" aria-describedby={`${id}-label-html`}>Copiar</button>
+          </div>
+        </div>
+        <div
+          class="cm-host"
+          data-editor="html"
+          data-initial={htmlB64}
+          role="textbox"
+          aria-label="Editor HTML"
+          aria-multiline="true"
+        ></div>
+      </div>
+      <div class="editor-box" data-pane="css">
+        <div class="label">
+          <span id={`${id}-label-css`}>CSS</span>
+          <div class="label-actions">
+            <button type="button" class="pg-btn" data-action="copy-css" aria-describedby={`${id}-label-css`}>Copiar</button>
+          </div>
+        </div>
+        <div
+          class="cm-host"
+          data-editor="css"
+          data-initial={cssB64}
+          role="textbox"
+          aria-label="Editor CSS"
+          aria-multiline="true"
+        ></div>
+      </div>
+    </div>
+    <div class="preview-panel" id={`${id}-panel-preview`} role="tabpanel" aria-label="Pré-visualização">
+      <div class="label"><span>Pré-visualização ao vivo</span></div>
+      <iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
   </div>
 </div>
 
@@ -47,6 +99,20 @@ ${css}
 </style></head><body>${html}</body></html>`;
   }
 
+  async function copyText(text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  function setStatus(root: Element, message: string) {
+    const el = root.querySelector('[data-status]');
+    if (el) el.textContent = message;
+  }
+
   function mountPlayground(root: Element) {
     if ((root as HTMLElement).dataset.ready === '1') return;
     (root as HTMLElement).dataset.ready = '1';
@@ -56,8 +122,10 @@ ${css}
     const iframe = root.querySelector('[data-preview]') as HTMLIFrameElement | null;
     if (!htmlHost || !cssHost || !iframe) return;
 
-    let htmlCode = decodeB64(htmlHost.dataset.initial || '');
-    let cssCode = decodeB64(cssHost.dataset.initial || '');
+    const initialHtml = decodeB64(htmlHost.dataset.initial || '');
+    const initialCss = decodeB64(cssHost.dataset.initial || '');
+    let htmlCode = initialHtml;
+    let cssCode = initialCss;
 
     const update = () => {
       iframe.srcdoc = buildSrcdoc(htmlCode, cssCode);
@@ -80,7 +148,7 @@ ${css}
       }),
     ];
 
-    new EditorView({
+    const htmlView = new EditorView({
       parent: htmlHost,
       state: EditorState.create({
         doc: htmlCode,
@@ -88,12 +156,60 @@ ${css}
       }),
     });
 
-    new EditorView({
+    const cssView = new EditorView({
       parent: cssHost,
       state: EditorState.create({
         doc: cssCode,
         extensions: [...sharedTheme, cssLang()],
       }),
+    });
+
+    function setDoc(view: EditorView, value: string) {
+      view.dispatch({
+        changes: { from: 0, to: view.state.doc.length, insert: value },
+      });
+    }
+
+    root.querySelectorAll('[data-action]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const action = btn.getAttribute('data-action');
+        if (action === 'reset') {
+          setDoc(htmlView, initialHtml);
+          setDoc(cssView, initialCss);
+          htmlCode = initialHtml;
+          cssCode = initialCss;
+          update();
+          setStatus(root, 'Código restaurado.');
+          (btn as HTMLButtonElement).textContent = 'Resetado!';
+          setTimeout(() => { (btn as HTMLButtonElement).textContent = 'Resetar'; }, 1200);
+          return;
+        }
+        if (action === 'copy-html') {
+          const ok = await copyText(htmlCode);
+          setStatus(root, ok ? 'HTML copiado.' : 'Não foi possível copiar.');
+          const label = (btn as HTMLButtonElement).textContent || 'Copiar';
+          (btn as HTMLButtonElement).textContent = ok ? 'Copiado!' : 'Erro';
+          setTimeout(() => { (btn as HTMLButtonElement).textContent = label.includes('HTML') ? 'Copiar HTML' : 'Copiar'; }, 1200);
+          return;
+        }
+        if (action === 'copy-css') {
+          const ok = await copyText(cssCode);
+          setStatus(root, ok ? 'CSS copiado.' : 'Não foi possível copiar.');
+          const label = (btn as HTMLButtonElement).textContent || 'Copiar';
+          (btn as HTMLButtonElement).textContent = ok ? 'Copiado!' : 'Erro';
+          setTimeout(() => { (btn as HTMLButtonElement).textContent = label.includes('CSS') ? 'Copiar CSS' : 'Copiar'; }, 1200);
+        }
+      });
+    });
+
+    root.querySelectorAll('[data-tab]').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const name = tab.getAttribute('data-tab') || 'html';
+        (root as HTMLElement).dataset.mobileTab = name;
+        root.querySelectorAll('[data-tab]').forEach((t) => {
+          t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+        });
+      });
     });
 
     update();

@@ -30,6 +30,20 @@ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <title>{fullTitle}</title>
+    <script is:inline>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script>
     <script is:inline>
