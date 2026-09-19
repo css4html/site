@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const lessons = await getCollection('lessons');
+  return lessons.map((lesson) => ({
+    params: { slug: lesson.id },
+    props: { lesson },
+  }));
+}
+
+const { lesson } = Astro.props;
+const { Content } = await render(lesson);
+const all = (await getCollection('lessons'))
+  .filter((l) => l.data.trail === lesson.data.trail)
+  .sort((a, b) => a.data.order - b.data.order);
+const idx = all.findIndex((l) => l.id === lesson.id);
+const prev = idx > 0 ? all[idx - 1] : null;
+const next = idx < all.length - 1 ? all[idx + 1] : null;
+
+const examples = await getCollection('examples');
+const snippets = await getCollection('snippets');
+const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
+const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+---
+<BaseLayout title={lesson.data.title} description={lesson.data.description} current="trilhas">
+  <article class="container page-header">
+    <p><a href="/trilhas/css-do-zero-ao-layout/">← Trilha</a> · Lição {lesson.data.order} de {all.length}</p>
+    <h1>{lesson.data.title}</h1>
+    <p>{lesson.data.description}</p>
+    <div class="prose">
+      <Content />
+    </div>
+
+    {(lesson.data.relatedExamples.length > 0 || lesson.data.relatedSnippets.length > 0) && (
+      <div class="related">
+        <h2>Pratique</h2>
+        <ul>
+          {lesson.data.relatedExamples.map((id) => (
+            <li><a href={`/exemplos/${id}/`}>Exemplo: {exTitle[id] ?? id}</a></li>
+          ))}
+          {lesson.data.relatedSnippets.map((id) => (
+            <li><a href={`/snippets/${id}/`}>Snippet: {snTitle[id] ?? id}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <nav class="meta-row" style="margin-top:2rem;justify-content:space-between" aria-label="Navegação da trilha">
+      {prev ? (
+        <a href={`/trilhas/css-do-zero-ao-layout/${prev.id}/`}>← {prev.data.title}</a>
+      ) : <span />}
+      {next ? (
+        <a href={`/trilhas/css-do-zero-ao-layout/${next.id}/`}>{next.data.title} →</a>
+      ) : (
+        <a href="/exemplos/">Ir aos exemplos →</a>
+      )}
+    </nav>
+  </article>
+</BaseLayout>

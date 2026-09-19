@@ -1,0 +1,34 @@
+---
+interface Props {
+  tags: string[];
+  targetSelector?: string;
+}
+const { tags, targetSelector = '[data-tags]' } = Astro.props;
+---
+<div class="filter-bar" data-filter-bar data-target={targetSelector} role="group" aria-label="Filtrar por tag">
+  <button type="button" class="filter-btn" data-tag="all" aria-pressed="true">Todas</button>
+  {tags.map((tag) => (
+    <button type="button" class="filter-btn" data-tag={tag} aria-pressed="false">{tag}</button>
+  ))}
+</div>
+<script>
+  function initFilters() {
+    document.querySelectorAll('[data-filter-bar]').forEach((bar) => {
+      const target = bar.getAttribute('data-target') || '[data-tags]';
+      const buttons = bar.querySelectorAll('.filter-btn');
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const tag = btn.getAttribute('data-tag') || 'all';
+          buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+          document.querySelectorAll(target).forEach((card) => {
+            const tags = (card.getAttribute('data-tags') || '').split(',').filter(Boolean);
+            const show = tag === 'all' || tags.includes(tag);
+            (card as HTMLElement).style.display = show ? '' : 'none';
+          });
+        });
+      });
+    });
+  }
+  initFilters();
+  document.addEventListener('astro:page-load', initFilters);
+</script>

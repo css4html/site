@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const lessons = (await getCollection('lessons'))
+  .filter((l) => l.data.trail === 'css-do-zero-ao-layout')
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout
+  title="Trilha: CSS do zero ao layout"
+  description="Sete lições para ir dos fundamentos ao layout completo."
+  current="trilhas"
+>
+  <div class="container page-header">
+    <p><a href="/trilhas/">← Trilhas</a></p>
+    <h1>CSS do zero ao layout</h1>
+    <p>
+      Um caminho progressivo em {lessons.length} lições. Cada aula aponta para exemplos editáveis
+      e snippets prontos.
+    </p>
+  </div>
+  <div class="container">
+    <div class="trail-progress">
+      {lessons.map((lesson) => (
+        <a class="trail-item" href={`/trilhas/css-do-zero-ao-layout/${lesson.id}/`}>
+          <span class="num">{lesson.data.order}</span>
+          <span>
+            <strong>{lesson.data.title}</strong>
+            <br />
+            <span style="color:var(--color-muted);font-size:0.92rem">{lesson.data.description}</span>
+          </span>
+        </a>
+      ))}
+    </div>
+    <p>
+      <a class="btn btn-primary" href={`/trilhas/css-do-zero-ao-layout/${lessons[0].id}/`}>
+        Começar lição 1
+      </a>
+    </p>
+  </div>
+</BaseLayout>

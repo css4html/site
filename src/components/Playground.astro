@@ -1,0 +1,108 @@
+---
+interface Props {
+  html: string;
+  css: string;
+  id?: string;
+}
+const { html, css, id = 'playground' } = Astro.props;
+const htmlB64 = Buffer.from(html, 'utf8').toString('base64');
+const cssB64 = Buffer.from(css, 'utf8').toString('base64');
+---
+<div class="playground-wrap" data-playground={id}>
+  <div class="editor-panel">
+    <div class="editor-box">
+      <div class="label"><span>HTML</span></div>
+      <div class="cm-host" data-editor="html" data-initial={htmlB64}></div>
+    </div>
+    <div class="editor-box">
+      <div class="label"><span>CSS</span></div>
+      <div class="cm-host" data-editor="css" data-initial={cssB64}></div>
+    </div>
+  </div>
+  <div class="preview-panel">
+    <div class="label"><span>Pré-visualização ao vivo</span></div>
+    <iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts allow-same-origin"></iframe>
+  </div>
+</div>
+
+<script>
+  import { EditorView, basicSetup } from 'codemirror';
+  import { EditorState } from '@codemirror/state';
+  import { html as htmlLang } from '@codemirror/lang-html';
+  import { css as cssLang } from '@codemirror/lang-css';
+  import { oneDark } from '@codemirror/theme-one-dark';
+
+  function decodeB64(value: string) {
+    try {
+      return new TextDecoder().decode(Uint8Array.from(atob(value), (c) => c.charCodeAt(0)));
+    } catch {
+      return '';
+    }
+  }
+
+  function buildSrcdoc(html: string, css: string) {
+    return `<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;padding:16px;font-family:system-ui,sans-serif}
+${css}
+</style></head><body>${html}</body></html>`;
+  }
+
+  function mountPlayground(root: Element) {
+    if ((root as HTMLElement).dataset.ready === '1') return;
+    (root as HTMLElement).dataset.ready = '1';
+
+    const htmlHost = root.querySelector('[data-editor="html"]') as HTMLElement | null;
+    const cssHost = root.querySelector('[data-editor="css"]') as HTMLElement | null;
+    const iframe = root.querySelector('[data-preview]') as HTMLIFrameElement | null;
+    if (!htmlHost || !cssHost || !iframe) return;
+
+    let htmlCode = decodeB64(htmlHost.dataset.initial || '');
+    let cssCode = decodeB64(cssHost.dataset.initial || '');
+
+    const update = () => {
+      iframe.srcdoc = buildSrcdoc(htmlCode, cssCode);
+    };
+
+    const sharedTheme = [
+      basicSetup,
+      oneDark,
+      EditorView.theme({
+        '&': { fontSize: '13px' },
+        '.cm-scroller': { overflow: 'auto', maxHeight: '280px' },
+      }),
+      EditorView.updateListener.of((v) => {
+        if (!v.docChanged) return;
+        const parent = v.view.dom.closest('[data-editor]');
+        const kind = parent?.getAttribute('data-editor');
+        if (kind === 'html') htmlCode = v.state.doc.toString();
+        if (kind === 'css') cssCode = v.state.doc.toString();
+        update();
+      }),
+    ];
+
+    new EditorView({
+      parent: htmlHost,
+      state: EditorState.create({
+        doc: htmlCode,
+        extensions: [...sharedTheme, htmlLang()],
+      }),
+    });
+
+    new EditorView({
+      parent: cssHost,
+      state: EditorState.create({
+        doc: cssCode,
+        extensions: [...sharedTheme, cssLang()],
+      }),
+    });
+
+    update();
+  }
+
+  function init() {
+    document.querySelectorAll('[data-playground]').forEach(mountPlayground);
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const lessons = (await getCollection('lessons')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Trilhas" description="Percursos guiados de CSS." current="trilhas">
+  <div class="container page-header">
+    <h1>Trilhas</h1>
+    <p>Percursos curtos que ligam teoria, playground e snippets.</p>
+  </div>
+  <div class="container section" style="padding-top:0">
+    <article class="card">
+      <span class="badge">{lessons.length} lições</span>
+      <h2 style="margin:0.5rem 0;font-size:1.25rem">
+        <a href="/trilhas/css-do-zero-ao-layout/">CSS do zero ao layout</a>
+      </h2>
+      <p>Da cascata e seletores até um layout completo com sticky, grid, formulário e tema.</p>
+      <p style="margin-top:0.75rem"><a class="btn btn-primary" href="/trilhas/css-do-zero-ao-layout/">Abrir trilha</a></p>
+    </article>
+  </div>
+</BaseLayout>

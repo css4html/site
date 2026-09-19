@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const dateStr = post.data.pubDate.toLocaleDateString('pt-BR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const examples = await getCollection('examples');
+const snippets = await getCollection('snippets');
+const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
+const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+---
+<BaseLayout title={post.data.title} description={post.data.description} current="blog">
+  <article class="container page-header">
+    <p><a href="/blog/">← Blog</a></p>
+    <h1>{post.data.title}</h1>
+    <div class="meta-row">
+      <time datetime={post.data.pubDate.toISOString()}>{dateStr}</time>
+      <ul class="tags" style="margin:0">
+        {post.data.tags.map((t) => <li class="tag">{t}</li>)}
+      </ul>
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+    {(post.data.relatedExamples.length > 0 || post.data.relatedSnippets.length > 0) && (
+      <div class="related">
+        <h2>No hub</h2>
+        <ul>
+          {post.data.relatedExamples.map((id) => (
+            <li><a href={`/exemplos/${id}/`}>Exemplo: {exTitle[id] ?? id}</a></li>
+          ))}
+          {post.data.relatedSnippets.map((id) => (
+            <li><a href={`/snippets/${id}/`}>Snippet: {snTitle[id] ?? id}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </article>
+</BaseLayout>
