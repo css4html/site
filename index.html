@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Hub de aprendizado de HTML, CSS e JavaScript: exemplos vivos, snippets, trilhas e blog."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="CSS4HTML — HTML, CSS e JavaScript na prática"><meta property="og:description" content="Hub de aprendizado de HTML, CSS e JavaScript: exemplos vivos, snippets, trilhas e blog."><meta property="og:image" content="https://css4html.com.br/logo-fanpage.png"><meta property="og:url" content="https://css4html.com.br/"><link rel="canonical" href="https://css4html.com.br/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>CSS4HTML — HTML, CSS e JavaScript na prática</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><link rel="stylesheet" href="/_astro/collections.z62Vhmjw.css"></head><body><a class="sr-only" href="#conteudo">Ir para o conteúdo</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Principal"><ul class="nav"><li><a href="/" aria-current="page">Início</a></li><li><a href="/trilhas/">Trilhas</a></li><li><a href="/exemplos/">Exemplos</a></li><li><a href="/snippets/">Snippets</a></li><li><a href="/blog/">Blog</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Idioma"><a href="/" class="lang-btn is-active" hreflang="pt-BR" aria-current="page" lang="pt-BR">PT</a><a href="/en/" class="lang-btn" hreflang="en" lang="en">EN</a><a href="/es/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Ativar tema claro" data-label-dark="Ativar tema escuro" aria-label="Alternar tema claro ou escuro" title="Alternar tema"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Abrir menu de navegação" data-label-close="Fechar menu de navegação" aria-expanded="false" aria-controls="nav-drawer" aria-label="Abrir menu de navegação"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação"><p class="drawer-label">Navegação</p><nav aria-label="Menu mobile"><ul class="nav"><li><a href="/" aria-current="page" data-menu-close>Início</a></li><li><a href="/trilhas/" data-menu-close>Trilhas</a></li><li><a href="/exemplos/" data-menu-close>Exemplos</a></li><li><a href="/snippets/" data-menu-close>Snippets</a></li><li><a href="/blog/" data-menu-close>Blog</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trilhas</p><nav aria-label="Trilhas"><ul class="nav"><li><a href="/trilhas/html-do-zero/" data-menu-close>HTML do zero</a></li><li><a href="/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS do zero ao layout</a></li><li><a href="/trilhas/javascript-do-zero/" data-menu-close>JavaScript do zero</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><section class="hero container"><p class="badge">Aprendizado prático</p><h1>Aprenda HTML, CSS e JavaScript com exemplos vivos</h1><p class="lead">O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras — do documento HTML ao DOM com JavaScript, passando pelo layout CSS.</p><div class="btn-row"><a class="btn btn-primary" href="/trilhas/">Ver trilhas</a><a class="btn btn-ghost" href="/exemplos/">Abrir exemplos</a></div></section><section class="section container"><h2>Três trilhas, um hub</h2><p class="section-desc">Escolha por onde começar — ou combine as três.</p><div class="card-grid"><article class="card"><span class="badge">7 lições</span><h3 style="margin-top:0.5rem"><a href="/trilhas/html-do-zero/">HTML do zero à página</a></h3><p>Estrutura, semântica, formulários, mídia e acessibilidade básica até uma página completa.</p><p style="margin-top:0.75rem"><a class="btn btn-primary" href="/trilhas/html-do-zero/">Começar HTML</a></p></article><article class="card"><span class="badge">9 lições</span><h3 style="margin-top:0.5rem"><a href="/trilhas/css-do-zero-ao-layout/">CSS do zero ao layout</a></h3><p>Da cascata ao layout responsivo, tipografia fluida e acessibilidade CSS.</p><p style="margin-top:0.75rem"><a class="btn btn-primary" href="/trilhas/css-do-zero-ao-layout/">Começar CSS</a></p></article><article class="card"><span class="badge">7 lições</span><h3 style="margin-top:0.5rem"><a href="/trilhas/javascript-do-zero/">JavaScript do zero ao DOM</a></h3><p>Variáveis, funções, eventos, arrays e um primeiro contato com fetch e o DOM.</p><p style="margin-top:0.75rem"><a class="btn btn-primary" href="/trilhas/javascript-do-zero/">Começar JS</a></p></article></div></section><section class="section container"><h2>Como estudar</h2><p class="section-desc">Três caminhos, o mesmo objetivo: entender a web na prática.</p><ol class="steps"><li><strong>Siga uma trilha</strong> — lições curtas ligadas a exemplos e snippets.<div style="margin-top:0.5rem"><a href="/trilhas/">Todas as trilhas →</a></div></li><li><strong>Quebre coisas no playground</strong> — HTML + CSS (+ JS) editáveis com pré-visualização ao vivo.<div style="margin-top:0.5rem"><a href="/exemplos/">Ver exemplos →</a></div></li><li><strong>Monte seu kit</strong> — filtre snippets por trilha e tags.<div style="margin-top:0.5rem"><a href="/snippets/">Biblioteca de snippets →</a></div></li></ol></section><section class="section container"><h2>Exemplos em destaque</h2><p class="section-desc">Abra, edite e veja o resultado na hora.</p><div class="card-grid"><article class="card"><span class="badge iniciante">iniciante</span><span class="badge" style="margin-left:0.35rem">CSS</span><h3 style="margin-top:0.5rem"><a href="/exemplos/seletores-basicos/">Seletores básicos</a></h3><p>Elemento, classe, ID e seletor combinado para estilizar com precisão.</p></article><article class="card"><span class="badge iniciante">iniciante</span><span class="badge" style="margin-left:0.35rem">CSS</span><h3 style="margin-top:0.5rem"><a href="/exemplos/box-model/">Box model na prática</a></h3><p>Content, padding, border e margin — o modelo de caixa do CSS.</p></article><article class="card"><span class="badge iniciante">iniciante</span><span class="badge" style="margin-left:0.35rem">CSS</span><h3 style="margin-top:0.5rem"><a href="/exemplos/flexbox-centro/">Centralizar com Flexbox</a></h3><p>Alinhe horizontal e verticalmente com poucos utilitários de flex.</p></article><article class="card"><span class="badge iniciante">iniciante</span><span class="badge" style="margin-left:0.35rem">CSS</span><h3 style="margin-top:0.5rem"><a href="/exemplos/grid-galeria/">Galeria com CSS Grid</a></h3><p>Grade responsiva automática com repeat e minmax.</p></article><article class="card"><span class="badge intermediario">intermediário</span><span class="badge" style="margin-left:0.35rem">CSS</span><h3 style="margin-top:0.5rem"><a href="/exemplos/tipografia-clamp/">Tipografia fluida com clamp()</a></h3><p>Tamanhos de fonte que escalam entre mínimo e máximo sem media queries.</p></article><article class="card"><span class="badge intermediario">intermediário</span><span class="badge" style="margin-left:0.35rem">CSS</span><h3 style="margin-top:0.5rem"><a href="/exemplos/animacao-fade/">Animação fade + slide</a></h3><p>@keyframes simples para entrada suave de elementos.</p></article></div><p style="margin-top:1rem"><a href="/exemplos/">Todos os exemplos →</a></p></section><section class="section container"><h2>Snippets rápidos</h2><p class="section-desc">Padrões curtos para colar e adaptar.</p><div class="card-grid"><article class="card"><h3><a href="/snippets/js-add-event-listener/">addEventListener</a></h3><p>Escutar clique de forma idiomática.</p></article><article class="card"><h3><a href="/snippets/focus-ring/">Anel de foco visível</a></h3><p>Estado :focus-visible sem remover acessibilidade.</p></article><article class="card"><h3><a href="/snippets/pill-badge/">Badge em formato pill</a></h3><p>Etiqueta arredondada para status e tags.</p></article><article class="card"><h3><a href="/snippets/botao-primario/">Botão primário</a></h3><p>Estilo base de CTA com hover.</p></article><article class="card"><h3><a href="/snippets/card-sombra/">Card com sombra suave</a></h3><p>Elevação leve para blocos de conteúdo.</p></article><article class="card"><h3><a href="/snippets/centralizar-flex/">Centralizar com Flex</a></h3><p>Centro absoluto de um filho no container.</p></article></div><p style="margin-top:1rem"><a href="/snippets/">Ver biblioteca →</a></p></section><section class="section container"><h2>Do blog</h2><div class="card-grid"><article class="card"><h3><a href="/blog/dom-e-classes-css/">DOM + classes CSS: o combo do front-end</a></h3><p>Como JavaScript e CSS conversam via classList — sem misturar estilo inline.</p></article><article class="card"><h3><a href="/blog/acessibilidade-css-rapido/">Acessibilidade com CSS: checklist rápido</a></h3><p>Foco visível, contraste, motion e formulários — o que o CSS resolve (e o que não).</p></article><article class="card"><h3><a href="/blog/progressive-enhancement-html-css-js/">Progressive enhancement: HTML, depois CSS, depois JS</a></h3><p>Por que a ordem importa — e como o hub CSS4HTML reflete isso nas trilhas.</p></article></div><p style="margin-top:1rem"><a href="/blog/">Todos os posts →</a></p></section></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Hub educacional de HTML, CSS e JavaScript: exemplos editáveis, snippets práticos e trilhas do zero à prática.</p></div><div><h3>Aprender</h3><ul><li><a href="/trilhas/html-do-zero/">Trilha HTML</a></li><li><a href="/trilhas/css-do-zero-ao-layout/">Trilha CSS</a></li><li><a href="/trilhas/javascript-do-zero/">Trilha JavaScript</a></li><li><a href="/exemplos/">Exemplos vivos</a></li><li><a href="/snippets/">Biblioteca de snippets</a></li><li><a href="/blog/">Blog</a></li></ul></div><div><h3>Projeto</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="/">Início</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — HTML, CSS e JS de verdade.</p><p>css4html.com.br</p></div></div></footer></body></html>

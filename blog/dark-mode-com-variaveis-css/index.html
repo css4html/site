@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Temas claros e escuros sem depender de um framework de UI."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Dark mode só com variáveis CSS · CSS4HTML"><meta property="og:description" content="Temas claros e escuros sem depender de um framework de UI."><meta property="og:image" content="https://css4html.com.br/logo-fanpage.png"><meta property="og:url" content="https://css4html.com.br/blog/dark-mode-com-variaveis-css/"><link rel="canonical" href="https://css4html.com.br/blog/dark-mode-com-variaveis-css/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Dark mode só com variáveis CSS · CSS4HTML</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><link rel="stylesheet" href="/_astro/collections.z62Vhmjw.css"></head><body><a class="sr-only" href="#conteudo">Ir para o conteúdo</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Principal"><ul class="nav"><li><a href="/">Início</a></li><li><a href="/trilhas/">Trilhas</a></li><li><a href="/exemplos/">Exemplos</a></li><li><a href="/snippets/">Snippets</a></li><li><a href="/blog/" aria-current="page">Blog</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Idioma"><a href="/blog/dark-mode-com-variaveis-css/" class="lang-btn is-active" hreflang="pt-BR" aria-current="page" lang="pt-BR">PT</a><a href="/en/blog/dark-mode-com-variaveis-css/" class="lang-btn" hreflang="en" lang="en">EN</a><a href="/es/blog/dark-mode-com-variaveis-css/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Ativar tema claro" data-label-dark="Ativar tema escuro" aria-label="Alternar tema claro ou escuro" title="Alternar tema"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Abrir menu de navegação" data-label-close="Fechar menu de navegação" aria-expanded="false" aria-controls="nav-drawer" aria-label="Abrir menu de navegação"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação"><p class="drawer-label">Navegação</p><nav aria-label="Menu mobile"><ul class="nav"><li><a href="/" data-menu-close>Início</a></li><li><a href="/trilhas/" data-menu-close>Trilhas</a></li><li><a href="/exemplos/" data-menu-close>Exemplos</a></li><li><a href="/snippets/" data-menu-close>Snippets</a></li><li><a href="/blog/" aria-current="page" data-menu-close>Blog</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trilhas</p><nav aria-label="Trilhas"><ul class="nav"><li><a href="/trilhas/html-do-zero/" data-menu-close>HTML do zero</a></li><li><a href="/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS do zero ao layout</a></li><li><a href="/trilhas/javascript-do-zero/" data-menu-close>JavaScript do zero</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><article class="container page-header"><p><a href="/blog/">← Blog</a></p><h1>Dark mode só com variáveis CSS</h1><div class="meta-row"><time datetime="2026-09-05T00:00:00.000Z">4 de setembro de 2026</time><ul class="tags" style="margin:0"><li class="tag">dark-mode</li><li class="tag">variaveis</li><li class="tag">temas</li></ul></div><div class="prose"><p>Custom properties tornam o tema um mapa de tokens:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">:root</span><span style="color:#E1E4E8"> { </span><span style="color:#FFAB70">--bg</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#fff</span><span style="color:#E1E4E8">; </span><span style="color:#FFAB70">--text</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#111</span><span style="color:#E1E4E8">; }</span></span>
+<span class="line"><span style="color:#F97583">@media</span><span style="color:#E1E4E8"> (prefers-color-scheme: dark) {</span></span>
+<span class="line"><span style="color:#B392F0">  :root</span><span style="color:#E1E4E8"> { </span><span style="color:#FFAB70">--bg</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#111</span><span style="color:#E1E4E8">; </span><span style="color:#FFAB70">--text</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#eee</span><span style="color:#E1E4E8">; }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Depois, componentes só consomem <code>var(--bg)</code> e <code>var(--text)</code>. Para um toggle manual, você troca uma classe no <code>&lt;html&gt;</code> e redefine as mesmas variáveis.</p>
+<p>Veja o exemplo ao vivo: <a href="/exemplos/dark-mode-vars/">Dark mode com variáveis</a> e o snippet correspondente em <a href="/snippets/dark-mode-vars/">Snippets</a>.</p>
+</div><div class="related"><h2>No hub</h2><ul><li><a href="/exemplos/dark-mode-vars/">Exemplo: Dark mode com variáveis CSS</a></li><li><a href="/snippets/dark-mode-vars/">Snippet: Variáveis para dark mode</a></li></ul></div></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Hub educacional de HTML, CSS e JavaScript: exemplos editáveis, snippets práticos e trilhas do zero à prática.</p></div><div><h3>Aprender</h3><ul><li><a href="/trilhas/html-do-zero/">Trilha HTML</a></li><li><a href="/trilhas/css-do-zero-ao-layout/">Trilha CSS</a></li><li><a href="/trilhas/javascript-do-zero/">Trilha JavaScript</a></li><li><a href="/exemplos/">Exemplos vivos</a></li><li><a href="/snippets/">Biblioteca de snippets</a></li><li><a href="/blog/">Blog</a></li></ul></div><div><h3>Projeto</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="/">Início</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — HTML, CSS e JS de verdade.</p><p>css4html.com.br</p></div></div></footer></body></html>

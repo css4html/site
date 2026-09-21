@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Base CTA style with hover."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Primary button · CSS4HTML"><meta property="og:description" content="Base CTA style with hover."><meta property="og:image" content="https://css4html.com.br/logo-fanpage.png"><meta property="og:url" content="https://css4html.com.br/en/snippets/botao-primario/"><link rel="canonical" href="https://css4html.com.br/en/snippets/botao-primario/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Primary button · CSS4HTML</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><link rel="stylesheet" href="/_astro/collections.z62Vhmjw.css"></head><body><a class="sr-only" href="#conteudo">Skip to content</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/en/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Primary"><ul class="nav"><li><a href="/en/">Home</a></li><li><a href="/en/trilhas/">Trails</a></li><li><a href="/en/exemplos/">Examples</a></li><li><a href="/en/snippets/" aria-current="page">Snippets</a></li><li><a href="/en/blog/">Blog</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Language"><a href="/snippets/botao-primario/" class="lang-btn" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/en/snippets/botao-primario/" class="lang-btn is-active" hreflang="en" aria-current="page" lang="en">EN</a><a href="/es/snippets/botao-primario/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Switch to light theme" data-label-dark="Switch to dark theme" aria-label="Toggle light or dark theme" title="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Open navigation menu" data-label-close="Close navigation menu" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open navigation menu"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Navigation menu"><p class="drawer-label">Navigation</p><nav aria-label="Mobile menu"><ul class="nav"><li><a href="/en/" data-menu-close>Home</a></li><li><a href="/en/trilhas/" data-menu-close>Trails</a></li><li><a href="/en/exemplos/" data-menu-close>Examples</a></li><li><a href="/en/snippets/" aria-current="page" data-menu-close>Snippets</a></li><li><a href="/en/blog/" data-menu-close>Blog</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trails</p><nav aria-label="Trails"><ul class="nav"><li><a href="/en/trilhas/html-do-zero/" data-menu-close>HTML from scratch</a></li><li><a href="/en/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS from scratch to layout</a></li><li><a href="/en/trilhas/javascript-do-zero/" data-menu-close>JavaScript from scratch</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><article class="container page-header"><p><a href="/en/snippets/">← Snippets</a></p><h1>Primary button</h1><p>Base CTA style with hover.</p><div class="meta-row"><ul class="tags" style="margin:0"><li class="tag">botao</li><li class="tag">hover</li></ul></div><div class="code-block" id="code-botao-primario"><button class="copy-btn" type="button" data-copy="code-botao-primario" data-label-copy="Copy" data-label-copied="Copied!" data-label-error="Error">Copy</button><code>.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  border: 0;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #1d4ed8;
+}
+</code></div><div class="prose" style="margin-top:1.5rem"><p>Copie o snippet e adapte ao seu projeto. Veja também os <a href="/exemplos/">exemplos vivos</a>.</p>
+</div></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Educational hub for HTML, CSS, and JavaScript: editable examples, practical snippets, and trails from zero to practice.</p></div><div><h3>Learn</h3><ul><li><a href="/en/trilhas/html-do-zero/">HTML trail</a></li><li><a href="/en/trilhas/css-do-zero-ao-layout/">CSS trail</a></li><li><a href="/en/trilhas/javascript-do-zero/">JavaScript trail</a></li><li><a href="/en/exemplos/">Live examples</a></li><li><a href="/en/snippets/">Snippet library</a></li><li><a href="/en/blog/">Blog</a></li></ul></div><div><h3>Project</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="/en/">Home</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — Real HTML, CSS, and JS.</p><p>css4html.com.br</p></div></div></footer></body></html><script type="module">document.querySelectorAll(`[data-copy]`).forEach(e=>{e.addEventListener(`click`,async()=>{let t=e.getAttribute(`data-copy`),n=(t?document.getElementById(t):null)?.querySelector(`code`)?.textContent||``,r=e.getAttribute(`data-label-copy`)||`Copy`,i=e.getAttribute(`data-label-copied`)||`Copied!`,a=e.getAttribute(`data-label-error`)||`Error`;try{await navigator.clipboard.writeText(n),e.textContent=i,setTimeout(()=>{e.textContent=r},1500)}catch{e.textContent=a}})});</script>

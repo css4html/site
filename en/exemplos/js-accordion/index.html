@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Open/close sections with a button and aria-expanded."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Accordion · CSS4HTML"><meta property="og:description" content="Open/close sections with a button and aria-expanded."><meta property="og:image" content="https://css4html.com.br/logo-fanpage.png"><meta property="og:url" content="https://css4html.com.br/en/exemplos/js-accordion/"><link rel="canonical" href="https://css4html.com.br/en/exemplos/js-accordion/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Accordion · CSS4HTML</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><link rel="stylesheet" href="/_astro/collections.z62Vhmjw.css"></head><body><a class="sr-only" href="#conteudo">Skip to content</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/en/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Primary"><ul class="nav"><li><a href="/en/">Home</a></li><li><a href="/en/trilhas/">Trails</a></li><li><a href="/en/exemplos/" aria-current="page">Examples</a></li><li><a href="/en/snippets/">Snippets</a></li><li><a href="/en/blog/">Blog</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Language"><a href="/exemplos/js-accordion/" class="lang-btn" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/en/exemplos/js-accordion/" class="lang-btn is-active" hreflang="en" aria-current="page" lang="en">EN</a><a href="/es/exemplos/js-accordion/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Switch to light theme" data-label-dark="Switch to dark theme" aria-label="Toggle light or dark theme" title="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Open navigation menu" data-label-close="Close navigation menu" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open navigation menu"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Navigation menu"><p class="drawer-label">Navigation</p><nav aria-label="Mobile menu"><ul class="nav"><li><a href="/en/" data-menu-close>Home</a></li><li><a href="/en/trilhas/" data-menu-close>Trails</a></li><li><a href="/en/exemplos/" aria-current="page" data-menu-close>Examples</a></li><li><a href="/en/snippets/" data-menu-close>Snippets</a></li><li><a href="/en/blog/" data-menu-close>Blog</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trails</p><nav aria-label="Trails"><ul class="nav"><li><a href="/en/trilhas/html-do-zero/" data-menu-close>HTML from scratch</a></li><li><a href="/en/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS from scratch to layout</a></li><li><a href="/en/trilhas/javascript-do-zero/" data-menu-close>JavaScript from scratch</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><article class="container page-header"><p><a href="/en/exemplos/">← Examples</a></p><h1>Accordion</h1><p>Open/close sections with a button and aria-expanded.</p><div class="meta-row"><span class="badge">JS</span><span class="badge iniciante">beginner</span><ul class="tags" style="margin:0"><li class="tag">accordion</li><li class="tag">aria</li><li class="tag">eventos</li></ul></div><div class="prose"><p>Compare com details/summary nativo — às vezes o HTML basta.</p>
+</div><div class="playground" data-playground="js-accordion" data-mobile-tab="html" data-show-js="1"><div class="playground-toolbar" role="toolbar" aria-label="Playground actions"><button type="button" class="pg-btn" data-action="reset" title="Restore original code">Reset</button><button type="button" class="pg-btn" data-action="copy-html" title="Copy HTML">Copy HTML</button><button type="button" class="pg-btn" data-action="copy-css" title="Copy CSS">Copy CSS</button><button type="button" class="pg-btn" data-action="copy-js" title="Copy JavaScript">Copy JS</button><span class="spacer" aria-hidden="true"></span><span class="sr-only" data-status aria-live="polite"></span></div><div class="playground-tabs" role="tablist" aria-label="Playground panels"><button type="button" class="playground-tab" role="tab" id="js-accordion-tab-html" aria-controls="js-accordion-panel-editors" aria-selected="true" data-tab="html">HTML</button><button type="button" class="playground-tab" role="tab" id="js-accordion-tab-css" aria-controls="js-accordion-panel-editors" aria-selected="false" data-tab="css">CSS</button><button type="button" class="playground-tab" role="tab" id="js-accordion-tab-js" aria-controls="js-accordion-panel-editors" aria-selected="false" data-tab="js">JS</button><button type="button" class="playground-tab" role="tab" id="js-accordion-tab-preview" aria-controls="js-accordion-panel-preview" aria-selected="false" data-tab="preview">Preview</button></div><div class="playground-wrap"><div class="editor-panel" id="js-accordion-panel-editors" role="tabpanel" aria-label="Editors"><div class="editor-box" data-pane="html"><div class="label"><span id="js-accordion-label-html">HTML</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-html" aria-describedby="js-accordion-label-html">Copy</button></div></div><div class="cm-host" data-editor="html" data-initial="PGRpdiBjbGFzcz0iYWNjIj4KICA8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImFjYy1idG4iIGFyaWEtZXhwYW5kZWQ9ImZhbHNlIiBhcmlhLWNvbnRyb2xzPSJhY2MtMSI+TyBxdWUgw6kgRE9NPzwvYnV0dG9uPgogIDxkaXYgaWQ9ImFjYy0xIiBjbGFzcz0iYWNjLXBhbmVsIiBoaWRkZW4+RG9jdW1lbnQgT2JqZWN0IE1vZGVsIOKAlCBhIMOhcnZvcmUgZGUgbsOzcyBkYSBww6FnaW5hLjwvZGl2PgogIDxidXR0b24gdHlwZT0iYnV0dG9uIiBjbGFzcz0iYWNjLWJ0biIgYXJpYS1leHBhbmRlZD0iZmFsc2UiIGFyaWEtY29udHJvbHM9ImFjYy0yIj5Qb3IgcXVlIGV2ZW50b3M/PC9idXR0b24+CiAgPGRpdiBpZD0iYWNjLTIiIGNsYXNzPSJhY2MtcGFuZWwiIGhpZGRlbj5QYXJhIHJlYWdpciBhIGNsaXF1ZXMsIHRlY2xhZG8sIHN1Ym1pdCBlIG11aXRvIG1haXMuPC9kaXY+CjwvZGl2Pgo=" role="textbox" aria-label="HTML editor" aria-multiline="true"></div></div><div class="editor-box" data-pane="css"><div class="label"><span id="js-accordion-label-css">CSS</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-css" aria-describedby="js-accordion-label-css">Copy</button></div></div><div class="cm-host" data-editor="css" data-initial="LmFjYyB7IGZvbnQtZmFtaWx5OiBzeXN0ZW0tdWksIHNhbnMtc2VyaWY7IG1heC13aWR0aDogMjhyZW07IH0KLmFjYy1idG4gewogIGRpc3BsYXk6IGJsb2NrOyB3aWR0aDogMTAwJTsgdGV4dC1hbGlnbjogbGVmdDsgcGFkZGluZzogMC42NXJlbSAwLjg1cmVtOwogIG1hcmdpbi10b3A6IDAuMzVyZW07IGJvcmRlcjogMXB4IHNvbGlkICNjYmQ1ZTE7IGJvcmRlci1yYWRpdXM6IDhweDsKICBiYWNrZ3JvdW5kOiAjZjhmYWZjOyBjdXJzb3I6IHBvaW50ZXI7IGZvbnQtd2VpZ2h0OiA2MDA7Cn0KLmFjYy1wYW5lbCB7IHBhZGRpbmc6IDAuNjVyZW0gMC44NXJlbTsgYm9yZGVyLWxlZnQ6IDNweCBzb2xpZCAjMjU2M2ViOyBtYXJnaW46IDAuMjVyZW0gMCAwLjVyZW07IH0K" role="textbox" aria-label="CSS editor" aria-multiline="true"></div></div><div class="editor-box" data-pane="js"><div class="label"><span id="js-accordion-label-js">JavaScript</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-js" aria-describedby="js-accordion-label-js">Copy</button></div></div><div class="cm-host" data-editor="js" data-initial="ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnLmFjYy1idG4nKS5mb3JFYWNoKChidG4pID0+IHsKICBidG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB7CiAgICBjb25zdCBvcGVuID0gYnRuLmdldEF0dHJpYnV0ZSgnYXJpYS1leHBhbmRlZCcpID09PSAndHJ1ZSc7CiAgICBjb25zdCBwYW5lbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGJ0bi5nZXRBdHRyaWJ1dGUoJ2FyaWEtY29udHJvbHMnKSk7CiAgICBidG4uc2V0QXR0cmlidXRlKCdhcmlhLWV4cGFuZGVkJywgU3RyaW5nKCFvcGVuKSk7CiAgICBpZiAocGFuZWwpIHBhbmVsLmhpZGRlbiA9IG9wZW47CiAgfSk7Cn0pOwo=" role="textbox" aria-label="JavaScript editor" aria-multiline="true"></div></div></div><div class="preview-panel" id="js-accordion-panel-preview" role="tabpanel" aria-label="Preview"><div class="label"><span>Live preview</span></div><iframe title="Example preview" data-preview sandbox="allow-scripts allow-same-origin"></iframe></div></div></div><script type="module" src="/_astro/Playground.astro_astro_type_script_index_0_lang.gDshRIAk.js"></script></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Educational hub for HTML, CSS, and JavaScript: editable examples, practical snippets, and trails from zero to practice.</p></div><div><h3>Learn</h3><ul><li><a href="/en/trilhas/html-do-zero/">HTML trail</a></li><li><a href="/en/trilhas/css-do-zero-ao-layout/">CSS trail</a></li><li><a href="/en/trilhas/javascript-do-zero/">JavaScript trail</a></li><li><a href="/en/exemplos/">Live examples</a></li><li><a href="/en/snippets/">Snippet library</a></li><li><a href="/en/blog/">Blog</a></li></ul></div><div><h3>Project</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="/en/">Home</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — Real HTML, CSS, and JS.</p><p>css4html.com.br</p></div></div></footer></body></html>
