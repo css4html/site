@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SnippetCard from '../../../components/SnippetCard.astro';
+import TagFilter from '../../../components/TagFilter.astro';
+import TrackFilter from '../../../components/TrackFilter.astro';
+import { getSnippets } from '../../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../../i18n/utils';
+
+const locale = 'es' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+const snippets = await getSnippets(locale);
+const tags = [...new Set(snippets.flatMap((s) => s.data.tags))].sort();
+---
+<BaseLayout title={t('snippets.title')} description={t('snippets.desc')} current="snippets" locale={locale}>
+  <div class="container page-header">
+    <h1>{t('snippets.title')}</h1>
+    <p>{t('snippets.intro')}</p>
+  </div>
+  <div class="container section" style="padding-top:0">
+    <p style="margin:0 0 0.5rem;font-size:0.9rem;color:var(--color-muted)">{t('examples.trackLabel')}</p>
+    <TrackFilter allLabel={t('filter.all')} ariaLabel={t('filter.byTrack')} />
+    <p style="margin:1rem 0 0.5rem;font-size:0.9rem;color:var(--color-muted)">{t('examples.tagsLabel')}</p>
+    <TagFilter tags={tags} allLabel={t('filter.all')} ariaLabel={t('filter.byTag')} />
+    <div class="card-grid">
+      {snippets.map((sn) => (
+        <SnippetCard
+          title={sn.data.title}
+          description={sn.data.description}
+          href={lp(`/snippets/${sn.id}/`)}
+          tags={sn.data.tags}
+          track={sn.data.track}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

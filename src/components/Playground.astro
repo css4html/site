@@ -5,9 +5,47 @@ interface Props {
   js?: string;
   showJs?: boolean;
   id?: string;
+  labels?: {
+    actions?: string;
+    reset?: string;
+    resetTitle?: string;
+    copyHtml?: string;
+    copyCss?: string;
+    copyJs?: string;
+    copyJsTitle?: string;
+    panels?: string;
+    preview?: string;
+    editors?: string;
+    copy?: string;
+    editorHtml?: string;
+    editorCss?: string;
+    editorJs?: string;
+    livePreview?: string;
+    iframeTitle?: string;
+    previewPanel?: string;
+  };
 }
-const { html, css, js = '', id = 'playground' } = Astro.props;
+const { html, css, js = '', id = 'playground', labels = {} } = Astro.props;
 const showJs = Astro.props.showJs ?? Boolean(js);
+const L = {
+  actions: labels.actions ?? 'Ações do playground',
+  reset: labels.reset ?? 'Resetar',
+  resetTitle: labels.resetTitle ?? 'Restaurar código original',
+  copyHtml: labels.copyHtml ?? 'Copiar HTML',
+  copyCss: labels.copyCss ?? 'Copiar CSS',
+  copyJs: labels.copyJs ?? 'Copiar JS',
+  copyJsTitle: labels.copyJsTitle ?? 'Copiar JavaScript',
+  panels: labels.panels ?? 'Painéis do playground',
+  preview: labels.preview ?? 'Preview',
+  editors: labels.editors ?? 'Editores',
+  copy: labels.copy ?? 'Copiar',
+  editorHtml: labels.editorHtml ?? 'Editor HTML',
+  editorCss: labels.editorCss ?? 'Editor CSS',
+  editorJs: labels.editorJs ?? 'Editor JavaScript',
+  livePreview: labels.livePreview ?? 'Pré-visualização ao vivo',
+  iframeTitle: labels.iframeTitle ?? 'Pré-visualização do exemplo',
+  previewPanel: labels.previewPanel ?? 'Pré-visualização',
+};
 const htmlB64 = Buffer.from(html, 'utf8').toString('base64');
 const cssB64 = Buffer.from(css, 'utf8').toString('base64');
 const jsB64 = Buffer.from(js, 'utf8').toString('base64');
@@ -18,26 +56,26 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
   data-mobile-tab="html"
   data-show-js={showJs ? '1' : '0'}
 >
-  <div class="playground-toolbar" role="toolbar" aria-label="Ações do playground">
-    <button type="button" class="pg-btn" data-action="reset" title="Restaurar código original">
-      Resetar
+  <div class="playground-toolbar" role="toolbar" aria-label={L.actions}>
+    <button type="button" class="pg-btn" data-action="reset" title={L.resetTitle}>
+      {L.reset}
     </button>
-    <button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">
-      Copiar HTML
+    <button type="button" class="pg-btn" data-action="copy-html" title={L.copyHtml}>
+      {L.copyHtml}
     </button>
-    <button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">
-      Copiar CSS
+    <button type="button" class="pg-btn" data-action="copy-css" title={L.copyCss}>
+      {L.copyCss}
     </button>
     {showJs && (
-      <button type="button" class="pg-btn" data-action="copy-js" title="Copiar JavaScript">
-        Copiar JS
+      <button type="button" class="pg-btn" data-action="copy-js" title={L.copyJsTitle}>
+        {L.copyJs}
       </button>
     )}
     <span class="spacer" aria-hidden="true"></span>
     <span class="sr-only" data-status aria-live="polite"></span>
   </div>
 
-  <div class="playground-tabs" role="tablist" aria-label="Painéis do playground">
+  <div class="playground-tabs" role="tablist" aria-label={L.panels}>
     <button type="button" class="playground-tab" role="tab" id={`${id}-tab-html`} aria-controls={`${id}-panel-editors`} aria-selected="true" data-tab="html">
       HTML
     </button>
@@ -50,17 +88,17 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
       </button>
     )}
     <button type="button" class="playground-tab" role="tab" id={`${id}-tab-preview`} aria-controls={`${id}-panel-preview`} aria-selected="false" data-tab="preview">
-      Preview
+      {L.preview}
     </button>
   </div>
 
   <div class="playground-wrap">
-    <div class="editor-panel" id={`${id}-panel-editors`} role="tabpanel" aria-label="Editores">
+    <div class="editor-panel" id={`${id}-panel-editors`} role="tabpanel" aria-label={L.editors}>
       <div class="editor-box" data-pane="html">
         <div class="label">
           <span id={`${id}-label-html`}>HTML</span>
           <div class="label-actions">
-            <button type="button" class="pg-btn" data-action="copy-html" aria-describedby={`${id}-label-html`}>Copiar</button>
+            <button type="button" class="pg-btn" data-action="copy-html" aria-describedby={`${id}-label-html`}>{L.copy}</button>
           </div>
         </div>
         <div
@@ -68,7 +106,7 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
           data-editor="html"
           data-initial={htmlB64}
           role="textbox"
-          aria-label="Editor HTML"
+          aria-label={L.editorHtml}
           aria-multiline="true"
         ></div>
       </div>
@@ -76,7 +114,7 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
         <div class="label">
           <span id={`${id}-label-css`}>CSS</span>
           <div class="label-actions">
-            <button type="button" class="pg-btn" data-action="copy-css" aria-describedby={`${id}-label-css`}>Copiar</button>
+            <button type="button" class="pg-btn" data-action="copy-css" aria-describedby={`${id}-label-css`}>{L.copy}</button>
           </div>
         </div>
         <div
@@ -84,7 +122,7 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
           data-editor="css"
           data-initial={cssB64}
           role="textbox"
-          aria-label="Editor CSS"
+          aria-label={L.editorCss}
           aria-multiline="true"
         ></div>
       </div>
@@ -93,7 +131,7 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
           <div class="label">
             <span id={`${id}-label-js`}>JavaScript</span>
             <div class="label-actions">
-              <button type="button" class="pg-btn" data-action="copy-js" aria-describedby={`${id}-label-js`}>Copiar</button>
+              <button type="button" class="pg-btn" data-action="copy-js" aria-describedby={`${id}-label-js`}>{L.copy}</button>
             </div>
           </div>
           <div
@@ -101,15 +139,15 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
             data-editor="js"
             data-initial={jsB64}
             role="textbox"
-            aria-label="Editor JavaScript"
+            aria-label={L.editorJs}
             aria-multiline="true"
           ></div>
         </div>
       )}
     </div>
-    <div class="preview-panel" id={`${id}-panel-preview`} role="tabpanel" aria-label="Pré-visualização">
-      <div class="label"><span>Pré-visualização ao vivo</span></div>
-      <iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts allow-same-origin"></iframe>
+    <div class="preview-panel" id={`${id}-panel-preview`} role="tabpanel" aria-label={L.previewPanel}>
+      <div class="label"><span>{L.livePreview}</span></div>
+      <iframe title={L.iframeTitle} data-preview sandbox="allow-scripts allow-same-origin"></iframe>
     </div>
   </div>
 </div>

@@ -1,47 +1,52 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getLessons } from '../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../i18n/utils';
 
-const lessons = await getCollection('lessons');
+const locale = 'pt-BR' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+const lessons = await getLessons(locale);
+
 const trails = [
   {
     id: 'html-do-zero',
-    href: '/trilhas/html-do-zero/',
-    title: 'HTML do zero à página',
-    description: 'Estrutura, semântica, links, formulários, tabelas e acessibilidade até uma página completa.',
+    href: lp('/trilhas/html-do-zero/'),
+    title: t('trail.html.title'),
+    description: t('trail.html.desc'),
     count: lessons.filter((l) => l.data.trail === 'html-do-zero').length,
   },
   {
     id: 'css-do-zero-ao-layout',
-    href: '/trilhas/css-do-zero-ao-layout/',
-    title: 'CSS do zero ao layout',
-    description: 'Da cascata e seletores até layout completo, responsivo moderno e acessibilidade CSS.',
+    href: lp('/trilhas/css-do-zero-ao-layout/'),
+    title: t('trail.css.title'),
+    description: t('trail.css.desc'),
     count: lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout').length,
   },
   {
     id: 'javascript-do-zero',
-    href: '/trilhas/javascript-do-zero/',
-    title: 'JavaScript do zero ao DOM',
-    description: 'Variáveis, funções, DOM, eventos, arrays/objetos, fetch e um projeto pequeno.',
+    href: lp('/trilhas/javascript-do-zero/'),
+    title: t('trail.js.title'),
+    description: t('trail.js.desc'),
     count: lessons.filter((l) => l.data.trail === 'javascript-do-zero').length,
   },
 ];
 ---
-<BaseLayout title="Trilhas" description="Percursos guiados de HTML, CSS e JavaScript." current="trilhas">
+<BaseLayout title={t('trails.title')} description={t('trails.desc')} current="trilhas" locale={locale}>
   <div class="container page-header">
-    <h1>Trilhas</h1>
-    <p>Percursos curtos que ligam teoria, playground e snippets — três áreas irmãs no mesmo hub.</p>
+    <h1>{t('trails.title')}</h1>
+    <p>{t('trails.intro')}</p>
   </div>
   <div class="container section" style="padding-top:0">
     <div class="card-grid">
       {trails.map((trail) => (
         <article class="card">
-          <span class="badge">{trail.count} lições</span>
+          <span class="badge">{trail.count} {t('trails.lessons')}</span>
           <h2 style="margin:0.5rem 0;font-size:1.25rem">
             <a href={trail.href}>{trail.title}</a>
           </h2>
           <p>{trail.description}</p>
-          <p style="margin-top:0.75rem"><a class="btn btn-primary" href={trail.href}>Abrir trilha</a></p>
+          <p style="margin-top:0.75rem"><a class="btn btn-primary" href={trail.href}>{t('trails.open')}</a></p>
         </article>
       ))}
     </div>

@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLessons, getExamples, getSnippets, getBlogPosts, entrySlug } from '../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../i18n/utils';
+
+const locale = 'es' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+
+const examples = (await getExamples(locale)).slice(0, 6);
+const snippets = (await getSnippets(locale)).slice(0, 6);
+const lessons = await getLessons(locale);
+const htmlLessons = lessons.filter((l) => l.data.trail === 'html-do-zero');
+const cssLessons = lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout');
+const jsLessons = lessons.filter((l) => l.data.trail === 'javascript-do-zero');
+const posts = (await getBlogPosts(locale)).slice(0, 3);
+
+function diffLabel(d: string) {
+  if (d === 'iniciante') return t('diff.iniciante');
+  if (d === 'intermediario') return t('diff.intermediario');
+  if (d === 'avancado') return t('diff.avancado');
+  return d;
+}
+---
+<BaseLayout title={t('home.title')} description={t('home.desc')} current="inicio" locale={locale}>
+  <section class="hero container">
+    <p class="badge">{t('home.badge')}</p>
+    <h1>{t('home.h1')}</h1>
+    <p class="lead">{t('home.lead')}</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href={lp('/trilhas/')}>{t('home.ctaTrails')}</a>
+      <a class="btn btn-ghost" href={lp('/exemplos/')}>{t('home.ctaExamples')}</a>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>{t('home.threeTrails')}</h2>
+    <p class="section-desc">{t('home.threeTrailsDesc')}</p>
+    <div class="card-grid">
+      <article class="card">
+        <span class="badge">{htmlLessons.length} {t('home.lessonsCount')}</span>
+        <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/html-do-zero/')}>{t('home.htmlTitle')}</a></h3>
+        <p>{t('home.htmlDesc')}</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/html-do-zero/')}>{t('home.htmlCta')}</a></p>
+      </article>
+      <article class="card">
+        <span class="badge">{cssLessons.length} {t('home.lessonsCount')}</span>
+        <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/css-do-zero-ao-layout/')}>{t('home.cssTitle')}</a></h3>
+        <p>{t('home.cssDesc')}</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/css-do-zero-ao-layout/')}>{t('home.cssCta')}</a></p>
+      </article>
+      <article class="card">
+        <span class="badge">{jsLessons.length} {t('home.lessonsCount')}</span>
+        <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/javascript-do-zero/')}>{t('home.jsTitle')}</a></h3>
+        <p>{t('home.jsDesc')}</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/javascript-do-zero/')}>{t('home.jsCta')}</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>{t('home.how')}</h2>
+    <p class="section-desc">{t('home.howDesc')}</p>
+    <ol class="steps">
+      <li>
+        <strong>{t('home.step1Title')}</strong> {t('home.step1')}
+        <div style="margin-top:0.5rem"><a href={lp('/trilhas/')}>{t('home.step1Link')}</a></div>
+      </li>
+      <li>
+        <strong>{t('home.step2Title')}</strong> {t('home.step2')}
+        <div style="margin-top:0.5rem"><a href={lp('/exemplos/')}>{t('home.step2Link')}</a></div>
+      </li>
+      <li>
+        <strong>{t('home.step3Title')}</strong> {t('home.step3')}
+        <div style="margin-top:0.5rem"><a href={lp('/snippets/')}>{t('home.step3Link')}</a></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section container">
+    <h2>{t('home.featuredExamples')}</h2>
+    <p class="section-desc">{t('home.featuredExamplesDesc')}</p>
+    <div class="card-grid">
+      {examples.map((ex) => (
+        <article class="card">
+          <span class={`badge ${ex.data.difficulty}`}>{diffLabel(ex.data.difficulty)}</span>
+          <span class="badge" style="margin-left:0.35rem">{ex.data.track.toUpperCase()}</span>
+          <h3 style="margin-top:0.5rem"><a href={lp(`/exemplos/${ex.id}/`)}>{ex.data.title}</a></h3>
+          <p>{ex.data.description}</p>
+        </article>
+      ))}
+    </div>
+    <p style="margin-top:1rem"><a href={lp('/exemplos/')}>{t('home.allExamples')}</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>{t('home.quickSnippets')}</h2>
+    <p class="section-desc">{t('home.quickSnippetsDesc')}</p>
+    <div class="card-grid">
+      {snippets.map((sn) => (
+        <article class="card">
+          <h3><a href={lp(`/snippets/${sn.id}/`)}>{sn.data.title}</a></h3>
+          <p>{sn.data.description}</p>
+        </article>
+      ))}
+    </div>
+    <p style="margin-top:1rem"><a href={lp('/snippets/')}>{t('home.allSnippets')}</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>{t('home.fromBlog')}</h2>
+    <div class="card-grid">
+      {posts.map((post) => (
+        <article class="card">
+          <h3><a href={lp(`/blog/${entrySlug(post)}/`)}>{post.data.title}</a></h3>
+          <p>{post.data.description}</p>
+        </article>
+      ))}
+    </div>
+    <p style="margin-top:1rem"><a href={lp('/blog/')}>{t('home.allPosts')}</a></p>
+  </section>
+</BaseLayout>

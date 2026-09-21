@@ -2,34 +2,49 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Playground from '../../components/Playground.astro';
 import { getCollection, render } from 'astro:content';
+import { getExamples } from '../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../i18n/utils';
+import { playgroundLabels } from '../../i18n/playground';
+
+const locale = 'pt-BR' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
 
 export async function getStaticPaths() {
   const examples = await getCollection('examples');
   return examples.map((ex) => ({
     params: { slug: ex.id },
-    props: { ex },
+    props: { id: ex.id },
   }));
 }
 
-const { ex } = Astro.props;
+const { id } = Astro.props;
+const examples = await getExamples(locale);
+const ex = examples.find((e) => e.id === id)!;
 const { Content } = await render(ex);
 const trackLabel = ex.data.track === 'html' ? 'HTML' : ex.data.track === 'js' ? 'JS' : 'CSS';
+function diffLabel(d: string) {
+  if (d === 'iniciante') return t('diff.iniciante');
+  if (d === 'intermediario') return t('diff.intermediario');
+  if (d === 'avancado') return t('diff.avancado');
+  return d;
+}
 ---
-<BaseLayout title={ex.data.title} description={ex.data.description} current="exemplos">
+<BaseLayout title={ex.data.title} description={ex.data.description} current="exemplos" locale={locale}>
   <article class="container page-header">
-    <p><a href="/exemplos/">← Exemplos</a></p>
+    <p><a href={lp('/exemplos/')}>{t('examples.back')}</a></p>
     <h1>{ex.data.title}</h1>
     <p>{ex.data.description}</p>
     <div class="meta-row">
       <span class="badge">{trackLabel}</span>
-      <span class={`badge ${ex.data.difficulty}`}>{ex.data.difficulty}</span>
+      <span class={`badge ${ex.data.difficulty}`}>{diffLabel(ex.data.difficulty)}</span>
       <ul class="tags" style="margin:0">
-        {ex.data.tags.map((t) => <li class="tag">{t}</li>)}
+        {ex.data.tags.map((tg) => <li class="tag">{tg}</li>)}
       </ul>
     </div>
     <div class="prose">
       <Content />
     </div>
-    <Playground html={ex.data.html} css={ex.data.css} js={ex.data.js} id={ex.id} />
+    <Playground html={ex.data.html} css={ex.data.css} js={ex.data.js} id={ex.id} labels={playgroundLabels(locale)} />
   </article>
 </BaseLayout>

@@ -2,11 +2,18 @@
 interface Props {
   tags: string[];
   targetSelector?: string;
+  allLabel?: string;
+  ariaLabel?: string;
 }
-const { tags, targetSelector = '[data-tags]' } = Astro.props;
+const {
+  tags,
+  targetSelector = '[data-tags]',
+  allLabel = 'Todas',
+  ariaLabel = 'Filtrar por tag',
+} = Astro.props;
 ---
-<div class="filter-bar" data-filter-bar data-target={targetSelector} role="group" aria-label="Filtrar por tag">
-  <button type="button" class="filter-btn" data-tag="all" aria-pressed="true">Todas</button>
+<div class="filter-bar" data-filter-bar data-target={targetSelector} role="group" aria-label={ariaLabel}>
+  <button type="button" class="filter-btn" data-tag="all" aria-pressed="true">{allLabel}</button>
   {tags.map((tag) => (
     <button type="button" class="filter-btn" data-tag={tag} aria-pressed="false">{tag}</button>
   ))}

@@ -1039,3 +1039,36 @@ html[data-theme="light"] .badge.avancado {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Language switcher (Designer slot: short PT / EN / ES) */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-right: 0.35rem;
+}
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.4rem;
+  border-radius: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.lang-btn:hover {
+  color: var(--color-fg);
+  background: var(--color-surface-2, var(--color-surface));
+}
+.lang-btn.is-active {
+  color: var(--color-fg);
+  border-color: var(--color-border);
+  background: var(--color-surface);
+}

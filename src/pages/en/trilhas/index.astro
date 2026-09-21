@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getLessons } from '../../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../../i18n/utils';
+
+const locale = 'en' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+const lessons = await getLessons(locale);
+
+const trails = [
+  {
+    id: 'html-do-zero',
+    href: lp('/trilhas/html-do-zero/'),
+    title: t('trail.html.title'),
+    description: t('trail.html.desc'),
+    count: lessons.filter((l) => l.data.trail === 'html-do-zero').length,
+  },
+  {
+    id: 'css-do-zero-ao-layout',
+    href: lp('/trilhas/css-do-zero-ao-layout/'),
+    title: t('trail.css.title'),
+    description: t('trail.css.desc'),
+    count: lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout').length,
+  },
+  {
+    id: 'javascript-do-zero',
+    href: lp('/trilhas/javascript-do-zero/'),
+    title: t('trail.js.title'),
+    description: t('trail.js.desc'),
+    count: lessons.filter((l) => l.data.trail === 'javascript-do-zero').length,
+  },
+];
+---
+<BaseLayout title={t('trails.title')} description={t('trails.desc')} current="trilhas" locale={locale}>
+  <div class="container page-header">
+    <h1>{t('trails.title')}</h1>
+    <p>{t('trails.intro')}</p>
+  </div>
+  <div class="container section" style="padding-top:0">
+    <div class="card-grid">
+      {trails.map((trail) => (
+        <article class="card">
+          <span class="badge">{trail.count} {t('trails.lessons')}</span>
+          <h2 style="margin:0.5rem 0;font-size:1.25rem">
+            <a href={trail.href}>{trail.title}</a>
+          </h2>
+          <p>{trail.description}</p>
+          <p style="margin-top:0.75rem"><a class="btn btn-primary" href={trail.href}>{t('trails.open')}</a></p>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

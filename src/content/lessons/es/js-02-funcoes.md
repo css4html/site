@@ -1,0 +1,27 @@
+---
+title: "Funciones"
+description: "Declarar, devolver valores y pasar parámetros con claridad."
+order: 2
+trail: "javascript-do-zero"
+track: "js"
+relatedExamples: ["js-contador"]
+relatedSnippets: ["js-debounce-sketch"]
+---
+> **TODO i18n:** Traducción completa del cuerpo pendiente. Título y descripción ya están localizados; el cuerpo permanece en portugués por ahora.
+
+
+Funções encapsulam comportamento reutilizável.
+
+```js
+function soma(a, b) {
+  return a + b;
+}
+
+const dobra = (n) => n * 2;
+```
+
+## Boas práticas
+
+- Nomes que descrevem a ação (`atualizarContador`, não `faz`).
+- Funções curtas; uma responsabilidade.
+- Evite efeitos colaterais escondidos — deixe claro o que a função muda no DOM.

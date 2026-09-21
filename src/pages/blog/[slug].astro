@@ -1,35 +1,43 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getBlogPosts, getExamples, getSnippets, entrySlug } from '../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../i18n/utils';
+
+const locale = 'pt-BR' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getBlogPosts('pt-BR');
   return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
+    params: { slug: entrySlug(post) },
+    props: { slug: entrySlug(post) },
   }));
 }
 
-const { post } = Astro.props;
+const { slug } = Astro.props;
+const posts = await getBlogPosts(locale);
+const post = posts.find((p) => entrySlug(p) === slug)!;
 const { Content } = await render(post);
-const dateStr = post.data.pubDate.toLocaleDateString('pt-BR', {
+const dateStr = post.data.pubDate.toLocaleDateString(locale, {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
-const examples = await getCollection('examples');
-const snippets = await getCollection('snippets');
+const examples = await getExamples(locale);
+const snippets = await getSnippets(locale);
 const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
 const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
 ---
-<BaseLayout title={post.data.title} description={post.data.description} current="blog">
+<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale}>
   <article class="container page-header">
-    <p><a href="/blog/">← Blog</a></p>
+    <p><a href={lp('/blog/')}>{t('blog.back')}</a></p>
     <h1>{post.data.title}</h1>
     <div class="meta-row">
       <time datetime={post.data.pubDate.toISOString()}>{dateStr}</time>
       <ul class="tags" style="margin:0">
-        {post.data.tags.map((t) => <li class="tag">{t}</li>)}
+        {post.data.tags.map((tg) => <li class="tag">{tg}</li>)}
       </ul>
     </div>
     <div class="prose">
@@ -37,13 +45,13 @@ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
     </div>
     {(post.data.relatedExamples.length > 0 || post.data.relatedSnippets.length > 0) && (
       <div class="related">
-        <h2>No hub</h2>
+        <h2>{t('blog.inHub')}</h2>
         <ul>
           {post.data.relatedExamples.map((id) => (
-            <li><a href={`/exemplos/${id}/`}>Exemplo: {exTitle[id] ?? id}</a></li>
+            <li><a href={lp(`/exemplos/${id}/`)}>{t('trails.example')} {exTitle[id] ?? id}</a></li>
           ))}
           {post.data.relatedSnippets.map((id) => (
-            <li><a href={`/snippets/${id}/`}>Snippet: {snTitle[id] ?? id}</a></li>
+            <li><a href={lp(`/snippets/${id}/`)}>{t('trails.snippet')} {snTitle[id] ?? id}</a></li>
           ))}
         </ul>
       </div>

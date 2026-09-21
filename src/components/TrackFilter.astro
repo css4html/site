@@ -2,6 +2,8 @@
 interface Props {
   tracks?: { id: string; label: string }[];
   targetSelector?: string;
+  allLabel?: string;
+  ariaLabel?: string;
 }
 const {
   tracks = [
@@ -10,10 +12,12 @@ const {
     { id: 'js', label: 'JS' },
   ],
   targetSelector = '[data-track]',
+  allLabel = 'Todas',
+  ariaLabel = 'Filtrar por trilha',
 } = Astro.props;
 ---
-<div class="filter-bar" data-track-filter data-target={targetSelector} role="group" aria-label="Filtrar por trilha">
-  <button type="button" class="filter-btn" data-track-btn="all" aria-pressed="true">Todas</button>
+<div class="filter-bar" data-track-filter data-target={targetSelector} role="group" aria-label={ariaLabel}>
+  <button type="button" class="filter-btn" data-track-btn="all" aria-pressed="true">{allLabel}</button>
   {tracks.map((t) => (
     <button type="button" class="filter-btn" data-track-btn={t.id} aria-pressed="false">{t.label}</button>
   ))}

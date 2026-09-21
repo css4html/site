@@ -1,32 +1,42 @@
 ---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { type Locale } from '../i18n/config';
+import { localizePath, useTranslations } from '../i18n/utils';
+
 interface Props {
   current?: string;
+  locale?: Locale;
 }
-const { current = '' } = Astro.props;
+const { current = '', locale = 'pt-BR' } = Astro.props;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+
 const links = [
-  { href: '/', label: 'Início', id: 'inicio' },
-  { href: '/trilhas/', label: 'Trilhas', id: 'trilhas' },
-  { href: '/exemplos/', label: 'Exemplos', id: 'exemplos' },
-  { href: '/snippets/', label: 'Snippets', id: 'snippets' },
-  { href: '/blog/', label: 'Blog', id: 'blog' },
+  { href: lp('/'), label: t('nav.home'), id: 'inicio' },
+  { href: lp('/trilhas/'), label: t('nav.trails'), id: 'trilhas' },
+  { href: lp('/exemplos/'), label: t('nav.examples'), id: 'exemplos' },
+  { href: lp('/snippets/'), label: t('nav.snippets'), id: 'snippets' },
+  { href: lp('/blog/'), label: t('nav.blog'), id: 'blog' },
 ];
+
+const themeLight = t('nav.themeLight');
+const themeDark = t('nav.themeDark');
+const openMenu = t('nav.openMenu');
+const closeMenu = t('nav.closeMenu');
 ---
-<a class="sr-only" href="#conteudo">Ir para o conteúdo</a>
+<a class="sr-only" href="#conteudo">{t('nav.skip')}</a>
 <header class="site-header" data-site-header>
   <div class="container inner">
-    <a class="logo" href="/" title="CSS4HTML">
+    <a class="logo" href={lp('/')} title="CSS4HTML">
       <img src="/logo-fanpage.png" alt="" width="32" height="32" />
       <span>CSS4HTML</span>
     </a>
 
-    <nav class="nav-desktop" aria-label="Principal">
+    <nav class="nav-desktop" aria-label={t('nav.primary')}>
       <ul class="nav">
         {links.map((link) => (
           <li>
-            <a
-              href={link.href}
-              aria-current={current === link.id ? 'page' : undefined}
-            >
+            <a href={link.href} aria-current={current === link.id ? 'page' : undefined}>
               {link.label}
             </a>
           </li>
@@ -35,12 +45,17 @@ const links = [
     </nav>
 
     <div class="header-actions">
+      <!-- Designer slot: language selector (PT / EN / ES) -->
+      <LanguageSwitcher locale={locale} />
+
       <button
         type="button"
         class="icon-btn theme-toggle"
         data-theme-toggle
-        aria-label="Alternar tema claro ou escuro"
-        title="Alternar tema"
+        data-label-light={themeLight}
+        data-label-dark={themeDark}
+        aria-label={t('nav.theme')}
+        title={t('nav.themeTitle')}
       >
         <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4"></circle>
@@ -55,9 +70,11 @@ const links = [
         type="button"
         class="icon-btn menu-toggle"
         data-menu-toggle
+        data-label-open={openMenu}
+        data-label-close={closeMenu}
         aria-expanded="false"
         aria-controls="nav-drawer"
-        aria-label="Abrir menu de navegação"
+        aria-label={openMenu}
       >
         <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16"></path>
@@ -71,9 +88,9 @@ const links = [
 
   <div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden>
     <div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div>
-    <div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
-      <p class="drawer-label">Navegação</p>
-      <nav aria-label="Menu mobile">
+    <div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label={t('nav.drawer')}>
+      <p class="drawer-label">{t('nav.drawerLabel')}</p>
+      <nav aria-label={t('nav.mobile')}>
         <ul class="nav">
           {links.map((link) => (
             <li>
@@ -88,12 +105,12 @@ const links = [
           ))}
         </ul>
       </nav>
-      <p class="drawer-label" style="margin-top:1.25rem">Trilhas</p>
-      <nav aria-label="Trilhas">
+      <p class="drawer-label" style="margin-top:1.25rem">{t('nav.trailsLabel')}</p>
+      <nav aria-label={t('nav.trailsLabel')}>
         <ul class="nav">
-          <li><a href="/trilhas/html-do-zero/" data-menu-close>HTML do zero</a></li>
-          <li><a href="/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS do zero ao layout</a></li>
-          <li><a href="/trilhas/javascript-do-zero/" data-menu-close>JavaScript do zero</a></li>
+          <li><a href={lp('/trilhas/html-do-zero/')} data-menu-close>{t('nav.trailHtml')}</a></li>
+          <li><a href={lp('/trilhas/css-do-zero-ao-layout/')} data-menu-close>{t('nav.trailCss')}</a></li>
+          <li><a href={lp('/trilhas/javascript-do-zero/')} data-menu-close>{t('nav.trailJs')}</a></li>
         </ul>
       </nav>
     </div>
@@ -112,14 +129,19 @@ const links = [
       return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
     }
 
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
     function apply(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       try { localStorage.setItem(KEY, theme); } catch (e) {}
       document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
-        btn.setAttribute(
-          'aria-label',
-          theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'
-        );
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
       });
     }
 
@@ -145,7 +167,7 @@ const links = [
         drawer.classList.add('is-open');
       });
       toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Fechar menu de navegação');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
       document.body.classList.add('nav-open');
       var first = drawer.querySelector('.nav a');
       if (first) first.focus();
@@ -154,7 +176,7 @@ const links = [
     function closeMenu() {
       drawer.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menu de navegação');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
       document.body.classList.remove('nav-open');
       setTimeout(function () {
         if (!drawer.classList.contains('is-open')) drawer.hidden = true;

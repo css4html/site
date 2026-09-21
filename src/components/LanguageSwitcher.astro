@@ -1,0 +1,28 @@
+---
+import { locales, localeLabels, type Locale } from '../i18n/config';
+import { switchLocalePath, useTranslations } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const pathname = Astro.url.pathname;
+---
+<div class="lang-switcher" data-lang-switcher role="navigation" aria-label={t('nav.lang')}>
+  {locales.map((code) => {
+    const href = switchLocalePath(pathname, code);
+    const active = code === locale;
+    return (
+      <a
+        href={href}
+        class:list={['lang-btn', { 'is-active': active }]}
+        hreflang={code}
+        aria-current={active ? 'page' : undefined}
+        lang={code}
+      >
+        {localeLabels[code]}
+      </a>
+    );
+  })}
+</div>

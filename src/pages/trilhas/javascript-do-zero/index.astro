@@ -1,29 +1,34 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getLessons, entrySlug } from '../../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../../i18n/utils';
 
 const TRAIL = 'javascript-do-zero';
-const lessons = (await getCollection('lessons'))
+const locale = 'pt-BR' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+
+const lessons = (await getLessons(locale))
   .filter((l) => l.data.trail === TRAIL)
   .sort((a, b) => a.data.order - b.data.order);
 ---
 <BaseLayout
-  title="Trilha: JavaScript do zero ao DOM"
-  description="Sete lições para ir de variáveis e funções até eventos, arrays e um projeto no DOM."
+  title={t('trail.js.pageTitle')}
+  description={t('trail.js.pageDesc')}
   current="trilhas"
+  locale={locale}
 >
   <div class="container page-header">
-    <p><a href="/trilhas/">← Trilhas</a></p>
-    <h1>JavaScript do zero ao DOM</h1>
+    <p><a href={lp('/trilhas/')}>{t('trails.back')}</a></p>
+    <h1>{t('trail.js.title')}</h1>
     <p>
-      Um caminho progressivo em {lessons.length} lições. Cada aula aponta para exemplos editáveis
-      e snippets prontos.
+      {t('trails.progressive')} {lessons.length} {t('trails.progressiveSuffix')}
     </p>
   </div>
   <div class="container">
     <div class="trail-progress">
       {lessons.map((lesson) => (
-        <a class="trail-item" href={`/trilhas/javascript-do-zero/${lesson.id}/`} >
+        <a class="trail-item" href={lp(`/trilhas/javascript-do-zero/${entrySlug(lesson)}/`)}>
           <span class="num">{lesson.data.order}</span>
           <span>
             <strong>{lesson.data.title}</strong>
@@ -34,9 +39,11 @@ const lessons = (await getCollection('lessons'))
       ))}
     </div>
     <p>
-      <a class="btn btn-primary" href={`/trilhas/javascript-do-zero/${lessons[0].id}/`} >
-        Começar lição 1
-      </a>
+      {lessons[0] && (
+        <a class="btn btn-primary" href={lp(`/trilhas/javascript-do-zero/${entrySlug(lessons[0])}/`)}>
+          {t('trails.startLesson1')}
+        </a>
+      )}
     </p>
   </div>
 </BaseLayout>

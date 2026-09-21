@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ExampleCard from '../../../components/ExampleCard.astro';
+import TagFilter from '../../../components/TagFilter.astro';
+import TrackFilter from '../../../components/TrackFilter.astro';
+import { getExamples } from '../../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../../i18n/utils';
+
+const locale = 'es' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+const examples = await getExamples(locale);
+const tags = [...new Set(examples.flatMap((e) => e.data.tags))].sort();
+
+function diffLabel(d: string) {
+  if (d === 'iniciante') return t('diff.iniciante');
+  if (d === 'intermediario') return t('diff.intermediario');
+  if (d === 'avancado') return t('diff.avancado');
+  return d;
+}
+---
+<BaseLayout title={t('examples.title')} description={t('examples.desc')} current="exemplos" locale={locale}>
+  <div class="container page-header">
+    <h1>{t('examples.title')}</h1>
+    <p>{t('examples.intro')}</p>
+  </div>
+  <div class="container section" style="padding-top:0">
+    <p style="margin:0 0 0.5rem;font-size:0.9rem;color:var(--color-muted)">{t('examples.trackLabel')}</p>
+    <TrackFilter allLabel={t('filter.all')} ariaLabel={t('filter.byTrack')} />
+    <p style="margin:1rem 0 0.5rem;font-size:0.9rem;color:var(--color-muted)">{t('examples.tagsLabel')}</p>
+    <TagFilter tags={tags} allLabel={t('filter.all')} ariaLabel={t('filter.byTag')} />
+    <div class="card-grid">
+      {examples.map((ex) => (
+        <ExampleCard
+          title={ex.data.title}
+          description={ex.data.description}
+          href={lp(`/exemplos/${ex.id}/`)}
+          tags={ex.data.tags}
+          difficulty={ex.data.difficulty}
+          difficultyLabel={diffLabel(ex.data.difficulty)}
+          track={ex.data.track}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

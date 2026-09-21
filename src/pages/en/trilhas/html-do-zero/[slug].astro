@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { render } from 'astro:content';
+import { getLessons, getExamples, getSnippets, entrySlug } from '../../../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../../../i18n/utils';
+
+const TRAIL = 'html-do-zero';
+const locale = 'en' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+
+export async function getStaticPaths() {
+  const lessons = await getLessons('en');
+  return lessons
+    .filter((lesson) => lesson.data.trail === 'html-do-zero')
+    .map((lesson) => ({
+      params: { slug: entrySlug(lesson) },
+      props: { slug: entrySlug(lesson) },
+    }));
+}
+
+const { slug } = Astro.props;
+const lessons = (await getLessons(locale))
+  .filter((l) => l.data.trail === TRAIL)
+  .sort((a, b) => a.data.order - b.data.order);
+const lesson = lessons.find((l) => entrySlug(l) === slug)!;
+const { Content } = await render(lesson);
+const idx = lessons.findIndex((l) => entrySlug(l) === slug);
+const prev = idx > 0 ? lessons[idx - 1] : null;
+const next = idx < lessons.length - 1 ? lessons[idx + 1] : null;
+
+const examples = await getExamples(locale);
+const snippets = await getSnippets(locale);
+const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
+const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+---
+<BaseLayout title={lesson.data.title} description={lesson.data.description} current="trilhas" locale={locale}>
+  <article class="container page-header">
+    <p>
+      <a href={lp('/trilhas/html-do-zero/')}>{t('trails.backTrail')}</a>
+      · {t('trails.lessonOf')} {lesson.data.order} {t('trails.of')} {lessons.length}
+    </p>
+    <h1>{lesson.data.title}</h1>
+    <p>{lesson.data.description}</p>
+    <div class="prose">
+      <Content />
+    </div>
+
+    {(lesson.data.relatedExamples.length > 0 || lesson.data.relatedSnippets.length > 0) && (
+      <div class="related">
+        <h2>{t('trails.practice')}</h2>
+        <ul>
+          {lesson.data.relatedExamples.map((id) => (
+            <li><a href={lp(`/exemplos/${id}/`)}>{t('trails.example')} {exTitle[id] ?? id}</a></li>
+          ))}
+          {lesson.data.relatedSnippets.map((id) => (
+            <li><a href={lp(`/snippets/${id}/`)}>{t('trails.snippet')} {snTitle[id] ?? id}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <nav class="meta-row" style="margin-top:2rem;justify-content:space-between" aria-label={t('trails.nav')}>
+      {prev ? (
+        <a href={lp(`/trilhas/html-do-zero/${entrySlug(prev)}/`)}>← {prev.data.title}</a>
+      ) : <span />}
+      {next ? (
+        <a href={lp(`/trilhas/html-do-zero/${entrySlug(next)}/`)}>{next.data.title} →</a>
+      ) : (
+        <a href={lp('/exemplos/')}>{t('trails.toExamples')}</a>
+      )}
+    </nav>
+  </article>
+</BaseLayout>

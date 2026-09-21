@@ -1,34 +1,42 @@
+---
+import { type Locale } from '../i18n/config';
+import { localizePath, useTranslations } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'pt-BR' } = Astro.props;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+---
 <footer class="site-footer">
   <div class="container">
     <div class="inner">
       <div>
         <p class="brand">CSS4HTML</p>
-        <p>
-          Hub educacional de HTML, CSS e JavaScript em português: exemplos editáveis,
-          snippets práticos e trilhas do zero à prática.
-        </p>
+        <p>{t('footer.blurb')}</p>
       </div>
       <div>
-        <h3>Aprender</h3>
+        <h3>{t('footer.learn')}</h3>
         <ul>
-          <li><a href="/trilhas/html-do-zero/">Trilha HTML</a></li>
-          <li><a href="/trilhas/css-do-zero-ao-layout/">Trilha CSS</a></li>
-          <li><a href="/trilhas/javascript-do-zero/">Trilha JavaScript</a></li>
-          <li><a href="/exemplos/">Exemplos vivos</a></li>
-          <li><a href="/snippets/">Biblioteca de snippets</a></li>
-          <li><a href="/blog/">Blog</a></li>
+          <li><a href={lp('/trilhas/html-do-zero/')}>{t('footer.trailHtml')}</a></li>
+          <li><a href={lp('/trilhas/css-do-zero-ao-layout/')}>{t('footer.trailCss')}</a></li>
+          <li><a href={lp('/trilhas/javascript-do-zero/')}>{t('footer.trailJs')}</a></li>
+          <li><a href={lp('/exemplos/')}>{t('footer.liveExamples')}</a></li>
+          <li><a href={lp('/snippets/')}>{t('footer.snippetLib')}</a></li>
+          <li><a href={lp('/blog/')}>{t('nav.blog')}</a></li>
         </ul>
       </div>
       <div>
-        <h3>Projeto</h3>
+        <h3>{t('footer.project')}</h3>
         <ul>
           <li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li>
-          <li><a href="/">Início</a></li>
+          <li><a href={lp('/')}>{t('footer.home')}</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© {new Date().getFullYear()} CSS4HTML — HTML, CSS e JS de verdade.</p>
+      <p>© {new Date().getFullYear()} CSS4HTML — {t('footer.copy')}</p>
       <p>css4html.com.br</p>
     </div>
   </div>

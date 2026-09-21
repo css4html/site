@@ -5,21 +5,23 @@ interface Props {
   href: string;
   tags?: string[];
   difficulty?: string;
+  difficultyLabel?: string;
   track?: string;
 }
-const { title, description, href, tags = [], difficulty, track } = Astro.props;
+const { title, description, href, tags = [], difficulty, difficultyLabel, track } = Astro.props;
 const trackLabel = track === 'html' ? 'HTML' : track === 'js' ? 'JS' : track === 'css' ? 'CSS' : '';
+const diffText = difficultyLabel ?? difficulty;
 ---
 <article class="card" data-tags={tags.join(',')} data-track={track || 'css'}>
   <div class="meta-row" style="margin:0 0 0.5rem">
     {trackLabel && <span class="badge">{trackLabel}</span>}
-    {difficulty && <span class={`badge ${difficulty}`}>{difficulty}</span>}
+    {diffText && <span class={`badge ${difficulty ?? ''}`}>{diffText}</span>}
   </div>
   <h3><a href={href}>{title}</a></h3>
   <p>{description}</p>
   {tags.length > 0 && (
     <ul class="tags">
-      {tags.map((t) => <li class="tag">{t}</li>)}
+      {tags.map((tg) => <li class="tag">{tg}</li>)}
     </ul>
   )}
 </article>

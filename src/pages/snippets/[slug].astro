@@ -1,31 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { getSnippets } from '../../i18n/collections';
+import { localizePath, useTranslations, type Locale } from '../../i18n/utils';
+
+const locale = 'pt-BR' as Locale;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
 
 export async function getStaticPaths() {
   const snippets = await getCollection('snippets');
   return snippets.map((sn) => ({
     params: { slug: sn.id },
-    props: { sn },
+    props: { id: sn.id },
   }));
 }
 
-const { sn } = Astro.props;
+const { id } = Astro.props;
+const snippets = await getSnippets(locale);
+const sn = snippets.find((s) => s.id === id)!;
 const { Content } = await render(sn);
 const codeId = `code-${sn.id}`;
 ---
-<BaseLayout title={sn.data.title} description={sn.data.description} current="snippets">
+<BaseLayout title={sn.data.title} description={sn.data.description} current="snippets" locale={locale}>
   <article class="container page-header">
-    <p><a href="/snippets/">← Snippets</a></p>
+    <p><a href={lp('/snippets/')}>{t('snippets.back')}</a></p>
     <h1>{sn.data.title}</h1>
     <p>{sn.data.description}</p>
     <div class="meta-row">
       <ul class="tags" style="margin:0">
-        {sn.data.tags.map((t) => <li class="tag">{t}</li>)}
+        {sn.data.tags.map((tg) => <li class="tag">{tg}</li>)}
       </ul>
     </div>
     <div class="code-block" id={codeId}>
-      <button class="copy-btn" type="button" data-copy={codeId}>Copiar</button>
+      <button class="copy-btn" type="button" data-copy={codeId} data-label-copy={t('snippets.copy')} data-label-copied={t('snippets.copied')} data-label-error={t('snippets.error')}>{t('snippets.copy')}</button>
       <code>{sn.data.code}</code>
     </div>
     <div class="prose" style="margin-top:1.5rem">
@@ -39,12 +47,15 @@ const codeId = `code-${sn.id}`;
       const id = btn.getAttribute('data-copy');
       const el = id ? document.getElementById(id) : null;
       const code = el?.querySelector('code')?.textContent || '';
+      const copyLabel = btn.getAttribute('data-label-copy') || 'Copy';
+      const copiedLabel = btn.getAttribute('data-label-copied') || 'Copied!';
+      const errorLabel = btn.getAttribute('data-label-error') || 'Error';
       try {
         await navigator.clipboard.writeText(code);
-        btn.textContent = 'Copiado!';
-        setTimeout(() => { btn.textContent = 'Copiar'; }, 1500);
+        btn.textContent = copiedLabel;
+        setTimeout(() => { btn.textContent = copyLabel; }, 1500);
       } catch {
-        btn.textContent = 'Erro';
+        btn.textContent = errorLabel;
       }
     });
   });
