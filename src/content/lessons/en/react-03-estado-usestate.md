@@ -26,3 +26,5 @@ function App() {
   );
 }
 ```
+
+**HTML shell note:** each click updates state → React re-renders `App` **inside** the playground `#root`. The outer document (import map, Sucrase, `createRoot`) stays the same.

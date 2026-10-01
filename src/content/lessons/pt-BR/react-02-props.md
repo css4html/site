@@ -23,3 +23,5 @@ function App() {
 ```
 
 Para conteúdo aninhado, use a prop especial `children`.
+
+O `App` acima continua sendo montado em `#root` pelo HTML do playground (import map + Sucrase) — o mesmo esqueleto da [lição 1](/trilhas/react-do-basico-ao-estado/react-01-componentes-jsx/).

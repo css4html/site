@@ -1104,3 +1104,43 @@ html[data-theme="dark"] .badge.track-react {
   border-color: var(--color-border);
   background: var(--color-surface);
 }
+
+
+/* —— React playground HTML shell hint —— */
+.pg-react-shell {
+  margin: 0 0 var(--space-3);
+  padding: 0.65rem 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--color-react) 40%, var(--color-border));
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-react) 10%, var(--color-surface));
+  font-size: 0.9rem;
+}
+.pg-react-shell summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-react-2);
+  list-style-position: outside;
+}
+.pg-react-shell-hint {
+  margin: 0.55rem 0 0.35rem;
+  color: var(--color-text-muted, var(--color-text));
+  line-height: var(--leading-snug);
+  font-size: 0.88rem;
+}
+.pg-react-shell-code {
+  margin: 0.4rem 0 0;
+  padding: 0.75rem 0.9rem;
+  overflow: auto;
+  max-height: 220px;
+  border-radius: 6px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.pg-react-shell-code code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}

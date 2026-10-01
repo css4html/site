@@ -1,6 +1,6 @@
 ---
 title: "Estado con useState"
-description: "Memoria local del componente que dispara re-renders."
+description: "Memoria local del componente que dispara re-render."
 order: 3
 trail: "react-do-basico-ao-estado"
 track: "react"
@@ -26,3 +26,5 @@ function App() {
   );
 }
 ```
+
+**Nota esqueleto HTML:** cada clic actualiza el estado → React vuelve a renderizar `App` **dentro** de `#root`. El documento exterior (import map, Sucrase, `createRoot`) no cambia.

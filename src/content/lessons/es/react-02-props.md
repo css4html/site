@@ -1,6 +1,6 @@
 ---
 title: "Props"
-description: "Pasar datos del padre al hijo con props."
+description: "Pasar datos de padre a hijo con props."
 order: 2
 trail: "react-do-basico-ao-estado"
 track: "react"
@@ -25,3 +25,5 @@ function App() {
 ```
 
 Para conteúdo aninhado, use a prop especial `children`.
+
+**Nota esqueleto HTML:** `App` sigue montándose en `#root` con el documento del playground (import map + Sucrase) — ver [lección 1](/es/trilhas/react-do-basico-ao-estado/react-01-componentes-jsx/).

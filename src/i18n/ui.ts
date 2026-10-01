@@ -190,6 +190,11 @@ const pt = {
   'pg.livePreview': 'Pré-visualização ao vivo',
   'pg.iframeTitle': 'Pré-visualização do exemplo',
   'pg.previewPanel': 'Pré-visualização',
+  'pg.reactShellSummary': 'Esqueleto HTML (como o React monta)',
+  'pg.reactShellHint': 'O playground injeta #root, import map (esm.sh) e Sucrase. A aba HTML é só markup extra fora do React. Nomeie o componente de topo como App.',
+  'pg.editorHtmlReact': 'Editor HTML (fora do #root)',
+  'pg.htmlPaneReact': 'HTML (fora do #root)',
+  'pg.reactShellViteNote': 'Vite local: index.html → src/main.tsx → <App /> em #root. Aqui o playground faz o equivalente com esm.sh + Sucrase.',
 
   // Content fallback note
   'content.partialNote':
@@ -378,6 +383,11 @@ const en: Record<UiKey, string> = {
   'pg.livePreview': 'Live preview',
   'pg.iframeTitle': 'Example preview',
   'pg.previewPanel': 'Preview',
+  'pg.reactShellSummary': 'HTML shell (how React mounts)',
+  'pg.reactShellHint': 'The playground injects #root, an import map (esm.sh), and Sucrase. The HTML tab is only extra markup outside React. Name the top-level component App.',
+  'pg.editorHtmlReact': 'HTML editor (outside #root)',
+  'pg.htmlPaneReact': 'HTML (outside #root)',
+  'pg.reactShellViteNote': 'Local Vite: index.html → src/main.tsx → <App /> into #root. Here the playground does the equivalent with esm.sh + Sucrase.',
 
   'content.partialNote':
     'Parts of this content are still in Portuguese. Full translation coming soon.',
@@ -563,6 +573,11 @@ const es: Record<UiKey, string> = {
   'pg.livePreview': 'Vista previa en vivo',
   'pg.iframeTitle': 'Vista previa del ejemplo',
   'pg.previewPanel': 'Vista previa',
+  'pg.reactShellSummary': 'Esqueleto HTML (cómo monta React)',
+  'pg.reactShellHint': 'El playground inyecta #root, import map (esm.sh) y Sucrase. La pestaña HTML es solo markup extra fuera de React. Nombra el componente de nivel superior App.',
+  'pg.editorHtmlReact': 'Editor HTML (fuera de #root)',
+  'pg.htmlPaneReact': 'HTML (fuera de #root)',
+  'pg.reactShellViteNote': 'Vite local: index.html → src/main.tsx → <App /> en #root. Aquí el playground hace el equivalente con esm.sh + Sucrase.',
 
   'content.partialNote':
     'Parte de este contenido sigue en portugués. Traducción completa próximamente.',

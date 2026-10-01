@@ -24,3 +24,5 @@ function App() {
   );
 }
 ```
+
+Cada clique chama o setter → React re-renderiza `App` **dentro** do `#root` do documento HTML do playground. O esqueleto (import map, Sucrase, `createRoot`) não muda; só a árvore dentro de `#root`.

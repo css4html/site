@@ -16,7 +16,7 @@ export function playgroundLabels(locale: Locale, mode: 'html' | 'react' = 'html'
     preview: t('pg.preview'),
     editors: t('pg.editors'),
     copy: t('pg.copy'),
-    editorHtml: t('pg.editorHtml'),
+    editorHtml: isReact ? t('pg.editorHtmlReact') : t('pg.editorHtml'),
     editorCss: t('pg.editorCss'),
     editorJs: isReact ? t('pg.editorTsx') : t('pg.editorJs'),
     livePreview: t('pg.livePreview'),
@@ -24,5 +24,9 @@ export function playgroundLabels(locale: Locale, mode: 'html' | 'react' = 'html'
     previewPanel: t('pg.previewPanel'),
     jsTab: isReact ? t('pg.tsxTab') : t('pg.jsTab'),
     jsPane: isReact ? t('pg.tsxPane') : t('pg.jsPane'),
+    reactShellSummary: t('pg.reactShellSummary'),
+    reactShellHint: t('pg.reactShellHint'),
+    reactShellViteNote: t('pg.reactShellViteNote'),
+    htmlPaneLabel: isReact ? t('pg.htmlPaneReact') : 'HTML',
   };
 }
