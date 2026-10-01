@@ -30,6 +30,13 @@ const trails = [
     description: t('trail.js.desc'),
     count: lessons.filter((l) => l.data.trail === 'javascript-do-zero').length,
   },
+  {
+    id: 'react-do-basico-ao-estado',
+    href: lp('/trilhas/react-do-basico-ao-estado/'),
+    title: t('trail.react.title'),
+    description: t('trail.react.desc'),
+    count: lessons.filter((l) => l.data.trail === 'react-do-basico-ao-estado').length,
+  },
 ];
 ---
 <BaseLayout title={t('trails.title')} description={t('trails.desc')} current="trilhas" locale={locale}>

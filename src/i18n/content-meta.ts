@@ -343,6 +343,86 @@ export const examplesI18n: Record<string, LocaleMeta> = {
       "title": "z-index y apilamiento",
       "description": "Contextos de apilamiento y cuándo z-index realmente funciona."
     }
+  },
+  "react-hello-jsx": {
+    "en": {
+      "title": "Hello JSX",
+      "description": "First React component rendered in the playground."
+    },
+    "es": {
+      "title": "Hello JSX",
+      "description": "Primer componente React renderizado en el playground."
+    }
+  },
+  "react-props-card": {
+    "en": {
+      "title": "Card with props",
+      "description": "Reusable component receiving title and children."
+    },
+    "es": {
+      "title": "Card con props",
+      "description": "Componente reutilizable que recibe title y children."
+    }
+  },
+  "react-contador-usestate": {
+    "en": {
+      "title": "Counter with useState",
+      "description": "Local state, events, and re-render."
+    },
+    "es": {
+      "title": "Contador con useState",
+      "description": "Estado local, eventos y re-render."
+    }
+  },
+  "react-efeito-document-title": {
+    "en": {
+      "title": "useEffect on document.title",
+      "description": "Sync the tab title with state."
+    },
+    "es": {
+      "title": "useEffect en document.title",
+      "description": "Sincronizar el título de la pestaña con el estado."
+    }
+  },
+  "react-lista-filtravel": {
+    "en": {
+      "title": "Filterable list with keys",
+      "description": "map + filter + stable keys."
+    },
+    "es": {
+      "title": "Lista filtrable con keys",
+      "description": "map + filter + keys estables."
+    }
+  },
+  "react-query-posts": {
+    "en": {
+      "title": "React Query: remote list",
+      "description": "useQuery + cache with JSONPlaceholder."
+    },
+    "es": {
+      "title": "React Query: lista remota",
+      "description": "useQuery + caché con JSONPlaceholder."
+    }
+  },
+  "react-query-add-todo": {
+    "en": {
+      "title": "React Query: local mutation",
+      "description": "useMutation + invalidateQueries on a mock list."
+    },
+    "es": {
+      "title": "React Query: mutation local",
+      "description": "useMutation + invalidateQueries en lista mock."
+    }
+  },
+  "react-zustand-theme": {
+    "en": {
+      "title": "Zustand: global theme",
+      "description": "Shared store across components."
+    },
+    "es": {
+      "title": "Zustand: tema global",
+      "description": "Store compartido entre componentes."
+    }
   }
 };
 
@@ -805,6 +885,106 @@ export const snippetsI18n: Record<string, LocaleMeta> = {
     "es": {
       "title": "Underline animado al hover",
       "description": "Línea que crece con transform — ligera y accesible."
+    }
+  },
+  "react-functional-component": {
+    "en": {
+      "title": "Functional component",
+      "description": "Function that returns JSX."
+    },
+    "es": {
+      "title": "Componente funcional",
+      "description": "Función que devuelve JSX."
+    }
+  },
+  "react-props-destructure": {
+    "en": {
+      "title": "Destructure props",
+      "description": "Clean signature with destructuring."
+    },
+    "es": {
+      "title": "Desestructurar props",
+      "description": "Firma limpia con destructuring."
+    }
+  },
+  "react-usestate-toggle": {
+    "en": {
+      "title": "useState toggle",
+      "description": "Boolean with a functional setter."
+    },
+    "es": {
+      "title": "useState toggle",
+      "description": "Boolean con setter funcional."
+    }
+  },
+  "react-useeffect-mount": {
+    "en": {
+      "title": "useEffect on mount",
+      "description": "Empty deps array + cleanup."
+    },
+    "es": {
+      "title": "useEffect al montar",
+      "description": "Array de deps vacío + cleanup."
+    }
+  },
+  "react-map-keys": {
+    "en": {
+      "title": "map with key",
+      "description": "List with a stable identifier."
+    },
+    "es": {
+      "title": "map con key",
+      "description": "Lista con identificador estable."
+    }
+  },
+  "react-query-usequery": {
+    "en": {
+      "title": "Basic useQuery",
+      "description": "queryKey + queryFn."
+    },
+    "es": {
+      "title": "useQuery básico",
+      "description": "queryKey + queryFn."
+    }
+  },
+  "react-query-usemutation": {
+    "en": {
+      "title": "useMutation + invalidate",
+      "description": "Mutate and refresh the cache."
+    },
+    "es": {
+      "title": "useMutation + invalidate",
+      "description": "Mutar y refrescar la caché."
+    }
+  },
+  "react-zustand-store": {
+    "en": {
+      "title": "Zustand store",
+      "description": "create + selector."
+    },
+    "es": {
+      "title": "Store Zustand",
+      "description": "create + selector."
+    }
+  },
+  "react-conditional-render": {
+    "en": {
+      "title": "Conditional render",
+      "description": "&& and ternary in JSX."
+    },
+    "es": {
+      "title": "Render condicional",
+      "description": "&& y ternario en JSX."
+    }
+  },
+  "react-children-compose": {
+    "en": {
+      "title": "Compose with children",
+      "description": "Content slot in the component."
+    },
+    "es": {
+      "title": "Componer con children",
+      "description": "Slot de contenido en el componente."
     }
   }
 };

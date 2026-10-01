@@ -9,12 +9,17 @@ interface Props {
   track?: string;
 }
 const { title, description, href, tags = [], difficulty, difficultyLabel, track } = Astro.props;
-const trackLabel = track === 'html' ? 'HTML' : track === 'js' ? 'JS' : track === 'css' ? 'CSS' : '';
+const trackLabel =
+  track === 'html' ? 'HTML' :
+  track === 'js' ? 'JS' :
+  track === 'css' ? 'CSS' :
+  track === 'react' ? 'REACT' : '';
+const trackClass = track === 'react' ? 'track-react' : '';
 const diffText = difficultyLabel ?? difficulty;
 ---
 <article class="card" data-tags={tags.join(',')} data-track={track || 'css'}>
   <div class="meta-row" style="margin:0 0 0.5rem">
-    {trackLabel && <span class="badge">{trackLabel}</span>}
+    {trackLabel && <span class={`badge ${trackClass}`}>{trackLabel}</span>}
     {diffText && <span class={`badge ${difficulty ?? ''}`}>{diffText}</span>}
   </div>
   <h3><a href={href}>{title}</a></h3>

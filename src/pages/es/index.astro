@@ -13,6 +13,7 @@ const lessons = await getLessons(locale);
 const htmlLessons = lessons.filter((l) => l.data.trail === 'html-do-zero');
 const cssLessons = lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout');
 const jsLessons = lessons.filter((l) => l.data.trail === 'javascript-do-zero');
+const reactLessons = lessons.filter((l) => l.data.trail === 'react-do-basico-ao-estado');
 const posts = (await getBlogPosts(locale)).slice(0, 3);
 
 function diffLabel(d: string) {
@@ -54,6 +55,12 @@ function diffLabel(d: string) {
         <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/javascript-do-zero/')}>{t('home.jsTitle')}</a></h3>
         <p>{t('home.jsDesc')}</p>
         <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/javascript-do-zero/')}>{t('home.jsCta')}</a></p>
+      </article>
+      <article class="card">
+        <span class="badge">{reactLessons.length} {t('home.lessonsCount')}</span>
+        <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/react-do-basico-ao-estado/')}>{t('home.reactTitle')}</a></h3>
+        <p>{t('home.reactDesc')}</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/react-do-basico-ao-estado/')}>{t('home.reactCta')}</a></p>
       </article>
     </div>
   </section>

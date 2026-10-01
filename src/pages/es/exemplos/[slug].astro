@@ -22,7 +22,11 @@ const { id } = Astro.props;
 const examples = await getExamples(locale);
 const ex = examples.find((e) => e.id === id)!;
 const { Content } = await render(ex);
-const trackLabel = ex.data.track === 'html' ? 'HTML' : ex.data.track === 'js' ? 'JS' : 'CSS';
+const trackLabel =
+  ex.data.track === 'html' ? 'HTML' :
+  ex.data.track === 'js' ? 'JS' :
+  ex.data.track === 'react' ? 'REACT' : 'CSS';
+const playgroundMode = ex.data.track === 'react' ? 'react' : 'html';
 function diffLabel(d: string) {
   if (d === 'iniciante') return t('diff.iniciante');
   if (d === 'intermediario') return t('diff.intermediario');
@@ -36,7 +40,7 @@ function diffLabel(d: string) {
     <h1>{ex.data.title}</h1>
     <p>{ex.data.description}</p>
     <div class="meta-row">
-      <span class="badge">{trackLabel}</span>
+      <span class={`badge ${ex.data.track === "react" ? "track-react" : ""}`}>{trackLabel}</span>
       <span class={`badge ${ex.data.difficulty}`}>{diffLabel(ex.data.difficulty)}</span>
       <ul class="tags" style="margin:0">
         {ex.data.tags.map((tg) => <li class="tag">{tg}</li>)}
@@ -45,6 +49,6 @@ function diffLabel(d: string) {
     <div class="prose">
       <Content />
     </div>
-    <Playground html={ex.data.html} css={ex.data.css} js={ex.data.js} id={ex.id} labels={playgroundLabels(locale)} />
+    <Playground html={ex.data.html} css={ex.data.css} js={ex.data.js} id={ex.id} mode={playgroundMode} labels={playgroundLabels(locale, playgroundMode)} />
   </article>
 </BaseLayout>
