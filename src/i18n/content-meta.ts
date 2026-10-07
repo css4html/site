@@ -423,7 +423,43 @@ export const examplesI18n: Record<string, LocaleMeta> = {
       "title": "Zustand: tema global",
       "description": "Store compartido entre componentes."
     }
-  }
+  },
+"wc-hello-element": {
+    "en": { "title": "Hello Custom Element", "description": "First custom element with label and Shadow DOM." },
+    "es": { "title": "Hello Custom Element", "description": "Primer custom element con label y Shadow DOM." }
+  },
+  "wc-shadow-styles": {
+    "en": { "title": "Shadow DOM and styles", "description": "Encapsulated CSS: the host does not leak into the component." },
+    "es": { "title": "Shadow DOM y estilos", "description": "CSS encapsulado: el host no se filtra dentro del componente." }
+  },
+  "wc-galeria-vanilla": {
+    "en": { "title": "Vanilla gallery (Custom Element)", "description": "image-gallery with Shadow DOM, grid, and gallery-select event." },
+    "es": { "title": "Galería vanilla (Custom Element)", "description": "image-gallery con Shadow DOM, grid y evento gallery-select." }
+  },
+  "wc-galeria-react": {
+    "en": { "title": "Gallery in React (CE host)", "description": "The same image-gallery used inside a React App via esm.sh." },
+    "es": { "title": "Galería en React (host CE)", "description": "El mismo image-gallery usado dentro de un App React vía esm.sh." }
+  },
+  "wc-galeria-vue": {
+    "en": { "title": "Gallery in Vue (CE host)", "description": "Custom Element hosted by Vue 3 (global CDN build)." },
+    "es": { "title": "Galería en Vue (host CE)", "description": "Custom Element hospedado por Vue 3 (build global vía CDN)." }
+  },
+  "wc-attrs-props": {
+    "en": { "title": "Attributes and columns", "description": "observedAttributes updates the grid when columns changes." },
+    "es": { "title": "Atributos y columns", "description": "observedAttributes actualiza el grid cuando cambia columns." }
+  },
+  "wc-vite-lib-tree": {
+    "en": { "title": "Vite lib tree (conceptual)", "description": "Mental map of a library-mode package — entry, dist, and preview HTML." },
+    "es": { "title": "Árbol Vite lib (conceptual)", "description": "Mapa mental del paquete en library mode — entry, dist y HTML de preview." }
+  },
+  "wc-dual-export": {
+    "en": { "title": "Dual export (class + register)", "description": "register() with guard + auto-register on the entry." },
+    "es": { "title": "Export dual (clase + register)", "description": "register() con guarda + auto-register en el entry." }
+  },
+  "wc-consumir-app": {
+    "en": { "title": "Consume in the app (import + tag)", "description": "How a Vite app would use the lib: register and mount the gallery." },
+    "es": { "title": "Consumir en la app (import + tag)", "description": "Cómo la app Vite usaría la lib: registrar y montar la galería." }
+  },
 };
 
 export const snippetsI18n: Record<string, LocaleMeta> = {
@@ -986,8 +1022,53 @@ export const snippetsI18n: Record<string, LocaleMeta> = {
       "title": "Componer con children",
       "description": "Slot de contenido en el componente."
     }
-  }
+  },
+"wc-custom-elements-define": {
+    "en": { "title": "customElements.define", "description": "Register a Custom Element with a hyphenated name." },
+    "es": { "title": "customElements.define", "description": "Registrar un Custom Element con nombre con guion." }
+  },
+  "wc-shadow-dom-attach": {
+    "en": { "title": "attachShadow", "description": "Open Shadow DOM and inject markup + CSS." },
+    "es": { "title": "attachShadow", "description": "Abrir Shadow DOM e inyectar markup + CSS." }
+  },
+  "wc-observed-attributes": {
+    "en": { "title": "observedAttributes", "description": "React to HTML attribute changes." },
+    "es": { "title": "observedAttributes", "description": "Reaccionar a cambios de atributos HTML." }
+  },
+  "wc-slot-basico": {
+    "en": { "title": "Basic slot", "description": "Project light DOM into the shadow with <slot>." },
+    "es": { "title": "Slot básico", "description": "Proyectar light DOM en el shadow con <slot>." }
+  },
+  "wc-css-in-shadow": {
+    "en": { "title": "CSS in Shadow DOM", "description": "Encapsulated styles with :host and ::slotted." },
+    "es": { "title": "CSS en Shadow DOM", "description": "Estilos encapsulados con :host y ::slotted." }
+  },
+  "wc-register-guard": {
+    "en": { "title": "define guard", "description": "Avoid errors if the module is imported twice." },
+    "es": { "title": "Guarda en define", "description": "Evitar error si el módulo se importa dos veces." }
+  },
+  "wc-vite-lib-config": {
+    "en": { "title": "Vite lib mode", "description": "vite.config snippet for library mode." },
+    "es": { "title": "Vite lib mode", "description": "Fragmento de vite.config para library mode." }
+  },
+  "wc-export-dual-pattern": {
+    "en": { "title": "Dual export", "description": "Named class + register() + auto-register." },
+    "es": { "title": "Export dual", "description": "Clase nombrada + register() + auto-register." }
+  },
+  "wc-package-exports": {
+    "en": { "title": "package.json exports", "description": "exports field pointing at the lib ESM." },
+    "es": { "title": "package.json exports", "description": "Campo exports apuntando al ESM de la lib." }
+  },
+  "wc-react-host": {
+    "en": { "title": "CE in React", "description": "Use the tag in JSX after registering the element." },
+    "es": { "title": "CE en React", "description": "Usar la etiqueta en JSX tras registrar el elemento." }
+  },
+  "wc-vue-host": {
+    "en": { "title": "CE in Vue", "description": "Side-effect import + tag in a Vue template." },
+    "es": { "title": "CE en Vue", "description": "Import side-effect + etiqueta en el template de Vue." }
+  },
 };
+
 
 export function localizeMeta(
   map: Record<string, LocaleMeta>,

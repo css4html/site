@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const track = z.enum(['html', 'css', 'js', 'react']).default('css');
+const track = z.enum(['html', 'css', 'js', 'react', 'wc']).default('css');
 
 const examples = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/examples' }),
@@ -14,6 +14,7 @@ const examples = defineCollection({
     html: z.string(),
     css: z.string().default(''),
     js: z.string().optional(),
+    mode: z.enum(['html', 'react']).optional(),
     order: z.number().optional(),
   }),
 });

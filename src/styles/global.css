@@ -13,6 +13,8 @@
   --color-warning: #f5a524;
   --color-react: #61dafb;
   --color-react-2: #149eca;
+  --color-wc: #F5A623;
+  --color-wc-2: #F5A623;
   --color-header-bg: rgba(15, 20, 25, 0.88);
   --color-code-bg: #0b1016;
   --color-preview-bg: #ffffff;
@@ -63,6 +65,8 @@ html[data-theme="light"] {
   --color-warning: #c47a00;
   --color-react: #087ea4;
   --color-react-2: #149eca;
+  --color-wc: #D4890A;
+  --color-wc-2: #F5A623;
   --color-header-bg: rgba(244, 247, 251, 0.9);
   --color-code-bg: #0f172a;
   --color-preview-bg: #ffffff;
@@ -646,6 +650,24 @@ html[data-theme="light"] .badge.avancado {
 }
 html[data-theme="dark"] .badge.track-react {
   color: var(--color-react);
+}
+
+/* —— Web Components tip callout —— */
+.tip-wc {
+  border-color: color-mix(in srgb, var(--color-wc) 45%, var(--color-border));
+  background: color-mix(in srgb, var(--color-wc) 12%, var(--color-surface));
+}
+.tip-wc strong {
+  color: var(--color-wc-2);
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+}
+.badge.track-wc {
+  background: color-mix(in srgb, var(--color-wc) 18%, transparent);
+  color: var(--color-wc-2);
+}
+html[data-theme="dark"] .badge.track-wc {
+  color: var(--color-wc);
 }
 
 /* —— Prose —— */

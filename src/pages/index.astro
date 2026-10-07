@@ -14,6 +14,7 @@ const htmlLessons = lessons.filter((l) => l.data.trail === 'html-do-zero');
 const cssLessons = lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout');
 const jsLessons = lessons.filter((l) => l.data.trail === 'javascript-do-zero');
 const reactLessons = lessons.filter((l) => l.data.trail === 'react-do-basico-ao-estado');
+const wcLessons = lessons.filter((l) => l.data.trail === 'webcomponents-com-vite');
 const posts = (await getBlogPosts(locale)).slice(0, 3);
 
 function diffLabel(d: string) {
@@ -61,6 +62,12 @@ function diffLabel(d: string) {
         <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/react-do-basico-ao-estado/')}>{t('home.reactTitle')}</a></h3>
         <p>{t('home.reactDesc')}</p>
         <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/react-do-basico-ao-estado/')}>{t('home.reactCta')}</a></p>
+      </article>
+      <article class="card">
+        <span class="badge">{wcLessons.length} {t('home.lessonsCount')}</span>
+        <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/webcomponents-com-vite/')}>{t('home.wcTitle')}</a></h3>
+        <p>{t('home.wcDesc')}</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/webcomponents-com-vite/')}>{t('home.wcCta')}</a></p>
       </article>
     </div>
   </section>

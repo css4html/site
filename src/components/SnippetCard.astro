@@ -11,8 +11,11 @@ const trackLabel =
   track === 'html' ? 'HTML' :
   track === 'js' ? 'JS' :
   track === 'css' ? 'CSS' :
-  track === 'react' ? 'REACT' : '';
-const trackClass = track === 'react' ? 'track-react' : '';
+  track === 'react' ? 'REACT' :
+  track === 'wc' ? 'WC' : '';
+const trackClass =
+  track === 'react' ? 'track-react' :
+  track === 'wc' ? 'track-wc' : '';
 ---
 <article class="card" data-tags={tags.join(',')} data-track={track || 'css'}>
   {trackLabel && <span class={`badge ${trackClass}`} style="margin-bottom:0.35rem">{trackLabel}</span>}

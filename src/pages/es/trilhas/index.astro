@@ -37,6 +37,13 @@ const trails = [
     description: t('trail.react.desc'),
     count: lessons.filter((l) => l.data.trail === 'react-do-basico-ao-estado').length,
   },
+  {
+    id: 'webcomponents-com-vite',
+    href: lp('/trilhas/webcomponents-com-vite/'),
+    title: t('trail.wc.title'),
+    description: t('trail.wc.desc'),
+    count: lessons.filter((l) => l.data.trail === 'webcomponents-com-vite').length,
+  },
 ];
 ---
 <BaseLayout title={t('trails.title')} description={t('trails.desc')} current="trilhas" locale={locale}>

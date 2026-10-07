@@ -25,8 +25,9 @@ const { Content } = await render(ex);
 const trackLabel =
   ex.data.track === 'html' ? 'HTML' :
   ex.data.track === 'js' ? 'JS' :
-  ex.data.track === 'react' ? 'REACT' : 'CSS';
-const playgroundMode = ex.data.track === 'react' ? 'react' : 'html';
+  ex.data.track === 'react' ? 'REACT' :
+  ex.data.track === 'wc' ? 'WC' : 'CSS';
+const playgroundMode = ex.data.mode ?? (ex.data.track === 'react' ? 'react' : 'html');
 function diffLabel(d: string) {
   if (d === 'iniciante') return t('diff.iniciante');
   if (d === 'intermediario') return t('diff.intermediario');
@@ -40,7 +41,7 @@ function diffLabel(d: string) {
     <h1>{ex.data.title}</h1>
     <p>{ex.data.description}</p>
     <div class="meta-row">
-      <span class={`badge ${ex.data.track === "react" ? "track-react" : ""}`}>{trackLabel}</span>
+      <span class={`badge ${ex.data.track === "react" ? "track-react" : ex.data.track === "wc" ? "track-wc" : ""}`}>{trackLabel}</span>
       <span class={`badge ${ex.data.difficulty}`}>{diffLabel(ex.data.difficulty)}</span>
       <ul class="tags" style="margin:0">
         {ex.data.tags.map((tg) => <li class="tag">{tg}</li>)}

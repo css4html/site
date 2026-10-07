@@ -24,33 +24,35 @@ const pt = {
   'nav.trailCss': 'CSS do zero ao layout',
   'nav.trailJs': 'JavaScript do zero',
   'nav.trailReact': 'React do básico ao estado',
+  'nav.trailWc': 'Web Components com Vite',
 
   // Footer
   'footer.blurb':
-    'Hub educacional de HTML, CSS, JavaScript e React: exemplos editáveis, snippets práticos e trilhas do zero à prática.',
+    'Hub educacional de HTML, CSS, JavaScript, React e Web Components: exemplos editáveis, snippets práticos e trilhas do zero à prática.',
   'footer.learn': 'Aprender',
   'footer.trailHtml': 'Trilha HTML',
   'footer.trailCss': 'Trilha CSS',
   'footer.trailJs': 'Trilha JavaScript',
   'footer.trailReact': 'Trilha React',
+  'footer.trailWc': 'Trilha Web Components',
   'footer.liveExamples': 'Exemplos vivos',
   'footer.snippetLib': 'Biblioteca de snippets',
   'footer.project': 'Projeto',
   'footer.home': 'Início',
-  'footer.copy': 'HTML, CSS, JS e React de verdade.',
+  'footer.copy': 'HTML, CSS, JS, React e Web Components de verdade.',
 
   // Home
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript e React na prática',
+  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React e Web Components na prática',
   'home.desc':
-    'Hub de aprendizado de HTML, CSS, JavaScript e React: exemplos vivos, snippets, trilhas e blog.',
+    'Hub de aprendizado de HTML, CSS, JavaScript, React e Web Components: exemplos vivos, snippets, trilhas e blog.',
   'home.badge': 'Aprendizado prático',
-  'home.h1': 'Aprenda HTML, CSS, JavaScript e React com exemplos vivos',
+  'home.h1': 'Aprenda HTML, CSS, JavaScript, React e Web Components com exemplos vivos',
   'home.lead':
-    'O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras — do HTML ao React, passando por CSS e JavaScript.',
+    'O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras — do HTML ao React e Web Components, passando por CSS e JavaScript.',
   'home.ctaTrails': 'Ver trilhas',
   'home.ctaExamples': 'Abrir exemplos',
-  'home.threeTrails': 'Quatro trilhas, um hub',
-  'home.threeTrailsDesc': 'Escolha por onde começar — ou combine as quatro.',
+  'home.threeTrails': 'Cinco trilhas, um hub',
+  'home.threeTrailsDesc': 'Escolha por onde começar — ou combine as cinco.',
   'home.lessonsCount': 'lições',
   'home.htmlTitle': 'HTML do zero à página',
   'home.htmlDesc':
@@ -65,6 +67,9 @@ const pt = {
   'home.reactTitle': 'React do básico ao estado',
   'home.reactDesc': 'Componentes, hooks, React Query e Zustand — com playground TSX.',
   'home.reactCta': 'Começar React',
+  'home.wcTitle': 'Web Components com Vite',
+  'home.wcDesc': 'Custom Elements agnósticos, Shadow DOM, empacote com Vite e consuma em React ou Vue.',
+  'home.wcCta': 'Começar WC',
   'home.how': 'Como estudar',
   'home.howDesc': 'Vários caminhos, o mesmo objetivo: entender a web na prática.',
   'home.step1Title': 'Siga uma trilha',
@@ -87,7 +92,7 @@ const pt = {
 
   // Trails
   'trails.title': 'Trilhas',
-  'trails.desc': 'Percursos guiados de HTML, CSS, JavaScript e React.',
+  'trails.desc': 'Percursos guiados de HTML, CSS, JavaScript, React e Web Components.',
   'trails.intro':
     'Percursos curtos que ligam teoria, playground e snippets — trilhas irmãs no mesmo hub.',
   'trails.open': 'Abrir trilha',
@@ -129,20 +134,26 @@ const pt = {
   'trail.react.pageTitle': 'Trilha: React do básico ao estado',
   'trail.react.pageDesc':
     'Oito lições do JSX ao estado global com exemplos editáveis em TSX.',
+  'trail.wc.title': 'Web Components com Vite',
+  'trail.wc.desc':
+    'Custom Elements, Shadow DOM, a mesma galeria em React/Vue, lib mode no Vite e export dual.',
+  'trail.wc.pageTitle': 'Trilha: Web Components com Vite',
+  'trail.wc.pageDesc':
+    'Oito lições do custom element à lib consumível em apps Vite — agnóstico a framework.',
 
   // Examples
   'examples.title': 'Exemplos vivos',
   'examples.desc': 'Playground HTML+CSS+JS/TSX com pré-visualização ao vivo.',
   'examples.intro':
-    'Edite HTML, CSS, JavaScript e React/TSX com CodeMirror e veja o resultado imediatamente. Filtre por trilha ou tema.',
+    'Edite HTML, CSS, JavaScript, React/TSX e Web Components com CodeMirror e veja o resultado imediatamente. Filtre por trilha ou tema.',
   'examples.back': '← Exemplos',
   'examples.trackLabel': 'Trilha',
   'examples.tagsLabel': 'Tags',
 
   // Snippets
   'snippets.title': 'Biblioteca de snippets',
-  'snippets.desc': 'Padrões HTML, CSS, JS e React com tags e filtro.',
-  'snippets.intro': 'Padrões curtos com tags — HTML, CSS, JavaScript e React para colar e adaptar.',
+  'snippets.desc': 'Padrões HTML, CSS, JS, React e Web Components com tags e filtro.',
+  'snippets.intro': 'Padrões curtos com tags — HTML, CSS, JavaScript, React e Web Components para colar e adaptar.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copiar',
   'snippets.copied': 'Copiado!',
@@ -226,31 +237,36 @@ const en: Record<UiKey, string> = {
   'nav.trailCss': 'CSS from scratch to layout',
   'nav.trailJs': 'JavaScript from scratch',
   'nav.trailReact': 'React from basics to state',
+  'nav.trailWc': 'Web Components with Vite',
 
   'footer.blurb':
-    'Educational hub for HTML, CSS, JavaScript, and React: editable examples, practical snippets, and trails from zero to practice.',
+    
+    'Educational hub for HTML, CSS, JavaScript, React, and Web Components: editable examples, practical snippets, and trails from zero to practice.',
   'footer.learn': 'Learn',
   'footer.trailHtml': 'HTML trail',
   'footer.trailCss': 'CSS trail',
   'footer.trailJs': 'JavaScript trail',
   'footer.trailReact': 'React trail',
+  'footer.trailWc': 'Web Components trail',
   'footer.liveExamples': 'Live examples',
   'footer.snippetLib': 'Snippet library',
   'footer.project': 'Project',
   'footer.home': 'Home',
-  'footer.copy': 'Real HTML, CSS, JS, and React.',
+  'footer.copy': 'Real HTML, CSS, JS, React, and Web Components.',
 
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, and React in practice',
+  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React, and Web Components in practice',
   'home.desc':
-    'Learning hub for HTML, CSS, JavaScript, and React: live examples, snippets, trails, and blog.',
+    
+    'Learning hub for HTML, CSS, JavaScript, React, and Web Components: live examples, snippets, trails, and blog.',
   'home.badge': 'Hands-on learning',
-  'home.h1': 'Learn HTML, CSS, JavaScript, and React with live examples',
+  'home.h1': 'Learn HTML, CSS, JavaScript, React, and Web Components with live examples',
   'home.lead':
-    'CSS4HTML is a unified hub: edit code in the playground, copy ready-made patterns, and follow clear trails — from HTML to React, through CSS and JavaScript.',
+    
+    'CSS4HTML is a unified hub: edit code in the playground, copy ready-made patterns, and follow clear trails — from HTML to React and Web Components, through CSS and JavaScript.',
   'home.ctaTrails': 'View trails',
   'home.ctaExamples': 'Open examples',
-  'home.threeTrails': 'Four trails, one hub',
-  'home.threeTrailsDesc': 'Pick where to start — or combine all four.',
+  'home.threeTrails': 'Five trails, one hub',
+  'home.threeTrailsDesc': 'Pick where to start — or combine all five.',
   'home.lessonsCount': 'lessons',
   'home.htmlTitle': 'HTML from scratch to a page',
   'home.htmlDesc':
@@ -265,6 +281,9 @@ const en: Record<UiKey, string> = {
   'home.reactTitle': 'React from basics to state',
   'home.reactDesc': 'Components, hooks, React Query, and Zustand — with a TSX playground.',
   'home.reactCta': 'Start React',
+  'home.wcTitle': 'Web Components with Vite',
+  'home.wcDesc': 'Framework-agnostic Custom Elements, Shadow DOM, package with Vite, consume in React or Vue.',
+  'home.wcCta': 'Start WC',
   'home.how': 'How to study',
   'home.howDesc': 'Several paths, one goal: understand the web in practice.',
   'home.step1Title': 'Follow a trail',
@@ -286,7 +305,7 @@ const en: Record<UiKey, string> = {
   'home.allPosts': 'All posts →',
 
   'trails.title': 'Trails',
-  'trails.desc': 'Guided paths for HTML, CSS, JavaScript, and React.',
+  'trails.desc': 'Guided paths for HTML, CSS, JavaScript, React, and Web Components.',
   'trails.intro':
     'Short paths that connect theory, playground, and snippets — sibling trails in one hub.',
   'trails.open': 'Open trail',
@@ -328,18 +347,25 @@ const en: Record<UiKey, string> = {
   'trail.react.pageTitle': 'Trail: React from basics to state',
   'trail.react.pageDesc':
     'Eight lessons from JSX to global state with editable TSX examples.',
+  'trail.wc.title': 'Web Components with Vite',
+  'trail.wc.desc':
+    'Custom Elements, Shadow DOM, the same gallery in React/Vue, Vite lib mode, and dual export.',
+  'trail.wc.pageTitle': 'Trail: Web Components with Vite',
+  'trail.wc.pageDesc':
+    'Eight lessons from a custom element to a lib you can consume in Vite apps — framework-agnostic.',
 
   'examples.title': 'Live examples',
   'examples.desc': 'HTML+CSS+JS/TSX playground with live preview.',
   'examples.intro':
-    'Edit HTML, CSS, JavaScript, and React/TSX with CodeMirror and see the result immediately. Filter by trail or topic.',
+    
+    'Edit HTML, CSS, JavaScript, React/TSX, and Web Components with CodeMirror and see the result immediately. Filter by trail or topic.',
   'examples.back': '← Examples',
   'examples.trackLabel': 'Trail',
   'examples.tagsLabel': 'Tags',
 
   'snippets.title': 'Snippet library',
-  'snippets.desc': 'HTML, CSS, JS, and React patterns with tags and filters.',
-  'snippets.intro': 'Short tagged patterns — HTML, CSS, and JavaScript to paste and adapt.',
+  'snippets.desc': 'HTML, CSS, JS, React, and Web Components patterns with tags and filters.',
+  'snippets.intro': 'Short tagged patterns — HTML, CSS, JavaScript, React, and Web Components to paste and adapt.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copy',
   'snippets.copied': 'Copied!',
@@ -416,31 +442,36 @@ const es: Record<UiKey, string> = {
   'nav.trailCss': 'CSS desde cero al layout',
   'nav.trailJs': 'JavaScript desde cero',
   'nav.trailReact': 'React de lo básico al estado',
+  'nav.trailWc': 'Web Components con Vite',
 
   'footer.blurb':
-    'Hub educativo de HTML, CSS, JavaScript y React: ejemplos editables, snippets prácticos y rutas de cero a la práctica.',
+    
+    'Hub educativo de HTML, CSS, JavaScript, React y Web Components: ejemplos editables, snippets prácticos y rutas de cero a la práctica.',
   'footer.learn': 'Aprender',
   'footer.trailHtml': 'Ruta HTML',
   'footer.trailCss': 'Ruta CSS',
   'footer.trailJs': 'Ruta JavaScript',
   'footer.trailReact': 'Ruta React',
+  'footer.trailWc': 'Ruta Web Components',
   'footer.liveExamples': 'Ejemplos vivos',
   'footer.snippetLib': 'Biblioteca de snippets',
   'footer.project': 'Proyecto',
   'footer.home': 'Inicio',
-  'footer.copy': 'HTML, CSS, JS y React de verdad.',
+  'footer.copy': 'HTML, CSS, JS, React y Web Components de verdad.',
 
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript y React en la práctica',
+  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React y Web Components en la práctica',
   'home.desc':
-    'Hub de aprendizaje de HTML, CSS, JavaScript y React: ejemplos vivos, snippets, rutas y blog.',
+    
+    'Hub de aprendizaje de HTML, CSS, JavaScript, React y Web Components: ejemplos vivos, snippets, rutas y blog.',
   'home.badge': 'Aprendizaje práctico',
-  'home.h1': 'Aprende HTML, CSS, JavaScript y React con ejemplos vivos',
+  'home.h1': 'Aprende HTML, CSS, JavaScript, React y Web Components con ejemplos vivos',
   'home.lead':
-    'CSS4HTML es un hub unificado: edita código en el playground, copia patrones listos y sigue rutas claras — del HTML a React, pasando por CSS y JavaScript.',
+    
+    'CSS4HTML es un hub unificado: edita código en el playground, copia patrones listos y sigue rutas claras — del HTML a React, pasando por CSS y JavaScript y Web Components.',
   'home.ctaTrails': 'Ver rutas',
   'home.ctaExamples': 'Abrir ejemplos',
-  'home.threeTrails': 'Cuatro rutas, un hub',
-  'home.threeTrailsDesc': 'Elige por dónde empezar — o combina las cuatro.',
+  'home.threeTrails': 'Cinco rutas, un hub',
+  'home.threeTrailsDesc': 'Elige por dónde empezar — o combina las cinco.',
   'home.lessonsCount': 'lecciones',
   'home.htmlTitle': 'HTML de cero a una página',
   'home.htmlDesc':
@@ -455,6 +486,9 @@ const es: Record<UiKey, string> = {
   'home.reactTitle': 'React de lo básico al estado',
   'home.reactDesc': 'Componentes, hooks, React Query y Zustand — con playground TSX.',
   'home.reactCta': 'Empezar React',
+  'home.wcTitle': 'Web Components con Vite',
+  'home.wcDesc': 'Custom Elements agnósticos, Shadow DOM, empaqueta con Vite y consume en React o Vue.',
+  'home.wcCta': 'Empezar WC',
   'home.how': 'Cómo estudiar',
   'home.howDesc': 'Varios caminos, el mismo objetivo: entender la web en la práctica.',
   'home.step1Title': 'Sigue una ruta',
@@ -476,7 +510,7 @@ const es: Record<UiKey, string> = {
   'home.allPosts': 'Todos los posts →',
 
   'trails.title': 'Rutas',
-  'trails.desc': 'Recorridos guiados de HTML, CSS, JavaScript y React.',
+  'trails.desc': 'Recorridos guiados de HTML, CSS, JavaScript, React y Web Components.',
   'trails.intro':
     'Recorridos cortos que unen teoría, playground y snippets — rutas hermanas en el mismo hub.',
   'trails.open': 'Abrir ruta',
@@ -518,18 +552,25 @@ const es: Record<UiKey, string> = {
   'trail.react.pageTitle': 'Ruta: React de lo básico al estado',
   'trail.react.pageDesc':
     'Ocho lecciones desde JSX hasta estado global con ejemplos editables en TSX.',
+  'trail.wc.title': 'Web Components con Vite',
+  'trail.wc.desc':
+    'Custom Elements, Shadow DOM, la misma galería en React/Vue, lib mode en Vite y export dual.',
+  'trail.wc.pageTitle': 'Ruta: Web Components con Vite',
+  'trail.wc.pageDesc':
+    'Ocho lecciones del custom element a una lib consumible en apps Vite — agnóstico a frameworks.',
 
   'examples.title': 'Ejemplos vivos',
   'examples.desc': 'Playground HTML+CSS+JS/TSX con vista previa en vivo.',
   'examples.intro':
-    'Edita HTML, CSS, JavaScript y React/TSX con CodeMirror y ve el resultado de inmediato. Filtra por ruta o tema.',
+    
+    'Edita HTML, CSS, JavaScript, React y Web Components/TSX con CodeMirror y ve el resultado de inmediato. Filtra por ruta o tema.',
   'examples.back': '← Ejemplos',
   'examples.trackLabel': 'Ruta',
   'examples.tagsLabel': 'Etiquetas',
 
   'snippets.title': 'Biblioteca de snippets',
-  'snippets.desc': 'Patrones HTML, CSS, JS y React con etiquetas y filtro.',
-  'snippets.intro': 'Patrones cortos con etiquetas — HTML, CSS, JavaScript y React para pegar y adaptar.',
+  'snippets.desc': 'Patrones HTML, CSS, JS, React y Web Components con etiquetas y filtro.',
+  'snippets.intro': 'Patrones cortos con etiquetas — HTML, CSS, JavaScript, React y Web Components para pegar y adaptar.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copiar',
   'snippets.copied': '¡Copiado!',
