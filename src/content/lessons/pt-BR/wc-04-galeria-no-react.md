@@ -21,8 +21,8 @@ O mesmo `<image-gallery>` da lição 3 roda **dentro** do React. O playground us
 function App() {
   return (
     <image-gallery columns="3">
-      <img src="..." alt="A" />
-      <img src="..." alt="B" />
+      <img src="https://picsum.photos/id/249/300/300" alt="Cidade à noite" />
+      <img src="https://picsum.photos/id/28/300/300" alt="Floresta verde" />
     </image-gallery>
   );
 }

@@ -75,7 +75,7 @@ js: |
     }
 
     function App() {
-      const [info, setInfo] = React.useState('Clique numa imagem');
+      const [info, setInfo] = React.useState('');
       const ref = React.useRef(null);
 
       React.useEffect(() => {
@@ -90,12 +90,14 @@ js: |
         <div>
           <h2 style={{ fontFamily: 'system-ui', color: '#F5A623' }}>Galeria no React</h2>
           <image-gallery ref={ref} columns="3">
-            <img src="https://picsum.photos/seed/r1/300/300" alt="React host A" />
-            <img src="https://picsum.photos/seed/r2/300/300" alt="React host B" />
-            <img src="https://picsum.photos/seed/r3/300/300" alt="React host C" />
-            <img src="https://picsum.photos/seed/r4/300/300" alt="React host D" />
+            <img src="https://picsum.photos/id/110/300/300" alt="Pôr do sol no campo" />
+            <img src="https://picsum.photos/id/29/300/300" alt="Montanhas nevadas" />
+            <img src="https://picsum.photos/id/249/300/300" alt="Cidade à noite" />
+            <img src="https://picsum.photos/id/28/300/300" alt="Floresta verde" />
           </image-gallery>
-          <p style={{ fontFamily: 'system-ui', color: '#94a3b8' }}>{info}</p>
+          <p style={{ fontFamily: 'system-ui', color: '#94a3b8' }}>
+            {info ? `Estado do React: ${info}` : 'O React escuta gallery-select…'}
+          </p>
         </div>
       );
     }

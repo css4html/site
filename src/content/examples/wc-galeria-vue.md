@@ -78,7 +78,7 @@ js: |
 
     createApp({
       setup() {
-        const info = ref('Clique numa imagem');
+        const info = ref('');
         const host = ref(null);
         onMounted(() => {
           const el = host.value;
@@ -93,12 +93,14 @@ js: |
         <div>
           <h2 style="font-family:system-ui;color:#F5A623">Galeria no Vue</h2>
           <image-gallery ref="host" columns="2">
-            <img src="https://picsum.photos/seed/v1/300/300" alt="Vue host A" />
-            <img src="https://picsum.photos/seed/v2/300/300" alt="Vue host B" />
-            <img src="https://picsum.photos/seed/v3/300/300" alt="Vue host C" />
-            <img src="https://picsum.photos/seed/v4/300/300" alt="Vue host D" />
+            <img src="https://picsum.photos/id/110/300/300" alt="Pôr do sol no campo" />
+            <img src="https://picsum.photos/id/29/300/300" alt="Montanhas nevadas" />
+            <img src="https://picsum.photos/id/249/300/300" alt="Cidade à noite" />
+            <img src="https://picsum.photos/id/28/300/300" alt="Floresta verde" />
           </image-gallery>
-          <p style="font-family:system-ui;color:#94a3b8">{{ info }}</p>
+          <p style="font-family:system-ui;color:#94a3b8">
+            {{ info ? 'Estado do Vue: ' + info : 'O Vue escuta gallery-select…' }}
+          </p>
         </div>
       `
     }).mount('#app');

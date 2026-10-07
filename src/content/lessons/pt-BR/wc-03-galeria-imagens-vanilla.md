@@ -16,8 +16,8 @@ Nesta lição a galeria é **só plataforma**: HTML + JS, sem React, sem Vue, se
 
 ```html
 <image-gallery columns="3">
-  <img src="..." alt="Praia" />
-  <img src="..." alt="Montanha" />
+  <img src="https://picsum.photos/id/110/300/300" alt="Pôr do sol no campo" />
+  <img src="https://picsum.photos/id/29/300/300" alt="Montanhas nevadas" />
 </image-gallery>
 ```
 

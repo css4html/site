@@ -7,12 +7,12 @@ track: "wc"
 order: 403
 html: |
     <image-gallery columns="3">
-      <img src="https://picsum.photos/seed/wc1/300/300" alt="Praia ao entardecer" />
-      <img src="https://picsum.photos/seed/wc2/300/300" alt="Trilha na montanha" />
-      <img src="https://picsum.photos/seed/wc3/300/300" alt="Cidade à noite" />
-      <img src="https://picsum.photos/seed/wc4/300/300" alt="Floresta verde" />
-      <img src="https://picsum.photos/seed/wc5/300/300" alt="Deserto dourado" />
-      <img src="https://picsum.photos/seed/wc6/300/300" alt="Lago espelhado" />
+      <img src="https://picsum.photos/id/110/300/300" alt="Pôr do sol no campo" />
+      <img src="https://picsum.photos/id/29/300/300" alt="Montanhas nevadas" />
+      <img src="https://picsum.photos/id/249/300/300" alt="Cidade à noite" />
+      <img src="https://picsum.photos/id/28/300/300" alt="Floresta verde" />
+      <img src="https://picsum.photos/id/184/300/300" alt="Dunas ao anoitecer" />
+      <img src="https://picsum.photos/id/1049/300/300" alt="Rochedo espelhado na água" />
     </image-gallery>
 css: |
     body { margin: 0; }

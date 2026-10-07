@@ -24,7 +24,7 @@ const { createApp } = Vue;
 createApp({
   template: `
     <image-gallery columns="2">
-      <img src="..." alt="A" />
+      <img src="https://picsum.photos/id/184/300/300" alt="Dunas ao anoitecer" />
     </image-gallery>
   `
 }).mount('#app');
