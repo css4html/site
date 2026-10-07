@@ -228,34 +228,11 @@ ${css}
 </style></head><body>${html}${scriptBlock}</body></html>`;
   }
 
-  function buildReactSrcdoc(html: string, css: string, tsx: string) {
-    const payload = JSON.stringify(tsx);
-    return `<!DOCTYPE html><html><head><meta charset="utf-8"><style>
-html,body{margin:0;padding:16px;font-family:system-ui,sans-serif}
-${css}
-</style>
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@19",
-    "react/": "https://esm.sh/react@19/",
-    "react/jsx-runtime": "https://esm.sh/react@19/jsx-runtime",
-    "react-dom": "https://esm.sh/react-dom@19",
-    "react-dom/": "https://esm.sh/react-dom@19/",
-    "react-dom/client": "https://esm.sh/react-dom@19/client",
-    "@tanstack/react-query": "https://esm.sh/@tanstack/react-query@5?deps=react@19,react-dom@19",
-    "zustand": "https://esm.sh/zustand@5"
-  }
-}
-<\/script>
-</head><body>
-<div id="root"></div>
-${html}
-<script type="module">
-import { createRoot } from 'react-dom/client';
-import { transform } from 'https://esm.sh/sucrase@3.35.0';
-
-const source = ${payload};
+  // Runtime that runs *inside* the React preview iframe.
+  // Kept in String.raw so regex/string escapes (\b, \s, \n, \/) reach the iframe
+  // verbatim. Rules for this block: no backticks, no "${", and never a literal
+  // closing script tag (the outer <script> in the srcdoc would end early).
+  const REACT_RUNTIME = String.raw`
 function showError(err) {
   const pre = document.createElement('pre');
   pre.style.cssText = 'color:#b91c1c;white-space:pre-wrap;font:13px/1.45 ui-monospace,monospace;padding:8px';
@@ -264,28 +241,25 @@ function showError(err) {
 }
 
 try {
+  const { transform } = await import('https://esm.sh/sucrase@3.35.0');
+  const source = JSON.parse(document.getElementById('__pg_tsx').textContent || '""');
   let compiled = transform(source, {
     transforms: ['typescript', 'jsx'],
     jsxRuntime: 'classic',
   }).code;
 
-  const hasDefaultReact =
-    /\bimport\s+React\b/.test(source) ||
-    /\bimport\s+\*\s+as\s+React\b/.test(source);
-  if (!hasDefaultReact) {
-    compiled = 'import React from "react";\n' + compiled;
-  }
+  compiled += [
+    '',
+    ';',
+    "const __mount = document.getElementById('root');",
+    "if (typeof App !== 'undefined' && __mount) {",
+    '  createRoot(__mount).render(React.createElement(App));',
+    '}',
+    '',
+  ].join('\n');
 
-  compiled += `
-;
-const __mount = document.getElementById('root');
-if (typeof App !== 'undefined' && __mount) {
-  createRoot(__mount).render(React.createElement(App));
-}
-`;
-
-  // Hoist createRoot into the module scope used above — inject import if missing
-  if (!/\bfrom\s+['"]react-dom\/client['"]/.test(compiled) && !/createRoot/.test(source)) {
+  // createRoot is used by the mount code above: import it unless the user already did
+  if (!/\bimport\s*\{[^}]*\bcreateRoot\b[^}]*\}\s*from\s*['"]react-dom\/client['"]/.test(compiled)) {
     compiled = 'import { createRoot } from "react-dom/client";\n' + compiled;
   }
   // Ensure React binding for classic JSX / React.createElement
@@ -300,8 +274,40 @@ if (typeof App !== 'undefined' && __mount) {
 } catch (e) {
   showError(e);
 }
-<\/script>
-</body></html>`;
+`;
+
+  const REACT_IMPORT_MAP = JSON.stringify({
+    imports: {
+      react: 'https://esm.sh/react@19',
+      'react/': 'https://esm.sh/react@19/',
+      'react/jsx-runtime': 'https://esm.sh/react@19/jsx-runtime',
+      'react-dom': 'https://esm.sh/react-dom@19',
+      'react-dom/': 'https://esm.sh/react-dom@19/',
+      'react-dom/client': 'https://esm.sh/react-dom@19/client',
+      '@tanstack/react-query': 'https://esm.sh/@tanstack/react-query@5?deps=react@19,react-dom@19',
+      zustand: 'https://esm.sh/zustand@5',
+    },
+  }, null, 2);
+
+  /** JSON that is safe inside a <script> element: every "<" becomes the JSON escape u003c. */
+  function jsonForScript(value: unknown) {
+    const lt = String.fromCharCode(92) + 'u003c';
+    return JSON.stringify(value).replace(/</g, lt);
+  }
+
+  function buildReactSrcdoc(html: string, css: string, tsx: string) {
+    const close = '</' + 'script>';
+    return '<!DOCTYPE html><html><head><meta charset="utf-8"><style>\n'
+      + 'html,body{margin:0;padding:16px;font-family:system-ui,sans-serif}\n'
+      + css + '\n'
+      + '</style>\n'
+      + '<script type="importmap">\n' + REACT_IMPORT_MAP + '\n' + close + '\n'
+      + '</head><body>\n'
+      + '<div id="root"></div>\n'
+      + html + '\n'
+      + '<script type="application/json" id="__pg_tsx">' + jsonForScript(tsx) + close + '\n'
+      + '<script type="module">' + REACT_RUNTIME + close + '\n'
+      + '</body></html>';
   }
 
   async function copyText(text: string) {
