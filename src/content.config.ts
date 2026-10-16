@@ -53,6 +53,11 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     relatedExamples: z.array(z.string()).default([]),
     relatedSnippets: z.array(z.string()).default([]),
+    /** Capa 1200×630 (caminho em /public, ex.: /blog/covers/slug.png). Opcional. */
+    cover: z.string().optional(),
+    coverAlt: z.string().optional(),
+    /** Rascunho: visível só em `astro dev`, fora do build de produção. */
+    draft: z.boolean().default(false),
   }),
 });
 

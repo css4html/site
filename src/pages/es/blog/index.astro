@@ -21,6 +21,9 @@ function formatDate(d: Date) {
     <div class="card-grid">
       {posts.map((post) => (
         <article class="card">
+          {post.data.cover && (
+            <img class="card-cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width="1200" height="630" loading="lazy" decoding="async" />
+          )}
           <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
           <h3 style="margin-top:0.35rem"><a href={lp(`/blog/${entrySlug(post)}/`)}>{post.data.title}</a></h3>
           <p>{post.data.description}</p>
