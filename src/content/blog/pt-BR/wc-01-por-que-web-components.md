@@ -1,7 +1,7 @@
 ---
 title: "Web Components, lição 1: Por que Web Components?"
 description: "Componentes nativos do browser, agnósticos a framework: o problema que os Web Components resolvem."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:08:00-03:00
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-hello-element']
 relatedSnippets: ['wc-custom-elements-define', 'wc-register-guard']

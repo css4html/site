@@ -1,7 +1,7 @@
 ---
 title: "Web Components, lição 7: Export dual: classe + register"
 description: "Exporte a classe e registre a tag: dois jeitos de consumir a mesma lib de Web Components."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:02:00-03:00
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-dual-export']
 relatedSnippets: ['wc-export-dual-pattern', 'wc-register-guard', 'wc-package-exports']

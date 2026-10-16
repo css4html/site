@@ -1,7 +1,7 @@
 ---
 title: "Web Components, lição 5: Mesma galeria no Vue"
 description: "Monte o <image-gallery> num app Vue 3 usando o build global via CDN, sem reescrever o componente."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:04:00-03:00
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-galeria-vue']
 relatedSnippets: ['wc-vue-host', 'wc-custom-elements-define']

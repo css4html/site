@@ -1,7 +1,7 @@
 ---
 title: "Web Components, lição 4: Mesma galeria no React"
 description: "Use o <image-gallery> dentro do JSX: o React só hospeda a tag e as props viram atributos."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:05:00-03:00
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-galeria-react']
 relatedSnippets: ['wc-react-host', 'wc-custom-elements-define']

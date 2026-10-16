@@ -1,7 +1,7 @@
 ---
 title: "Web Components do zero"
 description: "Guia completo da trilha CSS4HTML: do primeiro Custom Element até publicar e consumir sua própria lib com Vite, em vanilla, React e Vue."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:09:00-03:00
 tags: ["web-components","javascript","vite","guia"]
 relatedExamples: ["wc-hello-element","wc-galeria-vanilla","wc-galeria-react","wc-galeria-vue","wc-vite-lib-tree"]
 relatedSnippets: ["wc-custom-elements-define","wc-vite-lib-config"]

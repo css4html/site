@@ -1,7 +1,7 @@
 ---
 title: "Web Components, lição 2: Custom Element + Shadow DOM"
 description: "class extends HTMLElement, customElements.define(), attachShadow e estilos encapsulados."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:07:00-03:00
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-hello-element', 'wc-shadow-styles']
 relatedSnippets: ['wc-custom-elements-define', 'wc-shadow-dom-attach', 'wc-observed-attributes']

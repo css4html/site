@@ -1,7 +1,7 @@
 ---
 title: "Web Components, lição 3: Galeria de imagens com Custom Element (vanilla)"
 description: "Um <image-gallery> completo só com Custom Element e Shadow DOM, sem framework e sem bundler."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:06:00-03:00
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-galeria-vanilla', 'wc-attrs-props']
 relatedSnippets: ['wc-slot-basico', 'wc-css-in-shadow', 'wc-observed-attributes']

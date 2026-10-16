@@ -1,7 +1,7 @@
 ---
 title: "Web Components, lição 6: Empacotar com Vite (library mode)"
 description: "Árvore do pacote, vite.config em library mode e os bundles ES + UMD do Custom Element."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:03:00-03:00
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-vite-lib-tree']
 relatedSnippets: ['wc-vite-lib-config', 'wc-package-exports']

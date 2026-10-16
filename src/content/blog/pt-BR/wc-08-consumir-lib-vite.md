@@ -1,7 +1,7 @@
 ---
 title: "Web Components, lição 8: Consumir a lib em app Vite"
 description: "Um import ESM e a tag no HTML, JSX ou template: o ciclo completo do pacote ao app."
-pubDate: 2026-10-16
+pubDate: 2026-10-16T12:01:00-03:00
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-consumir-app']
 relatedSnippets: ['wc-package-exports', 'wc-react-host', 'wc-export-dual-pattern']
