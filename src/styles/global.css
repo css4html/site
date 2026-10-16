@@ -1166,3 +1166,15 @@ html[data-theme="dark"] .badge.track-wc {
   padding: 0;
   font-size: inherit;
 }
+
+/* Capas de post do blog (1200×630) */
+.post-cover,
+.card-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+}
+.post-cover { margin: 1rem 0 1.5rem; }
+.card-cover { margin-bottom: 0.75rem; }

@@ -30,7 +30,7 @@ const snippets = await getSnippets(locale);
 const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
 const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
 ---
-<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale}>
+<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale} image={post.data.cover}>
   <article class="container page-header">
     <p><a href={lp('/blog/')}>{t('blog.back')}</a></p>
     <h1>{post.data.title}</h1>
@@ -40,6 +40,9 @@ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
         {post.data.tags.map((tg) => <li class="tag">{tg}</li>)}
       </ul>
     </div>
+    {post.data.cover && (
+      <img class="post-cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width="1200" height="630" loading="lazy" decoding="async" />
+    )}
     <div class="prose">
       <Content />
     </div>

@@ -1,0 +1,753 @@
+From dac428375a94f68070b8f70fca1e0df21941fe14 Mon Sep 17 00:00:00 2001
+From: Developer fullStask <dev@css4html.com.br>
+Date: Fri, 16 Oct 2026 12:11:04 -0300
+Subject: [PATCH 2/3] =?UTF-8?q?content(blog):=20textos=20finais=20do=20Soc?=
+ =?UTF-8?q?ial=20na=20s=C3=A9rie=20Web=20Components=20(draft)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .../pt-BR/wc-01-por-que-web-components.md     | 53 +++++++++++---
+ .../pt-BR/wc-02-custom-element-shadow-dom.md  | 73 ++++++++++++++++---
+ .../pt-BR/wc-03-galeria-imagens-vanilla.md    | 52 ++++++++++---
+ .../blog/pt-BR/wc-04-galeria-no-react.md      | 52 ++++++++++---
+ .../blog/pt-BR/wc-05-galeria-no-vue.md        | 50 ++++++++++---
+ .../blog/pt-BR/wc-06-empacotar-com-vite.md    | 65 ++++++++++++++---
+ src/content/blog/pt-BR/wc-07-export-dual.md   | 51 ++++++++++---
+ .../blog/pt-BR/wc-08-consumir-lib-vite.md     | 71 +++++++++++++++---
+ .../blog/pt-BR/web-components-do-zero.md      | 45 ++++++++----
+ 9 files changed, 418 insertions(+), 94 deletions(-)
+
+diff --git a/src/content/blog/pt-BR/wc-01-por-que-web-components.md b/src/content/blog/pt-BR/wc-01-por-que-web-components.md
+index bbfccf0..16192e2 100644
+--- a/src/content/blog/pt-BR/wc-01-por-que-web-components.md
++++ b/src/content/blog/pt-BR/wc-01-por-que-web-components.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "Web Components 1/8: Por que Web Components"
+-description: "Componentes nativos do browser, agnósticos a framework — o problema que resolvem."
++title: "Web Components, lição 1: Por que Web Components?"
++description: "Componentes nativos do browser, agnósticos a framework: o problema que os Web Components resolvem."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite"]
+ relatedExamples: ['wc-hello-element']
+@@ -10,18 +10,53 @@ draft: true
+ # coverAlt: "Capa DICA WC — Por que Web Components"
+ ---
+ 
+-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 1).
++Você fez uma galeria em React, o marketing usa Vue e o site institucional é HTML estático. Três reescritas do mesmo componente? Nesta primeira lição você entende por que os Web Components existem e quando vale a pena usá-los.
+ 
+-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Por que Web Components](/trilhas/webcomponents-com-vite/wc-01-por-que-web-components/).
++## O problema
++
++Frameworks vêm e vão. O DOM e os padrões da plataforma ficam. Web Components empacotam UI e comportamento numa **tag HTML real** (como `<image-gallery>`), que qualquer app pode montar: vanilla JS, React, Vue, Angular ou o que o time usar amanhã.
++
++## As peças da plataforma
++
++| API | Papel |
++|---|---|
++| Custom Elements | Registrar uma classe que estende `HTMLElement` |
++| Shadow DOM | Encapsular markup e CSS do componente |
++| HTML templates / slots | Compor conteúdo externo dentro do componente |
++
++## Quando fazem sentido
++
++- Design system compartilhado entre apps
++- Widgets embutíveis (CMS, sites estáticos, microfrontends)
++- Libs de UI sem amarrar o consumidor a um framework
++
++## Quando não são a melhor escolha
++
++Em apps 100% React com ecossistema só de hooks, às vezes um componente React puro é mais simples. A trilha mostra os dois mundos: Custom Element nativo e consumo em React e Vue.
+ 
+ ## O código
+ 
+-<!-- TODO: snippet -->
++Esta lição é conceitual. O registro de um Custom Element é uma linha da plataforma:
+ 
+-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++```js
++customElements.define('hello-badge', HelloBadge);
++```
+ 
+-## Teste no playground
++Na lição 2 você escreve a classe `HelloBadge` completa, com Shadow DOM.
++
++## Pratique no playground
++
++- ▶️ [Hello Custom Element](/exemplos/wc-hello-element/)
++
++Snippets relacionados:
++
++- 🧩 [customElements.define](/snippets/wc-custom-elements-define/)
++- 🧩 [Guarda no define](/snippets/wc-register-guard/)
++
++📚 Lição completa na trilha grátis: [Por que Web Components?](/trilhas/webcomponents-com-vite/wc-01-por-que-web-components/)
++
++---
+ 
+-- [Playground: wc-hello-element](/exemplos/wc-hello-element/)
++← Voltar ao guia: [Web Components do zero](/blog/web-components-do-zero/)
+ 
+-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
++Próxima: [Lição 2: Custom Element + Shadow DOM](/blog/wc-02-custom-element-shadow-dom/) →
+diff --git a/src/content/blog/pt-BR/wc-02-custom-element-shadow-dom.md b/src/content/blog/pt-BR/wc-02-custom-element-shadow-dom.md
+index 9e8cef2..2acba9e 100644
+--- a/src/content/blog/pt-BR/wc-02-custom-element-shadow-dom.md
++++ b/src/content/blog/pt-BR/wc-02-custom-element-shadow-dom.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "Web Components 2/8: Custom Element + Shadow DOM"
+-description: "class extends HTMLElement, define(), attachShadow e estilos encapsulados."
++title: "Web Components, lição 2: Custom Element + Shadow DOM"
++description: "class extends HTMLElement, customElements.define(), attachShadow e estilos encapsulados."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite"]
+ relatedExamples: ['wc-hello-element', 'wc-shadow-styles']
+@@ -10,11 +10,11 @@ draft: true
+ # coverAlt: "Capa DICA WC — Custom Element + Shadow DOM"
+ ---
+ 
+-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 2).
++Hora de criar o primeiro Custom Element: uma classe, um nome de tag e um Shadow DOM para isolar o estilo.
+ 
+-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Custom Element + Shadow DOM](/trilhas/webcomponents-com-vite/wc-02-custom-element-shadow-dom/).
++## Anatomia mínima
+ 
+-## O código
++Um Custom Element é uma classe que estende `HTMLElement` e é registrada com um nome que **contenha hífen**.
+ 
+ ```js
+ class HelloBadge extends HTMLElement {
+@@ -22,14 +22,67 @@ class HelloBadge extends HTMLElement {
+     this.textContent = this.getAttribute('label') || 'Olá';
+   }
+ }
++
+ customElements.define('hello-badge', HelloBadge);
+ ```
+ 
+-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++```html
++<hello-badge label="CSS4HTML"></hello-badge>
++```
++
++> **Dica WC:** nomes de tag precisam de hífen (`hello-badge`, não `hellobadge`). Isso evita colisão com elementos HTML futuros.
++
++## Shadow DOM
++
++Sem shadow, o CSS da página vaza para dentro do componente (e o do componente vaza para fora). Com shadow, cada lado fica no seu lugar:
++
++```js
++connectedCallback() {
++  const root = this.attachShadow({ mode: 'open' });
++  root.innerHTML = `
++    <style>
++      span {
++        color: #F5A623;
++        font-weight: 700;
++      }
++    </style>
++    <span><slot></slot></span>
++  `;
++}
++```
++
++- `mode: 'open'`: `element.shadowRoot` fica acessível, o que ajuda em debug e testes.
++- `<slot>`: projeta os filhos do light DOM para dentro do shadow.
++
++## Atributos observados
++
++Para reagir quando um atributo muda, declare quais atributos observar:
++
++```js
++static get observedAttributes() {
++  return ['label'];
++}
++
++attributeChangedCallback(name, _old, value) {
++  // atualizar UI
++}
++```
++
++## Pratique no playground
++
++- ▶️ [Hello Custom Element](/exemplos/wc-hello-element/)
++- ▶️ [Shadow DOM e estilos](/exemplos/wc-shadow-styles/)
++
++Snippets relacionados:
+ 
+-## Teste no playground
++- 🧩 [customElements.define](/snippets/wc-custom-elements-define/)
++- 🧩 [attachShadow](/snippets/wc-shadow-dom-attach/)
++- 🧩 [observedAttributes](/snippets/wc-observed-attributes/)
++
++📚 Lição completa na trilha grátis: [Custom Element + Shadow DOM](/trilhas/webcomponents-com-vite/wc-02-custom-element-shadow-dom/)
++
++---
+ 
+-- [Playground: wc-hello-element](/exemplos/wc-hello-element/)
+-- [Playground: wc-shadow-styles](/exemplos/wc-shadow-styles/)
++← Anterior: [Lição 1: Por que Web Components?](/blog/wc-01-por-que-web-components/)
+ 
+-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
++Próxima: [Lição 3: Galeria de imagens com Custom Element (vanilla)](/blog/wc-03-galeria-imagens-vanilla/) →
+diff --git a/src/content/blog/pt-BR/wc-03-galeria-imagens-vanilla.md b/src/content/blog/pt-BR/wc-03-galeria-imagens-vanilla.md
+index 7feb321..bbe49e2 100644
+--- a/src/content/blog/pt-BR/wc-03-galeria-imagens-vanilla.md
++++ b/src/content/blog/pt-BR/wc-03-galeria-imagens-vanilla.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "Web Components 3/8: Galeria de imagens (vanilla CE)"
+-description: "Um image-gallery completo só com Custom Element + Shadow DOM."
++title: "Web Components, lição 3: Galeria de imagens com Custom Element (vanilla)"
++description: "Um <image-gallery> completo só com Custom Element e Shadow DOM, sem framework e sem bundler."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite"]
+ relatedExamples: ['wc-galeria-vanilla', 'wc-attrs-props']
+@@ -10,24 +10,52 @@ draft: true
+ # coverAlt: "Capa DICA WC — Galeria de imagens (vanilla CE)"
+ ---
+ 
+-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 3).
++Com a anatomia da lição 2 em mãos, você monta o componente que vai acompanhar o resto da trilha: o `<image-gallery>`. Aqui ele é só plataforma: HTML e JS, sem React, sem Vue, sem bundler.
+ 
+-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Galeria de imagens (vanilla CE)](/trilhas/webcomponents-com-vite/wc-03-galeria-imagens-vanilla/).
++## Pense no Custom Element como um mini-app
+ 
+-## O código
++> **Dica WC:** trate o Custom Element como um "mini-app": estado interno, eventos para o mundo externo (`CustomEvent`) e atributos para configuração.
++
++## O contrato da tag
++
++- Os filhos `<img>` entram via slot (ou o componente lê `querySelectorAll` no light DOM).
++- O atributo `columns` controla o grid.
++- O clique numa imagem pode emitir o evento `gallery-select` com o `alt` e o `src`.
+ 
+ ```html
+ <image-gallery columns="3">
+-  <img src="https://picsum.photos/id/110/300/300" alt="Pôr do sol no campo" />
+-  <img src="https://picsum.photos/id/29/300/300" alt="Montanhas nevadas" />
++  <img
++    src="https://picsum.photos/id/110/300/300"
++    alt="Pôr do sol no campo"
++  />
++  <img
++    src="https://picsum.photos/id/29/300/300"
++    alt="Montanhas nevadas"
++  />
+ </image-gallery>
+ ```
+ 
+-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++## Por que o Shadow DOM ajuda
++
++O CSS do grid fica dentro do componente. A página host não precisa de classes BEM globais, e o tema do site não quebra o layout da galeria por acidente.
++
++No playground, edite o JS, mude `columns` e adicione imagens no HTML para ver o grid e o evento `gallery-select` ao vivo.
++
++## Pratique no playground
+ 
+-## Teste no playground
++- ▶️ [Galeria vanilla (Custom Element)](/exemplos/wc-galeria-vanilla/)
++- ▶️ [Atributos e columns](/exemplos/wc-attrs-props/)
++
++Snippets relacionados:
++
++- 🧩 [Slot básico](/snippets/wc-slot-basico/)
++- 🧩 [CSS no Shadow DOM](/snippets/wc-css-in-shadow/)
++- 🧩 [observedAttributes](/snippets/wc-observed-attributes/)
++
++📚 Lição completa na trilha grátis: [Galeria de imagens com Custom Element (vanilla)](/trilhas/webcomponents-com-vite/wc-03-galeria-imagens-vanilla/)
++
++---
+ 
+-- [Playground: wc-galeria-vanilla](/exemplos/wc-galeria-vanilla/)
+-- [Playground: wc-attrs-props](/exemplos/wc-attrs-props/)
++← Anterior: [Lição 2: Custom Element + Shadow DOM](/blog/wc-02-custom-element-shadow-dom/)
+ 
+-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
++Próxima: [Lição 4: Mesma galeria no React](/blog/wc-04-galeria-no-react/) →
+diff --git a/src/content/blog/pt-BR/wc-04-galeria-no-react.md b/src/content/blog/pt-BR/wc-04-galeria-no-react.md
+index 0049553..060d9f6 100644
+--- a/src/content/blog/pt-BR/wc-04-galeria-no-react.md
++++ b/src/content/blog/pt-BR/wc-04-galeria-no-react.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "Web Components 4/8: Mesma galeria no React"
+-description: "Usar o Custom Element dentro de JSX — props viram atributos."
++title: "Web Components, lição 4: Mesma galeria no React"
++description: "Use o <image-gallery> dentro do JSX: o React só hospeda a tag e as props viram atributos."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite"]
+ relatedExamples: ['wc-galeria-react']
+@@ -10,27 +10,55 @@ draft: true
+ # coverAlt: "Capa DICA WC — Mesma galeria no React"
+ ---
+ 
+-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 4).
++O `<image-gallery>` da lição 3 roda dentro do React sem reescrever nada. O React só hospeda a tag; o grid e o clique continuam no Shadow DOM do componente.
+ 
+-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Mesma galeria no React](/trilhas/webcomponents-com-vite/wc-04-galeria-no-react/).
++## O padrão
+ 
+-## O código
++1. Defina ou importe o Custom Element (o `customElements.define` roda como efeito colateral do import).
++2. Use a tag no JSX como se fosse HTML.
+ 
+-```tsx
++```jsx
+ function App() {
+   return (
+     <image-gallery columns="3">
+-      <img src="https://picsum.photos/id/249/300/300" alt="Cidade à noite" />
+-      <img src="https://picsum.photos/id/28/300/300" alt="Floresta verde" />
++      <img
++        src="https://picsum.photos/id/249/300/300"
++        alt="Cidade à noite"
++      />
++      <img
++        src="https://picsum.photos/id/28/300/300"
++        alt="Floresta verde"
++      />
+     </image-gallery>
+   );
+ }
+ ```
+ 
+-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++> **Dica WC:** em JSX, atributos DOM são strings. Passe `columns={3}` ou `columns="3"`. Para eventos custom, use `ref` + `addEventListener`, ou um wrapper fino.
+ 
+-## Teste no playground
++No playground, o evento `gallery-select` chega pelo `ref` + `addEventListener`, e `setInfo()` leva o `alt` da imagem clicada para o estado do React.
+ 
+-- [Playground: wc-galeria-react](/exemplos/wc-galeria-react/)
++Em TypeScript, o compilador pode reclamar da tag desconhecida. No app real, declare a tag num `jsx.d.ts`.
+ 
+-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
++## Por que isso importa
++
++O Custom Element continua sendo a fonte da verdade visual. O React só compõe e gerencia rota e dados. Trocar o React por outro host não exige reescrever a galeria.
++
++O playground usa esm.sh + Sucrase para rodar o React ao vivo no browser.
++
++## Pratique no playground
++
++- ▶️ [Galeria no React (host CE)](/exemplos/wc-galeria-react/)
++
++Snippets relacionados:
++
++- 🧩 [CE no React](/snippets/wc-react-host/)
++- 🧩 [customElements.define](/snippets/wc-custom-elements-define/)
++
++📚 Lição completa na trilha grátis: [Mesma galeria no React](/trilhas/webcomponents-com-vite/wc-04-galeria-no-react/)
++
++---
++
++← Anterior: [Lição 3: Galeria de imagens com Custom Element (vanilla)](/blog/wc-03-galeria-imagens-vanilla/)
++
++Próxima: [Lição 5: Mesma galeria no Vue](/blog/wc-05-galeria-no-vue/) →
+diff --git a/src/content/blog/pt-BR/wc-05-galeria-no-vue.md b/src/content/blog/pt-BR/wc-05-galeria-no-vue.md
+index a3e3f97..0c49111 100644
+--- a/src/content/blog/pt-BR/wc-05-galeria-no-vue.md
++++ b/src/content/blog/pt-BR/wc-05-galeria-no-vue.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "Web Components 5/8: Mesma galeria no Vue"
+-description: "Montar o Custom Element num app Vue 3 (global build via CDN)."
++title: "Web Components, lição 5: Mesma galeria no Vue"
++description: "Monte o <image-gallery> num app Vue 3 usando o build global via CDN, sem reescrever o componente."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite"]
+ relatedExamples: ['wc-galeria-vue']
+@@ -10,21 +10,53 @@ draft: true
+ # coverAlt: "Capa DICA WC — Mesma galeria no Vue"
+ ---
+ 
+-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 5).
++Depois do React, o Vue 3. O mesmo `<image-gallery>` da lição 3 roda aqui sem mudar uma linha: o Vue só monta o template.
+ 
+-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Mesma galeria no Vue](/trilhas/webcomponents-com-vite/wc-05-galeria-no-vue/).
++## Vue e Custom Elements
+ 
+-## O código
++O Vue 3 trata Custom Elements de forma amigável: tags com hífen passam direto para o DOM.
+ 
+ ```html
+ <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+ <div id="app"></div>
+ ```
+ 
+-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++```js
++const { createApp } = Vue;
++
++createApp({
++  template: `
++    <image-gallery columns="2">
++      <img
++        src="https://picsum.photos/id/184/300/300"
++        alt="Dunas ao anoitecer"
++      />
++    </image-gallery>
++  `
++}).mount('#app');
++```
++
++> **Dica WC:** no playground usamos o build **global** do Vue (script UMD) para ficar estático e compatível com GitHub Pages, sem bundler local.
++
++No playground, `ref="host"` + `onMounted()` pegam o elemento real, e o evento `gallery-select` atualiza `info.value`, o estado reativo do Vue.
++
++## Em um app Vite de verdade
++
++Importe o Custom Element e use a tag no SFC. Se precisar, configure `compilerOptions.isCustomElement` para o Vue não tentar resolver a tag como componente dele.
++
++## Pratique no playground
+ 
+-## Teste no playground
++- ▶️ [Galeria no Vue (host CE)](/exemplos/wc-galeria-vue/)
++
++Snippets relacionados:
++
++- 🧩 [CE no Vue](/snippets/wc-vue-host/)
++- 🧩 [customElements.define](/snippets/wc-custom-elements-define/)
++
++📚 Lição completa na trilha grátis: [Mesma galeria no Vue](/trilhas/webcomponents-com-vite/wc-05-galeria-no-vue/)
++
++---
+ 
+-- [Playground: wc-galeria-vue](/exemplos/wc-galeria-vue/)
++← Anterior: [Lição 4: Mesma galeria no React](/blog/wc-04-galeria-no-react/)
+ 
+-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
++Próxima: [Lição 6: Empacotar com Vite (library mode)](/blog/wc-06-empacotar-com-vite/) →
+diff --git a/src/content/blog/pt-BR/wc-06-empacotar-com-vite.md b/src/content/blog/pt-BR/wc-06-empacotar-com-vite.md
+index 2bd54f1..7c48510 100644
+--- a/src/content/blog/pt-BR/wc-06-empacotar-com-vite.md
++++ b/src/content/blog/pt-BR/wc-06-empacotar-com-vite.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "Web Components 6/8: Empacotar com Vite (lib mode)"
+-description: "Árvore do pacote, vite.config em library mode e entry do Custom Element."
++title: "Web Components, lição 6: Empacotar com Vite (library mode)"
++description: "Árvore do pacote, vite.config em library mode e os bundles ES + UMD do Custom Element."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite"]
+ relatedExamples: ['wc-vite-lib-tree']
+@@ -10,11 +10,11 @@ draft: true
+ # coverAlt: "Capa DICA WC — Empacotar com Vite (lib mode)"
+ ---
+ 
+-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 6).
++Até aqui o `<image-gallery>` vivia no playground. Para usar em qualquer projeto, ele vira uma lib, e o Vite resolve isso com o library mode.
+ 
+-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Empacotar com Vite (lib mode)](/trilhas/webcomponents-com-vite/wc-06-empacotar-com-vite/).
++> **Dica WC:** o **library mode** do Vite gera um ou mais bundles a partir de um entry, em vez de um app com `index.html`.
+ 
+-## O código
++## Árvore típica do pacote
+ 
+ ```text
+ image-gallery/
+@@ -27,10 +27,57 @@ image-gallery/
+ └── dist/                 ← saída do build
+ ```
+ 
+-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++## vite.config em library mode
+ 
+-## Teste no playground
++```ts
++import { defineConfig } from 'vite';
+ 
+-- [Playground: wc-vite-lib-tree](/exemplos/wc-vite-lib-tree/)
++export default defineConfig({
++  build: {
++    lib: {
++      entry: 'src/index.ts',
++      name: 'ImageGallery',
++      formats: ['es', 'umd'],
++      fileName: (format) => `image-gallery.${format}.js`,
++    },
++  },
++});
++```
++
++- `build.lib.entry` aponta para o `src/index.ts`, que exporta a classe e o `register`.
++- `name: 'ImageGallery'` é o global usado no bundle UMD.
++- `formats: ['es', 'umd']` gera os dois bundles de uma vez.
++- `vite build` gera `dist/image-gallery.es.js` e `dist/image-gallery.umd.js`.
++
++## HTML de desenvolvimento
++
++```html
++<!DOCTYPE html>
++<html>
++  <body>
++    <image-gallery columns="3">
++      <!-- imgs -->
++    </image-gallery>
++    <script type="module" src="/src/index.ts"></script>
++  </body>
++</html>
++```
++
++As lições 7 e 8 fecham o ciclo: export dual e consumo no app.
++
++## Pratique no playground
++
++- ▶️ [Árvore Vite lib (conceitual)](/exemplos/wc-vite-lib-tree/)
++
++Snippets relacionados:
++
++- 🧩 [Vite lib mode](/snippets/wc-vite-lib-config/)
++- 🧩 [package.json exports](/snippets/wc-package-exports/)
++
++📚 Lição completa na trilha grátis: [Empacotar com Vite (library mode)](/trilhas/webcomponents-com-vite/wc-06-empacotar-com-vite/)
++
++---
++
++← Anterior: [Lição 5: Mesma galeria no Vue](/blog/wc-05-galeria-no-vue/)
+ 
+-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
++Próxima: [Lição 7: Export dual: classe + register](/blog/wc-07-export-dual/) →
+diff --git a/src/content/blog/pt-BR/wc-07-export-dual.md b/src/content/blog/pt-BR/wc-07-export-dual.md
+index 2e8e4c2..f0a185f 100644
+--- a/src/content/blog/pt-BR/wc-07-export-dual.md
++++ b/src/content/blog/pt-BR/wc-07-export-dual.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "Web Components 7/8: Export dual: ES module + Custom Element"
+-description: "Exportar a classe e registrar a tag — dois jeitos de consumir a mesma lib."
++title: "Web Components, lição 7: Export dual: classe + register"
++description: "Exporte a classe e registre a tag: dois jeitos de consumir a mesma lib de Web Components."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite"]
+ relatedExamples: ['wc-dual-export']
+@@ -10,14 +10,17 @@ draft: true
+ # coverAlt: "Capa DICA WC — Export dual: ES module + Custom Element"
+ ---
+ 
+-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 7).
++Com o `<image-gallery>` empacotado, falta decidir como ele chega no app. Uma boa lib de Web Components oferece dois caminhos.
+ 
+-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Export dual: ES module + Custom Element](/trilhas/webcomponents-com-vite/wc-07-export-dual/).
++## Os dois caminhos
+ 
+-## O código
++- **Auto-register (side-effect):** `import 'image-gallery'` já define a tag.
++- **Named export:** `import { ImageGallery, register } from 'image-gallery'` dá acesso à classe e deixa você escolher outro nome de tag com `register(tag)`.
+ 
+-```ts
+-export class ImageGallery extends HTMLElement { /* ... */ }
++```js
++export class ImageGallery extends HTMLElement {
++  /* ... */
++}
+ 
+ export function register(tag = 'image-gallery') {
+   if (!customElements.get(tag)) {
+@@ -28,10 +31,36 @@ export function register(tag = 'image-gallery') {
+ register(); // auto-register no entry padrão
+ ```
+ 
+-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++> **Dica WC:** sempre proteja o `define` com `customElements.get(name)`. Assim não estoura erro se o módulo for importado duas vezes.
++
++## package.json exports
++
++```json
++{
++  "name": "@css4html/image-gallery",
++  "type": "module",
++  "exports": {
++    ".": {
++      "import": "./dist/image-gallery.es.js"
++    }
++  }
++}
++```
++
++## Pratique no playground
++
++- ▶️ [Export dual (classe + register)](/exemplos/wc-dual-export/)
++
++Snippets relacionados:
+ 
+-## Teste no playground
++- 🧩 [Export dual](/snippets/wc-export-dual-pattern/)
++- 🧩 [Guarda no define](/snippets/wc-register-guard/)
++- 🧩 [package.json exports](/snippets/wc-package-exports/)
++
++📚 Lição completa na trilha grátis: [Export dual: classe + register](/trilhas/webcomponents-com-vite/wc-07-export-dual/)
++
++---
+ 
+-- [Playground: wc-dual-export](/exemplos/wc-dual-export/)
++← Anterior: [Lição 6: Empacotar com Vite (library mode)](/blog/wc-06-empacotar-com-vite/)
+ 
+-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
++Próxima: [Lição 8: Consumir a lib em app Vite](/blog/wc-08-consumir-lib-vite/) →
+diff --git a/src/content/blog/pt-BR/wc-08-consumir-lib-vite.md b/src/content/blog/pt-BR/wc-08-consumir-lib-vite.md
+index 9a1e070..3fced70 100644
+--- a/src/content/blog/pt-BR/wc-08-consumir-lib-vite.md
++++ b/src/content/blog/pt-BR/wc-08-consumir-lib-vite.md
+@@ -1,6 +1,6 @@
+ ---
+-title: "Web Components 8/8: Consumir a lib em app Vite"
+-description: "Import ESM + tag no HTML/JSX — o ciclo completo do pacote ao app."
++title: "Web Components, lição 8: Consumir a lib em app Vite"
++description: "Um import ESM e a tag no HTML, JSX ou template: o ciclo completo do pacote ao app."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite"]
+ relatedExamples: ['wc-consumir-app']
+@@ -10,21 +10,74 @@ draft: true
+ # coverAlt: "Capa DICA WC — Consumir a lib em app Vite"
+ ---
+ 
+-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 8).
++Fechando o ciclo: do pacote ao app. No projeto consumidor, seja vanilla, React ou Vue, um único import registra a tag.
+ 
+-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Consumir a lib em app Vite](/trilhas/webcomponents-com-vite/wc-08-consumir-lib-vite/).
++> **Dica WC:** um único `import` registra a tag. Depois disso, use `<image-gallery>` em qualquer arquivo do app.
+ 
+-## O código
++## Vanilla / HTML
+ 
+ ```ts
+ // main.ts
+ import '@css4html/image-gallery';
+ ```
+ 
+-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++```html
++<image-gallery columns="3">
++  <img src="/a.jpg" alt="A" />
++</image-gallery>
++```
++
++## React
++
++```jsx
++import '@css4html/image-gallery';
++
++export function Page() {
++  return (
++    <image-gallery columns="3">
++      <img src="/a.jpg" alt="A" />
++    </image-gallery>
++  );
++}
++```
++
++## Vue
++
++```vue
++<script setup>
++import '@css4html/image-gallery';
++</script>
++
++<template>
++  <image-gallery columns="3">
++    <img src="/a.jpg" alt="A" />
++  </image-gallery>
++</template>
++```
++
++Sem wrapper por framework: um componente, todos os stacks.
++
++## O ciclo da trilha
++
++- Custom Element nativo (lições 1 a 3)
++- Hosts React e Vue (lições 4 e 5)
++- Empacotar e export dual (lições 6 e 7)
++- Consumo no app (lição 8)
++
++## Pratique no playground
+ 
+-## Teste no playground
++- ▶️ [Consumir no app (import + tag)](/exemplos/wc-consumir-app/)
++
++Snippets relacionados:
++
++- 🧩 [package.json exports](/snippets/wc-package-exports/)
++- 🧩 [CE no React](/snippets/wc-react-host/)
++- 🧩 [Export dual](/snippets/wc-export-dual-pattern/)
++
++📚 Lição completa na trilha grátis: [Consumir a lib em app Vite](/trilhas/webcomponents-com-vite/wc-08-consumir-lib-vite/)
++
++---
+ 
+-- [Playground: wc-consumir-app](/exemplos/wc-consumir-app/)
++← Anterior: [Lição 7: Export dual: classe + register](/blog/wc-07-export-dual/)
+ 
+-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
++Fim da trilha! Volte ao guia: [Web Components do zero](/blog/web-components-do-zero/) →
+diff --git a/src/content/blog/pt-BR/web-components-do-zero.md b/src/content/blog/pt-BR/web-components-do-zero.md
+index 9cb774b..be4295e 100644
+--- a/src/content/blog/pt-BR/web-components-do-zero.md
++++ b/src/content/blog/pt-BR/web-components-do-zero.md
+@@ -1,6 +1,6 @@
+ ---
+ title: "Web Components do zero"
+-description: "Guia completo: do primeiro Custom Element à lib publicada com Vite — 8 artigos com código e playground."
++description: "Guia completo da trilha CSS4HTML: do primeiro Custom Element até publicar e consumir sua própria lib com Vite, em vanilla, React e Vue."
+ pubDate: 2026-10-16
+ tags: ["web-components","javascript","vite","guia"]
+ relatedExamples: ["wc-hello-element","wc-galeria-vanilla","wc-galeria-react","wc-galeria-vue","wc-vite-lib-tree"]
+@@ -10,19 +10,38 @@ draft: true
+ # coverAlt: "Capa DICA WC — Web Components do zero"
+ ---
+ 
+-> **TODO texto Social** — introdução do guia: o que são Web Components e por que aprender em 2026.
++Você fez uma galeria em React, o marketing usa Vue e o site institucional é HTML estático. Em vez de reescrever o mesmo componente três vezes, dá para escrever uma vez só, com APIs nativas do browser: os **Web Components**.
+ 
+-## Os 8 artigos
++Este guia reúne as 8 lições da série **DICA WC**. Ao longo delas você constrói um único componente, o `<image-gallery>`, e leva ele do playground até um pacote publicado e consumido em qualquer stack.
+ 
+-1. [Por que Web Components](/blog/wc-01-por-que-web-components/) — Componentes nativos do browser, agnósticos a framework — o problema que resolvem.
+-2. [Custom Element + Shadow DOM](/blog/wc-02-custom-element-shadow-dom/) — class extends HTMLElement, define(), attachShadow e estilos encapsulados.
+-3. [Galeria de imagens (vanilla CE)](/blog/wc-03-galeria-imagens-vanilla/) — Um image-gallery completo só com Custom Element + Shadow DOM.
+-4. [Mesma galeria no React](/blog/wc-04-galeria-no-react/) — Usar o Custom Element dentro de JSX — props viram atributos.
+-5. [Mesma galeria no Vue](/blog/wc-05-galeria-no-vue/) — Montar o Custom Element num app Vue 3 (global build via CDN).
+-6. [Empacotar com Vite (lib mode)](/blog/wc-06-empacotar-com-vite/) — Árvore do pacote, vite.config em library mode e entry do Custom Element.
+-7. [Export dual: ES module + Custom Element](/blog/wc-07-export-dual/) — Exportar a classe e registrar a tag — dois jeitos de consumir a mesma lib.
+-8. [Consumir a lib em app Vite](/blog/wc-08-consumir-lib-vite/) — Import ESM + tag no HTML/JSX — o ciclo completo do pacote ao app.
++## O que são Web Components
+ 
+-Prefere ir direto para a prática? Siga a trilha [Web Components com Vite](/trilhas/webcomponents-com-vite/).
++- **Custom Elements:** registram uma classe que estende `HTMLElement` como uma tag HTML nova.
++- **Shadow DOM:** encapsula o markup e o CSS do componente.
++- **Templates e slots:** compõem conteúdo externo dentro do componente.
+ 
+-> **TODO texto Social** — fechamento / chamada para ação.
++O resultado é uma tag HTML real, que roda em vanilla JS, React, Vue ou Angular.
++
++## O caminho da trilha
++
++- **Lições 1 a 3:** Custom Element nativo, do conceito até a galeria completa.
++- **Lições 4 e 5:** a mesma galeria hospedada por React e por Vue, sem reescrever nada.
++- **Lições 6 e 7:** empacotar com Vite (library mode) e oferecer export dual.
++- **Lição 8:** consumir a lib num app Vite com um único import.
++
++## Todas as lições
++
++1. [Lição 1: Por que Web Components?](/blog/wc-01-por-que-web-components/): Componentes nativos do browser, agnósticos a framework: o problema que os Web Components resolvem.
++2. [Lição 2: Custom Element + Shadow DOM](/blog/wc-02-custom-element-shadow-dom/): class extends HTMLElement, customElements.define(), attachShadow e estilos encapsulados.
++3. [Lição 3: Galeria de imagens com Custom Element (vanilla)](/blog/wc-03-galeria-imagens-vanilla/): Um <image-gallery> completo só com Custom Element e Shadow DOM, sem framework e sem bundler.
++4. [Lição 4: Mesma galeria no React](/blog/wc-04-galeria-no-react/): Use o <image-gallery> dentro do JSX: o React só hospeda a tag e as props viram atributos.
++5. [Lição 5: Mesma galeria no Vue](/blog/wc-05-galeria-no-vue/): Monte o <image-gallery> num app Vue 3 usando o build global via CDN, sem reescrever o componente.
++6. [Lição 6: Empacotar com Vite (library mode)](/blog/wc-06-empacotar-com-vite/): Árvore do pacote, vite.config em library mode e os bundles ES + UMD do Custom Element.
++7. [Lição 7: Export dual: classe + register](/blog/wc-07-export-dual/): Exporte a classe e registre a tag: dois jeitos de consumir a mesma lib de Web Components.
++8. [Lição 8: Consumir a lib em app Vite](/blog/wc-08-consumir-lib-vite/): Um import ESM e a tag no HTML, JSX ou template: o ciclo completo do pacote ao app.
++
++## Pratique
++
++Todas as lições têm playground ao vivo em [css4html.com.br/exemplos](/exemplos/) e a trilha completa está em [Web Components + Vite](/trilhas/webcomponents-com-vite/).
++
++Comece pela [Lição 1: Por que Web Components?](/blog/wc-01-por-que-web-components/) →
+-- 
+2.47.3
+

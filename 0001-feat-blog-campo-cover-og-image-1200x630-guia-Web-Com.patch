@@ -1,0 +1,585 @@
+From 5c1ec0354539e22b0890ea58ac8dfd5f8260d732 Mon Sep 17 00:00:00 2001
+From: Developer fullStask <dev@css4html.com.br>
+Date: Fri, 16 Oct 2026 12:08:39 -0300
+Subject: [PATCH 1/3] feat(blog): campo cover (og:image 1200x630) + guia Web
+ Components do zero e 8 artigos (draft)
+
+---
+ src/content.config.ts                         |  5 +++
+ .../pt-BR/wc-01-por-que-web-components.md     | 27 ++++++++++++++
+ .../pt-BR/wc-02-custom-element-shadow-dom.md  | 35 ++++++++++++++++++
+ .../pt-BR/wc-03-galeria-imagens-vanilla.md    | 33 +++++++++++++++++
+ .../blog/pt-BR/wc-04-galeria-no-react.md      | 36 ++++++++++++++++++
+ .../blog/pt-BR/wc-05-galeria-no-vue.md        | 30 +++++++++++++++
+ .../blog/pt-BR/wc-06-empacotar-com-vite.md    | 36 ++++++++++++++++++
+ src/content/blog/pt-BR/wc-07-export-dual.md   | 37 +++++++++++++++++++
+ .../blog/pt-BR/wc-08-consumir-lib-vite.md     | 30 +++++++++++++++
+ .../blog/pt-BR/web-components-do-zero.md      | 28 ++++++++++++++
+ src/i18n/collections.ts                       |  3 +-
+ src/layouts/BaseLayout.astro                  | 12 +++++-
+ src/pages/blog/[slug].astro                   |  5 ++-
+ src/pages/blog/index.astro                    |  3 ++
+ src/pages/en/blog/[slug].astro                |  5 ++-
+ src/pages/en/blog/index.astro                 |  3 ++
+ src/pages/es/blog/[slug].astro                |  5 ++-
+ src/pages/es/blog/index.astro                 |  3 ++
+ src/styles/global.css                         | 12 ++++++
+ 19 files changed, 343 insertions(+), 5 deletions(-)
+ create mode 100644 src/content/blog/pt-BR/wc-01-por-que-web-components.md
+ create mode 100644 src/content/blog/pt-BR/wc-02-custom-element-shadow-dom.md
+ create mode 100644 src/content/blog/pt-BR/wc-03-galeria-imagens-vanilla.md
+ create mode 100644 src/content/blog/pt-BR/wc-04-galeria-no-react.md
+ create mode 100644 src/content/blog/pt-BR/wc-05-galeria-no-vue.md
+ create mode 100644 src/content/blog/pt-BR/wc-06-empacotar-com-vite.md
+ create mode 100644 src/content/blog/pt-BR/wc-07-export-dual.md
+ create mode 100644 src/content/blog/pt-BR/wc-08-consumir-lib-vite.md
+ create mode 100644 src/content/blog/pt-BR/web-components-do-zero.md
+
+diff --git a/src/content.config.ts b/src/content.config.ts
+index 228fc80..14fb789 100644
+--- a/src/content.config.ts
++++ b/src/content.config.ts
+@@ -53,6 +53,11 @@ const blog = defineCollection({
+     tags: z.array(z.string()).default([]),
+     relatedExamples: z.array(z.string()).default([]),
+     relatedSnippets: z.array(z.string()).default([]),
++    /** Capa 1200×630 (caminho em /public, ex.: /blog/covers/slug.png). Opcional. */
++    cover: z.string().optional(),
++    coverAlt: z.string().optional(),
++    /** Rascunho: visível só em `astro dev`, fora do build de produção. */
++    draft: z.boolean().default(false),
+   }),
+ });
+ 
+diff --git a/src/content/blog/pt-BR/wc-01-por-que-web-components.md b/src/content/blog/pt-BR/wc-01-por-que-web-components.md
+new file mode 100644
+index 0000000..bbfccf0
+--- /dev/null
++++ b/src/content/blog/pt-BR/wc-01-por-que-web-components.md
+@@ -0,0 +1,27 @@
++---
++title: "Web Components 1/8: Por que Web Components"
++description: "Componentes nativos do browser, agnósticos a framework — o problema que resolvem."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite"]
++relatedExamples: ['wc-hello-element']
++relatedSnippets: ['wc-custom-elements-define', 'wc-register-guard']
++draft: true
++# cover: /blog/covers/wc-01-por-que-web-components.png
++# coverAlt: "Capa DICA WC — Por que Web Components"
++---
++
++> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 1).
++
++Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Por que Web Components](/trilhas/webcomponents-com-vite/wc-01-por-que-web-components/).
++
++## O código
++
++<!-- TODO: snippet -->
++
++> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++
++## Teste no playground
++
++- [Playground: wc-hello-element](/exemplos/wc-hello-element/)
++
++> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+diff --git a/src/content/blog/pt-BR/wc-02-custom-element-shadow-dom.md b/src/content/blog/pt-BR/wc-02-custom-element-shadow-dom.md
+new file mode 100644
+index 0000000..9e8cef2
+--- /dev/null
++++ b/src/content/blog/pt-BR/wc-02-custom-element-shadow-dom.md
+@@ -0,0 +1,35 @@
++---
++title: "Web Components 2/8: Custom Element + Shadow DOM"
++description: "class extends HTMLElement, define(), attachShadow e estilos encapsulados."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite"]
++relatedExamples: ['wc-hello-element', 'wc-shadow-styles']
++relatedSnippets: ['wc-custom-elements-define', 'wc-shadow-dom-attach', 'wc-observed-attributes']
++draft: true
++# cover: /blog/covers/wc-02-custom-element-shadow-dom.png
++# coverAlt: "Capa DICA WC — Custom Element + Shadow DOM"
++---
++
++> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 2).
++
++Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Custom Element + Shadow DOM](/trilhas/webcomponents-com-vite/wc-02-custom-element-shadow-dom/).
++
++## O código
++
++```js
++class HelloBadge extends HTMLElement {
++  connectedCallback() {
++    this.textContent = this.getAttribute('label') || 'Olá';
++  }
++}
++customElements.define('hello-badge', HelloBadge);
++```
++
++> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++
++## Teste no playground
++
++- [Playground: wc-hello-element](/exemplos/wc-hello-element/)
++- [Playground: wc-shadow-styles](/exemplos/wc-shadow-styles/)
++
++> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+diff --git a/src/content/blog/pt-BR/wc-03-galeria-imagens-vanilla.md b/src/content/blog/pt-BR/wc-03-galeria-imagens-vanilla.md
+new file mode 100644
+index 0000000..7feb321
+--- /dev/null
++++ b/src/content/blog/pt-BR/wc-03-galeria-imagens-vanilla.md
+@@ -0,0 +1,33 @@
++---
++title: "Web Components 3/8: Galeria de imagens (vanilla CE)"
++description: "Um image-gallery completo só com Custom Element + Shadow DOM."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite"]
++relatedExamples: ['wc-galeria-vanilla', 'wc-attrs-props']
++relatedSnippets: ['wc-slot-basico', 'wc-css-in-shadow', 'wc-observed-attributes']
++draft: true
++# cover: /blog/covers/wc-03-galeria-imagens-vanilla.png
++# coverAlt: "Capa DICA WC — Galeria de imagens (vanilla CE)"
++---
++
++> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 3).
++
++Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Galeria de imagens (vanilla CE)](/trilhas/webcomponents-com-vite/wc-03-galeria-imagens-vanilla/).
++
++## O código
++
++```html
++<image-gallery columns="3">
++  <img src="https://picsum.photos/id/110/300/300" alt="Pôr do sol no campo" />
++  <img src="https://picsum.photos/id/29/300/300" alt="Montanhas nevadas" />
++</image-gallery>
++```
++
++> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++
++## Teste no playground
++
++- [Playground: wc-galeria-vanilla](/exemplos/wc-galeria-vanilla/)
++- [Playground: wc-attrs-props](/exemplos/wc-attrs-props/)
++
++> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+diff --git a/src/content/blog/pt-BR/wc-04-galeria-no-react.md b/src/content/blog/pt-BR/wc-04-galeria-no-react.md
+new file mode 100644
+index 0000000..0049553
+--- /dev/null
++++ b/src/content/blog/pt-BR/wc-04-galeria-no-react.md
+@@ -0,0 +1,36 @@
++---
++title: "Web Components 4/8: Mesma galeria no React"
++description: "Usar o Custom Element dentro de JSX — props viram atributos."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite"]
++relatedExamples: ['wc-galeria-react']
++relatedSnippets: ['wc-react-host', 'wc-custom-elements-define']
++draft: true
++# cover: /blog/covers/wc-04-galeria-no-react.png
++# coverAlt: "Capa DICA WC — Mesma galeria no React"
++---
++
++> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 4).
++
++Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Mesma galeria no React](/trilhas/webcomponents-com-vite/wc-04-galeria-no-react/).
++
++## O código
++
++```tsx
++function App() {
++  return (
++    <image-gallery columns="3">
++      <img src="https://picsum.photos/id/249/300/300" alt="Cidade à noite" />
++      <img src="https://picsum.photos/id/28/300/300" alt="Floresta verde" />
++    </image-gallery>
++  );
++}
++```
++
++> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++
++## Teste no playground
++
++- [Playground: wc-galeria-react](/exemplos/wc-galeria-react/)
++
++> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+diff --git a/src/content/blog/pt-BR/wc-05-galeria-no-vue.md b/src/content/blog/pt-BR/wc-05-galeria-no-vue.md
+new file mode 100644
+index 0000000..a3e3f97
+--- /dev/null
++++ b/src/content/blog/pt-BR/wc-05-galeria-no-vue.md
+@@ -0,0 +1,30 @@
++---
++title: "Web Components 5/8: Mesma galeria no Vue"
++description: "Montar o Custom Element num app Vue 3 (global build via CDN)."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite"]
++relatedExamples: ['wc-galeria-vue']
++relatedSnippets: ['wc-vue-host', 'wc-custom-elements-define']
++draft: true
++# cover: /blog/covers/wc-05-galeria-no-vue.png
++# coverAlt: "Capa DICA WC — Mesma galeria no Vue"
++---
++
++> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 5).
++
++Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Mesma galeria no Vue](/trilhas/webcomponents-com-vite/wc-05-galeria-no-vue/).
++
++## O código
++
++```html
++<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
++<div id="app"></div>
++```
++
++> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++
++## Teste no playground
++
++- [Playground: wc-galeria-vue](/exemplos/wc-galeria-vue/)
++
++> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+diff --git a/src/content/blog/pt-BR/wc-06-empacotar-com-vite.md b/src/content/blog/pt-BR/wc-06-empacotar-com-vite.md
+new file mode 100644
+index 0000000..2bd54f1
+--- /dev/null
++++ b/src/content/blog/pt-BR/wc-06-empacotar-com-vite.md
+@@ -0,0 +1,36 @@
++---
++title: "Web Components 6/8: Empacotar com Vite (lib mode)"
++description: "Árvore do pacote, vite.config em library mode e entry do Custom Element."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite"]
++relatedExamples: ['wc-vite-lib-tree']
++relatedSnippets: ['wc-vite-lib-config', 'wc-package-exports']
++draft: true
++# cover: /blog/covers/wc-06-empacotar-com-vite.png
++# coverAlt: "Capa DICA WC — Empacotar com Vite (lib mode)"
++---
++
++> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 6).
++
++Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Empacotar com Vite (lib mode)](/trilhas/webcomponents-com-vite/wc-06-empacotar-com-vite/).
++
++## O código
++
++```text
++image-gallery/
++├── package.json
++├── vite.config.ts
++├── src/
++│   ├── index.ts          ← entry: exporta classe + register()
++│   ├── image-gallery.ts  ← o Custom Element
++│   └── styles.css        ← opcional (ou CSS no shadow)
++└── dist/                 ← saída do build
++```
++
++> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++
++## Teste no playground
++
++- [Playground: wc-vite-lib-tree](/exemplos/wc-vite-lib-tree/)
++
++> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+diff --git a/src/content/blog/pt-BR/wc-07-export-dual.md b/src/content/blog/pt-BR/wc-07-export-dual.md
+new file mode 100644
+index 0000000..2e8e4c2
+--- /dev/null
++++ b/src/content/blog/pt-BR/wc-07-export-dual.md
+@@ -0,0 +1,37 @@
++---
++title: "Web Components 7/8: Export dual: ES module + Custom Element"
++description: "Exportar a classe e registrar a tag — dois jeitos de consumir a mesma lib."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite"]
++relatedExamples: ['wc-dual-export']
++relatedSnippets: ['wc-export-dual-pattern', 'wc-register-guard', 'wc-package-exports']
++draft: true
++# cover: /blog/covers/wc-07-export-dual.png
++# coverAlt: "Capa DICA WC — Export dual: ES module + Custom Element"
++---
++
++> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 7).
++
++Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Export dual: ES module + Custom Element](/trilhas/webcomponents-com-vite/wc-07-export-dual/).
++
++## O código
++
++```ts
++export class ImageGallery extends HTMLElement { /* ... */ }
++
++export function register(tag = 'image-gallery') {
++  if (!customElements.get(tag)) {
++    customElements.define(tag, ImageGallery);
++  }
++}
++
++register(); // auto-register no entry padrão
++```
++
++> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++
++## Teste no playground
++
++- [Playground: wc-dual-export](/exemplos/wc-dual-export/)
++
++> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+diff --git a/src/content/blog/pt-BR/wc-08-consumir-lib-vite.md b/src/content/blog/pt-BR/wc-08-consumir-lib-vite.md
+new file mode 100644
+index 0000000..9a1e070
+--- /dev/null
++++ b/src/content/blog/pt-BR/wc-08-consumir-lib-vite.md
+@@ -0,0 +1,30 @@
++---
++title: "Web Components 8/8: Consumir a lib em app Vite"
++description: "Import ESM + tag no HTML/JSX — o ciclo completo do pacote ao app."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite"]
++relatedExamples: ['wc-consumir-app']
++relatedSnippets: ['wc-package-exports', 'wc-react-host', 'wc-export-dual-pattern']
++draft: true
++# cover: /blog/covers/wc-08-consumir-lib-vite.png
++# coverAlt: "Capa DICA WC — Consumir a lib em app Vite"
++---
++
++> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 8).
++
++Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Consumir a lib em app Vite](/trilhas/webcomponents-com-vite/wc-08-consumir-lib-vite/).
++
++## O código
++
++```ts
++// main.ts
++import '@css4html/image-gallery';
++```
++
++> **TODO texto Social** — explicar o trecho acima em linguagem simples.
++
++## Teste no playground
++
++- [Playground: wc-consumir-app](/exemplos/wc-consumir-app/)
++
++> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+diff --git a/src/content/blog/pt-BR/web-components-do-zero.md b/src/content/blog/pt-BR/web-components-do-zero.md
+new file mode 100644
+index 0000000..9cb774b
+--- /dev/null
++++ b/src/content/blog/pt-BR/web-components-do-zero.md
+@@ -0,0 +1,28 @@
++---
++title: "Web Components do zero"
++description: "Guia completo: do primeiro Custom Element à lib publicada com Vite — 8 artigos com código e playground."
++pubDate: 2026-10-16
++tags: ["web-components","javascript","vite","guia"]
++relatedExamples: ["wc-hello-element","wc-galeria-vanilla","wc-galeria-react","wc-galeria-vue","wc-vite-lib-tree"]
++relatedSnippets: ["wc-custom-elements-define","wc-vite-lib-config"]
++draft: true
++# cover: /blog/covers/web-components-do-zero.png
++# coverAlt: "Capa DICA WC — Web Components do zero"
++---
++
++> **TODO texto Social** — introdução do guia: o que são Web Components e por que aprender em 2026.
++
++## Os 8 artigos
++
++1. [Por que Web Components](/blog/wc-01-por-que-web-components/) — Componentes nativos do browser, agnósticos a framework — o problema que resolvem.
++2. [Custom Element + Shadow DOM](/blog/wc-02-custom-element-shadow-dom/) — class extends HTMLElement, define(), attachShadow e estilos encapsulados.
++3. [Galeria de imagens (vanilla CE)](/blog/wc-03-galeria-imagens-vanilla/) — Um image-gallery completo só com Custom Element + Shadow DOM.
++4. [Mesma galeria no React](/blog/wc-04-galeria-no-react/) — Usar o Custom Element dentro de JSX — props viram atributos.
++5. [Mesma galeria no Vue](/blog/wc-05-galeria-no-vue/) — Montar o Custom Element num app Vue 3 (global build via CDN).
++6. [Empacotar com Vite (lib mode)](/blog/wc-06-empacotar-com-vite/) — Árvore do pacote, vite.config em library mode e entry do Custom Element.
++7. [Export dual: ES module + Custom Element](/blog/wc-07-export-dual/) — Exportar a classe e registrar a tag — dois jeitos de consumir a mesma lib.
++8. [Consumir a lib em app Vite](/blog/wc-08-consumir-lib-vite/) — Import ESM + tag no HTML/JSX — o ciclo completo do pacote ao app.
++
++Prefere ir direto para a prática? Siga a trilha [Web Components com Vite](/trilhas/webcomponents-com-vite/).
++
++> **TODO texto Social** — fechamento / chamada para ação.
+diff --git a/src/i18n/collections.ts b/src/i18n/collections.ts
+index 7691cd7..548972b 100644
+--- a/src/i18n/collections.ts
++++ b/src/i18n/collections.ts
+@@ -17,7 +17,8 @@ export async function getLessons(locale: Locale = defaultLocale) {
+ }
+ 
+ export async function getBlogPosts(locale: Locale = defaultLocale) {
+-  const all = await getCollection('blog');
++  // Rascunhos (draft: true) só aparecem em dev; no build de produção não geram página nem card.
++  const all = await getCollection('blog', (e) => import.meta.env.DEV || !e.data.draft);
+   let items = all.filter((e) => idLocale(e.id) === locale);
+   if (items.length === 0 && locale !== defaultLocale) {
+     items = all.filter((e) => idLocale(e.id) === defaultLocale);
+diff --git a/src/layouts/BaseLayout.astro b/src/layouts/BaseLayout.astro
+index c85683c..ba58b7e 100644
+--- a/src/layouts/BaseLayout.astro
++++ b/src/layouts/BaseLayout.astro
+@@ -10,6 +10,8 @@ interface Props {
+   description?: string;
+   current?: string;
+   locale?: Locale;
++  /** Imagem de compartilhamento (caminho relativo ou URL absoluta). Padrão: logo-fanpage.png */
++  image?: string;
+ }
+ 
+ const locale = Astro.props.locale ?? getLocaleFromUrl(Astro.url);
+@@ -18,7 +20,11 @@ const {
+   title,
+   description = t('home.desc'),
+   current = '',
++  image,
+ } = Astro.props;
++const ogImage = image
++  ? new URL(image, Astro.site).href
++  : 'https://css4html.com.br/logo-fanpage.png';
+ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
+ ---
+ <!doctype html>
+@@ -30,7 +36,11 @@ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
+     <meta name="generator" content={Astro.generator} />
+     <meta property="og:title" content={fullTitle} />
+     <meta property="og:description" content={description} />
+-    <meta property="og:image" content="https://css4html.com.br/logo-fanpage.png" />
++    <meta property="og:image" content={ogImage} />
++    {image && <meta property="og:image:width" content="1200" />}
++    {image && <meta property="og:image:height" content="630" />}
++    {image && <meta name="twitter:card" content="summary_large_image" />}
++    {image && <meta name="twitter:image" content={ogImage} />}
+     <meta property="og:url" content={Astro.url.href} />
+     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+diff --git a/src/pages/blog/[slug].astro b/src/pages/blog/[slug].astro
+index 0dcd3bd..34e1704 100644
+--- a/src/pages/blog/[slug].astro
++++ b/src/pages/blog/[slug].astro
+@@ -30,7 +30,7 @@ const snippets = await getSnippets(locale);
+ const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
+ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+ ---
+-<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale}>
++<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale} image={post.data.cover}>
+   <article class="container page-header">
+     <p><a href={lp('/blog/')}>{t('blog.back')}</a></p>
+     <h1>{post.data.title}</h1>
+@@ -40,6 +40,9 @@ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+         {post.data.tags.map((tg) => <li class="tag">{tg}</li>)}
+       </ul>
+     </div>
++    {post.data.cover && (
++      <img class="post-cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width="1200" height="630" loading="lazy" decoding="async" />
++    )}
+     <div class="prose">
+       <Content />
+     </div>
+diff --git a/src/pages/blog/index.astro b/src/pages/blog/index.astro
+index 4dfcc01..41e2888 100644
+--- a/src/pages/blog/index.astro
++++ b/src/pages/blog/index.astro
+@@ -21,6 +21,9 @@ function formatDate(d: Date) {
+     <div class="card-grid">
+       {posts.map((post) => (
+         <article class="card">
++          {post.data.cover && (
++            <img class="card-cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width="1200" height="630" loading="lazy" decoding="async" />
++          )}
+           <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+           <h3 style="margin-top:0.35rem"><a href={lp(`/blog/${entrySlug(post)}/`)}>{post.data.title}</a></h3>
+           <p>{post.data.description}</p>
+diff --git a/src/pages/en/blog/[slug].astro b/src/pages/en/blog/[slug].astro
+index a99da4c..96f34ec 100644
+--- a/src/pages/en/blog/[slug].astro
++++ b/src/pages/en/blog/[slug].astro
+@@ -30,7 +30,7 @@ const snippets = await getSnippets(locale);
+ const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
+ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+ ---
+-<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale}>
++<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale} image={post.data.cover}>
+   <article class="container page-header">
+     <p><a href={lp('/blog/')}>{t('blog.back')}</a></p>
+     <h1>{post.data.title}</h1>
+@@ -40,6 +40,9 @@ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+         {post.data.tags.map((tg) => <li class="tag">{tg}</li>)}
+       </ul>
+     </div>
++    {post.data.cover && (
++      <img class="post-cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width="1200" height="630" loading="lazy" decoding="async" />
++    )}
+     <div class="prose">
+       <Content />
+     </div>
+diff --git a/src/pages/en/blog/index.astro b/src/pages/en/blog/index.astro
+index 24cfa5f..c3576a5 100644
+--- a/src/pages/en/blog/index.astro
++++ b/src/pages/en/blog/index.astro
+@@ -21,6 +21,9 @@ function formatDate(d: Date) {
+     <div class="card-grid">
+       {posts.map((post) => (
+         <article class="card">
++          {post.data.cover && (
++            <img class="card-cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width="1200" height="630" loading="lazy" decoding="async" />
++          )}
+           <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+           <h3 style="margin-top:0.35rem"><a href={lp(`/blog/${entrySlug(post)}/`)}>{post.data.title}</a></h3>
+           <p>{post.data.description}</p>
+diff --git a/src/pages/es/blog/[slug].astro b/src/pages/es/blog/[slug].astro
+index 105df0e..9f1da71 100644
+--- a/src/pages/es/blog/[slug].astro
++++ b/src/pages/es/blog/[slug].astro
+@@ -30,7 +30,7 @@ const snippets = await getSnippets(locale);
+ const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
+ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+ ---
+-<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale}>
++<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale} image={post.data.cover}>
+   <article class="container page-header">
+     <p><a href={lp('/blog/')}>{t('blog.back')}</a></p>
+     <h1>{post.data.title}</h1>
+@@ -40,6 +40,9 @@ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
+         {post.data.tags.map((tg) => <li class="tag">{tg}</li>)}
+       </ul>
+     </div>
++    {post.data.cover && (
++      <img class="post-cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width="1200" height="630" loading="lazy" decoding="async" />
++    )}
+     <div class="prose">
+       <Content />
+     </div>
+diff --git a/src/pages/es/blog/index.astro b/src/pages/es/blog/index.astro
+index 21fa908..8dee22f 100644
+--- a/src/pages/es/blog/index.astro
++++ b/src/pages/es/blog/index.astro
+@@ -21,6 +21,9 @@ function formatDate(d: Date) {
+     <div class="card-grid">
+       {posts.map((post) => (
+         <article class="card">
++          {post.data.cover && (
++            <img class="card-cover" src={post.data.cover} alt={post.data.coverAlt ?? ''} width="1200" height="630" loading="lazy" decoding="async" />
++          )}
+           <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
+           <h3 style="margin-top:0.35rem"><a href={lp(`/blog/${entrySlug(post)}/`)}>{post.data.title}</a></h3>
+           <p>{post.data.description}</p>
+diff --git a/src/styles/global.css b/src/styles/global.css
+index b2fb27e..27eac66 100644
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@ -1166,3 +1166,15 @@ html[data-theme="dark"] .badge.track-wc {
+   padding: 0;
+   font-size: inherit;
+ }
++
++/* Capas de post do blog (1200×630) */
++.post-cover,
++.card-cover {
++  display: block;
++  width: 100%;
++  height: auto;
++  aspect-ratio: 1200 / 630;
++  object-fit: cover;
++}
++.post-cover { margin: 1rem 0 1.5rem; }
++.card-cover { margin-bottom: 0.75rem; }
+-- 
+2.47.3
+

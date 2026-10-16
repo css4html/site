@@ -17,7 +17,8 @@ export async function getLessons(locale: Locale = defaultLocale) {
 }
 
 export async function getBlogPosts(locale: Locale = defaultLocale) {
-  const all = await getCollection('blog');
+  // Rascunhos (draft: true) só aparecem em dev; no build de produção não geram página nem card.
+  const all = await getCollection('blog', (e) => import.meta.env.DEV || !e.data.draft);
   let items = all.filter((e) => idLocale(e.id) === locale);
   if (items.length === 0 && locale !== defaultLocale) {
     items = all.filter((e) => idLocale(e.id) === defaultLocale);
