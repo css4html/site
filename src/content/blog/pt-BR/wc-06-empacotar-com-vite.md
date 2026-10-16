@@ -5,9 +5,9 @@ pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-vite-lib-tree']
 relatedSnippets: ['wc-vite-lib-config', 'wc-package-exports']
-draft: true
-# cover: /blog/covers/wc-06-empacotar-com-vite.png
-# coverAlt: "Capa DICA WC — Empacotar com Vite (lib mode)"
+draft: false
+cover: /blog/covers/wc-06-empacotar-com-vite.png
+coverAlt: "Capa DICA WC — Web Components, lição 6: Empacotar com Vite (library mode)"
 ---
 
 Até aqui o `<image-gallery>` vivia no playground. Para usar em qualquer projeto, ele vira uma lib, e o Vite resolve isso com o library mode.

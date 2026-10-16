@@ -5,9 +5,9 @@ pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-galeria-vue']
 relatedSnippets: ['wc-vue-host', 'wc-custom-elements-define']
-draft: true
-# cover: /blog/covers/wc-05-galeria-no-vue.png
-# coverAlt: "Capa DICA WC — Mesma galeria no Vue"
+draft: false
+cover: /blog/covers/wc-05-galeria-no-vue.png
+coverAlt: "Capa DICA WC — Web Components, lição 5: Mesma galeria no Vue"
 ---
 
 Depois do React, o Vue 3. O mesmo `<image-gallery>` da lição 3 roda aqui sem mudar uma linha: o Vue só monta o template.

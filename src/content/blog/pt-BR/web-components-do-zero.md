@@ -5,9 +5,9 @@ pubDate: 2026-10-16
 tags: ["web-components","javascript","vite","guia"]
 relatedExamples: ["wc-hello-element","wc-galeria-vanilla","wc-galeria-react","wc-galeria-vue","wc-vite-lib-tree"]
 relatedSnippets: ["wc-custom-elements-define","wc-vite-lib-config"]
-draft: true
-# cover: /blog/covers/web-components-do-zero.png
-# coverAlt: "Capa DICA WC — Web Components do zero"
+draft: false
+cover: /blog/covers/web-components-do-zero.png
+coverAlt: "Capa DICA WC — Web Components do zero"
 ---
 
 Você fez uma galeria em React, o marketing usa Vue e o site institucional é HTML estático. Em vez de reescrever o mesmo componente três vezes, dá para escrever uma vez só, com APIs nativas do browser: os **Web Components**.

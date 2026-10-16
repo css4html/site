@@ -5,9 +5,9 @@ pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-hello-element']
 relatedSnippets: ['wc-custom-elements-define', 'wc-register-guard']
-draft: true
-# cover: /blog/covers/wc-01-por-que-web-components.png
-# coverAlt: "Capa DICA WC — Por que Web Components"
+draft: false
+cover: /blog/covers/wc-01-por-que-web-components.png
+coverAlt: "Capa DICA WC — Web Components, lição 1: Por que Web Components?"
 ---
 
 Você fez uma galeria em React, o marketing usa Vue e o site institucional é HTML estático. Três reescritas do mesmo componente? Nesta primeira lição você entende por que os Web Components existem e quando vale a pena usá-los.

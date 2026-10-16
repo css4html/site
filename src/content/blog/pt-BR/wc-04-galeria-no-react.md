@@ -5,9 +5,9 @@ pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-galeria-react']
 relatedSnippets: ['wc-react-host', 'wc-custom-elements-define']
-draft: true
-# cover: /blog/covers/wc-04-galeria-no-react.png
-# coverAlt: "Capa DICA WC — Mesma galeria no React"
+draft: false
+cover: /blog/covers/wc-04-galeria-no-react.png
+coverAlt: "Capa DICA WC — Web Components, lição 4: Mesma galeria no React"
 ---
 
 O `<image-gallery>` da lição 3 roda dentro do React sem reescrever nada. O React só hospeda a tag; o grid e o clique continuam no Shadow DOM do componente.

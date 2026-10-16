@@ -5,9 +5,9 @@ pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-galeria-vanilla', 'wc-attrs-props']
 relatedSnippets: ['wc-slot-basico', 'wc-css-in-shadow', 'wc-observed-attributes']
-draft: true
-# cover: /blog/covers/wc-03-galeria-imagens-vanilla.png
-# coverAlt: "Capa DICA WC — Galeria de imagens (vanilla CE)"
+draft: false
+cover: /blog/covers/wc-03-galeria-imagens-vanilla.png
+coverAlt: "Capa DICA WC — Web Components, lição 3: Galeria de imagens com Custom Element (vanilla)"
 ---
 
 Com a anatomia da lição 2 em mãos, você monta o componente que vai acompanhar o resto da trilha: o `<image-gallery>`. Aqui ele é só plataforma: HTML e JS, sem React, sem Vue, sem bundler.

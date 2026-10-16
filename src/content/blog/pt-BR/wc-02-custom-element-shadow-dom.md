@@ -5,9 +5,9 @@ pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-hello-element', 'wc-shadow-styles']
 relatedSnippets: ['wc-custom-elements-define', 'wc-shadow-dom-attach', 'wc-observed-attributes']
-draft: true
-# cover: /blog/covers/wc-02-custom-element-shadow-dom.png
-# coverAlt: "Capa DICA WC — Custom Element + Shadow DOM"
+draft: false
+cover: /blog/covers/wc-02-custom-element-shadow-dom.png
+coverAlt: "Capa DICA WC — Web Components, lição 2: Custom Element + Shadow DOM"
 ---
 
 Hora de criar o primeiro Custom Element: uma classe, um nome de tag e um Shadow DOM para isolar o estilo.

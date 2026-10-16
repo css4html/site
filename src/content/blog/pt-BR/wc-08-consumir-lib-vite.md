@@ -5,9 +5,9 @@ pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-consumir-app']
 relatedSnippets: ['wc-package-exports', 'wc-react-host', 'wc-export-dual-pattern']
-draft: true
-# cover: /blog/covers/wc-08-consumir-lib-vite.png
-# coverAlt: "Capa DICA WC — Consumir a lib em app Vite"
+draft: false
+cover: /blog/covers/wc-08-consumir-lib-vite.png
+coverAlt: "Capa DICA WC — Web Components, lição 8: Consumir a lib em app Vite"
 ---
 
 Fechando o ciclo: do pacote ao app. No projeto consumidor, seja vanilla, React ou Vue, um único import registra a tag.
