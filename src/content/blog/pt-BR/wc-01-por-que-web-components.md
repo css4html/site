@@ -1,6 +1,6 @@
 ---
-title: "Web Components 1/8: Por que Web Components"
-description: "Componentes nativos do browser, agnósticos a framework — o problema que resolvem."
+title: "Web Components, lição 1: Por que Web Components?"
+description: "Componentes nativos do browser, agnósticos a framework: o problema que os Web Components resolvem."
 pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-hello-element']
@@ -10,18 +10,53 @@ draft: true
 # coverAlt: "Capa DICA WC — Por que Web Components"
 ---
 
-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 1).
+Você fez uma galeria em React, o marketing usa Vue e o site institucional é HTML estático. Três reescritas do mesmo componente? Nesta primeira lição você entende por que os Web Components existem e quando vale a pena usá-los.
 
-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Por que Web Components](/trilhas/webcomponents-com-vite/wc-01-por-que-web-components/).
+## O problema
+
+Frameworks vêm e vão. O DOM e os padrões da plataforma ficam. Web Components empacotam UI e comportamento numa **tag HTML real** (como `<image-gallery>`), que qualquer app pode montar: vanilla JS, React, Vue, Angular ou o que o time usar amanhã.
+
+## As peças da plataforma
+
+| API | Papel |
+|---|---|
+| Custom Elements | Registrar uma classe que estende `HTMLElement` |
+| Shadow DOM | Encapsular markup e CSS do componente |
+| HTML templates / slots | Compor conteúdo externo dentro do componente |
+
+## Quando fazem sentido
+
+- Design system compartilhado entre apps
+- Widgets embutíveis (CMS, sites estáticos, microfrontends)
+- Libs de UI sem amarrar o consumidor a um framework
+
+## Quando não são a melhor escolha
+
+Em apps 100% React com ecossistema só de hooks, às vezes um componente React puro é mais simples. A trilha mostra os dois mundos: Custom Element nativo e consumo em React e Vue.
 
 ## O código
 
-<!-- TODO: snippet -->
+Esta lição é conceitual. O registro de um Custom Element é uma linha da plataforma:
 
-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
+```js
+customElements.define('hello-badge', HelloBadge);
+```
 
-## Teste no playground
+Na lição 2 você escreve a classe `HelloBadge` completa, com Shadow DOM.
 
-- [Playground: wc-hello-element](/exemplos/wc-hello-element/)
+## Pratique no playground
 
-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+- ▶️ [Hello Custom Element](/exemplos/wc-hello-element/)
+
+Snippets relacionados:
+
+- 🧩 [customElements.define](/snippets/wc-custom-elements-define/)
+- 🧩 [Guarda no define](/snippets/wc-register-guard/)
+
+📚 Lição completa na trilha grátis: [Por que Web Components?](/trilhas/webcomponents-com-vite/wc-01-por-que-web-components/)
+
+---
+
+← Voltar ao guia: [Web Components do zero](/blog/web-components-do-zero/)
+
+Próxima: [Lição 2: Custom Element + Shadow DOM](/blog/wc-02-custom-element-shadow-dom/) →

@@ -1,6 +1,6 @@
 ---
-title: "Web Components 5/8: Mesma galeria no Vue"
-description: "Montar o Custom Element num app Vue 3 (global build via CDN)."
+title: "Web Components, lição 5: Mesma galeria no Vue"
+description: "Monte o <image-gallery> num app Vue 3 usando o build global via CDN, sem reescrever o componente."
 pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-galeria-vue']
@@ -10,21 +10,53 @@ draft: true
 # coverAlt: "Capa DICA WC — Mesma galeria no Vue"
 ---
 
-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 5).
+Depois do React, o Vue 3. O mesmo `<image-gallery>` da lição 3 roda aqui sem mudar uma linha: o Vue só monta o template.
 
-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Mesma galeria no Vue](/trilhas/webcomponents-com-vite/wc-05-galeria-no-vue/).
+## Vue e Custom Elements
 
-## O código
+O Vue 3 trata Custom Elements de forma amigável: tags com hífen passam direto para o DOM.
 
 ```html
 <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 <div id="app"></div>
 ```
 
-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
+```js
+const { createApp } = Vue;
 
-## Teste no playground
+createApp({
+  template: `
+    <image-gallery columns="2">
+      <img
+        src="https://picsum.photos/id/184/300/300"
+        alt="Dunas ao anoitecer"
+      />
+    </image-gallery>
+  `
+}).mount('#app');
+```
 
-- [Playground: wc-galeria-vue](/exemplos/wc-galeria-vue/)
+> **Dica WC:** no playground usamos o build **global** do Vue (script UMD) para ficar estático e compatível com GitHub Pages, sem bundler local.
 
-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+No playground, `ref="host"` + `onMounted()` pegam o elemento real, e o evento `gallery-select` atualiza `info.value`, o estado reativo do Vue.
+
+## Em um app Vite de verdade
+
+Importe o Custom Element e use a tag no SFC. Se precisar, configure `compilerOptions.isCustomElement` para o Vue não tentar resolver a tag como componente dele.
+
+## Pratique no playground
+
+- ▶️ [Galeria no Vue (host CE)](/exemplos/wc-galeria-vue/)
+
+Snippets relacionados:
+
+- 🧩 [CE no Vue](/snippets/wc-vue-host/)
+- 🧩 [customElements.define](/snippets/wc-custom-elements-define/)
+
+📚 Lição completa na trilha grátis: [Mesma galeria no Vue](/trilhas/webcomponents-com-vite/wc-05-galeria-no-vue/)
+
+---
+
+← Anterior: [Lição 4: Mesma galeria no React](/blog/wc-04-galeria-no-react/)
+
+Próxima: [Lição 6: Empacotar com Vite (library mode)](/blog/wc-06-empacotar-com-vite/) →

@@ -1,6 +1,6 @@
 ---
-title: "Web Components 7/8: Export dual: ES module + Custom Element"
-description: "Exportar a classe e registrar a tag — dois jeitos de consumir a mesma lib."
+title: "Web Components, lição 7: Export dual: classe + register"
+description: "Exporte a classe e registre a tag: dois jeitos de consumir a mesma lib de Web Components."
 pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-dual-export']
@@ -10,14 +10,17 @@ draft: true
 # coverAlt: "Capa DICA WC — Export dual: ES module + Custom Element"
 ---
 
-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 7).
+Com o `<image-gallery>` empacotado, falta decidir como ele chega no app. Uma boa lib de Web Components oferece dois caminhos.
 
-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Export dual: ES module + Custom Element](/trilhas/webcomponents-com-vite/wc-07-export-dual/).
+## Os dois caminhos
 
-## O código
+- **Auto-register (side-effect):** `import 'image-gallery'` já define a tag.
+- **Named export:** `import { ImageGallery, register } from 'image-gallery'` dá acesso à classe e deixa você escolher outro nome de tag com `register(tag)`.
 
-```ts
-export class ImageGallery extends HTMLElement { /* ... */ }
+```js
+export class ImageGallery extends HTMLElement {
+  /* ... */
+}
 
 export function register(tag = 'image-gallery') {
   if (!customElements.get(tag)) {
@@ -28,10 +31,36 @@ export function register(tag = 'image-gallery') {
 register(); // auto-register no entry padrão
 ```
 
-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
+> **Dica WC:** sempre proteja o `define` com `customElements.get(name)`. Assim não estoura erro se o módulo for importado duas vezes.
 
-## Teste no playground
+## package.json exports
 
-- [Playground: wc-dual-export](/exemplos/wc-dual-export/)
+```json
+{
+  "name": "@css4html/image-gallery",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/image-gallery.es.js"
+    }
+  }
+}
+```
 
-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+## Pratique no playground
+
+- ▶️ [Export dual (classe + register)](/exemplos/wc-dual-export/)
+
+Snippets relacionados:
+
+- 🧩 [Export dual](/snippets/wc-export-dual-pattern/)
+- 🧩 [Guarda no define](/snippets/wc-register-guard/)
+- 🧩 [package.json exports](/snippets/wc-package-exports/)
+
+📚 Lição completa na trilha grátis: [Export dual: classe + register](/trilhas/webcomponents-com-vite/wc-07-export-dual/)
+
+---
+
+← Anterior: [Lição 6: Empacotar com Vite (library mode)](/blog/wc-06-empacotar-com-vite/)
+
+Próxima: [Lição 8: Consumir a lib em app Vite](/blog/wc-08-consumir-lib-vite/) →

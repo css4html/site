@@ -1,6 +1,6 @@
 ---
-title: "Web Components 2/8: Custom Element + Shadow DOM"
-description: "class extends HTMLElement, define(), attachShadow e estilos encapsulados."
+title: "Web Components, lição 2: Custom Element + Shadow DOM"
+description: "class extends HTMLElement, customElements.define(), attachShadow e estilos encapsulados."
 pubDate: 2026-10-16
 tags: ["web-components","javascript","vite"]
 relatedExamples: ['wc-hello-element', 'wc-shadow-styles']
@@ -10,11 +10,11 @@ draft: true
 # coverAlt: "Capa DICA WC — Custom Element + Shadow DOM"
 ---
 
-> **TODO texto Social** — introdução (2–3 parágrafos a partir da legenda do post da lição 2).
+Hora de criar o primeiro Custom Element: uma classe, um nome de tag e um Shadow DOM para isolar o estilo.
 
-Parte do guia [Web Components do zero](/blog/web-components-do-zero/) · Lição completa: [Custom Element + Shadow DOM](/trilhas/webcomponents-com-vite/wc-02-custom-element-shadow-dom/).
+## Anatomia mínima
 
-## O código
+Um Custom Element é uma classe que estende `HTMLElement` e é registrada com um nome que **contenha hífen**.
 
 ```js
 class HelloBadge extends HTMLElement {
@@ -22,14 +22,67 @@ class HelloBadge extends HTMLElement {
     this.textContent = this.getAttribute('label') || 'Olá';
   }
 }
+
 customElements.define('hello-badge', HelloBadge);
 ```
 
-> **TODO texto Social** — explicar o trecho acima em linguagem simples.
+```html
+<hello-badge label="CSS4HTML"></hello-badge>
+```
 
-## Teste no playground
+> **Dica WC:** nomes de tag precisam de hífen (`hello-badge`, não `hellobadge`). Isso evita colisão com elementos HTML futuros.
 
-- [Playground: wc-hello-element](/exemplos/wc-hello-element/)
-- [Playground: wc-shadow-styles](/exemplos/wc-shadow-styles/)
+## Shadow DOM
 
-> **TODO texto Social** — chamada para ação (abrir o playground, seguir a trilha).
+Sem shadow, o CSS da página vaza para dentro do componente (e o do componente vaza para fora). Com shadow, cada lado fica no seu lugar:
+
+```js
+connectedCallback() {
+  const root = this.attachShadow({ mode: 'open' });
+  root.innerHTML = `
+    <style>
+      span {
+        color: #F5A623;
+        font-weight: 700;
+      }
+    </style>
+    <span><slot></slot></span>
+  `;
+}
+```
+
+- `mode: 'open'`: `element.shadowRoot` fica acessível, o que ajuda em debug e testes.
+- `<slot>`: projeta os filhos do light DOM para dentro do shadow.
+
+## Atributos observados
+
+Para reagir quando um atributo muda, declare quais atributos observar:
+
+```js
+static get observedAttributes() {
+  return ['label'];
+}
+
+attributeChangedCallback(name, _old, value) {
+  // atualizar UI
+}
+```
+
+## Pratique no playground
+
+- ▶️ [Hello Custom Element](/exemplos/wc-hello-element/)
+- ▶️ [Shadow DOM e estilos](/exemplos/wc-shadow-styles/)
+
+Snippets relacionados:
+
+- 🧩 [customElements.define](/snippets/wc-custom-elements-define/)
+- 🧩 [attachShadow](/snippets/wc-shadow-dom-attach/)
+- 🧩 [observedAttributes](/snippets/wc-observed-attributes/)
+
+📚 Lição completa na trilha grátis: [Custom Element + Shadow DOM](/trilhas/webcomponents-com-vite/wc-02-custom-element-shadow-dom/)
+
+---
+
+← Anterior: [Lição 1: Por que Web Components?](/blog/wc-01-por-que-web-components/)
+
+Próxima: [Lição 3: Galeria de imagens com Custom Element (vanilla)](/blog/wc-03-galeria-imagens-vanilla/) →
