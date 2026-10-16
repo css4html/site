@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Guia completo da trilha CSS4HTML: do primeiro Custom Element até publicar e consumir sua própria lib com Vite, em vanilla, React e Vue."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Web Components do zero · CSS4HTML"><meta property="og:description" content="Guia completo da trilha CSS4HTML: do primeiro Custom Element até publicar e consumir sua própria lib com Vite, em vanilla, React e Vue."><meta property="og:image" content="https://css4html.com.br/blog/covers/web-components-do-zero.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://css4html.com.br/blog/covers/web-components-do-zero.png"><meta property="og:url" content="https://css4html.com.br/blog/web-components-do-zero/"><link rel="canonical" href="https://css4html.com.br/blog/web-components-do-zero/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Web Components do zero · CSS4HTML</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><link rel="stylesheet" href="/_astro/collections.D1tWp4Re.css"></head><body><a class="sr-only" href="#conteudo">Ir para o conteúdo</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Principal"><ul class="nav"><li><a href="/">Início</a></li><li><a href="/trilhas/">Trilhas</a></li><li><a href="/exemplos/">Exemplos</a></li><li><a href="/snippets/">Snippets</a></li><li><a href="/blog/" aria-current="page">Blog</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Idioma"><a href="/blog/web-components-do-zero/" class="lang-btn is-active" hreflang="pt-BR" aria-current="page" lang="pt-BR">PT</a><a href="/en/blog/web-components-do-zero/" class="lang-btn" hreflang="en" lang="en">EN</a><a href="/es/blog/web-components-do-zero/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Ativar tema claro" data-label-dark="Ativar tema escuro" aria-label="Alternar tema claro ou escuro" title="Alternar tema"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Abrir menu de navegação" data-label-close="Fechar menu de navegação" aria-expanded="false" aria-controls="nav-drawer" aria-label="Abrir menu de navegação"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação"><p class="drawer-label">Navegação</p><nav aria-label="Menu mobile"><ul class="nav"><li><a href="/" data-menu-close>Início</a></li><li><a href="/trilhas/" data-menu-close>Trilhas</a></li><li><a href="/exemplos/" data-menu-close>Exemplos</a></li><li><a href="/snippets/" data-menu-close>Snippets</a></li><li><a href="/blog/" aria-current="page" data-menu-close>Blog</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trilhas</p><nav aria-label="Trilhas"><ul class="nav"><li><a href="/trilhas/html-do-zero/" data-menu-close>HTML do zero</a></li><li><a href="/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS do zero ao layout</a></li><li><a href="/trilhas/javascript-do-zero/" data-menu-close>JavaScript do zero</a></li><li><a href="/trilhas/react-do-basico-ao-estado/" data-menu-close>React do básico ao estado</a></li><li><a href="/trilhas/webcomponents-com-vite/" data-menu-close>Web Components com Vite</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><article class="container page-header"><p><a href="/blog/">← Blog</a></p><h1>Web Components do zero</h1><div class="meta-row"><time datetime="2026-10-16T15:09:00.000Z">16 de outubro de 2026</time><ul class="tags" style="margin:0"><li class="tag">web-components</li><li class="tag">javascript</li><li class="tag">vite</li><li class="tag">guia</li></ul></div><img class="post-cover" src="/blog/covers/web-components-do-zero.png" alt="Capa DICA WC — Web Components do zero" width="1200" height="630" loading="lazy" decoding="async"><div class="prose"><p>Você fez uma galeria em React, o marketing usa Vue e o site institucional é HTML estático. Em vez de reescrever o mesmo componente três vezes, dá para escrever uma vez só, com APIs nativas do browser: os <strong>Web Components</strong>.</p>
+<p>Este guia reúne as 8 lições da série <strong>DICA WC</strong>. Ao longo delas você constrói um único componente, o <code>&lt;image-gallery&gt;</code>, e leva ele do playground até um pacote publicado e consumido em qualquer stack.</p>
+<h2 id="o-que-são-web-components">O que são Web Components</h2>
+<ul>
+<li><strong>Custom Elements:</strong> registram uma classe que estende <code>HTMLElement</code> como uma tag HTML nova.</li>
+<li><strong>Shadow DOM:</strong> encapsula o markup e o CSS do componente.</li>
+<li><strong>Templates e slots:</strong> compõem conteúdo externo dentro do componente.</li>
+</ul>
+<p>O resultado é uma tag HTML real, que roda em vanilla JS, React, Vue ou Angular.</p>
+<h2 id="o-caminho-da-trilha">O caminho da trilha</h2>
+<ul>
+<li><strong>Lições 1 a 3:</strong> Custom Element nativo, do conceito até a galeria completa.</li>
+<li><strong>Lições 4 e 5:</strong> a mesma galeria hospedada por React e por Vue, sem reescrever nada.</li>
+<li><strong>Lições 6 e 7:</strong> empacotar com Vite (library mode) e oferecer export dual.</li>
+<li><strong>Lição 8:</strong> consumir a lib num app Vite com um único import.</li>
+</ul>
+<h2 id="todas-as-lições">Todas as lições</h2>
+<ol>
+<li><a href="/blog/wc-01-por-que-web-components/">Lição 1: Por que Web Components?</a>: Componentes nativos do browser, agnósticos a framework: o problema que os Web Components resolvem.</li>
+<li><a href="/blog/wc-02-custom-element-shadow-dom/">Lição 2: Custom Element + Shadow DOM</a>: class extends HTMLElement, customElements.define(), attachShadow e estilos encapsulados.</li>
+<li><a href="/blog/wc-03-galeria-imagens-vanilla/">Lição 3: Galeria de imagens com Custom Element (vanilla)</a>: Um <image-gallery> completo só com Custom Element e Shadow DOM, sem framework e sem bundler.</li>
+<li><a href="/blog/wc-04-galeria-no-react/">Lição 4: Mesma galeria no React</a>: Use o <image-gallery> dentro do JSX: o React só hospeda a tag e as props viram atributos.</li>
+<li><a href="/blog/wc-05-galeria-no-vue/">Lição 5: Mesma galeria no Vue</a>: Monte o <image-gallery> num app Vue 3 usando o build global via CDN, sem reescrever o componente.</li>
+<li><a href="/blog/wc-06-empacotar-com-vite/">Lição 6: Empacotar com Vite (library mode)</a>: Árvore do pacote, vite.config em library mode e os bundles ES + UMD do Custom Element.</li>
+<li><a href="/blog/wc-07-export-dual/">Lição 7: Export dual: classe + register</a>: Exporte a classe e registre a tag: dois jeitos de consumir a mesma lib de Web Components.</li>
+<li><a href="/blog/wc-08-consumir-lib-vite/">Lição 8: Consumir a lib em app Vite</a>: Um import ESM e a tag no HTML, JSX ou template: o ciclo completo do pacote ao app.</li>
+</ol>
+<h2 id="pratique">Pratique</h2>
+<p>Todas as lições têm playground ao vivo em <a href="/exemplos/">css4html.com.br/exemplos</a> e a trilha completa está em <a href="/trilhas/webcomponents-com-vite/">Web Components + Vite</a>.</p>
+<p>Comece pela <a href="/blog/wc-01-por-que-web-components/">Lição 1: Por que Web Components?</a> →</p>
+</div><div class="related"><h2>No hub</h2><ul><li><a href="/exemplos/wc-hello-element/">Exemplo: Hello Custom Element</a></li><li><a href="/exemplos/wc-galeria-vanilla/">Exemplo: Galeria vanilla (Custom Element)</a></li><li><a href="/exemplos/wc-galeria-react/">Exemplo: Galeria no React (host CE)</a></li><li><a href="/exemplos/wc-galeria-vue/">Exemplo: Galeria no Vue (host CE)</a></li><li><a href="/exemplos/wc-vite-lib-tree/">Exemplo: Árvore Vite lib (conceitual)</a></li><li><a href="/snippets/wc-custom-elements-define/">Snippet: customElements.define</a></li><li><a href="/snippets/wc-vite-lib-config/">Snippet: Vite lib mode</a></li></ul></div></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Hub educacional de HTML, CSS, JavaScript, React e Web Components: exemplos editáveis, snippets práticos e trilhas do zero à prática.</p></div><div><h3>Aprender</h3><ul><li><a href="/trilhas/html-do-zero/">Trilha HTML</a></li><li><a href="/trilhas/css-do-zero-ao-layout/">Trilha CSS</a></li><li><a href="/trilhas/javascript-do-zero/">Trilha JavaScript</a></li><li><a href="/trilhas/react-do-basico-ao-estado/">Trilha React</a></li><li><a href="/trilhas/webcomponents-com-vite/">Trilha Web Components</a></li><li><a href="/exemplos/">Exemplos vivos</a></li><li><a href="/snippets/">Biblioteca de snippets</a></li><li><a href="/blog/">Blog</a></li></ul></div><div><h3>Projeto</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="https://www.facebook.com/CSS4HTML" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/css4html/" rel="noopener noreferrer">Instagram</a></li><li><a href="/">Início</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — HTML, CSS, JS, React e Web Components de verdade.</p><p>css4html.com.br</p></div></div></footer></body></html>
