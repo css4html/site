@@ -33,7 +33,7 @@ Sem shadow, o CSS da página vaza para dentro (e o CSS do componente vaza para f
 
 ```js
 connectedCallback() {
-  const root = this.attachShadow({ mode: 'open' });
+  const root = this.shadowRoot ?? this.attachShadow({ mode: 'open' });
   root.innerHTML = `
     <style>
       span { color: #F5A623; font-weight: 700; }

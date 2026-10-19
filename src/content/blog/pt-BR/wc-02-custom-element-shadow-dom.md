@@ -38,7 +38,7 @@ Sem shadow, o CSS da página vaza para dentro do componente (e o do componente v
 
 ```js
 connectedCallback() {
-  const root = this.attachShadow({ mode: 'open' });
+  const root = this.shadowRoot ?? this.attachShadow({ mode: 'open' });
   root.innerHTML = `
     <style>
       span {
