@@ -15,7 +15,7 @@ js: |
       static get observedAttributes() { return ['label']; }
       connectedCallback() {
         if (this.shadowRoot) return;
-        const root = this.attachShadow({ mode: 'open' });
+        const root = this.shadowRoot ?? this.attachShadow({ mode: 'open' });
         root.innerHTML = `
           <style>
             span {

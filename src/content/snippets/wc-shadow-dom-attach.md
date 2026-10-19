@@ -5,7 +5,7 @@ tags: ["shadow-dom"]
 track: "wc"
 language: "js"
 code: |
-    const root = this.attachShadow({ mode: 'open' });
+    const root = this.shadowRoot ?? this.attachShadow({ mode: 'open' });
     root.innerHTML = `<style>:host{display:block}</style><slot></slot>`;
 ---
 
