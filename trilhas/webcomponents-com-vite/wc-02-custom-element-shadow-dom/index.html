@@ -118,7 +118,7 @@
 <h2 id="shadow-dom">Shadow DOM</h2>
 <p>Sem shadow, o CSS da página vaza para dentro (e o CSS do componente vaza para fora). Com shadow:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#B392F0">connectedCallback</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> root</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">attachShadow</span><span style="color:#E1E4E8">({ mode: </span><span style="color:#9ECBFF">'open'</span><span style="color:#E1E4E8"> });</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> root</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.shadowRoot </span><span style="color:#F97583">??</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">attachShadow</span><span style="color:#E1E4E8">({ mode: </span><span style="color:#9ECBFF">'open'</span><span style="color:#E1E4E8"> });</span></span>
 <span class="line"><span style="color:#E1E4E8">  root.innerHTML </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> `</span></span>
 <span class="line"><span style="color:#9ECBFF">    &lt;style&gt;</span></span>
 <span class="line"><span style="color:#9ECBFF">      span { color: #F5A623; font-weight: 700; }</span></span>
