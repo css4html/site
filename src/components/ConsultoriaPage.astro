@@ -1,0 +1,238 @@
+---
+import '../styles/consultoria.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { type Locale } from '../i18n/config';
+import { localizePath, useTranslations } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+
+const services = [
+  { icon: 'code-xml.svg', title: t('consultoria.svc1Title'), desc: t('consultoria.svc1Desc') },
+  { icon: 'smartphone.svg', title: t('consultoria.svc2Title'), desc: t('consultoria.svc2Desc') },
+  { icon: 'wrench.svg', title: t('consultoria.svc3Title'), desc: t('consultoria.svc3Desc') },
+  { icon: 'component.svg', title: t('consultoria.svc4Title'), desc: t('consultoria.svc4Desc') },
+  { icon: 'gauge.svg', title: t('consultoria.svc5Title'), desc: t('consultoria.svc5Desc') },
+  { icon: 'messages-square.svg', title: t('consultoria.svc6Title'), desc: t('consultoria.svc6Desc') },
+];
+
+const steps = [
+  { n: '1.', title: t('consultoria.step1Title'), desc: t('consultoria.step1Desc') },
+  { n: '2.', title: t('consultoria.step2Title'), desc: t('consultoria.step2Desc') },
+  { n: '3.', title: t('consultoria.step3Title'), desc: t('consultoria.step3Desc') },
+  { n: '4.', title: t('consultoria.step4Title'), desc: t('consultoria.step4Desc') },
+];
+
+const checks = [
+  t('consultoria.check1'),
+  t('consultoria.check2'),
+  t('consultoria.check3'),
+  t('consultoria.check4'),
+];
+
+const stack = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Vite', 'React', 'Vue', 'Web Components', 'Firebase'];
+
+const icon = (name: string) => `/consultoria/icons/${name}`;
+const waBaseMsg = t('consultoria.waMessage');
+---
+<BaseLayout
+  title={t('consultoria.title')}
+  description={t('consultoria.desc')}
+  current="consultoria"
+  locale={locale}
+  image="/consultoria/og.png"
+>
+  <div class="consultoria" data-consultoria data-wa-msg={waBaseMsg}>
+    <section class="c-hero c-wrap">
+      <div>
+        <p class="c-kicker">{t('consultoria.kicker')}</p>
+        <h1>{t('consultoria.h1')}</h1>
+        <p class="c-lead">{t('consultoria.lead')}</p>
+        <div class="c-actions">
+          <a
+            class="c-btn c-btn-wa"
+            href="https://wa.me/5512992159872"
+            data-wa-cta
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={icon('whatsapp.svg')} alt="" width="22" height="22" />
+            {t('consultoria.ctaWa')}
+          </a>
+          <a class="c-btn c-btn-ghost" href="#como-trabalhamos">
+            {t('consultoria.ctaHow')}
+          </a>
+        </div>
+      </div>
+
+      <aside class="c-code-card" aria-hidden="true">
+        <div class="c-code-head">
+          <p class="c-code-label">{t('consultoria.cardLabel')}</p>
+          <img src={icon('code-xml-card.svg')} alt="" width="24" height="24" />
+        </div>
+        <hr style="border:0;border-top:1px solid var(--c-card-border);margin:0" />
+        <pre class="c-code-block"><span class="tag">&lt;seu-projeto&gt;</span>
+<span class="dim">    {t('consultoria.cardLine1')}</span>
+<span class="bright">    {t('consultoria.cardLine2')}</span>
+<span class="tag">&lt;/seu-projeto&gt;</span></pre>
+        <div class="c-mini-ui">
+          <div class="c-mini-ui-top">
+            <span>{t('consultoria.cardProduct')}</span>
+            <img src={icon('arrow-up-right.svg')} alt="" width="18" height="18" />
+          </div>
+          <div class="c-mini-grid">
+            <div class="c-mini-tile">
+              <img src={icon('panels-top-left.svg')} alt="" width="24" height="24" />
+              <div class="c-bar"></div>
+              <div class="c-bar short"></div>
+            </div>
+            <div class="c-mini-tile">
+              <img src={icon('smartphone-card.svg')} alt="" width="24" height="24" />
+              <div class="c-bar"></div>
+              <div class="c-bar short"></div>
+            </div>
+          </div>
+        </div>
+        <p class="c-principles">
+          <span>{t('consultoria.principle1')}</span>
+          <span class="sep">/</span>
+          <span>{t('consultoria.principle2')}</span>
+          <span class="sep">/</span>
+          <span>{t('consultoria.principle3')}</span>
+        </p>
+      </aside>
+    </section>
+
+    <section class="c-section" id="servicos">
+      <div class="c-wrap">
+        <header class="c-section-head">
+          <p class="c-kicker">{t('consultoria.servicesKicker')}</p>
+          <h2>{t('consultoria.servicesTitle')}</h2>
+        </header>
+        <div class="c-services">
+          {services.map((s) => (
+            <article class="c-service">
+              <img src={icon(s.icon)} alt="" width="28" height="28" />
+              <div>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="c-section" id="como-trabalhamos">
+      <div class="c-wrap">
+        <header class="c-section-head">
+          <p class="c-kicker">{t('consultoria.howKicker')}</p>
+          <h2>{t('consultoria.howTitle')}</h2>
+        </header>
+        <div class="c-steps">
+          {steps.map((s) => (
+            <article class="c-step">
+              <p class="c-step-num">{s.n}</p>
+              <div>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="c-section" id="por-que">
+      <div class="c-wrap c-why">
+        <div class="c-why-intro">
+          <p class="c-kicker">{t('consultoria.whyKicker')}</p>
+          <h2 style="margin:0.65rem 0 0;font-size:clamp(1.6rem,3vw,2.35rem);line-height:1.15;color:var(--c-ink)">
+            {t('consultoria.whyTitle')}
+          </h2>
+          <p>{t('consultoria.whyLead')}</p>
+        </div>
+        <ul class="c-checks">
+          {checks.map((c) => (
+            <li>
+              <img src={icon('check.svg')} alt="" width="22" height="22" />
+              <span>{c}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="c-stack c-wrap" aria-label={t('consultoria.stackLabel')}>
+      <p class="c-stack-label">{t('consultoria.stackLabel')}</p>
+      <ul class="c-pills">
+        {stack.map((s) => (
+          <li>{s}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="c-cta c-wrap">
+      <div class="c-cta-card">
+        <h2>{t('consultoria.finalTitle')}</h2>
+        <p>{t('consultoria.finalLead')}</p>
+        <a
+          class="c-btn c-btn-wa"
+          href="https://wa.me/5512992159872"
+          data-wa-cta
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={icon('whatsapp.svg')} alt="" width="22" height="22" />
+          {t('consultoria.ctaWa')}
+        </a>
+      </div>
+    </section>
+
+    <a
+      class="c-sticky-wa"
+      href="https://wa.me/5512992159872"
+      data-wa-cta
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src={icon('whatsapp.svg')} alt="" width="22" height="22" />
+      {t('consultoria.ctaWa')}
+    </a>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var root = document.querySelector('[data-consultoria]');
+      if (!root) return;
+      var baseMsg = root.getAttribute('data-wa-msg') || '';
+      var params = new URLSearchParams(window.location.search);
+      var utm = params.get('utm_source');
+      function buildHref() {
+        var msg = baseMsg;
+        if (utm) msg = msg + ' (via ' + utm + ')';
+        return 'https://wa.me/5512992159872?text=' + encodeURIComponent(msg);
+      }
+      var href = buildHref();
+      document.querySelectorAll('[data-wa-cta]').forEach(function (a) {
+        a.setAttribute('href', href);
+        a.addEventListener('click', function () {
+          try {
+            if (typeof gtag === 'function') {
+              gtag('event', 'consultoria_whatsapp_click', {
+                event_category: 'consultoria',
+                event_label: utm || 'direct',
+                utm_source: utm || undefined,
+              });
+            }
+          } catch (e) {}
+        });
+      });
+    })();
+  </script>
+</BaseLayout>
