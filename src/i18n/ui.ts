@@ -25,6 +25,7 @@ const pt = {
   'nav.trailJs': 'JavaScript do zero',
   'nav.trailReact': 'React do básico ao estado',
   'nav.trailWc': 'Web Components com Vite',
+  'nav.trailGit': 'Git na prática',
 
   // Footer
   'footer.blurb':
@@ -35,6 +36,7 @@ const pt = {
   'footer.trailJs': 'Trilha JavaScript',
   'footer.trailReact': 'Trilha React',
   'footer.trailWc': 'Trilha Web Components',
+  'footer.trailGit': 'Trilha Git',
   'footer.liveExamples': 'Exemplos vivos',
   'footer.snippetLib': 'Biblioteca de snippets',
   'footer.project': 'Projeto',
@@ -51,8 +53,8 @@ const pt = {
     'O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras — do HTML ao React e Web Components, passando por CSS e JavaScript.',
   'home.ctaTrails': 'Ver trilhas',
   'home.ctaExamples': 'Abrir exemplos',
-  'home.threeTrails': 'Cinco trilhas, um hub',
-  'home.threeTrailsDesc': 'Escolha por onde começar — ou combine as cinco.',
+  'home.threeTrails': 'Seis trilhas, um hub',
+  'home.threeTrailsDesc': 'Escolha por onde começar — ou combine as seis.',
   'home.lessonsCount': 'lições',
   'home.htmlTitle': 'HTML do zero à página',
   'home.htmlDesc':
@@ -70,6 +72,9 @@ const pt = {
   'home.wcTitle': 'Web Components com Vite',
   'home.wcDesc': 'Custom Elements agnósticos, Shadow DOM, empacote com Vite e consuma em React ou Vue.',
   'home.wcCta': 'Começar WC',
+  'home.gitTitle': 'Git na prática',
+  'home.gitDesc': 'Do primeiro commit ao pull request e uma página no GitHub Pages — sem rebase.',
+  'home.gitCta': 'Começar Git',
   'home.how': 'Como estudar',
   'home.howDesc': 'Vários caminhos, o mesmo objetivo: entender a web na prática.',
   'home.step1Title': 'Siga uma trilha',
@@ -140,6 +145,12 @@ const pt = {
   'trail.wc.pageTitle': 'Trilha: Web Components com Vite',
   'trail.wc.pageDesc':
     'Oito lições do custom element à lib consumível em apps Vite — agnóstico a framework.',
+  'trail.git.title': 'Git na prática',
+  'trail.git.desc':
+    'Instalação, commits, branches, pull requests, merges e uma página publicada no GitHub Pages.',
+  'trail.git.pageTitle': 'Trilha: Git na prática',
+  'trail.git.pageDesc':
+    'Nove lições do zero ao Pages — fluxo feliz sem rebase nem cherry-pick.',
 
   // Examples
   'examples.title': 'Exemplos vivos',
@@ -295,6 +306,7 @@ const en: Record<UiKey, string> = {
   'nav.trailJs': 'JavaScript from scratch',
   'nav.trailReact': 'React from basics to state',
   'nav.trailWc': 'Web Components with Vite',
+  'nav.trailGit': 'Git in practice',
 
   'footer.blurb':
     
@@ -305,6 +317,7 @@ const en: Record<UiKey, string> = {
   'footer.trailJs': 'JavaScript trail',
   'footer.trailReact': 'React trail',
   'footer.trailWc': 'Web Components trail',
+  'footer.trailGit': 'Git trail',
   'footer.liveExamples': 'Live examples',
   'footer.snippetLib': 'Snippet library',
   'footer.project': 'Project',
@@ -322,8 +335,8 @@ const en: Record<UiKey, string> = {
     'CSS4HTML is a unified hub: edit code in the playground, copy ready-made patterns, and follow clear trails — from HTML to React and Web Components, through CSS and JavaScript.',
   'home.ctaTrails': 'View trails',
   'home.ctaExamples': 'Open examples',
-  'home.threeTrails': 'Five trails, one hub',
-  'home.threeTrailsDesc': 'Pick where to start — or combine all five.',
+  'home.threeTrails': 'Six trails, one hub',
+  'home.threeTrailsDesc': 'Pick where to start — or combine all six.',
   'home.lessonsCount': 'lessons',
   'home.htmlTitle': 'HTML from scratch to a page',
   'home.htmlDesc':
@@ -341,6 +354,9 @@ const en: Record<UiKey, string> = {
   'home.wcTitle': 'Web Components with Vite',
   'home.wcDesc': 'Framework-agnostic Custom Elements, Shadow DOM, package with Vite, consume in React or Vue.',
   'home.wcCta': 'Start WC',
+  'home.gitTitle': 'Git in practice',
+  'home.gitDesc': 'From the first commit to a pull request and a page on GitHub Pages — no rebase.',
+  'home.gitCta': 'Start Git',
   'home.how': 'How to study',
   'home.howDesc': 'Several paths, one goal: understand the web in practice.',
   'home.step1Title': 'Follow a trail',
@@ -410,6 +426,12 @@ const en: Record<UiKey, string> = {
   'trail.wc.pageTitle': 'Trail: Web Components with Vite',
   'trail.wc.pageDesc':
     'Eight lessons from a custom element to a lib you can consume in Vite apps — framework-agnostic.',
+  'trail.git.title': 'Git in practice',
+  'trail.git.desc':
+    'Install, commits, branches, pull requests, merges, and a page published on GitHub Pages.',
+  'trail.git.pageTitle': 'Trail: Git in practice',
+  'trail.git.pageDesc':
+    'Nine lessons from zero to Pages — happy path without rebase or cherry-pick.',
 
   'examples.title': 'Live examples',
   'examples.desc': 'HTML+CSS+JS/TSX playground with live preview.',
@@ -556,6 +578,7 @@ const es: Record<UiKey, string> = {
   'nav.trailJs': 'JavaScript desde cero',
   'nav.trailReact': 'React de lo básico al estado',
   'nav.trailWc': 'Web Components con Vite',
+  'nav.trailGit': 'Git en la práctica',
 
   'footer.blurb':
     
@@ -566,6 +589,7 @@ const es: Record<UiKey, string> = {
   'footer.trailJs': 'Ruta JavaScript',
   'footer.trailReact': 'Ruta React',
   'footer.trailWc': 'Ruta Web Components',
+  'footer.trailGit': 'Ruta Git',
   'footer.liveExamples': 'Ejemplos vivos',
   'footer.snippetLib': 'Biblioteca de snippets',
   'footer.project': 'Proyecto',
@@ -583,8 +607,8 @@ const es: Record<UiKey, string> = {
     'CSS4HTML es un hub unificado: edita código en el playground, copia patrones listos y sigue rutas claras — del HTML a React, pasando por CSS y JavaScript y Web Components.',
   'home.ctaTrails': 'Ver rutas',
   'home.ctaExamples': 'Abrir ejemplos',
-  'home.threeTrails': 'Cinco rutas, un hub',
-  'home.threeTrailsDesc': 'Elige por dónde empezar — o combina las cinco.',
+  'home.threeTrails': 'Seis rutas, un hub',
+  'home.threeTrailsDesc': 'Elige por dónde empezar — o combina las seis.',
   'home.lessonsCount': 'lecciones',
   'home.htmlTitle': 'HTML de cero a una página',
   'home.htmlDesc':
@@ -602,6 +626,9 @@ const es: Record<UiKey, string> = {
   'home.wcTitle': 'Web Components con Vite',
   'home.wcDesc': 'Custom Elements agnósticos, Shadow DOM, empaqueta con Vite y consume en React o Vue.',
   'home.wcCta': 'Empezar WC',
+  'home.gitTitle': 'Git en la práctica',
+  'home.gitDesc': 'Del primer commit al pull request y una página en GitHub Pages — sin rebase.',
+  'home.gitCta': 'Empezar Git',
   'home.how': 'Cómo estudiar',
   'home.howDesc': 'Varios caminos, el mismo objetivo: entender la web en la práctica.',
   'home.step1Title': 'Sigue una ruta',
@@ -671,6 +698,12 @@ const es: Record<UiKey, string> = {
   'trail.wc.pageTitle': 'Ruta: Web Components con Vite',
   'trail.wc.pageDesc':
     'Ocho lecciones del custom element a una lib consumible en apps Vite — agnóstico a frameworks.',
+  'trail.git.title': 'Git en la práctica',
+  'trail.git.desc':
+    'Instalación, commits, branches, pull requests, merges y una página publicada en GitHub Pages.',
+  'trail.git.pageTitle': 'Ruta: Git en la práctica',
+  'trail.git.pageDesc':
+    'Nueve lecciones de cero a Pages — camino feliz sin rebase ni cherry-pick.',
 
   'examples.title': 'Ejemplos vivos',
   'examples.desc': 'Playground HTML+CSS+JS/TSX con vista previa en vivo.',

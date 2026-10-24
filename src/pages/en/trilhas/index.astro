@@ -44,6 +44,13 @@ const trails = [
     description: t('trail.wc.desc'),
     count: lessons.filter((l) => l.data.trail === 'webcomponents-com-vite').length,
   },
+  {
+    id: 'git-na-pratica',
+    href: lp('/trilhas/git-na-pratica/'),
+    title: t('trail.git.title'),
+    description: t('trail.git.desc'),
+    count: lessons.filter((l) => l.data.trail === 'git-na-pratica').length,
+  },
 ];
 ---
 <BaseLayout title={t('trails.title')} description={t('trails.desc')} current="trilhas" locale={locale}>
