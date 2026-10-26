@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="user.name, user.email, default branch, and editor — identity on commits."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Configuration · CSS4HTML"><meta property="og:description" content="user.name, user.email, default branch, and editor — identity on commits."><meta property="og:image" content="https://css4html.com.br/logo-fanpage.png"><meta property="og:url" content="https://css4html.com.br/en/trilhas/git-na-pratica/git-03-configuracao/"><link rel="canonical" href="https://css4html.com.br/en/trilhas/git-na-pratica/git-03-configuracao/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Configuration · CSS4HTML</title><script>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="user.name, user.email, default branch, editor, and SSH key on GitHub."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Configuration · CSS4HTML"><meta property="og:description" content="user.name, user.email, default branch, editor, and SSH key on GitHub."><meta property="og:image" content="https://css4html.com.br/logo-fanpage.png"><meta property="og:url" content="https://css4html.com.br/en/trilhas/git-na-pratica/git-03-configuracao/"><link rel="canonical" href="https://css4html.com.br/en/trilhas/git-na-pratica/git-03-configuracao/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Configuration · CSS4HTML</title><script>
       (function () {
         try {
           var KEY = 'css4html-theme';
@@ -105,7 +105,7 @@
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
-</script><main id="conteudo"><article class="container page-header"><p><a href="/en/trilhas/git-na-pratica/">← Trail</a>· Lesson 3 of 9</p><h1>Configuration</h1><p>user.name, user.email, default branch, and editor — identity on commits.</p><div class="prose"><blockquote>
+</script><main id="conteudo"><article class="container page-header"><p><a href="/en/trilhas/git-na-pratica/">← Trail</a>· Lesson 3 of 9</p><h1>Configuration</h1><p>user.name, user.email, default branch, editor, and SSH key on GitHub.</p><div class="prose"><blockquote>
 <p><strong>TODO i18n:</strong> Full body translation pending. Title and description are localized; the body below remains in Portuguese for now.</p>
 </blockquote>
 <p>Todo commit carrega <strong>autor</strong> e <strong>e-mail</strong>. Configure isso antes do primeiro <code>commit</code>.</p>
@@ -125,10 +125,30 @@
 <span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#9ECBFF"> user.name</span></span>
 <span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> config</span><span style="color:#9ECBFF"> user.email</span></span></code></pre>
 <aside class="tip tip-git"><strong>DICA GIT</strong> — `--global` grava em `~/.gitconfig` (vale para todos os repos da máquina). Sem `--global`, a config vale só no repositório atual.</aside>
+<h2 id="chave-ssh-github">Chave SSH (GitHub)</h2>
+<p>Para clonar e enviar código <strong>sem digitar senha a cada <code>push</code></strong>, use SSH com o GitHub.</p>
+<h3 id="1-gerar-a-chave">1. Gerar a chave</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">ssh-keygen</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> ed25519</span><span style="color:#79B8FF"> -C</span><span style="color:#9ECBFF"> "voce@email.com"</span></span></code></pre>
+<p>Aceite o caminho padrão (<code>~/.ssh/id_ed25519</code>) e defina uma <strong>passphrase</strong> (recomendado).</p>
+<h3 id="2-ligar-o-agente-e-adicionar-a-chave">2. Ligar o agente e adicionar a chave</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#79B8FF">eval</span><span style="color:#9ECBFF"> "$(</span><span style="color:#B392F0">ssh-agent</span><span style="color:#79B8FF"> -s</span><span style="color:#9ECBFF">)"</span></span>
+<span class="line"><span style="color:#B392F0">ssh-add</span><span style="color:#9ECBFF"> ~/.ssh/id_ed25519</span></span></code></pre>
+<h3 id="3-copiar-a-chave-pública">3. Copiar a chave pública</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">cat</span><span style="color:#9ECBFF"> ~/.ssh/id_ed25519.pub</span></span></code></pre>
+<p>No macOS você também pode copiar direto para a área de transferência:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">pbcopy</span><span style="color:#F97583"> &lt;</span><span style="color:#9ECBFF"> ~/.ssh/id_ed25519.pub</span></span></code></pre>
+<h3 id="4-colar-no-github">4. Colar no GitHub</h3>
+<p>No GitHub: <strong>Settings → SSH and GPG keys → New SSH key</strong>. Cole o conteúdo de <code>id_ed25519.pub</code>, dê um título (ex.: <code>notebook-casa</code>) e salve.</p>
+<h3 id="5-testar-a-conexão">5. Testar a conexão</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">ssh</span><span style="color:#79B8FF"> -T</span><span style="color:#9ECBFF"> git@github.com</span></span></code></pre>
+<p>Na primeira vez, confirme o host. Em seguida deve aparecer algo como: <code>Hi usuario! You've successfully authenticated...</code></p>
+<aside class="tip tip-git"><strong>DICA GIT</strong> — repositórios remotos em SSH usam `git@github.com:org/repo.git`. HTTPS pede token a cada push; SSH usa a chave que você acabou de cadastrar.</aside>
 <h2 id="checklist">Checklist</h2>
 <ul class="contains-task-list">
 <li class="task-list-item"><input type="checkbox" disabled> <code>user.name</code> e <code>user.email</code> definidos</li>
 <li class="task-list-item"><input type="checkbox" disabled> <code>init.defaultBranch</code> = <code>main</code></li>
-<li class="task-list-item"><input type="checkbox" disabled> Conta no GitHub criada (vamos usar a partir da lição 7)</li>
+<li class="task-list-item"><input type="checkbox" disabled> Conta no GitHub criada</li>
+<li class="task-list-item"><input type="checkbox" disabled> Chave SSH gerada e adicionada no GitHub</li>
+<li class="task-list-item"><input type="checkbox" disabled> <code>ssh -T git@github.com</code> autentica com sucesso</li>
 </ul>
 </div><nav class="meta-row" style="margin-top:2rem;justify-content:space-between" aria-label="Trail navigation"><a href="/en/trilhas/git-na-pratica/git-02-instalacao/">← Installation</a><a href="/en/trilhas/git-na-pratica/git-04-primeiro-repositorio/">First repository →</a></nav></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Educational hub for HTML, CSS, JavaScript, React, and Web Components: editable examples, practical snippets, and trails from zero to practice.</p></div><div><h3>Learn</h3><ul><li><a href="/en/trilhas/html-do-zero/">HTML trail</a></li><li><a href="/en/trilhas/css-do-zero-ao-layout/">CSS trail</a></li><li><a href="/en/trilhas/javascript-do-zero/">JavaScript trail</a></li><li><a href="/en/trilhas/react-do-basico-ao-estado/">React trail</a></li><li><a href="/en/trilhas/webcomponents-com-vite/">Web Components trail</a></li><li><a href="/en/trilhas/git-na-pratica/">Git trail</a></li><li><a href="/en/exemplos/">Live examples</a></li><li><a href="/en/snippets/">Snippet library</a></li><li><a href="/en/blog/">Blog</a></li><li><a href="/en/consultoria/">Consulting</a></li></ul></div><div><h3>Project</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="https://www.facebook.com/CSS4HTML" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/css4html/" rel="noopener noreferrer">Instagram</a></li><li><a href="/en/">Home</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — Real HTML, CSS, JS, React, and Web Components.</p><p>css4html.com.br</p></div></div></footer></body></html>
