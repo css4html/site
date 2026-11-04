@@ -67,6 +67,65 @@ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
       gtag('js', new Date());
       gtag('config', 'G-XVQNHT82RS');
     </script>
+    <!-- Eventos de engajamento (delegação de cliques, um único listener) -->
+    <script is:inline>
+      (function () {
+        function send(name, params) {
+          try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {}
+        }
+        document.addEventListener('click', function (ev) {
+          var target = ev.target;
+          if (!target || !target.closest) return;
+          var path = location.pathname;
+
+          // Copiar snippet
+          var copyBtn = target.closest('[data-copy]');
+          if (copyBtn) { send('snippet_copy', { page_path: path }); return; }
+
+          // Copiar código no playground
+          var pgBtn = target.closest('[data-action^="copy-"]');
+          if (pgBtn) { send('playground_copy', { page_path: path, lang: pgBtn.getAttribute('data-action').slice(5) }); return; }
+
+          // Elementos marcados com data-track
+          var tracked = target.closest('[data-track]');
+          if (tracked) {
+            send(tracked.getAttribute('data-track'), { label: tracked.getAttribute('data-track-label') || undefined, page_path: path });
+            return;
+          }
+
+          var link = target.closest('a[href]');
+          if (!link) return;
+          var url;
+          try { url = new URL(link.getAttribute('href'), location.href); } catch (e) { return; }
+
+          // Clique para a consultoria vindo de outra página
+          if (url.host === location.host && /\/consultoria\/?$/.test(url.pathname) && !/\/consultoria\/?$/.test(path)) {
+            send('consultoria_cta_click', { source_path: path });
+            return;
+          }
+
+          // Links externos
+          if (url.host !== location.host && /^https?:$/.test(url.protocol) && url.host !== 'wa.me') {
+            send('outbound_click', { link_domain: url.host, link_url: url.href, page_path: path });
+          }
+        }, { capture: true });
+      })();
+    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'CSS4HTML',
+      url: 'https://css4html.com.br/',
+      inLanguage: localeHtmlLang[locale],
+      publisher: {
+        '@type': 'Organization',
+        name: 'CSS4HTML',
+        url: 'https://css4html.com.br/',
+        logo: 'https://css4html.com.br/logo-fanpage.png',
+        sameAs: ['https://www.instagram.com/css4html/', 'https://www.facebook.com/CSS4HTML', 'https://github.com/css4html'],
+      },
+    })} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   </head>
   <body>
     <Header current={current} locale={locale} />

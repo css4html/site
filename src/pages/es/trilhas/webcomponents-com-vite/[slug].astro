@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import GrowthCTA from '../../../../components/GrowthCTA.astro';
 import { render } from 'astro:content';
 import { getLessons, getExamples, getSnippets, entrySlug } from '../../../../i18n/collections';
 import { localizePath, useTranslations, type Locale } from '../../../../i18n/utils';
@@ -59,6 +60,8 @@ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
         </ul>
       </div>
     )}
+
+    <GrowthCTA locale={locale} kind="lesson" trail={TRAIL} order={lesson.data.order} total={lessons.length} />
 
     <nav class="meta-row" style="margin-top:2rem;justify-content:space-between" aria-label={t('trails.nav')}>
       {prev ? (

@@ -275,7 +275,19 @@ const pt = {
   'consultoria.finalTitle': 'Vamos tirar seu projeto do papel?',
   'consultoria.finalLead': 'Conte sua ideia e a gente responde pelo WhatsApp.',
 
-  // Content fallback note
+  // Growth CTA
+  'cta.newsTitle': 'Receba um snippet por semana',
+  'cta.newsLead': 'Um padrão de HTML, CSS ou JS pronto para colar, direto no seu e-mail. Sem spam.',
+  'cta.newsPlaceholder': 'seu@email.com',
+  'cta.newsButton': 'Quero receber',
+  'cta.newsThanks': 'Pronto! Confira seu e-mail para confirmar.',
+  'cta.followTitle': 'Continue aprendendo',
+  'cta.followLead': 'Novos exemplos e lições toda semana no Instagram e no GitHub.',
+  'cta.consultTitle': 'Precisa de um site ou sistema?',
+  'cta.consultLead': 'O mesmo time que escreve estas trilhas desenvolve sites, sistemas e apps sob medida.',
+  'cta.consultButton': 'Conhecer a consultoria',
+  'cta.trailDone': 'Você concluiu a trilha! 🎉',
+
   'content.partialNote':
     'Parte deste conteúdo ainda está em português. Tradução completa em breve.',
 } as const;
@@ -550,6 +562,19 @@ const en: Record<UiKey, string> = {
   'consultoria.finalTitle': 'Ready to get your project off the ground?',
   'consultoria.finalLead': 'Tell us your idea and we reply on WhatsApp.',
 
+  // Growth CTA
+  'cta.newsTitle': 'Get one snippet a week',
+  'cta.newsLead': 'A ready-to-paste HTML, CSS or JS pattern in your inbox. No spam.',
+  'cta.newsPlaceholder': 'you@email.com',
+  'cta.newsButton': 'Subscribe',
+  'cta.newsThanks': 'Done! Check your inbox to confirm.',
+  'cta.followTitle': 'Keep learning',
+  'cta.followLead': 'New examples and lessons every week on Instagram and GitHub.',
+  'cta.consultTitle': 'Need a website or a system?',
+  'cta.consultLead': 'The same team that writes these tracks builds custom websites, systems and apps.',
+  'cta.consultButton': 'See our consulting',
+  'cta.trailDone': 'You finished the track! 🎉',
+
   'content.partialNote':
     'Parts of this content are still in Portuguese. Full translation coming soon.',
 };
@@ -821,6 +846,19 @@ const es: Record<UiKey, string> = {
   'consultoria.stackLabel': 'NUESTRA STACK',
   'consultoria.finalTitle': '¿Sacamos tu proyecto del papel?',
   'consultoria.finalLead': 'Cuéntanos tu idea y respondemos por WhatsApp.',
+
+  // Growth CTA
+  'cta.newsTitle': 'Recibe un snippet por semana',
+  'cta.newsLead': 'Un patrón de HTML, CSS o JS listo para pegar, en tu correo. Sin spam.',
+  'cta.newsPlaceholder': 'tu@email.com',
+  'cta.newsButton': 'Suscribirme',
+  'cta.newsThanks': '¡Listo! Revisa tu correo para confirmar.',
+  'cta.followTitle': 'Sigue aprendiendo',
+  'cta.followLead': 'Nuevos ejemplos y lecciones cada semana en Instagram y GitHub.',
+  'cta.consultTitle': '¿Necesitas un sitio o un sistema?',
+  'cta.consultLead': 'El mismo equipo que escribe estas rutas desarrolla sitios, sistemas y apps a medida.',
+  'cta.consultButton': 'Conocer la consultoría',
+  'cta.trailDone': '¡Terminaste la ruta! 🎉',
 
   'content.partialNote':
     'Parte de este contenido sigue en portugués. Traducción completa próximamente.',

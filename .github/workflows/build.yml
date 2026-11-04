@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Conferir sitemap e robots
+        run: |
+          test -f dist/sitemap.xml
+          test -f dist/robots.txt
+          grep -c "<loc>" dist/sitemap.xml
