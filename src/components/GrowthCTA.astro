@@ -1,0 +1,174 @@
+---
+/**
+ * Bloco de crescimento exibido no fim de lições e posts:
+ * newsletter (ou links sociais, se não houver provedor configurado) + CTA de consultoria.
+ * Em lições, dispara o evento GA4 `lesson_complete` quando o leitor chega ao fim.
+ */
+import { NEWSLETTER_ACTION, NEWSLETTER_EMAIL_FIELD, SOCIAL } from '../config/site';
+import { localizePath, useTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  /** 'lesson' ou 'post' — usado nos eventos do Analytics. */
+  kind: 'lesson' | 'post';
+  trail?: string;
+  order?: number;
+  total?: number;
+}
+
+const { locale, kind, trail, order, total } = Astro.props;
+const t = useTranslations(locale);
+const isLastLesson = kind === 'lesson' && order !== undefined && order === total;
+---
+<aside
+  class="growth-cta"
+  data-growth-cta
+  data-kind={kind}
+  data-trail={trail}
+  data-order={order}
+  data-last={isLastLesson ? '1' : undefined}
+>
+  {isLastLesson && <p class="growth-cta__done">{t('cta.trailDone')}</p>}
+
+  <div class="growth-cta__grid">
+    <section class="growth-cta__box">
+      {NEWSLETTER_ACTION ? (
+        <>
+          <h2>{t('cta.newsTitle')}</h2>
+          <p>{t('cta.newsLead')}</p>
+          <form
+            class="growth-cta__form"
+            action={NEWSLETTER_ACTION}
+            method="post"
+            target="_blank"
+            data-newsletter-form
+          >
+            <label class="sr-only" for={`nl-${kind}`}>E-mail</label>
+            <input
+              id={`nl-${kind}`}
+              type="email"
+              name={NEWSLETTER_EMAIL_FIELD}
+              required
+              autocomplete="email"
+              placeholder={t('cta.newsPlaceholder')}
+            />
+            <button type="submit" class="btn btn-primary">{t('cta.newsButton')}</button>
+          </form>
+          <p class="growth-cta__thanks" data-newsletter-thanks hidden>{t('cta.newsThanks')}</p>
+        </>
+      ) : (
+        <>
+          <h2>{t('cta.followTitle')}</h2>
+          <p>{t('cta.followLead')}</p>
+          <p class="growth-cta__links">
+            <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="instagram">Instagram</a>
+            <a href={SOCIAL.github} target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="github">GitHub</a>
+          </p>
+        </>
+      )}
+    </section>
+
+    <section class="growth-cta__box growth-cta__box--consult">
+      <h2>{t('cta.consultTitle')}</h2>
+      <p>{t('cta.consultLead')}</p>
+      <a class="btn btn-primary" href={`${localizePath(locale, '/consultoria/')}?utm_source=${kind}`}>
+        {t('cta.consultButton')}
+      </a>
+    </section>
+  </div>
+</aside>
+
+<style>
+  .growth-cta {
+    margin-top: 2.5rem;
+  }
+  .growth-cta__done {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-success);
+    margin-bottom: 1rem;
+  }
+  .growth-cta__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  }
+  .growth-cta__box {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+  .growth-cta__box--consult {
+    border-color: var(--color-accent);
+  }
+  .growth-cta__box h2 {
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem;
+  }
+  .growth-cta__box p {
+    color: var(--color-muted);
+    margin: 0 0 1rem;
+  }
+  .growth-cta__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .growth-cta__form input {
+    flex: 1 1 180px;
+    min-width: 0;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+  }
+  .growth-cta__links {
+    display: flex;
+    gap: 1rem;
+  }
+  .growth-cta__thanks {
+    color: var(--color-success);
+    margin-top: 0.75rem;
+  }
+</style>
+
+<script>
+  function track(name: string, params: Record<string, unknown>) {
+    try {
+      const g = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+      if (typeof g === 'function') g('event', name, params);
+    } catch {}
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-growth-cta]').forEach((el) => {
+    const { kind, trail, order, last } = el.dataset;
+
+    // Leitor chegou ao fim da lição/post
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          if (kind === 'lesson') {
+            track('lesson_complete', { trail, lesson_order: Number(order) || undefined });
+            if (last === '1') track('trail_complete', { trail });
+          } else {
+            track('post_read', { page_path: location.pathname });
+          }
+        }
+      });
+      io.observe(el);
+    }
+
+    // Inscrição na newsletter
+    el.querySelectorAll<HTMLFormElement>('[data-newsletter-form]').forEach((form) => {
+      form.addEventListener('submit', () => {
+        track('newsletter_signup', { source: kind, page_path: location.pathname });
+        const thanks = el.querySelector<HTMLElement>('[data-newsletter-thanks]');
+        if (thanks) setTimeout(() => { thanks.hidden = false; form.reset(); }, 300);
+      });
+    });
+  });
+</script>
