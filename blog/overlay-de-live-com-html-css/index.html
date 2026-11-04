@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Monte um alerta animado com fundo transparente e use como Fonte de Navegador no OBS — sem plugin pago."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Crie um overlay para sua live com HTML e CSS · CSS4HTML"><meta property="og:description" content="Monte um alerta animado com fundo transparente e use como Fonte de Navegador no OBS — sem plugin pago."><meta property="og:image" content="https://css4html.com.br/logo-fanpage.png"><meta property="og:url" content="https://css4html.com.br/blog/overlay-de-live-com-html-css/"><link rel="canonical" href="https://css4html.com.br/blog/overlay-de-live-com-html-css/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Crie um overlay para sua live com HTML e CSS · CSS4HTML</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><!-- Eventos de engajamento (delegação de cliques, um único listener) --><script>
+      (function () {
+        function send(name, params) {
+          try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {}
+        }
+        document.addEventListener('click', function (ev) {
+          var target = ev.target;
+          if (!target || !target.closest) return;
+          var path = location.pathname;
+
+          // Copiar snippet
+          var copyBtn = target.closest('[data-copy]');
+          if (copyBtn) { send('snippet_copy', { page_path: path }); return; }
+
+          // Copiar código no playground
+          var pgBtn = target.closest('[data-action^="copy-"]');
+          if (pgBtn) { send('playground_copy', { page_path: path, lang: pgBtn.getAttribute('data-action').slice(5) }); return; }
+
+          // Elementos marcados com data-track
+          var tracked = target.closest('[data-track]');
+          if (tracked) {
+            send(tracked.getAttribute('data-track'), { label: tracked.getAttribute('data-track-label') || undefined, page_path: path });
+            return;
+          }
+
+          var link = target.closest('a[href]');
+          if (!link) return;
+          var url;
+          try { url = new URL(link.getAttribute('href'), location.href); } catch (e) { return; }
+
+          // Clique para a consultoria vindo de outra página
+          if (url.host === location.host && /\/consultoria\/?$/.test(url.pathname) && !/\/consultoria\/?$/.test(path)) {
+            send('consultoria_cta_click', { source_path: path });
+            return;
+          }
+
+          // Links externos
+          if (url.host !== location.host && /^https?:$/.test(url.protocol) && url.host !== 'wa.me') {
+            send('outbound_click', { link_domain: url.host, link_url: url.href, page_path: path });
+          }
+        }, { capture: true });
+      })();
+    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CSS4HTML","url":"https://css4html.com.br/","inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"CSS4HTML","url":"https://css4html.com.br/","logo":"https://css4html.com.br/logo-fanpage.png","sameAs":["https://www.instagram.com/css4html/","https://www.facebook.com/CSS4HTML","https://github.com/css4html"]}}</script><link rel="sitemap" type="application/xml" href="/sitemap.xml"><link rel="stylesheet" href="/_astro/BaseLayout.CKbJlS0X.css"><style>.growth-cta[data-astro-cid-53i73k7e]{margin-top:2.5rem}.growth-cta__done[data-astro-cid-53i73k7e]{color:var(--color-success);margin-bottom:1rem;font-size:1.15rem;font-weight:700}.growth-cta__grid[data-astro-cid-53i73k7e]{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem;display:grid}.growth-cta__box[data-astro-cid-53i73k7e]{background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:1.25rem}.growth-cta__box--consult[data-astro-cid-53i73k7e]{border-color:var(--color-accent)}.growth-cta__box[data-astro-cid-53i73k7e] h2[data-astro-cid-53i73k7e]{margin:0 0 .5rem;font-size:1.15rem}.growth-cta__box[data-astro-cid-53i73k7e] p[data-astro-cid-53i73k7e]{color:var(--color-muted);margin:0 0 1rem}.growth-cta__form[data-astro-cid-53i73k7e]{flex-wrap:wrap;gap:.5rem;display:flex}.growth-cta__form[data-astro-cid-53i73k7e] input[data-astro-cid-53i73k7e]{border:1px solid var(--color-border);background:var(--color-bg);min-width:0;color:var(--color-text);font:inherit;border-radius:8px;flex:180px;padding:.6rem .75rem}.growth-cta__links[data-astro-cid-53i73k7e]{gap:1rem;display:flex}.growth-cta__thanks[data-astro-cid-53i73k7e]{color:var(--color-success);margin-top:.75rem}
+</style></head><body><a class="sr-only" href="#conteudo">Ir para o conteúdo</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Principal"><ul class="nav"><li><a href="/">Início</a></li><li><a href="/trilhas/">Trilhas</a></li><li><a href="/exemplos/">Exemplos</a></li><li><a href="/snippets/">Snippets</a></li><li><a href="/blog/" aria-current="page">Blog</a></li><li><a href="/consultoria/">Consultoria</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Idioma"><a href="/blog/overlay-de-live-com-html-css/" class="lang-btn is-active" hreflang="pt-BR" aria-current="page" lang="pt-BR">PT</a><a href="/en/blog/overlay-de-live-com-html-css/" class="lang-btn" hreflang="en" lang="en">EN</a><a href="/es/blog/overlay-de-live-com-html-css/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Ativar tema claro" data-label-dark="Ativar tema escuro" aria-label="Alternar tema claro ou escuro" title="Alternar tema"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Abrir menu de navegação" data-label-close="Fechar menu de navegação" aria-expanded="false" aria-controls="nav-drawer" aria-label="Abrir menu de navegação"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação"><p class="drawer-label">Navegação</p><nav aria-label="Menu mobile"><ul class="nav"><li><a href="/" data-menu-close>Início</a></li><li><a href="/trilhas/" data-menu-close>Trilhas</a></li><li><a href="/exemplos/" data-menu-close>Exemplos</a></li><li><a href="/snippets/" data-menu-close>Snippets</a></li><li><a href="/blog/" aria-current="page" data-menu-close>Blog</a></li><li><a href="/consultoria/" data-menu-close>Consultoria</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trilhas</p><nav aria-label="Trilhas"><ul class="nav"><li><a href="/trilhas/html-do-zero/" data-menu-close>HTML do zero</a></li><li><a href="/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS do zero ao layout</a></li><li><a href="/trilhas/javascript-do-zero/" data-menu-close>JavaScript do zero</a></li><li><a href="/trilhas/react-do-basico-ao-estado/" data-menu-close>React do básico ao estado</a></li><li><a href="/trilhas/webcomponents-com-vite/" data-menu-close>Web Components com Vite</a></li><li><a href="/trilhas/git-na-pratica/" data-menu-close>Git na prática</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><article class="container page-header"><p><a href="/blog/">← Blog</a></p><h1>Crie um overlay para sua live com HTML e CSS</h1><div class="meta-row"><time datetime="2026-11-04T00:00:00.000Z">4 de novembro de 2026</time><ul class="tags" style="margin:0"><li class="tag">css</li><li class="tag">animacao</li><li class="tag">obs</li><li class="tag">live</li></ul></div><div class="prose"><p>Todo overlay de live — alerta de seguidor, placar, “agora tocando” — é, no fim das contas, <strong>uma página web com fundo transparente</strong>. O OBS Studio renderiza essa página por cima do seu jogo usando a <strong>Fonte de Navegador</strong> (Browser Source). Se você sabe HTML e CSS, já sabe fazer overlay.</p>
+<h2 id="1-o-html-um-card-simples">1. O HTML: um card simples</h2>
+<p>Crie um arquivo <code>overlay.html</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&lt;!</span><span style="color:#85E89D">doctype</span><span style="color:#B392F0"> html</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">html</span><span style="color:#B392F0"> lang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"pt-BR"</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">meta</span><span style="color:#B392F0"> charset</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"utf-8"</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">link</span><span style="color:#B392F0"> rel</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"stylesheet"</span><span style="color:#B392F0"> href</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"overlay.css"</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"alerta"</span><span style="color:#B392F0"> role</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"status"</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"alerta__tag"</span><span style="color:#E1E4E8">&gt;novo seguidor&lt;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">    &lt;</span><span style="color:#85E89D">strong</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"alerta__nome"</span><span style="color:#E1E4E8">&gt;fulano_123&lt;/</span><span style="color:#85E89D">strong</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">html</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
+<h2 id="2-o-css-fundo-transparente-é-a-regra-de-ouro">2. O CSS: fundo transparente é a regra de ouro</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">html</span><span style="color:#E1E4E8">, </span><span style="color:#85E89D">body</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  margin</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">transparent</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">/* o OBS mostra o jogo por trás */</span></span>
+<span class="line"><span style="color:#79B8FF">  overflow</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">hidden</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-family</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">system-ui</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">sans-serif</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.alerta</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  position</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">absolute</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  left</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">40</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  bottom</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">40</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">grid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">4</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">16</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> 24</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">14</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">rgb</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">15</span><span style="color:#79B8FF"> 20</span><span style="color:#79B8FF"> 25</span><span style="color:#E1E4E8"> / </span><span style="color:#79B8FF">0.85</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #7c5cff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#fff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  box-shadow</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 10</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> 30</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> rgb</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 0</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8"> / </span><span style="color:#79B8FF">0.4</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  animation</span><span style="color:#E1E4E8">: entra-e-sai </span><span style="color:#79B8FF">6</span><span style="color:#F97583">s</span><span style="color:#79B8FF"> ease</span><span style="color:#79B8FF"> forwards</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.alerta__tag</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  justify-self</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">start</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> 10</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">999</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#7c5cff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.8</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  text-transform</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">uppercase</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  letter-spacing</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.05</span><span style="color:#F97583">em</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.alerta__nome</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">clamp</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">3</span><span style="color:#F97583">vw</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">@keyframes</span><span style="color:#FFAB70"> entra-e-sai</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">  0%</span><span style="color:#E1E4E8">   { </span><span style="color:#79B8FF">opacity</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">; </span><span style="color:#79B8FF">transform</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">translateY</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">40</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">); }</span></span>
+<span class="line"><span style="color:#B392F0">  10%</span><span style="color:#E1E4E8">  { </span><span style="color:#79B8FF">opacity</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">; </span><span style="color:#79B8FF">transform</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">translateY</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">); }</span></span>
+<span class="line"><span style="color:#B392F0">  85%</span><span style="color:#E1E4E8">  { </span><span style="color:#79B8FF">opacity</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">; </span><span style="color:#79B8FF">transform</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">translateY</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">); }</span></span>
+<span class="line"><span style="color:#B392F0">  100%</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">opacity</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">; </span><span style="color:#79B8FF">transform</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">translateY</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">40</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">); }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">@media</span><span style="color:#E1E4E8"> (prefers-reduced-motion: reduce) {</span></span>
+<span class="line"><span style="color:#B392F0">  .alerta</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">animation</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">none</span><span style="color:#E1E4E8">; }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>O card usa o mesmo padrão do <a href="/snippets/card-sombra/">card com sombra suave</a>, a etiqueta é um <a href="/snippets/pill-badge/">badge em formato pill</a> e a animação segue a ideia do exemplo <a href="/exemplos/animacao-fade/">fade + slide</a>.</p>
+<h2 id="3-colocando-no-obs">3. Colocando no OBS</h2>
+<ol>
+<li>Em <strong>Fontes</strong>, clique em <strong>+</strong> → <strong>Navegador</strong>.</li>
+<li>Marque <strong>Arquivo local</strong> e selecione o <code>overlay.html</code> (ou cole a URL, se hospedar a página).</li>
+<li>Defina <strong>largura 1920</strong> e <strong>altura 1080</strong> — o mesmo tamanho da sua cena.</li>
+<li>Pronto: o fundo transparente deixa o jogo aparecer por trás.</li>
+</ol>
+<p>Dica: depois de editar o CSS, clique com o botão direito na fonte → <strong>Atualizar</strong> para ver a mudança.</p>
+<h2 id="4-deixando-dinâmico-com-javascript">4. Deixando dinâmico com JavaScript</h2>
+<p>Para trocar o nome sem editar o HTML, leia um parâmetro da URL:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> nome</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> URLSearchParams</span><span style="color:#E1E4E8">(location.search).</span><span style="color:#B392F0">get</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'nome'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (nome) document.</span><span style="color:#B392F0">querySelector</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'.alerta__nome'</span><span style="color:#E1E4E8">).textContent </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> nome;</span></span></code></pre>
+<p>Agora <code>overlay.html?nome=palloi</code> mostra outro nome. Esse é o mesmo princípio usado por bots de live: o bot recebe um evento do chat e atualiza a página do overlay.</p>
+<h2 id="quer-pular-a-parte-de-integrar-com-o-chat">Quer pular a parte de integrar com o chat?</h2>
+<p>O <a href="https://bot.palloi.com.br/">botPalloi</a> é um bot gratuito para Twitch, Kick e Discord que já entrega o overlay pronto: o chat manda <code>!clip</code> e o overlay mostra o clipe, o replay e estatísticas. Você pode usar o CSS deste post para personalizar o visual da sua live.</p>
+</div><div class="related"><h2>No hub</h2><ul><li><a href="/exemplos/animacao-fade/">Exemplo: Animação fade + slide</a></li><li><a href="/exemplos/tipografia-clamp/">Exemplo: Tipografia fluida com clamp()</a></li><li><a href="/snippets/card-sombra/">Snippet: Card com sombra suave</a></li><li><a href="/snippets/pill-badge/">Snippet: Badge em formato pill</a></li></ul></div><aside class="growth-cta" data-growth-cta data-kind="post" data-astro-cid-53i73k7e><div class="growth-cta__grid" data-astro-cid-53i73k7e><section class="growth-cta__box" data-astro-cid-53i73k7e><h2 data-astro-cid-53i73k7e>Continue aprendendo</h2><p data-astro-cid-53i73k7e>Novos exemplos e lições toda semana no Instagram e no GitHub.</p><p class="growth-cta__links" data-astro-cid-53i73k7e><a href="https://www.instagram.com/css4html/" target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="instagram" data-astro-cid-53i73k7e>Instagram</a><a href="https://github.com/css4html" target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="github" data-astro-cid-53i73k7e>GitHub</a></p></section><section class="growth-cta__box growth-cta__box--consult" data-astro-cid-53i73k7e><h2 data-astro-cid-53i73k7e>Precisa de um site ou sistema?</h2><p data-astro-cid-53i73k7e>O mesmo time que escreve estas trilhas desenvolve sites, sistemas e apps sob medida.</p><a class="btn btn-primary" href="/consultoria/?utm_source=post" data-astro-cid-53i73k7e>Conhecer a consultoria</a></section></div></aside><script type="module">function e(e,t){try{let n=window.gtag;typeof n==`function`&&n(`event`,e,t)}catch{}}document.querySelectorAll(`[data-growth-cta]`).forEach(t=>{let{kind:n,trail:r,order:i,last:a}=t.dataset;if(`IntersectionObserver`in window){let o=new IntersectionObserver(t=>{t.some(e=>e.isIntersecting)&&(o.disconnect(),n===`lesson`?(e(`lesson_complete`,{trail:r,lesson_order:Number(i)||void 0}),a===`1`&&e(`trail_complete`,{trail:r})):e(`post_read`,{page_path:location.pathname}))});o.observe(t)}t.querySelectorAll(`[data-newsletter-form]`).forEach(r=>{r.addEventListener(`submit`,()=>{e(`newsletter_signup`,{source:n,page_path:location.pathname});let i=t.querySelector(`[data-newsletter-thanks]`);i&&setTimeout(()=>{i.hidden=!1,r.reset()},300)})})});</script></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Hub educacional de HTML, CSS, JavaScript, React e Web Components: exemplos editáveis, snippets práticos e trilhas do zero à prática.</p></div><div><h3>Aprender</h3><ul><li><a href="/trilhas/html-do-zero/">Trilha HTML</a></li><li><a href="/trilhas/css-do-zero-ao-layout/">Trilha CSS</a></li><li><a href="/trilhas/javascript-do-zero/">Trilha JavaScript</a></li><li><a href="/trilhas/react-do-basico-ao-estado/">Trilha React</a></li><li><a href="/trilhas/webcomponents-com-vite/">Trilha Web Components</a></li><li><a href="/trilhas/git-na-pratica/">Trilha Git</a></li><li><a href="/exemplos/">Exemplos vivos</a></li><li><a href="/snippets/">Biblioteca de snippets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/consultoria/">Consultoria</a></li></ul></div><div><h3>Projeto</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="https://www.facebook.com/CSS4HTML" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/css4html/" rel="noopener noreferrer">Instagram</a></li><li><a href="/">Início</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — HTML, CSS, JS, React e Web Components de verdade.</p><p>css4html.com.br</p></div></div></footer></body></html>
