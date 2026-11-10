@@ -25,7 +25,7 @@ Idiomas adicionais: `/en/trilhas/logica-com-js/<slug>/` e `/es/trilhas/logica-co
 
 ## Capas
 
-As três imagens originais do designer (1200×630) ficam em `public/trilhas/logica-com-js/covers/`. O campo opcional `cover` da coleção de lições alimenta `BaseLayout.image`, com OG e Twitter image, e uma imagem no artigo reutiliza o padrão `.post-cover` do blog. As mesmas artes são usadas nos três idiomas, sem modificações. As aulas 4–10 não inventam capas: usam o fallback OG existente `logo-fanpage.png` e não exibem imagem de capa até receberem suas artes.
+As dez imagens originais do designer (1200×630) ficam em `public/trilhas/logica-com-js/covers/`. O campo opcional `cover` da coleção de lições alimenta `BaseLayout.image`, com OG e Twitter image, e uma imagem no artigo reutiliza o padrão `.post-cover` do blog. As mesmas artes são usadas nos três idiomas, sem modificações.
 
 ## Playground e isolamento
 
