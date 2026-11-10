@@ -1201,3 +1201,28 @@ html[data-theme="dark"] .badge.track-git {
 }
 .post-cover { margin: 1rem 0 1.5rem; }
 .card-cover { margin-bottom: 0.75rem; }
+
+/* LÓGICA com JS: preserve the site UI; purple identifies only this trail. */
+.badge.track-logic, .tip-logic strong { color: #8B5CF6; }
+.tip-logic { border-left: 3px solid #8B5CF6; padding-left: 1rem; }
+.trail-item[aria-disabled="true"] { opacity: 0.7; cursor: default; }
+.trail-item[aria-disabled="true"]:hover { transform: none; border-color: var(--color-border); }
+.playground[data-mode="logic"] .playground-tabs,
+.playground[data-mode="logic"] .editor-box[data-pane="html"],
+.playground[data-mode="logic"] .editor-box[data-pane="css"],
+.playground[data-mode="logic"] .preview-panel,
+.playground[data-mode="logic"] [data-action="copy-html"],
+.playground[data-mode="logic"] [data-action="copy-css"] { display: none !important; }
+.playground[data-mode="logic"] .playground-wrap { grid-template-columns: minmax(0, 1fr); }
+.playground[data-mode="logic"] .cm-host { min-height: 140px; width: 100%; }
+.pg-console { border: 1px solid var(--color-border); border-radius: var(--radius); margin-top: 0.75rem; overflow: hidden; }
+.pg-console .label { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem; background: var(--color-surface); }
+.playground[data-mode="logic"] .pg-console .label strong { color: #8B5CF6; }
+.pg-console pre { margin: 0; border: 0; border-radius: 0; min-height: 3.5rem; max-height: 12rem; overflow: auto; padding: 0.75rem; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.85rem; background: var(--color-code-bg); }
+.pg-console pre > span { display: block; }
+.pg-console-error, .pg-checks [data-passed="0"] { color: var(--color-text); border-left: 3px solid #f87171; padding-left: 0.5rem; }
+.pg-checks [data-passed="1"] { border-left: 3px solid #4ade80; padding-left: 0.5rem; }
+.pg-checks { margin-top: 1rem; overflow-wrap: anywhere; }
+.pg-checks p { font-weight: 600; }
+.pg-checks li { margin-bottom: 0.5rem; }
+.pg-btn:disabled { opacity: 0.6; cursor: wait; }
