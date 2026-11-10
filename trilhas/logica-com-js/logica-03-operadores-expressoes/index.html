@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Faça contas, compare valores e combine condições com &amp;&amp; e ||."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Operadores e expressões · CSS4HTML"><meta property="og:description" content="Faça contas, compare valores e combine condições com &amp;&amp; e ||."><meta property="og:image" content="https://css4html.com.br/trilhas/logica-com-js/covers/logica-03-operadores-expressoes.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://css4html.com.br/trilhas/logica-com-js/covers/logica-03-operadores-expressoes.png"><meta property="og:url" content="https://css4html.com.br/trilhas/logica-com-js/logica-03-operadores-expressoes/"><link rel="canonical" href="https://css4html.com.br/trilhas/logica-com-js/logica-03-operadores-expressoes/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Operadores e expressões · CSS4HTML</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><!-- Eventos de engajamento (delegação de cliques, um único listener) --><script>
+      (function () {
+        function send(name, params) {
+          try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {}
+        }
+        document.addEventListener('click', function (ev) {
+          var target = ev.target;
+          if (!target || !target.closest) return;
+          var path = location.pathname;
+
+          // Copiar snippet
+          var copyBtn = target.closest('[data-copy]');
+          if (copyBtn) { send('snippet_copy', { page_path: path }); return; }
+
+          // Copiar código no playground
+          var pgBtn = target.closest('[data-action^="copy-"]');
+          if (pgBtn) { send('playground_copy', { page_path: path, lang: pgBtn.getAttribute('data-action').slice(5) }); return; }
+
+          // Elementos marcados com data-track
+          var tracked = target.closest('[data-track]');
+          if (tracked) {
+            send(tracked.getAttribute('data-track'), { label: tracked.getAttribute('data-track-label') || undefined, page_path: path });
+            return;
+          }
+
+          var link = target.closest('a[href]');
+          if (!link) return;
+          var url;
+          try { url = new URL(link.getAttribute('href'), location.href); } catch (e) { return; }
+
+          // Clique para a consultoria vindo de outra página
+          if (url.host === location.host && /\/consultoria\/?$/.test(url.pathname) && !/\/consultoria\/?$/.test(path)) {
+            send('consultoria_cta_click', { source_path: path });
+            return;
+          }
+
+          // Links externos
+          if (url.host !== location.host && /^https?:$/.test(url.protocol) && url.host !== 'wa.me') {
+            send('outbound_click', { link_domain: url.host, link_url: url.href, page_path: path });
+          }
+        }, { capture: true });
+      })();
+    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CSS4HTML","url":"https://css4html.com.br/","inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"CSS4HTML","url":"https://css4html.com.br/","logo":"https://css4html.com.br/logo-fanpage.png","sameAs":["https://www.instagram.com/css4html/","https://www.facebook.com/CSS4HTML","https://github.com/css4html"]}}</script><link rel="sitemap" type="application/xml" href="/sitemap.xml"><link rel="stylesheet" href="/_astro/BaseLayout.DtVv-qX2.css"><style>.growth-cta[data-astro-cid-53i73k7e]{margin-top:2.5rem}.growth-cta__done[data-astro-cid-53i73k7e]{color:var(--color-success);margin-bottom:1rem;font-size:1.15rem;font-weight:700}.growth-cta__grid[data-astro-cid-53i73k7e]{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem;display:grid}.growth-cta__box[data-astro-cid-53i73k7e]{background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:1.25rem}.growth-cta__box--consult[data-astro-cid-53i73k7e]{border-color:var(--color-accent)}.growth-cta__box[data-astro-cid-53i73k7e] h2[data-astro-cid-53i73k7e]{margin:0 0 .5rem;font-size:1.15rem}.growth-cta__box[data-astro-cid-53i73k7e] p[data-astro-cid-53i73k7e]{color:var(--color-muted);margin:0 0 1rem}.growth-cta__form[data-astro-cid-53i73k7e]{flex-wrap:wrap;gap:.5rem;display:flex}.growth-cta__form[data-astro-cid-53i73k7e] input[data-astro-cid-53i73k7e]{border:1px solid var(--color-border);background:var(--color-bg);min-width:0;color:var(--color-text);font:inherit;border-radius:8px;flex:180px;padding:.6rem .75rem}.growth-cta__links[data-astro-cid-53i73k7e]{gap:1rem;display:flex}.growth-cta__thanks[data-astro-cid-53i73k7e]{color:var(--color-success);margin-top:.75rem}
+</style></head><body><a class="sr-only" href="#conteudo">Ir para o conteúdo</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Principal"><ul class="nav"><li><a href="/">Início</a></li><li><a href="/trilhas/" aria-current="page">Trilhas</a></li><li><a href="/exemplos/">Exemplos</a></li><li><a href="/snippets/">Snippets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/consultoria/">Consultoria</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Idioma"><a href="/trilhas/logica-com-js/logica-03-operadores-expressoes/" class="lang-btn is-active" hreflang="pt-BR" aria-current="page" lang="pt-BR">PT</a><a href="/en/trilhas/logica-com-js/logica-03-operadores-expressoes/" class="lang-btn" hreflang="en" lang="en">EN</a><a href="/es/trilhas/logica-com-js/logica-03-operadores-expressoes/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Ativar tema claro" data-label-dark="Ativar tema escuro" aria-label="Alternar tema claro ou escuro" title="Alternar tema"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Abrir menu de navegação" data-label-close="Fechar menu de navegação" aria-expanded="false" aria-controls="nav-drawer" aria-label="Abrir menu de navegação"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação"><p class="drawer-label">Navegação</p><nav aria-label="Menu mobile"><ul class="nav"><li><a href="/" data-menu-close>Início</a></li><li><a href="/trilhas/" aria-current="page" data-menu-close>Trilhas</a></li><li><a href="/exemplos/" data-menu-close>Exemplos</a></li><li><a href="/snippets/" data-menu-close>Snippets</a></li><li><a href="/blog/" data-menu-close>Blog</a></li><li><a href="/consultoria/" data-menu-close>Consultoria</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trilhas</p><nav aria-label="Trilhas"><ul class="nav"><li><a href="/trilhas/html-do-zero/" data-menu-close>HTML do zero</a></li><li><a href="/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS do zero ao layout</a></li><li><a href="/trilhas/logica-com-js/" data-menu-close>LÓGICA com JS</a></li><li><a href="/trilhas/javascript-do-zero/" data-menu-close>JavaScript do zero</a></li><li><a href="/trilhas/react-do-basico-ao-estado/" data-menu-close>React do básico ao estado</a></li><li><a href="/trilhas/webcomponents-com-vite/" data-menu-close>Web Components com Vite</a></li><li><a href="/trilhas/git-na-pratica/" data-menu-close>Git na prática</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><article class="container page-header"><p><a href="/trilhas/logica-com-js/">← Trilha</a>· Lição 3 de 10</p><h1>Operadores e expressões</h1><p>Faça contas, compare valores e combine condições com &amp;&amp; e ||.</p><img class="post-cover" src="/trilhas/logica-com-js/covers/logica-03-operadores-expressoes.png" alt="Operadores e expressões" width="1200" height="630" loading="lazy" decoding="async"><div class="prose"><p>Uma <strong>expressão</strong> combina valores e operadores para produzir um resultado. <code>3 * 10</code> resulta em <code>30</code>; <code>30 &gt;= 18</code> resulta em <code>true</code>.</p>
+<h2 id="contas-e-comparações">Contas e comparações</h2>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Uso</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code>, <code>-</code></td>
+<td>Somar e subtrair</td>
+<td><code>10 - 3</code> → <code>7</code></td>
+</tr>
+<tr>
+<td><code>*</code>, <code>/</code></td>
+<td>Multiplicar e dividir</td>
+<td><code>3 * 10</code> → <code>30</code></td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Resto da divisão</td>
+<td><code>7 % 2</code> → <code>1</code></td>
+</tr>
+<tr>
+<td><code>===</code>, <code>!==</code></td>
+<td>Igualdade e diferença estritas</td>
+<td><code>20 === &#39;20&#39;</code> → <code>false</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></td>
+<td>Comparar tamanhos</td>
+<td><code>18 &gt;= 18</code> → <code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p>Prefira <code>===</code> a <code>==</code> neste começo: a comparação estrita não transforma automaticamente texto em número. Com texto, <code>+</code> pode concatenar: <code>&#39;2&#39; + 3</code> vira <code>&#39;23&#39;</code>, não <code>5</code>.</p>
+<h2 id="combinar-condições">Combinar condições</h2>
+<p>Para condições booleanas, <code>&amp;&amp;</code> significa <strong>E</strong>: as duas precisam ser verdadeiras. <code>||</code> significa <strong>OU</strong>: basta uma ser verdadeira. Por exemplo, a regra fictícia de uma festa pode ser: ter pelo menos 18 anos <strong>E</strong> (ter convite <strong>OU</strong> estar acompanhado).</p>
+<p>Use parênteses para deixar a regra explícita: <code>idade &gt;= 18 &amp;&amp; (temConvite || acompanhado)</code>. O limite importa: <code>&gt;</code> exclui 18, enquanto <code>&gt;=</code> inclui.</p>
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Traduza a regra em uma frase antes de juntar os operadores.</aside>
+<h2 id="experimente">Experimente</h2>
+<p>Altere quantidade, preço e saldo. Tente prever as saídas antes de olhar o Console.</p>
+<div class="playground" data-playground="logica-03-operadores-expressoes-exemplo" data-mobile-tab="js" data-console-enabled="1" data-show-js="1" data-mode="logic"><div class="playground-toolbar" role="toolbar" aria-label="Ações do playground"><button type="button" class="pg-btn" data-action="reset" title="Restaurar código original">Resetar</button><button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">Copiar HTML</button><button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">Copiar CSS</button><button type="button" class="pg-btn" data-action="copy-js" title="Copiar JavaScript">Copiar JS</button><button type="button" class="pg-btn" data-action="run">Executar</button><span class="spacer" aria-hidden="true"></span><span class="sr-only" data-status aria-live="polite"></span></div><div class="playground-tabs" role="tablist" aria-label="Painéis do playground"><button type="button" class="playground-tab" role="tab" id="logica-03-operadores-expressoes-exemplo-tab-html" aria-controls="logica-03-operadores-expressoes-exemplo-panel-editors" aria-selected="false" data-tab="html">HTML</button><button type="button" class="playground-tab" role="tab" id="logica-03-operadores-expressoes-exemplo-tab-css" aria-controls="logica-03-operadores-expressoes-exemplo-panel-editors" aria-selected="false" data-tab="css">CSS</button><button type="button" class="playground-tab" role="tab" id="logica-03-operadores-expressoes-exemplo-tab-js" aria-controls="logica-03-operadores-expressoes-exemplo-panel-editors" aria-selected="true" data-tab="js">JS</button><button type="button" class="playground-tab" role="tab" id="logica-03-operadores-expressoes-exemplo-tab-preview" aria-controls="logica-03-operadores-expressoes-exemplo-panel-preview" aria-selected="false" data-tab="preview">Preview</button></div><div class="playground-wrap"><div class="editor-panel" id="logica-03-operadores-expressoes-exemplo-panel-editors" role="tabpanel" aria-label="Editores"><div class="editor-box" data-pane="html"><div class="label"><span id="logica-03-operadores-expressoes-exemplo-label-html">HTML</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-html" aria-describedby="logica-03-operadores-expressoes-exemplo-label-html">Copiar</button></div></div><div class="cm-host" data-editor="html" data-initial role="textbox" aria-label="Editor HTML" aria-multiline="true"></div></div><div class="editor-box" data-pane="css"><div class="label"><span id="logica-03-operadores-expressoes-exemplo-label-css">CSS</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-css" aria-describedby="logica-03-operadores-expressoes-exemplo-label-css">Copiar</button></div></div><div class="cm-host" data-editor="css" data-initial role="textbox" aria-label="Editor CSS" aria-multiline="true"></div></div><div class="editor-box" data-pane="js"><div class="label"><span id="logica-03-operadores-expressoes-exemplo-label-js">JavaScript</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-js" aria-describedby="logica-03-operadores-expressoes-exemplo-label-js">Copiar</button></div></div><div class="cm-host" data-editor="js" data-initial="Y29uc3QgcXVhbnRpZGFkZSA9IDM7CmNvbnN0IHByZWNvID0gMTA7CmNvbnN0IHRvdGFsID0gcXVhbnRpZGFkZSAqIHByZWNvOwpjb25zdCBzYWxkbyA9IDQwOwpjb25zb2xlLmxvZygnVG90YWw6JywgdG90YWwsICdUcm9jbzonLCBzYWxkbyAtIHRvdGFsKTsKY29uc29sZS5sb2coJ1BvZGUgcGFnYXI/Jywgc2FsZG8gPj0gdG90YWwpOwpjb25zb2xlLmxvZygnUGFyPycsIHF1YW50aWRhZGUgJSAyID09PSAwKTsKY29uc29sZS5sb2coJ09zIGRvaXM/JywgdHJ1ZSAmJiBmYWxzZSk7CmNvbnNvbGUubG9nKCdQZWxvIG1lbm9zIHVtPycsIHRydWUgfHwgZmFsc2UpOw==" role="textbox" aria-label="Editor JavaScript" aria-multiline="true"></div></div></div><div class="preview-panel" id="logica-03-operadores-expressoes-exemplo-panel-preview" role="tabpanel" aria-label="Pré-visualização"><div class="label"><span>Pré-visualização ao vivo</span></div><iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts"></iframe></div></div><section class="pg-console" aria-label="Console do código"><div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">Limpar console</button></div><pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>Execute o código para ver a saída aqui.</span></pre></section></div><script type="module" src="/_astro/Playground.astro_astro_type_script_index_0_lang.BmQ3xvZh.js"></script>
+<h2 id="seu-exercício-aplique-a-regra-da-festa">Seu exercício: aplique a regra da festa</h2>
+<p>Complete <code>podeEntrar(idade, temConvite, acompanhado)</code> para devolver um booleano. A pessoa precisa ter <strong>18 anos ou mais</strong> e <strong>convite ou acompanhante</strong>. Esses dois últimos parâmetros já são booleanos.</p>
+<p>O código inicial esquece o acompanhante e exclui quem tem exatamente 18 anos. Corrija a expressão depois de <code>return</code>, mantendo o nome da função. Use <code>&gt;=</code>, <code>&amp;&amp;</code>, <code>||</code> e parênteses. Clique em <strong>Verificar</strong> para testar os limites e as combinações.</p>
+<div class="playground" data-playground="logica-03-operadores-expressoes-exercicio" data-mobile-tab="js" data-console-enabled="1" data-exercise="{&quot;functionName&quot;:&quot;podeEntrar&quot;,&quot;tests&quot;:[{&quot;label&quot;:&quot;Limite: 18 anos com convite&quot;,&quot;args&quot;:[18,true,false],&quot;expected&quot;:true},{&quot;label&quot;:&quot;Maior de idade acompanhado&quot;,&quot;args&quot;:[22,false,true],&quot;expected&quot;:true},{&quot;label&quot;:&quot;Menor, mesmo com convite e acompanhante&quot;,&quot;args&quot;:[17,true,true],&quot;expected&quot;:false},{&quot;label&quot;:&quot;Maior sem convite nem acompanhante&quot;,&quot;args&quot;:[30,false,false],&quot;expected&quot;:false},{&quot;label&quot;:&quot;Maior com convite&quot;,&quot;args&quot;:[22,true,false],&quot;expected&quot;:true}]}" data-show-js="1" data-mode="logic"><div class="playground-toolbar" role="toolbar" aria-label="Ações do playground"><button type="button" class="pg-btn" data-action="reset" title="Restaurar código original">Resetar</button><button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">Copiar HTML</button><button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">Copiar CSS</button><button type="button" class="pg-btn" data-action="copy-js" title="Copiar JavaScript">Copiar JS</button><button type="button" class="pg-btn" data-action="run">Executar</button><button type="button" class="pg-btn" data-action="check">Verificar</button><span class="spacer" aria-hidden="true"></span><span class="sr-only" data-status aria-live="polite"></span></div><div class="playground-tabs" role="tablist" aria-label="Painéis do playground"><button type="button" class="playground-tab" role="tab" id="logica-03-operadores-expressoes-exercicio-tab-html" aria-controls="logica-03-operadores-expressoes-exercicio-panel-editors" aria-selected="false" data-tab="html">HTML</button><button type="button" class="playground-tab" role="tab" id="logica-03-operadores-expressoes-exercicio-tab-css" aria-controls="logica-03-operadores-expressoes-exercicio-panel-editors" aria-selected="false" data-tab="css">CSS</button><button type="button" class="playground-tab" role="tab" id="logica-03-operadores-expressoes-exercicio-tab-js" aria-controls="logica-03-operadores-expressoes-exercicio-panel-editors" aria-selected="true" data-tab="js">JS</button><button type="button" class="playground-tab" role="tab" id="logica-03-operadores-expressoes-exercicio-tab-preview" aria-controls="logica-03-operadores-expressoes-exercicio-panel-preview" aria-selected="false" data-tab="preview">Preview</button></div><div class="playground-wrap"><div class="editor-panel" id="logica-03-operadores-expressoes-exercicio-panel-editors" role="tabpanel" aria-label="Editores"><div class="editor-box" data-pane="html"><div class="label"><span id="logica-03-operadores-expressoes-exercicio-label-html">HTML</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-html" aria-describedby="logica-03-operadores-expressoes-exercicio-label-html">Copiar</button></div></div><div class="cm-host" data-editor="html" data-initial role="textbox" aria-label="Editor HTML" aria-multiline="true"></div></div><div class="editor-box" data-pane="css"><div class="label"><span id="logica-03-operadores-expressoes-exercicio-label-css">CSS</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-css" aria-describedby="logica-03-operadores-expressoes-exercicio-label-css">Copiar</button></div></div><div class="cm-host" data-editor="css" data-initial role="textbox" aria-label="Editor CSS" aria-multiline="true"></div></div><div class="editor-box" data-pane="js"><div class="label"><span id="logica-03-operadores-expressoes-exercicio-label-js">JavaScript</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-js" aria-describedby="logica-03-operadores-expressoes-exercicio-label-js">Copiar</button></div></div><div class="cm-host" data-editor="js" data-initial="ZnVuY3Rpb24gcG9kZUVudHJhcihpZGFkZSwgdGVtQ29udml0ZSwgYWNvbXBhbmhhZG8pIHsKICAvLyBQcmVjaXNhIHRlciAxOCBhbm9zIG91IG1haXMgRSAoY29udml0ZSBPVSBhY29tcGFuaGFudGUpLgogIHJldHVybiBpZGFkZSA+IDE4ICYmIHRlbUNvbnZpdGU7Cn0KY29uc29sZS5sb2coJ01ldSB0ZXN0ZTonLCBwb2RlRW50cmFyKDE4LCB0cnVlLCBmYWxzZSkpOw==" role="textbox" aria-label="Editor JavaScript" aria-multiline="true"></div></div></div><div class="preview-panel" id="logica-03-operadores-expressoes-exercicio-panel-preview" role="tabpanel" aria-label="Pré-visualização"><div class="label"><span>Pré-visualização ao vivo</span></div><iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts"></iframe></div></div><section class="pg-console" aria-label="Console do código"><div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">Limpar console</button></div><pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>Execute o código para ver a saída aqui.</span></pre></section><section class="pg-checks" aria-label="Resultado do exercício" aria-live="polite" aria-atomic="true"><p data-check-summary>Edite o JavaScript e clique em Verificar.</p><ul data-check-results></ul></section></div>
+<h2 id="próximo-passo">Próximo passo</h2>
+<p>Expressões booleanas serão a base das decisões com <code>if/else</code>. Na próxima lição, vamos usar essas expressões em decisões com <code>if/else</code> e <code>switch</code>.</p></div><aside class="growth-cta" data-growth-cta data-kind="lesson" data-trail="logica-com-js" data-order="3" data-astro-cid-53i73k7e><div class="growth-cta__grid" data-astro-cid-53i73k7e><section class="growth-cta__box" data-astro-cid-53i73k7e><h2 data-astro-cid-53i73k7e>Continue aprendendo</h2><p data-astro-cid-53i73k7e>Novos exemplos e lições toda semana no Instagram e no GitHub.</p><p class="growth-cta__links" data-astro-cid-53i73k7e><a href="https://www.instagram.com/css4html/" target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="instagram" data-astro-cid-53i73k7e>Instagram</a><a href="https://github.com/css4html" target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="github" data-astro-cid-53i73k7e>GitHub</a></p></section><section class="growth-cta__box growth-cta__box--consult" data-astro-cid-53i73k7e><h2 data-astro-cid-53i73k7e>Precisa de um site ou sistema?</h2><p data-astro-cid-53i73k7e>O mesmo time que escreve estas trilhas desenvolve sites, sistemas e apps sob medida.</p><a class="btn btn-primary" href="/consultoria/?utm_source=lesson" data-astro-cid-53i73k7e>Conhecer a consultoria</a></section></div></aside><script type="module">function e(e,t){try{let n=window.gtag;typeof n==`function`&&n(`event`,e,t)}catch{}}document.querySelectorAll(`[data-growth-cta]`).forEach(t=>{let{kind:n,trail:r,order:i,last:a}=t.dataset;if(`IntersectionObserver`in window){let o=new IntersectionObserver(t=>{t.some(e=>e.isIntersecting)&&(o.disconnect(),n===`lesson`?(e(`lesson_complete`,{trail:r,lesson_order:Number(i)||void 0}),a===`1`&&e(`trail_complete`,{trail:r})):e(`post_read`,{page_path:location.pathname}))});o.observe(t)}t.querySelectorAll(`[data-newsletter-form]`).forEach(r=>{r.addEventListener(`submit`,()=>{e(`newsletter_signup`,{source:n,page_path:location.pathname});let i=t.querySelector(`[data-newsletter-thanks]`);i&&setTimeout(()=>{i.hidden=!1,r.reset()},300)})})});</script><nav class="meta-row" style="margin-top:2rem;justify-content:space-between" aria-label="Navegação da trilha"><a href="/trilhas/logica-com-js/logica-02-variaveis-tipos/">← Variáveis e tipos</a><a href="/trilhas/logica-com-js/logica-04-decisoes/">Decisões →</a></nav></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Hub educacional de HTML, CSS, JavaScript, React e Web Components: exemplos editáveis, snippets práticos e trilhas do zero à prática.</p></div><div><h3>Aprender</h3><ul><li><a href="/trilhas/html-do-zero/">Trilha HTML</a></li><li><a href="/trilhas/css-do-zero-ao-layout/">Trilha CSS</a></li><li><a href="/trilhas/logica-com-js/">Trilha LÓGICA com JS</a></li><li><a href="/trilhas/javascript-do-zero/">Trilha JavaScript</a></li><li><a href="/trilhas/react-do-basico-ao-estado/">Trilha React</a></li><li><a href="/trilhas/webcomponents-com-vite/">Trilha Web Components</a></li><li><a href="/trilhas/git-na-pratica/">Trilha Git</a></li><li><a href="/exemplos/">Exemplos vivos</a></li><li><a href="/snippets/">Biblioteca de snippets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/consultoria/">Consultoria</a></li></ul></div><div><h3>Projeto</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="https://www.facebook.com/CSS4HTML" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/css4html/" rel="noopener noreferrer">Instagram</a></li><li><a href="/">Início</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — HTML, CSS, JS, React e Web Components de verdade.</p><p>css4html.com.br</p></div></div></footer></body></html>

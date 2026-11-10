@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Turn a problem into clear steps: input, processing and output."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="What is an algorithm · CSS4HTML"><meta property="og:description" content="Turn a problem into clear steps: input, processing and output."><meta property="og:image" content="https://css4html.com.br/trilhas/logica-com-js/covers/logica-01-algoritmo.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://css4html.com.br/trilhas/logica-com-js/covers/logica-01-algoritmo.png"><meta property="og:url" content="https://css4html.com.br/en/trilhas/logica-com-js/logica-01-algoritmo/"><link rel="canonical" href="https://css4html.com.br/en/trilhas/logica-com-js/logica-01-algoritmo/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>What is an algorithm · CSS4HTML</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><!-- Eventos de engajamento (delegação de cliques, um único listener) --><script>
+      (function () {
+        function send(name, params) {
+          try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {}
+        }
+        document.addEventListener('click', function (ev) {
+          var target = ev.target;
+          if (!target || !target.closest) return;
+          var path = location.pathname;
+
+          // Copiar snippet
+          var copyBtn = target.closest('[data-copy]');
+          if (copyBtn) { send('snippet_copy', { page_path: path }); return; }
+
+          // Copiar código no playground
+          var pgBtn = target.closest('[data-action^="copy-"]');
+          if (pgBtn) { send('playground_copy', { page_path: path, lang: pgBtn.getAttribute('data-action').slice(5) }); return; }
+
+          // Elementos marcados com data-track
+          var tracked = target.closest('[data-track]');
+          if (tracked) {
+            send(tracked.getAttribute('data-track'), { label: tracked.getAttribute('data-track-label') || undefined, page_path: path });
+            return;
+          }
+
+          var link = target.closest('a[href]');
+          if (!link) return;
+          var url;
+          try { url = new URL(link.getAttribute('href'), location.href); } catch (e) { return; }
+
+          // Clique para a consultoria vindo de outra página
+          if (url.host === location.host && /\/consultoria\/?$/.test(url.pathname) && !/\/consultoria\/?$/.test(path)) {
+            send('consultoria_cta_click', { source_path: path });
+            return;
+          }
+
+          // Links externos
+          if (url.host !== location.host && /^https?:$/.test(url.protocol) && url.host !== 'wa.me') {
+            send('outbound_click', { link_domain: url.host, link_url: url.href, page_path: path });
+          }
+        }, { capture: true });
+      })();
+    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CSS4HTML","url":"https://css4html.com.br/","inLanguage":"en","publisher":{"@type":"Organization","name":"CSS4HTML","url":"https://css4html.com.br/","logo":"https://css4html.com.br/logo-fanpage.png","sameAs":["https://www.instagram.com/css4html/","https://www.facebook.com/CSS4HTML","https://github.com/css4html"]}}</script><link rel="sitemap" type="application/xml" href="/sitemap.xml"><link rel="stylesheet" href="/_astro/BaseLayout.DtVv-qX2.css"><style>.growth-cta[data-astro-cid-53i73k7e]{margin-top:2.5rem}.growth-cta__done[data-astro-cid-53i73k7e]{color:var(--color-success);margin-bottom:1rem;font-size:1.15rem;font-weight:700}.growth-cta__grid[data-astro-cid-53i73k7e]{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem;display:grid}.growth-cta__box[data-astro-cid-53i73k7e]{background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:1.25rem}.growth-cta__box--consult[data-astro-cid-53i73k7e]{border-color:var(--color-accent)}.growth-cta__box[data-astro-cid-53i73k7e] h2[data-astro-cid-53i73k7e]{margin:0 0 .5rem;font-size:1.15rem}.growth-cta__box[data-astro-cid-53i73k7e] p[data-astro-cid-53i73k7e]{color:var(--color-muted);margin:0 0 1rem}.growth-cta__form[data-astro-cid-53i73k7e]{flex-wrap:wrap;gap:.5rem;display:flex}.growth-cta__form[data-astro-cid-53i73k7e] input[data-astro-cid-53i73k7e]{border:1px solid var(--color-border);background:var(--color-bg);min-width:0;color:var(--color-text);font:inherit;border-radius:8px;flex:180px;padding:.6rem .75rem}.growth-cta__links[data-astro-cid-53i73k7e]{gap:1rem;display:flex}.growth-cta__thanks[data-astro-cid-53i73k7e]{color:var(--color-success);margin-top:.75rem}
+</style></head><body><a class="sr-only" href="#conteudo">Skip to content</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/en/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Primary"><ul class="nav"><li><a href="/en/">Home</a></li><li><a href="/en/trilhas/" aria-current="page">Trails</a></li><li><a href="/en/exemplos/">Examples</a></li><li><a href="/en/snippets/">Snippets</a></li><li><a href="/en/blog/">Blog</a></li><li><a href="/en/consultoria/">Consulting</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Language"><a href="/trilhas/logica-com-js/logica-01-algoritmo/" class="lang-btn" hreflang="pt-BR" lang="pt-BR">PT</a><a href="/en/trilhas/logica-com-js/logica-01-algoritmo/" class="lang-btn is-active" hreflang="en" aria-current="page" lang="en">EN</a><a href="/es/trilhas/logica-com-js/logica-01-algoritmo/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Switch to light theme" data-label-dark="Switch to dark theme" aria-label="Toggle light or dark theme" title="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Open navigation menu" data-label-close="Close navigation menu" aria-expanded="false" aria-controls="nav-drawer" aria-label="Open navigation menu"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Navigation menu"><p class="drawer-label">Navigation</p><nav aria-label="Mobile menu"><ul class="nav"><li><a href="/en/" data-menu-close>Home</a></li><li><a href="/en/trilhas/" aria-current="page" data-menu-close>Trails</a></li><li><a href="/en/exemplos/" data-menu-close>Examples</a></li><li><a href="/en/snippets/" data-menu-close>Snippets</a></li><li><a href="/en/blog/" data-menu-close>Blog</a></li><li><a href="/en/consultoria/" data-menu-close>Consulting</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trails</p><nav aria-label="Trails"><ul class="nav"><li><a href="/en/trilhas/html-do-zero/" data-menu-close>HTML from scratch</a></li><li><a href="/en/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS from scratch to layout</a></li><li><a href="/en/trilhas/logica-com-js/" data-menu-close>LOGIC with JS</a></li><li><a href="/en/trilhas/javascript-do-zero/" data-menu-close>JavaScript from scratch</a></li><li><a href="/en/trilhas/react-do-basico-ao-estado/" data-menu-close>React from basics to state</a></li><li><a href="/en/trilhas/webcomponents-com-vite/" data-menu-close>Web Components with Vite</a></li><li><a href="/en/trilhas/git-na-pratica/" data-menu-close>Git in practice</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><article class="container page-header"><p><a href="/en/trilhas/logica-com-js/">← Trail</a>· Lesson 1 of 10</p><h1>What is an algorithm</h1><p>Turn a problem into clear steps: input, processing and output.</p><img class="post-cover" src="/trilhas/logica-com-js/covers/logica-01-algoritmo.png" alt="What is an algorithm" width="1200" height="630" loading="lazy" decoding="async"><div class="prose"><p>An <strong>algorithm</strong> is a sequence of steps that solves a problem. A recipe is an everyday example: order matters, and each instruction must be clear enough to follow without guessing.</p>
+<h2 id="input--processing--output">Input → processing → output</h2>
+<p>To calculate change when the payment covers the price:</p>
+<ol>
+<li><strong>Input:</strong> receive the amount paid and the price.</li>
+<li><strong>Processing:</strong> subtract the price from the amount paid.</li>
+<li><strong>Output:</strong> show the change.</li>
+</ol>
+<p>Write the steps in your own words before typing. Reversing the subtraction changes the answer.</p>
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — Understand the problem first; then turn each step into code.</aside>
+<h2 id="try-the-console">Try the console</h2>
+<p><code>const</code> names a value, <code>-</code> subtracts, and <code>console.log</code> displays the output in the <strong>Console</strong> panel. Change the price. The example uses Portuguese identifiers: <code>valorPago</code> means amount paid, <code>preco</code> price, and <code>troco</code> change.</p>
+<div class="playground" data-playground="logica-01-algoritmo-exemplo" data-mobile-tab="js" data-console-enabled="1" data-show-js="1" data-mode="logic"><div class="playground-toolbar" role="toolbar" aria-label="Ações do playground"><button type="button" class="pg-btn" data-action="reset" title="Restaurar código original">Resetar</button><button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">Copiar HTML</button><button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">Copiar CSS</button><button type="button" class="pg-btn" data-action="copy-js" title="Copiar JavaScript">Copiar JS</button><button type="button" class="pg-btn" data-action="run">Executar</button><span class="spacer" aria-hidden="true"></span><span class="sr-only" data-status aria-live="polite"></span></div><div class="playground-tabs" role="tablist" aria-label="Painéis do playground"><button type="button" class="playground-tab" role="tab" id="logica-01-algoritmo-exemplo-tab-html" aria-controls="logica-01-algoritmo-exemplo-panel-editors" aria-selected="false" data-tab="html">HTML</button><button type="button" class="playground-tab" role="tab" id="logica-01-algoritmo-exemplo-tab-css" aria-controls="logica-01-algoritmo-exemplo-panel-editors" aria-selected="false" data-tab="css">CSS</button><button type="button" class="playground-tab" role="tab" id="logica-01-algoritmo-exemplo-tab-js" aria-controls="logica-01-algoritmo-exemplo-panel-editors" aria-selected="true" data-tab="js">JS</button><button type="button" class="playground-tab" role="tab" id="logica-01-algoritmo-exemplo-tab-preview" aria-controls="logica-01-algoritmo-exemplo-panel-preview" aria-selected="false" data-tab="preview">Preview</button></div><div class="playground-wrap"><div class="editor-panel" id="logica-01-algoritmo-exemplo-panel-editors" role="tabpanel" aria-label="Editores"><div class="editor-box" data-pane="html"><div class="label"><span id="logica-01-algoritmo-exemplo-label-html">HTML</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-html" aria-describedby="logica-01-algoritmo-exemplo-label-html">Copiar</button></div></div><div class="cm-host" data-editor="html" data-initial role="textbox" aria-label="Editor HTML" aria-multiline="true"></div></div><div class="editor-box" data-pane="css"><div class="label"><span id="logica-01-algoritmo-exemplo-label-css">CSS</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-css" aria-describedby="logica-01-algoritmo-exemplo-label-css">Copiar</button></div></div><div class="cm-host" data-editor="css" data-initial role="textbox" aria-label="Editor CSS" aria-multiline="true"></div></div><div class="editor-box" data-pane="js"><div class="label"><span id="logica-01-algoritmo-exemplo-label-js">JavaScript</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-js" aria-describedby="logica-01-algoritmo-exemplo-label-js">Copiar</button></div></div><div class="cm-host" data-editor="js" data-initial="Y29uc3QgdmFsb3JQYWdvID0gMjA7CmNvbnN0IHByZWNvID0gMTI7CmNvbnN0IHRyb2NvID0gdmFsb3JQYWdvIC0gcHJlY287CmNvbnNvbGUubG9nKCdUcm9jbzonLCB0cm9jbyk7" role="textbox" aria-label="Editor JavaScript" aria-multiline="true"></div></div></div><div class="preview-panel" id="logica-01-algoritmo-exemplo-panel-preview" role="tabpanel" aria-label="Pré-visualização"><div class="label"><span>Pré-visualização ao vivo</span></div><iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts"></iframe></div></div><section class="pg-console" aria-label="Console do código"><div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">Limpar console</button></div><pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>Execute o código para ver a saída aqui.</span></pre></section></div><script type="module" src="/_astro/Playground.astro_astro_type_script_index_0_lang.BmQ3xvZh.js"></script>
+<h2 id="exercise-fix-the-change">Exercise: fix the change</h2>
+<p><code>calcularTroco(valorPago, preco)</code> calculates change in the wrong order. Change the expression after <code>return</code> to subtract the price from the amount paid. Assume sufficient payment.</p>
+<p>The function shell is ready: the names in parentheses receive input, and <code>return</code> gives back the output. Only edit the calculation; functions get their own lesson later. Keep the function name.</p>
+<p>Click <strong>Verificar</strong> (Check). The exact-payment case can pass even with reversed subtraction, which is why we check several inputs. Feedback is in Portuguese.</p>
+<div class="playground" data-playground="logica-01-algoritmo-exercicio" data-mobile-tab="js" data-console-enabled="1" data-exercise="{&quot;functionName&quot;:&quot;calcularTroco&quot;,&quot;tests&quot;:[{&quot;label&quot;:&quot;Pagamento maior que o preço&quot;,&quot;args&quot;:[20,12],&quot;expected&quot;:8},{&quot;label&quot;:&quot;Pagamento exato&quot;,&quot;args&quot;:[12,12],&quot;expected&quot;:0},{&quot;label&quot;:&quot;Valores com centavos&quot;,&quot;args&quot;:[10,7.5],&quot;expected&quot;:2.5}]}" data-show-js="1" data-mode="logic"><div class="playground-toolbar" role="toolbar" aria-label="Ações do playground"><button type="button" class="pg-btn" data-action="reset" title="Restaurar código original">Resetar</button><button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">Copiar HTML</button><button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">Copiar CSS</button><button type="button" class="pg-btn" data-action="copy-js" title="Copiar JavaScript">Copiar JS</button><button type="button" class="pg-btn" data-action="run">Executar</button><button type="button" class="pg-btn" data-action="check">Verificar</button><span class="spacer" aria-hidden="true"></span><span class="sr-only" data-status aria-live="polite"></span></div><div class="playground-tabs" role="tablist" aria-label="Painéis do playground"><button type="button" class="playground-tab" role="tab" id="logica-01-algoritmo-exercicio-tab-html" aria-controls="logica-01-algoritmo-exercicio-panel-editors" aria-selected="false" data-tab="html">HTML</button><button type="button" class="playground-tab" role="tab" id="logica-01-algoritmo-exercicio-tab-css" aria-controls="logica-01-algoritmo-exercicio-panel-editors" aria-selected="false" data-tab="css">CSS</button><button type="button" class="playground-tab" role="tab" id="logica-01-algoritmo-exercicio-tab-js" aria-controls="logica-01-algoritmo-exercicio-panel-editors" aria-selected="true" data-tab="js">JS</button><button type="button" class="playground-tab" role="tab" id="logica-01-algoritmo-exercicio-tab-preview" aria-controls="logica-01-algoritmo-exercicio-panel-preview" aria-selected="false" data-tab="preview">Preview</button></div><div class="playground-wrap"><div class="editor-panel" id="logica-01-algoritmo-exercicio-panel-editors" role="tabpanel" aria-label="Editores"><div class="editor-box" data-pane="html"><div class="label"><span id="logica-01-algoritmo-exercicio-label-html">HTML</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-html" aria-describedby="logica-01-algoritmo-exercicio-label-html">Copiar</button></div></div><div class="cm-host" data-editor="html" data-initial role="textbox" aria-label="Editor HTML" aria-multiline="true"></div></div><div class="editor-box" data-pane="css"><div class="label"><span id="logica-01-algoritmo-exercicio-label-css">CSS</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-css" aria-describedby="logica-01-algoritmo-exercicio-label-css">Copiar</button></div></div><div class="cm-host" data-editor="css" data-initial role="textbox" aria-label="Editor CSS" aria-multiline="true"></div></div><div class="editor-box" data-pane="js"><div class="label"><span id="logica-01-algoritmo-exercicio-label-js">JavaScript</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-js" aria-describedby="logica-01-algoritmo-exercicio-label-js">Copiar</button></div></div><div class="cm-host" data-editor="js" data-initial="ZnVuY3Rpb24gY2FsY3VsYXJUcm9jbyh2YWxvclBhZ28sIHByZWNvKSB7CiAgLy8gQWp1c3RlIGEgb3JkZW0gZGEgY29udGE6IHF1YW50byBkZXZlIHZvbHRhciBwYXJhIHF1ZW0gcGFnb3U/CiAgcmV0dXJuIHByZWNvIC0gdmFsb3JQYWdvOwp9CmNvbnNvbGUubG9nKCdNZXUgdGVzdGU6JywgY2FsY3VsYXJUcm9jbygyMCwgMTIpKTs=" role="textbox" aria-label="Editor JavaScript" aria-multiline="true"></div></div></div><div class="preview-panel" id="logica-01-algoritmo-exercicio-panel-preview" role="tabpanel" aria-label="Pré-visualização"><div class="label"><span>Pré-visualização ao vivo</span></div><iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts"></iframe></div></div><section class="pg-console" aria-label="Console do código"><div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">Limpar console</button></div><pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>Execute o código para ver a saída aqui.</span></pre></section><section class="pg-checks" aria-label="Resultado do exercício" aria-live="polite" aria-atomic="true"><p data-check-summary>Edite o JavaScript e clique em Verificar.</p><ul data-check-results></ul></section></div>
+<h2 id="takeaway">Takeaway</h2>
+<p>A single passing example is not enough. Also test exact payment and decimal amounts. Your code runs in your browser; the checker does not save or submit it.</p></div><aside class="growth-cta" data-growth-cta data-kind="lesson" data-trail="logica-com-js" data-order="1" data-astro-cid-53i73k7e><div class="growth-cta__grid" data-astro-cid-53i73k7e><section class="growth-cta__box" data-astro-cid-53i73k7e><h2 data-astro-cid-53i73k7e>Keep learning</h2><p data-astro-cid-53i73k7e>New examples and lessons every week on Instagram and GitHub.</p><p class="growth-cta__links" data-astro-cid-53i73k7e><a href="https://www.instagram.com/css4html/" target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="instagram" data-astro-cid-53i73k7e>Instagram</a><a href="https://github.com/css4html" target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="github" data-astro-cid-53i73k7e>GitHub</a></p></section><section class="growth-cta__box growth-cta__box--consult" data-astro-cid-53i73k7e><h2 data-astro-cid-53i73k7e>Need a website or a system?</h2><p data-astro-cid-53i73k7e>The same team that writes these tracks builds custom websites, systems and apps.</p><a class="btn btn-primary" href="/en/consultoria/?utm_source=lesson" data-astro-cid-53i73k7e>See our consulting</a></section></div></aside><script type="module">function e(e,t){try{let n=window.gtag;typeof n==`function`&&n(`event`,e,t)}catch{}}document.querySelectorAll(`[data-growth-cta]`).forEach(t=>{let{kind:n,trail:r,order:i,last:a}=t.dataset;if(`IntersectionObserver`in window){let o=new IntersectionObserver(t=>{t.some(e=>e.isIntersecting)&&(o.disconnect(),n===`lesson`?(e(`lesson_complete`,{trail:r,lesson_order:Number(i)||void 0}),a===`1`&&e(`trail_complete`,{trail:r})):e(`post_read`,{page_path:location.pathname}))});o.observe(t)}t.querySelectorAll(`[data-newsletter-form]`).forEach(r=>{r.addEventListener(`submit`,()=>{e(`newsletter_signup`,{source:n,page_path:location.pathname});let i=t.querySelector(`[data-newsletter-thanks]`);i&&setTimeout(()=>{i.hidden=!1,r.reset()},300)})})});</script><nav class="meta-row" style="margin-top:2rem;justify-content:space-between" aria-label="Trail navigation"><span></span><a href="/en/trilhas/logica-com-js/logica-02-variaveis-tipos/">Variables and types →</a></nav></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Educational hub for HTML, CSS, JavaScript, React, and Web Components: editable examples, practical snippets, and trails from zero to practice.</p></div><div><h3>Learn</h3><ul><li><a href="/en/trilhas/html-do-zero/">HTML trail</a></li><li><a href="/en/trilhas/css-do-zero-ao-layout/">CSS trail</a></li><li><a href="/en/trilhas/logica-com-js/">LOGIC with JS trail</a></li><li><a href="/en/trilhas/javascript-do-zero/">JavaScript trail</a></li><li><a href="/en/trilhas/react-do-basico-ao-estado/">React trail</a></li><li><a href="/en/trilhas/webcomponents-com-vite/">Web Components trail</a></li><li><a href="/en/trilhas/git-na-pratica/">Git trail</a></li><li><a href="/en/exemplos/">Live examples</a></li><li><a href="/en/snippets/">Snippet library</a></li><li><a href="/en/blog/">Blog</a></li><li><a href="/en/consultoria/">Consulting</a></li></ul></div><div><h3>Project</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="https://www.facebook.com/CSS4HTML" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/css4html/" rel="noopener noreferrer">Instagram</a></li><li><a href="/en/">Home</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — Real HTML, CSS, JS, React, and Web Components.</p><p>css4html.com.br</p></div></div></footer></body></html>
