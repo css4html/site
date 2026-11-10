@@ -37,7 +37,7 @@ test('curriculum, lesson routes, i18n and OG metadata', async ({ page }) => {
       }
       await expect(page.locator('[data-editor="js"] .cm-editor')).toHaveCount(2);
       await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /CSS4HTML/);
-      const hasCover = slugs.indexOf(slug) < 3;
+      const hasCover = true; // all ten JS lessons have designer covers since 4565045
       await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://css4html.com.br' + (hasCover ? '/trilhas/logica-com-js/covers/' + slug + '.png' : '/logo-fanpage.png'));
       await expect(page.locator('main article > img.post-cover')).toHaveCount(hasCover ? 1 : 0);
       if (hasCover) {
@@ -191,7 +191,7 @@ test('FizzBuzz and final-project screenshots show real checked results', async (
 });
 
 test('lesson covers are served intact from public assets', async ({ request }) => {
-  for (const slug of slugs.slice(0, 3)) {
+  for (const slug of slugs) {
     const response = await request.get('/trilhas/logica-com-js/covers/' + slug + '.png');
     expect(response.status()).toBe(200);
     expect(response.headers()['content-type']).toContain('image/png');

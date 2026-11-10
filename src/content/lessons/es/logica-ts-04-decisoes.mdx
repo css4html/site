@@ -1,0 +1,41 @@
+---
+title: "Decisiones"
+description: "Elige caminos con if/else y switch y limita respuestas con tipos literales y uniones."
+order: 4
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-04-decisoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { decisionsExample, decisionsStarter, decisionsExercise } from '../../../config/logic-ts-playgrounds';
+
+Una **decisión** elige el siguiente paso según una condición. `numero % 2 === 0` indica si un entero es par, también con cero y negativos. El ejemplo usa una regla didáctica: **edad ≥ 16 → puede votar**.
+
+## Tipos literales y uniones
+
+Un texto también puede ser un tipo: `'par'` es un **tipo literal**. Una unión de literales es una lista cerrada de respuestas válidas:
+
+```ts
+type Paridade = 'par' | 'impar';
+```
+
+Una función que devuelve `Paridade` solo puede devolver `'par'` o `'impar'`; un error como `'Par'` es un error de tipo antes de cualquier prueba. Con `type Dia = 'sabado' | 'domingo' | 'segunda'`, el editor sugiere los `case` del `switch` y avisa de los imposibles.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Una unión de literales convierte las respuestas posibles en una lista que el editor revisa.</aside>
+
+## Prueba
+
+Cambia `idade`, `numero` y `dia`. Poner `dia = 'feriado'` sería un error de tipo en un editor con TypeScript.
+
+<Playground id="logica-ts-04-decisoes-exemplo" mode="logic" language="ts" html="" css="" js={decisionsExample} />
+
+## Tu ejercicio
+
+`classificarNumero(numero: number): Paridade` debe devolver **`'par'`** o **`'impar'`**. Los retornos están invertidos: corrígelos con `if/else`. **Verificar** incluye cero y un negativo.
+
+<Playground id="logica-ts-04-decisoes-exercicio" mode="logic" language="ts" html="" css="" js={decisionsStarter} exercise={decisionsExercise} />
+
+## Siguiente paso
+
+Las decisiones eligen caminos; los bucles repiten uno. Luego combinamos ambos en FizzBuzz.

@@ -1,0 +1,35 @@
+---
+title: "Functions"
+description: "Write typed signatures: parameters, return types and optional parameters."
+order: 6
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-06-funcoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { functionsExample, functionsStarter, functionsExercise } from '../../../config/logic-ts-playgrounds';
+
+A **function** groups instructions for a task. In TypeScript, its **signature** is a contract: `function dobro(numero: number): number`. Calling `dobro('6')` becomes a type error in the editor.
+
+`return` hands back the result; `console.log` only displays a message. If a function declares `: number` and forgets to return on some path, TypeScript warns you.
+
+`sobrenome?: string` marks an **optional** parameter; inside the function its type is `string | undefined`.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — A typed signature is documentation the editor checks for you.</aside>
+
+## Try it
+
+`resultado` receives `dobro(6)` and is inferred as `number`. Call `mensagem` with and without a surname.
+
+<Playground id="logica-ts-06-funcoes-exemplo" mode="logic" language="ts" html="" css="" js={functionsExample} />
+
+## Exercise
+
+Implement `calcularTotal(preco: number, quantidade: number, frete: number): number` as **price × quantity + shipping**, with shipping added once. Zero quantity still returns the shipping. Keep the signature. Feedback is in Portuguese.
+
+<Playground id="logica-ts-06-funcoes-exercicio" mode="logic" language="ts" html="" css="" js={functionsStarter} exercise={functionsExercise} />
+
+## Next step
+
+Next, store many inputs in a typed list.

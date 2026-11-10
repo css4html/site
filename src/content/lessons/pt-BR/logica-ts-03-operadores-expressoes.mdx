@@ -1,0 +1,46 @@
+---
+title: "Operadores e expressões"
+description: "Faça contas, compare valores e combine condições booleanas tipadas com && e ||."
+order: 3
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-03-operadores-expressoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { operatorsExample, operatorsStarter, operatorsExercise } from '../../../config/logic-ts-playgrounds';
+
+Uma **expressão** combina valores e operadores para produzir um resultado. `3 * 10` resulta em `30` (um `number`); `30 >= 18` resulta em `true` (um `boolean`).
+
+| Operador | Uso | Exemplo |
+| --- | --- | --- |
+| `+`, `-`, `*`, `/` | Contas | `3 * 10` → `30` |
+| `%` | Resto da divisão | `7 % 2` → `1` |
+| `===`, `!==` | Igualdade estrita | `20 === 20` → `true` |
+| `>`, `<`, `>=`, `<=` | Comparar | `18 >= 18` → `true` |
+
+O TypeScript ajuda aqui: comparar `20 === '20'` é marcado como erro de tipo, porque um `number` nunca é igual a uma `string`. Em JavaScript puro isso só daria `false` em silêncio.
+
+## Combinar condições
+
+`&&` significa **E**; `||` significa **OU**. A regra fictícia da festa: ter pelo menos 18 anos **E** (convite **OU** acompanhante). Com parênteses: `idade >= 18 && (temConvite || acompanhado)`. O resultado é `boolean`, e é esse o tipo de retorno da função.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Leia a assinatura como uma frase: recebe números e booleanos, devolve um boolean.</aside>
+
+## Experimente
+
+Altere quantidade, preço e saldo. `total` não tem anotação: o TypeScript infere `number` pela multiplicação.
+
+<Playground id="logica-ts-03-operadores-expressoes-exemplo" mode="logic" language="ts" html="" css="" js={operatorsExample} />
+
+## Seu exercício
+
+Complete `podeEntrar(idade: number, temConvite: boolean, acompanhado: boolean): boolean`. A pessoa precisa ter **18 anos ou mais** e **convite ou acompanhante**.
+
+O código inicial esquece o acompanhante e exclui quem tem exatamente 18 anos. Corrija a expressão depois de `return` usando `>=`, `&&`, `||` e parênteses.
+
+<Playground id="logica-ts-03-operadores-expressoes-exercicio" mode="logic" language="ts" html="" css="" js={operatorsStarter} exercise={operatorsExercise} />
+
+## Próximo passo
+
+Na próxima lição, essas expressões booleanas decidem caminhos com `if/else`, `switch` e tipos literais.

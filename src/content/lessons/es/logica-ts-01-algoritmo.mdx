@@ -1,0 +1,39 @@
+---
+title: "Qué es un algoritmo"
+description: "Convierte un problema en pasos claros y da tipos a las entradas y a la salida."
+order: 1
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-01-algoritmo.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { algorithmExample, algorithmStarter, algorithmExercise } from '../../../config/logic-ts-playgrounds';
+
+Un **algoritmo** es una secuencia de pasos para resolver un problema. Esta ruta usa **TypeScript**: JavaScript con **tipos**. Los tipos no cambian lo que hace el programa; describen qué valor guarda cada nombre, para que el editor señale errores antes de ejecutar.
+
+## Entrada → procesamiento → salida
+
+1. **Entrada:** el importe pagado y el precio, ambos `number`.
+2. **Procesamiento:** restar el precio al importe pagado.
+3. **Salida:** el cambio, también `number`.
+
+Una **anotación de tipo** va después de dos puntos: `const preco: number = 12`.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Primero entiende el problema; luego da tipo a cada entrada y a la salida.</aside>
+
+## Prueba
+
+`console.log` muestra la salida en el panel **Console**. El playground quita las anotaciones y ejecuta el JavaScript resultante en tu navegador. Los identificadores están en portugués: `valorPago` es importe pagado, `preco` precio y `troco` cambio.
+
+<Playground id="logica-ts-01-algoritmo-exemplo" mode="logic" language="ts" html="" css="" js={algorithmExample} />
+
+## Tu ejercicio
+
+`calcularTroco(valorPago: number, preco: number): number` resta al revés. Cambia solo la línea `return` para devolver **importe pagado menos precio**. No cambies el nombre. Pulsa **Verificar**; los resultados se muestran en portugués.
+
+<Playground id="logica-ts-01-algoritmo-exercicio" mode="logic" language="ts" html="" css="" js={algorithmStarter} exercise={algorithmExercise} />
+
+## Siguiente paso
+
+Los tipos garantizan que pasaste números, no que la cuenta sea correcta. Tipos y pruebas se complementan.

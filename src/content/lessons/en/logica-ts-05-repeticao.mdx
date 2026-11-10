@@ -1,0 +1,35 @@
+---
+title: "Loops: times tables and FizzBuzz"
+description: "Repeat steps with for and while using typed counters, and solve FizzBuzz."
+order: 5
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-05-repeticao.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { loopsExample, loopsStarter, loopsExercise } from '../../../config/logic-ts-playgrounds';
+
+A **loop** repeats while a condition allows. In `for (let i: number = 1; i <= 5; i++)` the parts create the counter, decide whether to continue and add 1 after each pass. The `: number` annotation is optional: `let i = 1` is inferred.
+
+`while (condicao)` checks before each pass. Types don't prevent infinite loops; the playground stops execution after 1.5 s.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — Types don't make a loop end: explain what stops each repetition.</aside>
+
+## Try it
+
+Edit the times-table base or the countdown start and follow each step in the Console.
+
+<Playground id="logica-ts-05-repeticao-exemplo" mode="logic" language="ts" html="" css="" js={loopsExample} />
+
+## Exercise
+
+Complete `fizzBuzz(numero: number): string`: multiples of 3 **and** 5 return `'FizzBuzz'`, of 3 `'Fizz'`, of 5 `'Buzz'`, otherwise `String(numero)`.
+
+Every path returns a `string`, which is why we use `String(numero)`: returning `numero` would be a `number` and TypeScript would flag it. Put the most specific condition first. Feedback is in Portuguese.
+
+<Playground id="logica-ts-05-repeticao-exercicio" mode="logic" language="ts" html="" css="" js={loopsStarter} exercise={loopsExercise} />
+
+## Next step
+
+Typed functions will help separate the rule from the repetition.

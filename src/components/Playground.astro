@@ -9,6 +9,8 @@ interface Props {
   mode?: 'html' | 'react' | 'logic';
   showConsole?: boolean;
   exercise?: Exercise;
+  /** Logic mode only: 'ts' strips TypeScript types before running. */
+  language?: 'js' | 'ts';
   id?: string;
   labels?: {
     consoleLabel?: string;
@@ -39,7 +41,8 @@ interface Props {
     htmlPaneLabel?: string;
   };
 }
-const { html, css, js = '', id = 'playground', labels = {}, mode = 'html' } = Astro.props;
+const { html, css, js = '', id = 'playground', labels = {}, mode = 'html', language = 'js' } = Astro.props;
+const isTs = mode === 'logic' && language === 'ts';
 const isReact = mode === 'react';
 const isLogic = mode === 'logic';
 const exercise = Astro.props.exercise;
@@ -54,7 +57,7 @@ const L = {
   resetTitle: labels.resetTitle ?? 'Restaurar código original',
   copyHtml: labels.copyHtml ?? 'Copiar HTML',
   copyCss: labels.copyCss ?? 'Copiar CSS',
-  copyJs: labels.copyJs ?? (isReact ? 'Copiar TSX' : 'Copiar JS'),
+  copyJs: labels.copyJs ?? (isReact ? 'Copiar TSX' : isTs ? 'Copiar TS' : 'Copiar JS'),
   copyJsTitle: labels.copyJsTitle ?? (isReact ? 'Copiar TypeScript/JSX' : 'Copiar JavaScript'),
   panels: labels.panels ?? 'Painéis do playground',
   preview: labels.preview ?? 'Preview',
@@ -62,12 +65,12 @@ const L = {
   copy: labels.copy ?? 'Copiar',
   editorHtml: labels.editorHtml ?? (isReact ? 'Editor HTML (fora do #root)' : 'Editor HTML'),
   editorCss: labels.editorCss ?? 'Editor CSS',
-  editorJs: labels.editorJs ?? (isReact ? 'Editor TSX' : 'Editor JavaScript'),
+  editorJs: labels.editorJs ?? (isReact ? 'Editor TSX' : isTs ? 'Editor TypeScript' : 'Editor JavaScript'),
   livePreview: labels.livePreview ?? 'Pré-visualização ao vivo',
   iframeTitle: labels.iframeTitle ?? 'Pré-visualização do exemplo',
   previewPanel: labels.previewPanel ?? 'Pré-visualização',
-  jsTab: labels.jsTab ?? (isReact ? 'TSX' : 'JS'),
-  jsPane: labels.jsPane ?? (isReact ? 'TSX / React' : 'JavaScript'),
+  jsTab: labels.jsTab ?? (isReact ? 'TSX' : isTs ? 'TS' : 'JS'),
+  jsPane: labels.jsPane ?? (isReact ? 'TSX / React' : isTs ? 'TypeScript' : 'JavaScript'),
   reactShellSummary: labels.reactShellSummary ?? 'Esqueleto HTML (como o React monta)',
   reactShellHint: labels.reactShellHint ?? 'O playground injeta #root, import map (esm.sh) e Sucrase. A aba HTML é só markup extra fora do React. Nomeie o componente de topo como App.',
   reactShellViteNote: labels.reactShellViteNote ?? 'Vite local: index.html → src/main.tsx → <App /> em #root. Aqui o playground faz o equivalente com esm.sh + Sucrase.',
@@ -85,6 +88,7 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
   data-exercise={exercise ? JSON.stringify(exercise) : undefined}
   data-show-js={showJs ? '1' : '0'}
   data-mode={mode}
+  data-language={isTs ? 'ts' : 'js'}
 >
   <div class="playground-toolbar" role="toolbar" aria-label={L.actions}>
     <button type="button" class="pg-btn" data-action="reset" title={L.resetTitle}>
@@ -221,7 +225,7 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
   )}
   {exercise && (
     <section class="pg-checks" aria-label="Resultado do exercício" aria-live="polite" aria-atomic="true">
-      <p data-check-summary>Edite o JavaScript e clique em Verificar.</p>
+      <p data-check-summary>{isTs ? 'Edite o TypeScript e clique em Verificar.' : 'Edite o JavaScript e clique em Verificar.'}</p>
       <ul data-check-results></ul>
     </section>
   )}
@@ -364,6 +368,7 @@ try {
     const mode = (root as HTMLElement).dataset.mode || 'html';
     const isReact = mode === 'react';
     const isLogic = mode === 'logic';
+    const isTs = isLogic && (root as HTMLElement).dataset.language === 'ts';
     const exercise: Exercise | undefined = (root as HTMLElement).dataset.exercise ? JSON.parse((root as HTMLElement).dataset.exercise!) : undefined;
     const htmlHost = root.querySelector('[data-editor="html"]') as HTMLElement | null;
     const cssHost = root.querySelector('[data-editor="css"]') as HTMLElement | null;
@@ -425,10 +430,21 @@ try {
       checking = verify;
       passed = completed = 0;
       channel = crypto.randomUUID();
-      if (summary) summary.textContent = verify ? 'Verificando…' : 'Edite o JavaScript e clique em Verificar.';
+      if (summary) summary.textContent = verify ? 'Verificando…' : isTs ? 'Edite o TypeScript e clique em Verificar.' : 'Edite o JavaScript e clique em Verificar.';
       if (checkButton) checkButton.disabled = verify;
       const bridge = (root as HTMLElement).dataset.consoleEnabled === '1' ? consoleBridge(channel) : '';
-      if (isLogic) {
+      if (isLogic && isTs) {
+        // Load the transpiler only on TS lessons; ignore the result if a newer run started meanwhile.
+        const current = channel;
+        import('../lib/ts-transpile').then(({ tsToLogicCode }) => {
+          if (current !== channel) return;
+          iframe.srcdoc = buildLogicSrcdoc(tsToLogicCode(jsCode), verify ? exercise : undefined, channel);
+        });
+        watchdog = window.setTimeout(() => {
+          iframe.srcdoc = '';
+          finish('Tempo esgotado. Confira o código e tente novamente.');
+        }, 6000);
+      } else if (isLogic) {
         iframe.srcdoc = buildLogicSrcdoc(jsCode, verify ? exercise : undefined, channel);
         // Also cover iframe/worker startup failure; the worker's own timer handles infinite loops.
         watchdog = window.setTimeout(() => {
@@ -490,7 +506,7 @@ try {
           doc: jsCode,
           extensions: [
             ...sharedTheme,
-            jsLang({ jsx: true, typescript: isReact }),
+            jsLang({ jsx: !isTs, typescript: isReact || isTs }),
           ],
         }),
       });
@@ -538,11 +554,11 @@ try {
         }
         if (action === 'copy-js') {
           const ok = await copyText(jsCode);
-          setStatus(root, ok ? (isReact ? 'TSX copiado.' : 'JavaScript copiado.') : 'Não foi possível copiar.');
+          setStatus(root, ok ? (isReact ? 'TSX copiado.' : isTs ? 'TypeScript copiado.' : 'JavaScript copiado.') : 'Não foi possível copiar.');
           const label = (btn as HTMLButtonElement).textContent || 'Copiar';
           (btn as HTMLButtonElement).textContent = ok ? 'Copiado!' : 'Erro';
           setTimeout(() => {
-            const restore = label.includes('TSX') ? 'Copiar TSX' : label.includes('JS') ? 'Copiar JS' : 'Copiar';
+            const restore = label.includes('TSX') ? 'Copiar TSX' : label.includes('TS') ? 'Copiar TS' : label.includes('JS') ? 'Copiar JS' : 'Copiar';
             (btn as HTMLButtonElement).textContent = restore;
           }, 1200);
         }

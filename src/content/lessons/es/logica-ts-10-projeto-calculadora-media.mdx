@@ -1,0 +1,43 @@
+---
+title: "Proyecto final: calculadora de promedio"
+description: "Combina interfaces, tipos literales, funciones tipadas, bucles y decisiones en un boletín verificable."
+order: 10
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-10-projeto-calculadora-media.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { projectExample, projectStarter, projectExercise } from '../../../config/logic-ts-playgrounds';
+
+Construye una **calculadora de promedio** que devuelve un boletín, con funciones puras. El contrato se vuelve tipos:
+
+```ts
+interface Aluno { nome: string; notas: number[] }
+type Situacao = 'aprovado' | 'recuperacao' | 'sem notas';
+interface Boletim { nome: string; media: number | null; situacao: Situacao }
+```
+
+- `nome`: copia el nombre recibido.
+- `media`: suma ÷ cantidad; `null` sin notas.
+- `situacao`: `'sem notas'` si `media` es `null`; `'aprovado'` si ≥ 7; si no, `'recuperacao'`.
+
+Como `media` es `number | null`, TypeScript obliga a tratar `null` antes de comparar con 7. Como `situacao` es una unión de literales, un texto incorrecto es rechazado por el editor.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Escribe el contrato en tipos antes de implementar: guía cada paso.</aside>
+
+## Prueba
+
+Cambia las notas y compara una lista vacía con una lista que contiene cero.
+
+<Playground id="logica-ts-10-projeto-calculadora-media-exemplo" mode="logic" language="ts" html="" css="" js={projectExample} />
+
+## Tu ejercicio
+
+Completa los dos `TODO`: el acumulador de `calcularMedia` y la decisión en `boletim`. Comprueba primero `media === null`. Devuelve un objeto `Boletim`.
+
+<Playground id="logica-ts-10-projeto-calculadora-media-exercicio" mode="logic" language="ts" html="" css="" js={projectStarter} exercise={projectExercise} />
+
+## Terminaste la ruta
+
+Convertiste problemas en pasos y tipaste cada parte: variables, uniones, firmas, arrays e interfaces. Explica por qué lista vacía, nota cero y promedio exactamente 7 son tres pruebas distintas, y por qué los tipos solos no las sustituyen.

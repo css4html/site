@@ -1,0 +1,41 @@
+---
+title: "What is an algorithm"
+description: "Turn a problem into clear steps and give types to the inputs and output."
+order: 1
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-01-algoritmo.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { algorithmExample, algorithmStarter, algorithmExercise } from '../../../config/logic-ts-playgrounds';
+
+An **algorithm** is a sequence of steps that solves a problem. This trail uses **TypeScript**: JavaScript with **types**. Types do not change what the program does; they describe what kind of value each name holds, so your editor can flag mistakes before running.
+
+## Input → processing → output
+
+1. **Input:** the amount paid and the price, both `number`.
+2. **Processing:** subtract the price from the amount paid.
+3. **Output:** the change, also a `number`.
+
+A **type annotation** goes after a colon: `const preco: number = 12`.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — Understand the problem first; then type each input and the output.</aside>
+
+## Try it
+
+`console.log` prints to the **Console** panel. The playground strips the type annotations and runs the resulting JavaScript in your browser. Identifiers are in Portuguese: `valorPago` is amount paid, `preco` price, `troco` change.
+
+<Playground id="logica-ts-01-algoritmo-exemplo" mode="logic" language="ts" html="" css="" js={algorithmExample} />
+
+## Exercise
+
+`calcularTroco(valorPago: number, preco: number): number` subtracts in the wrong order. Its types say it takes two numbers and returns a number. Edit only the `return` line so it returns **amount paid minus price**.
+
+Keep the function name and click **Verificar** (Check). Feedback is in Portuguese.
+
+<Playground id="logica-ts-01-algoritmo-exercicio" mode="logic" language="ts" html="" css="" js={algorithmStarter} exercise={algorithmExercise} />
+
+## Next step
+
+Types guarantee you passed numbers, not that the math is right. You still need tests: types and tests complement each other.

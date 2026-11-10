@@ -41,6 +41,7 @@ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
       <a href={lp('/trilhas/logica-com-js/')}>{t('trails.backTrail')}</a>
       · {t('trails.lessonOf')} {lesson.data.order} {t('trails.of')} 10
     </p>
+    <p><a data-trail-switch href={lp(`/trilhas/logica-com-ts/${slug.replace('logica-', 'logica-ts-')}/`)}>{t('trail.logic.lessonToTs')}</a></p>
     <h1>{lesson.data.title}</h1>
     <p>{lesson.data.description}</p>
     {lesson.data.cover && (

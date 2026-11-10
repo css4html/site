@@ -1,0 +1,35 @@
+---
+title: "Operadores y expresiones"
+description: "Haz cuentas, compara valores y combina condiciones booleanas tipadas con && y ||."
+order: 3
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-03-operadores-expressoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { operatorsExample, operatorsStarter, operatorsExercise } from '../../../config/logic-ts-playgrounds';
+
+Una **expresión** produce un valor: `3 * 10` es un `number` y `30 >= 18` un `boolean`. Usa `+ - * /`, `%` para el resto, `===`/`!==` para igualdad estricta y `> < >= <=` para comparar.
+
+TypeScript ayuda: `20 === '20'` se marca como error, porque un `number` nunca es igual a un `string`.
+
+`&&` es **Y**, `||` es **O**. La regla de la fiesta: al menos 18 **Y** (invitación **O** acompañante): `idade >= 18 && (temConvite || acompanhado)`. El resultado es `boolean`.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Lee la firma como una frase: recibe números y booleanos, devuelve un boolean.</aside>
+
+## Prueba
+
+Cambia cantidad, precio y saldo. `total` no tiene anotación: TypeScript infiere `number`.
+
+<Playground id="logica-ts-03-operadores-expressoes-exemplo" mode="logic" language="ts" html="" css="" js={operatorsExample} />
+
+## Tu ejercicio
+
+Completa `podeEntrar(idade: number, temConvite: boolean, acompanhado: boolean): boolean`. El código inicial olvida al acompañante y excluye a quien tiene 18 justos. Corrige la expresión con `>=`, `&&`, `||` y paréntesis.
+
+<Playground id="logica-ts-03-operadores-expressoes-exercicio" mode="logic" language="ts" html="" css="" js={operatorsStarter} exercise={operatorsExercise} />
+
+## Siguiente paso
+
+Luego, estas expresiones deciden caminos con `if/else`, `switch` y tipos literales.

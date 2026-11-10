@@ -1,0 +1,40 @@
+---
+title: "Depuración y casos límite"
+description: "Mira qué errores detectan los tipos, lee errores en la consola y corrige un bucle con límite erróneo."
+order: 9
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-09-depuracao.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { debuggingExample, debuggingStarter, debuggingExercise } from '../../../config/logic-ts-playgrounds';
+
+**Depurar** es investigar la diferencia entre lo esperado y lo observado.
+
+| Error | ¿Lo detectan los tipos? |
+| --- | --- |
+| `somarAte('3')`, texto en vez de `number` | Sí, antes de ejecutar |
+| `aluno.nota` en vez de `aluno.notas` | Sí |
+| Devolver `'Par'` con tipo `'par' \| 'impar'` | Sí |
+| `<` en vez de `<=` en un bucle | **No**: sigue siendo `number` |
+
+Los tipos eliminan una familia de errores, pero un **error lógico** produce un valor bien tipado y equivocado. Usa entradas pequeñas, `console.log` y pruebas. Aquí los tipos se quitan antes de ejecutar; la verificación completa ocurre en tu editor con TypeScript.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Los tipos atrapan errores de forma; las pruebas, errores de lógica. Usa ambos.</aside>
+
+## Prueba
+
+El ejemplo debería sumar **1 + 2 + 3 = 6** y devuelve 3. Sigue `i` y `total` en la consola.
+
+<Playground id="logica-ts-09-depuracao-exemplo" mode="logic" language="ts" html="" css="" js={debuggingExample} />
+
+## Tu ejercicio
+
+`somarAte(limite: number): number` debe sumar los enteros **de 1 hasta el límite, inclusive**; cero o negativo da 0. El código inicial excluye el último número: corrige la condición.
+
+<Playground id="logica-ts-09-depuracao-exercicio" mode="logic" language="ts" html="" css="" js={debuggingStarter} exercise={debuggingExercise} />
+
+## Siguiente paso
+
+El proyecto final lo combina todo en una calculadora de promedio tipada.

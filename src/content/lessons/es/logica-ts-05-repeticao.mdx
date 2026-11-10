@@ -1,0 +1,35 @@
+---
+title: "Repetición: tablas y FizzBuzz"
+description: "Repite pasos con for y while usando contadores tipados y resuelve FizzBuzz."
+order: 5
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-05-repeticao.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { loopsExample, loopsStarter, loopsExercise } from '../../../config/logic-ts-playgrounds';
+
+Un **bucle** repite mientras una condición lo permite. En `for (let i: number = 1; i <= 5; i++)` se crea el contador, se decide si continuar y se suma 1 tras cada vuelta. La anotación `: number` es opcional: `let i = 1` se infiere.
+
+`while (condicao)` comprueba antes de cada vuelta. Los tipos no evitan bucles infinitos; el playground detiene la ejecución a los 1,5 s.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Los tipos no terminan el bucle: explica qué detiene cada repetición.</aside>
+
+## Prueba
+
+Edita la base de la tabla o el inicio de la cuenta y sigue cada paso en la consola.
+
+<Playground id="logica-ts-05-repeticao-exemplo" mode="logic" language="ts" html="" css="" js={loopsExample} />
+
+## Tu ejercicio
+
+Completa `fizzBuzz(numero: number): string`: múltiplos de 3 **y** 5 devuelven `'FizzBuzz'`, de 3 `'Fizz'`, de 5 `'Buzz'` y, si no, `String(numero)`.
+
+Todos los caminos devuelven `string`; por eso usamos `String(numero)`: devolver `numero` sería un `number` y TypeScript lo marcaría. Pon primero la condición más específica.
+
+<Playground id="logica-ts-05-repeticao-exercicio" mode="logic" language="ts" html="" css="" js={loopsStarter} exercise={loopsExercise} />
+
+## Siguiente paso
+
+Las funciones tipadas ayudarán a separar la regla de la repetición.

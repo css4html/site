@@ -1,0 +1,42 @@
+---
+title: "Objects: a student and grades"
+description: "Describe an object's shape with an interface and combine objects, arrays and functions."
+order: 8
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-08-objetos.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { objectsExample, objectsStarter, objectsExercise } from '../../../config/logic-ts-playgrounds';
+
+An **object** groups named properties. In TypeScript, an **interface** describes its shape:
+
+```ts
+interface Aluno {
+  nome: string;
+  notas: number[];
+}
+```
+
+With `const aluno: Aluno`, the editor knows `aluno.nome` is a `string` and `aluno.notas` a `number[]`. A missing property or a typo like `aluno.nota` is a type error. `type Aluno = { ... }` works similarly.
+
+`const` prevents reassigning the variable, but `aluno.nome = 'Bia'` is allowed unless the interface marks it `readonly`. For the average, sum and divide by the count; an empty list returns `null`, and zero is a valid grade.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — An interface describes the data shape once and protects every use.</aside>
+
+## Try it
+
+Change the name and grades. Removing `notas` would make the editor report a missing required property.
+
+<Playground id="logica-ts-08-objetos-exemplo" mode="logic" language="ts" html="" css="" js={objectsExample} />
+
+## Exercise
+
+`mediaDoAluno(aluno: Aluno): number | null` returns the sum instead of the average. Divide by the count, keep `null` for an empty list and don't modify the object. Feedback is in Portuguese.
+
+<Playground id="logica-ts-08-objetos-exercicio" mode="logic" language="ts" html="" css="" js={objectsStarter} exercise={objectsExercise} />
+
+## Next step
+
+Next: what the type checker catches, and what it doesn't.

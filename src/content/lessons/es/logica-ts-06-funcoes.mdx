@@ -1,0 +1,35 @@
+---
+title: "Funciones"
+description: "Escribe firmas tipadas: parámetros, tipo de retorno y parámetros opcionales."
+order: 6
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-06-funcoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { functionsExample, functionsStarter, functionsExercise } from '../../../config/logic-ts-playgrounds';
+
+Una **función** agrupa instrucciones para una tarea. En TypeScript, su **firma** es un contrato: `function dobro(numero: number): number`. Llamar `dobro('6')` es un error de tipo en el editor.
+
+`return` entrega el resultado; `console.log` solo muestra un mensaje. Si la función declara `: number` y olvida devolver en algún camino, TypeScript avisa.
+
+`sobrenome?: string` marca un parámetro **opcional**; dentro de la función su tipo es `string | undefined`.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Una firma tipada es documentación que el editor revisa por ti.</aside>
+
+## Prueba
+
+`resultado` recibe `dobro(6)` y se infiere como `number`. Llama a `mensagem` con y sin apellido.
+
+<Playground id="logica-ts-06-funcoes-exemplo" mode="logic" language="ts" html="" css="" js={functionsExample} />
+
+## Tu ejercicio
+
+Implementa `calcularTotal(preco: number, quantidade: number, frete: number): number` como **precio × cantidad + envío**, con el envío una sola vez. Cantidad cero devuelve el envío. Mantén la firma.
+
+<Playground id="logica-ts-06-funcoes-exercicio" mode="logic" language="ts" html="" css="" js={functionsStarter} exercise={functionsExercise} />
+
+## Siguiente paso
+
+Luego guardaremos varias entradas en una lista tipada.

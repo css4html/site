@@ -1,0 +1,43 @@
+---
+title: "Final project: average calculator"
+description: "Combine interfaces, literal types, typed functions, loops and decisions in a testable report card."
+order: 10
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-10-projeto-calculadora-media.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { projectExample, projectStarter, projectExercise } from '../../../config/logic-ts-playgrounds';
+
+Build an **average calculator** that returns a report card, using pure functions. The contract becomes types:
+
+```ts
+interface Aluno { nome: string; notas: number[] }
+type Situacao = 'aprovado' | 'recuperacao' | 'sem notas';
+interface Boletim { nome: string; media: number | null; situacao: Situacao }
+```
+
+- `nome`: copy the received name.
+- `media`: sum ÷ count; `null` without grades.
+- `situacao`: `'sem notas'` if `media` is `null`; `'aprovado'` (passed) if ≥ 7; otherwise `'recuperacao'` (make-up).
+
+Because `media` is `number | null`, TypeScript makes you handle `null` before comparing with 7. Because `situacao` is a literal union, a wrong string is rejected by the editor.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — Write the contract as types before implementing: it guides every step.</aside>
+
+## Try it
+
+Change the grades and compare an empty list with a list containing zero.
+
+<Playground id="logica-ts-10-projeto-calculadora-media-exemplo" mode="logic" language="ts" html="" css="" js={projectExample} />
+
+## Exercise
+
+Fill in both `TODO`s: the accumulator in `calcularMedia` and the decision in `boletim`. Check `media === null` first. Return a `Boletim` object. Feedback is in Portuguese.
+
+<Playground id="logica-ts-10-projeto-calculadora-media-exercicio" mode="logic" language="ts" html="" css="" js={projectStarter} exercise={projectExercise} />
+
+## You finished the trail
+
+You turned problems into steps and typed every part: variables, unions, signatures, arrays and interfaces. Explain why an empty list, a zero grade and an average of exactly 7 are three different tests, and why types alone don't replace them.
