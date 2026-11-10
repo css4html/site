@@ -35,7 +35,7 @@ const snippets = await getSnippets(locale);
 const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
 const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
 ---
-<BaseLayout title={lesson.data.title} description={lesson.data.description} current="trilhas" locale={locale}>
+<BaseLayout title={lesson.data.title} description={lesson.data.description} current="trilhas" locale={locale} image={lesson.data.cover}>
   <article class="container page-header">
     <p>
       <a href={lp('/trilhas/logica-com-js/')}>{t('trails.backTrail')}</a>
@@ -43,6 +43,9 @@ const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
     </p>
     <h1>{lesson.data.title}</h1>
     <p>{lesson.data.description}</p>
+    {lesson.data.cover && (
+      <img class="post-cover" src={lesson.data.cover} alt={lesson.data.title} width="1200" height="630" loading="lazy" decoding="async" />
+    )}
     <div class="prose">
       <Content />
     </div>
