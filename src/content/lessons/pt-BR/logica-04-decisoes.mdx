@@ -1,0 +1,45 @@
+---
+title: "Decisões"
+description: "Escolha caminhos com if/else e switch: par ou ímpar e uma regra de idade."
+order: 4
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-04-decisoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { decisionsExample, decisionsStarter, decisionsExercise } from '../../../config/logic-playgrounds';
+
+Um programa nem sempre segue o mesmo caminho. Uma **decisão** escolhe o próximo passo a partir de uma condição, que pode ser verdadeira ou falsa.
+
+## if, else e blocos
+
+`if (condicao) { ... }` executa o bloco quando a condição é verdadeira. `else` executa o outro caminho. As chaves agrupam as instruções de cada bloco; só um desses dois caminhos será executado.
+
+Para descobrir se um inteiro é par, teste `numero % 2 === 0`. O resto zero indica uma divisão exata por 2. Isso também funciona para zero e números negativos.
+
+O exemplo usa a regra didática **idade maior ou igual a 16 → pode votar**. É uma simplificação para praticar condições, não uma explicação completa da legislação eleitoral ou da obrigatoriedade do voto.
+
+## Quando usar switch
+
+`switch (valor)` compara o valor com cada `case`, por igualdade estrita. `break` encerra aquele caminho; sem ele, a execução continua no próximo caso. `default` é o caminho para valores que não combinaram com nenhum caso. O exemplo agrupa sábado e domingo antes de um único `break`.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Teste os dois caminhos e o limite: 15, 16 e 17, por exemplo.</aside>
+
+## Experimente
+
+Mude `idade`, `numero` e `dia`, um de cada vez. Preveja as mensagens antes de olhar o Console.
+
+<Playground id="logica-04-decisoes-exemplo" mode="logic" html="" css="" js={decisionsExample} />
+
+## Seu exercício: par ou ímpar
+
+A função `classificarNumero(numero)` recebe um número inteiro e deve devolver **`'par'`** ou **`'impar'`** (sem acento no código). Os retornos estão trocados: corrija-os usando `if/else`.
+
+Mantenha o nome e devolva o texto com `return`, não apenas `console.log`. **Verificar** inclui zero e um inteiro negativo: não basta funcionar com 4.
+
+<Playground id="logica-04-decisoes-exercicio" mode="logic" html="" css="" js={decisionsStarter} exercise={decisionsExercise} />
+
+## Próximo passo
+
+Decisões escolhem caminhos; repetições executam um caminho várias vezes. Na próxima lição, vamos combinar as duas ideias no FizzBuzz.

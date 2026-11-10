@@ -11,6 +11,7 @@ const SITE = 'https://css4html.com.br';
 const TRAILS = [
   'html-do-zero',
   'css-do-zero-ao-layout',
+  'logica-com-js',
   'javascript-do-zero',
   'react-do-basico-ao-estado',
   'webcomponents-com-vite',

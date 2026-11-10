@@ -1,12 +1,19 @@
 ---
+import type { Exercise } from '../lib/playground-runtime';
+
 interface Props {
   html: string;
   css: string;
   js?: string;
   showJs?: boolean;
-  mode?: 'html' | 'react';
+  mode?: 'html' | 'react' | 'logic';
+  showConsole?: boolean;
+  exercise?: Exercise;
   id?: string;
   labels?: {
+    consoleLabel?: string;
+    clearConsole?: string;
+    consoleEmpty?: string;
     actions?: string;
     reset?: string;
     resetTitle?: string;
@@ -34,8 +41,14 @@ interface Props {
 }
 const { html, css, js = '', id = 'playground', labels = {}, mode = 'html' } = Astro.props;
 const isReact = mode === 'react';
-const showJs = Astro.props.showJs ?? (Boolean(js) || isReact);
+const isLogic = mode === 'logic';
+const exercise = Astro.props.exercise;
+const showConsole = Astro.props.showConsole ?? (Boolean(js) || isReact || isLogic);
+const showJs = Astro.props.showJs ?? (Boolean(js) || isReact || isLogic);
 const L = {
+  consoleLabel: labels.consoleLabel ?? 'Console do código',
+  clearConsole: labels.clearConsole ?? 'Limpar console',
+  consoleEmpty: labels.consoleEmpty ?? 'Execute o código para ver a saída aqui.',
   actions: labels.actions ?? 'Ações do playground',
   reset: labels.reset ?? 'Resetar',
   resetTitle: labels.resetTitle ?? 'Restaurar código original',
@@ -67,7 +80,9 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
 <div
   class="playground"
   data-playground={id}
-  data-mobile-tab={isReact ? 'js' : 'html'}
+  data-mobile-tab={isReact || isLogic ? 'js' : 'html'}
+  data-console-enabled={showConsole ? '1' : '0'}
+  data-exercise={exercise ? JSON.stringify(exercise) : undefined}
   data-show-js={showJs ? '1' : '0'}
   data-mode={mode}
 >
@@ -86,6 +101,8 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
         {L.copyJs}
       </button>
     )}
+    {isLogic && <button type="button" class="pg-btn" data-action="run">Executar</button>}
+    {exercise && <button type="button" class="pg-btn" data-action="check">Verificar</button>}
     <span class="spacer" aria-hidden="true"></span>
     <span class="sr-only" data-status aria-live="polite"></span>
   </div>
@@ -122,14 +139,14 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
   )}
 
   <div class="playground-tabs" role="tablist" aria-label={L.panels}>
-    <button type="button" class="playground-tab" role="tab" id={`${id}-tab-html`} aria-controls={`${id}-panel-editors`} aria-selected={!isReact} data-tab="html">
+    <button type="button" class="playground-tab" role="tab" id={`${id}-tab-html`} aria-controls={`${id}-panel-editors`} aria-selected={!isReact && !isLogic} data-tab="html">
       HTML
     </button>
     <button type="button" class="playground-tab" role="tab" id={`${id}-tab-css`} aria-controls={`${id}-panel-editors`} aria-selected="false" data-tab="css">
       CSS
     </button>
     {showJs && (
-      <button type="button" class="playground-tab" role="tab" id={`${id}-tab-js`} aria-controls={`${id}-panel-editors`} aria-selected={isReact} data-tab="js">
+      <button type="button" class="playground-tab" role="tab" id={`${id}-tab-js`} aria-controls={`${id}-panel-editors`} aria-selected={isReact || isLogic} data-tab="js">
         {L.jsTab}
       </button>
     )}
@@ -193,12 +210,25 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
     </div>
     <div class="preview-panel" id={`${id}-panel-preview`} role="tabpanel" aria-label={L.previewPanel}>
       <div class="label"><span>{L.livePreview}</span></div>
-      <iframe title={L.iframeTitle} data-preview sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+      <iframe title={L.iframeTitle} data-preview sandbox={isLogic ? "allow-scripts" : "allow-scripts allow-same-origin allow-forms"}></iframe>
     </div>
   </div>
+  {showConsole && (
+    <section class="pg-console" aria-label={L.consoleLabel}>
+      <div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">{L.clearConsole}</button></div>
+      <pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>{L.consoleEmpty}</span></pre>
+    </section>
+  )}
+  {exercise && (
+    <section class="pg-checks" aria-label="Resultado do exercício" aria-live="polite" aria-atomic="true">
+      <p data-check-summary>Edite o JavaScript e clique em Verificar.</p>
+      <ul data-check-results></ul>
+    </section>
+  )}
 </div>
 
 <script>
+  import { buildLogicSrcdoc, consoleBridge, type Exercise } from '../lib/playground-runtime';
   import { EditorView, basicSetup } from 'codemirror';
   import { EditorState } from '@codemirror/state';
   import { html as htmlLang } from '@codemirror/lang-html';
@@ -218,14 +248,14 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
     return js.replace(/<\/script/gi, '<\\/script');
   }
 
-  function buildSrcdoc(html: string, css: string, js: string) {
+  function buildSrcdoc(html: string, css: string, js: string, bridge: string) {
     const scriptBlock = js.trim()
       ? `<script>${escapeForScript(js)}<\/script>`
       : '';
     return `<!DOCTYPE html><html><head><meta charset="utf-8"><style>
 html,body{margin:0;padding:16px;font-family:system-ui,sans-serif}
 ${css}
-</style></head><body>${html}${scriptBlock}</body></html>`;
+</style></head><body>${`<script>${bridge}<\/script>`}${html}${scriptBlock}</body></html>`;
   }
 
   // Runtime that runs *inside* the React preview iframe.
@@ -238,6 +268,7 @@ function showError(err) {
   pre.style.cssText = 'color:#b91c1c;white-space:pre-wrap;font:13px/1.45 ui-monospace,monospace;padding:8px';
   pre.textContent = (err && (err.stack || err.message)) ? String(err.stack || err.message) : String(err);
   document.body.prepend(pre);
+  console.error(pre.textContent);
 }
 
 try {
@@ -295,7 +326,7 @@ try {
     return JSON.stringify(value).replace(/</g, lt);
   }
 
-  function buildReactSrcdoc(html: string, css: string, tsx: string) {
+  function buildReactSrcdoc(html: string, css: string, tsx: string, bridge: string) {
     const close = '</' + 'script>';
     return '<!DOCTYPE html><html><head><meta charset="utf-8"><style>\n'
       + 'html,body{margin:0;padding:16px;font-family:system-ui,sans-serif}\n'
@@ -303,6 +334,7 @@ try {
       + '</style>\n'
       + '<script type="importmap">\n' + REACT_IMPORT_MAP + '\n' + close + '\n'
       + '</head><body>\n'
+      + '<script>' + bridge + close + '\n'
       + '<div id="root"></div>\n'
       + html + '\n'
       + '<script type="application/json" id="__pg_tsx">' + jsonForScript(tsx) + close + '\n'
@@ -331,6 +363,8 @@ try {
     const showJs = (root as HTMLElement).dataset.showJs === '1';
     const mode = (root as HTMLElement).dataset.mode || 'html';
     const isReact = mode === 'react';
+    const isLogic = mode === 'logic';
+    const exercise: Exercise | undefined = (root as HTMLElement).dataset.exercise ? JSON.parse((root as HTMLElement).dataset.exercise!) : undefined;
     const htmlHost = root.querySelector('[data-editor="html"]') as HTMLElement | null;
     const cssHost = root.querySelector('[data-editor="css"]') as HTMLElement | null;
     const jsHost = root.querySelector('[data-editor="js"]') as HTMLElement | null;
@@ -346,22 +380,77 @@ try {
     let jsCode = initialJs;
     let timer: number | undefined;
 
-    const update = () => {
-      if (isReact) {
-        iframe.srcdoc = buildReactSrcdoc(htmlCode, cssCode, showJs ? jsCode : '');
+    const output = root.querySelector('[data-console]');
+    const results = root.querySelector('[data-check-results]');
+    const summary = root.querySelector('[data-check-summary]');
+    const checkButton = root.querySelector<HTMLButtonElement>('[data-action="check"]');
+    let channel = '';
+    let watchdog: number | undefined;
+    let checking = false;
+    let passed = 0;
+    let completed = 0;
+    const clearConsole = () => { if (output) output.textContent = ''; };
+    const finish = (message?: string) => {
+      window.clearTimeout(watchdog);
+      if (checkButton) checkButton.disabled = false;
+      if (checking && summary) summary.textContent = message ?? `${passed} de ${completed} casos passaram. ${passed === completed ? 'Mandou bem!' : 'Revise o código e tente de novo.'}`;
+      checking = false;
+    };
+    window.addEventListener('message', (event) => {
+      // A different playground, stale navigation or an unrelated window cannot update this UI.
+      if (event.source !== iframe.contentWindow || event.data?.channel !== channel) return;
+      const data = event.data;
+      if (data.type === 'console' && output && typeof data.text === 'string' && output.childElementCount < 80) {
+        const line = document.createElement('span');
+        line.className = data.level === 'error' ? 'pg-console-error' : '';
+        line.textContent = data.text.slice(0, 4000) + '\n';
+        output.append(line);
+      }
+      if (data.type === 'result' && checking && results) {
+        completed++;
+        if (data.passed) passed++;
+        const li = document.createElement('li');
+        li.dataset.passed = data.passed ? '1' : '0';
+        li.textContent = `${data.passed ? '✓ Passou' : '✗ Ainda não'} — ${data.label}: ${data.message}`;
+        results.append(li);
+      }
+      if (data.type === 'done') finish();
+      if (data.type === 'fatal') finish(data.message);
+    });
+
+    const update = (verify = false) => {
+      finish('Código alterado. Clique em Verificar novamente.');
+      clearConsole();
+      results?.replaceChildren();
+      checking = verify;
+      passed = completed = 0;
+      channel = crypto.randomUUID();
+      if (summary) summary.textContent = verify ? 'Verificando…' : 'Edite o JavaScript e clique em Verificar.';
+      if (checkButton) checkButton.disabled = verify;
+      const bridge = (root as HTMLElement).dataset.consoleEnabled === '1' ? consoleBridge(channel) : '';
+      if (isLogic) {
+        iframe.srcdoc = buildLogicSrcdoc(jsCode, verify ? exercise : undefined, channel);
+        // Also cover iframe/worker startup failure; the worker's own timer handles infinite loops.
+        watchdog = window.setTimeout(() => {
+          iframe.srcdoc = '';
+          finish('Tempo esgotado. Confira o código e tente novamente.');
+        }, 4000);
+      } else if (isReact) {
+        iframe.srcdoc = buildReactSrcdoc(htmlCode, cssCode, showJs ? jsCode : '', bridge);
       } else {
-        iframe.srcdoc = buildSrcdoc(htmlCode, cssCode, showJs ? jsCode : '');
+        iframe.srcdoc = buildSrcdoc(htmlCode, cssCode, showJs ? jsCode : '', bridge);
       }
     };
 
     const scheduleUpdate = () => {
       window.clearTimeout(timer);
-      timer = window.setTimeout(update, isReact ? 350 : 0);
+      timer = window.setTimeout(() => update(), isReact || isLogic ? 350 : 0);
     };
 
     const sharedTheme = [
       basicSetup,
       oneDark,
+      ...(isLogic ? [EditorView.lineWrapping] : []),
       EditorView.theme({
         '&': { fontSize: '13px' },
         '.cm-scroller': { overflow: 'auto', maxHeight: '280px' },
@@ -416,6 +505,8 @@ try {
     root.querySelectorAll('[data-action]').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const action = btn.getAttribute('data-action');
+        if (action === 'clear-console') { clearConsole(); return; }
+        if (action === 'run' || action === 'check') { window.clearTimeout(timer); update(action === 'check'); return; }
         if (action === 'reset') {
           setDoc(htmlView, initialHtml);
           setDoc(cssView, initialCss);

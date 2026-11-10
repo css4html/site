@@ -1,6 +1,19 @@
 import type { Locale } from './config';
 
 const pt = {
+  'pg.consoleLabel': 'Console do código',
+  'pg.clearConsole': 'Limpar console',
+  'pg.consoleEmpty': 'Execute o código para ver a saída aqui.',
+  'nav.trailLogic': 'LÓGICA com JS',
+  'footer.trailLogic': 'Trilha LÓGICA com JS',
+  'home.logicCta': 'Começar lógica',
+  'trail.logic.title': 'LÓGICA com JS',
+  'trail.logic.desc': 'Do algoritmo à calculadora de média: decisões, laços, funções, arrays e objetos com exercícios verificáveis.',
+  'trail.logic.pageTitle': 'Trilha: LÓGICA com JS',
+  'trail.logic.pageDesc': 'Lógica de programação para iniciantes com JavaScript: 10 lições, exemplos editáveis e exercícios com verificação no navegador.',
+  'trail.logic.availability': 'lições com exemplos editáveis e exercícios. Comece pela primeira.',
+  'trail.logic.continue': 'Revisar a trilha →',
+
   // Nav
   'nav.home': 'Início',
   'nav.trails': 'Trilhas',
@@ -53,8 +66,8 @@ const pt = {
     'O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras — do HTML ao React e Web Components, passando por CSS e JavaScript.',
   'home.ctaTrails': 'Ver trilhas',
   'home.ctaExamples': 'Abrir exemplos',
-  'home.threeTrails': 'Seis trilhas, um hub',
-  'home.threeTrailsDesc': 'Escolha por onde começar — ou combine as seis.',
+  'home.threeTrails': 'Sete trilhas, um hub',
+  'home.threeTrailsDesc': 'Escolha por onde começar — ou combine as sete.',
   'home.lessonsCount': 'lições',
   'home.htmlTitle': 'HTML do zero à página',
   'home.htmlDesc':
@@ -295,6 +308,19 @@ const pt = {
 export type UiKey = keyof typeof pt;
 
 const en: Record<UiKey, string> = {
+  'pg.consoleLabel': 'Code console',
+  'pg.clearConsole': 'Clear console',
+  'pg.consoleEmpty': 'Run the code to see its output here.',
+  'nav.trailLogic': 'LOGIC with JS',
+  'footer.trailLogic': 'LOGIC with JS trail',
+  'home.logicCta': 'Start logic',
+  'trail.logic.title': 'LOGIC with JS',
+  'trail.logic.desc': 'From algorithms to a grade calculator: decisions, loops, functions, arrays and objects with checkable exercises.',
+  'trail.logic.pageTitle': 'Trail: LOGIC with JS',
+  'trail.logic.pageDesc': 'Programming logic for beginners with JavaScript: 10 lessons, editable examples and in-browser exercise checks.',
+  'trail.logic.availability': 'lessons with editable examples and exercises. Start with the first.',
+  'trail.logic.continue': 'Review the trail →',
+
   'nav.home': 'Home',
   'nav.trails': 'Trails',
   'nav.examples': 'Examples',
@@ -347,8 +373,8 @@ const en: Record<UiKey, string> = {
     'CSS4HTML is a unified hub: edit code in the playground, copy ready-made patterns, and follow clear trails — from HTML to React and Web Components, through CSS and JavaScript.',
   'home.ctaTrails': 'View trails',
   'home.ctaExamples': 'Open examples',
-  'home.threeTrails': 'Six trails, one hub',
-  'home.threeTrailsDesc': 'Pick where to start — or combine all six.',
+  'home.threeTrails': 'Seven trails, one hub',
+  'home.threeTrailsDesc': 'Pick where to start — or combine all seven.',
   'home.lessonsCount': 'lessons',
   'home.htmlTitle': 'HTML from scratch to a page',
   'home.htmlDesc':
@@ -580,6 +606,19 @@ const en: Record<UiKey, string> = {
 };
 
 const es: Record<UiKey, string> = {
+  'pg.consoleLabel': 'Consola del código',
+  'pg.clearConsole': 'Limpiar consola',
+  'pg.consoleEmpty': 'Ejecuta el código para ver la salida aquí.',
+  'nav.trailLogic': 'LÓGICA con JS',
+  'footer.trailLogic': 'Ruta LÓGICA con JS',
+  'home.logicCta': 'Empezar lógica',
+  'trail.logic.title': 'LÓGICA con JS',
+  'trail.logic.desc': 'Del algoritmo a la calculadora de promedio: decisiones, bucles, funciones, arrays y objetos con ejercicios verificables.',
+  'trail.logic.pageTitle': 'Ruta: LÓGICA con JS',
+  'trail.logic.pageDesc': 'Lógica de programación para principiantes con JavaScript: 10 lecciones, ejemplos editables y ejercicios verificados en el navegador.',
+  'trail.logic.availability': 'lecciones con ejemplos editables y ejercicios. Empieza por la primera.',
+  'trail.logic.continue': 'Repasar la ruta →',
+
   'nav.home': 'Inicio',
   'nav.trails': 'Rutas',
   'nav.examples': 'Ejemplos',
@@ -632,8 +671,8 @@ const es: Record<UiKey, string> = {
     'CSS4HTML es un hub unificado: edita código en el playground, copia patrones listos y sigue rutas claras — del HTML a React, pasando por CSS y JavaScript y Web Components.',
   'home.ctaTrails': 'Ver rutas',
   'home.ctaExamples': 'Abrir ejemplos',
-  'home.threeTrails': 'Seis rutas, un hub',
-  'home.threeTrailsDesc': 'Elige por dónde empezar — o combina las seis.',
+  'home.threeTrails': 'Siete rutas, un hub',
+  'home.threeTrailsDesc': 'Elige por dónde empezar — o combina las siete.',
   'home.lessonsCount': 'lecciones',
   'home.htmlTitle': 'HTML de cero a una página',
   'home.htmlDesc':

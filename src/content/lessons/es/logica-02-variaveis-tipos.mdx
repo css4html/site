@@ -1,0 +1,49 @@
+---
+title: "Variables y tipos"
+description: "Guarda valores con let y const y reconoce números, textos y booleanos."
+order: 2
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-02-variaveis-tipos.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { variablesExample, variablesStarter, variablesExercise } from '../../../config/logic-playgrounds';
+
+Una **variable** asocia un nombre a un valor, como una etiqueta. `idade` significa edad en los ejemplos.
+
+## let o const
+
+- Usa `const` si no vas a reasignar el valor.
+- Usa `let` cuando el valor necesite cambiar.
+- Para actualizar una variable existente, escribe `idade = 20`, sin otro `let`.
+
+`=` asigna un valor, no compara. Reasignar una `const` genera un error. Puedes probarlo y pulsar **Resetar** para restaurar el ejemplo.
+
+| Tipo | Ejemplo | Significado |
+| --- | --- | --- |
+| `number` | `20`, `7.5` | Número, con o sin decimales |
+| `string` | `'Ana'`, `'20'` | Texto entre comillas |
+| `boolean` | `true`, `false` | Verdadero o falso, sin comillas |
+
+`20` y `'20'` no son lo mismo. `typeof 20` devuelve el texto `'number'`.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Prefiere nombres que expliquen el valor, no letras aisladas.</aside>
+
+## Experimenta
+
+Cambia los valores y compara las dos líneas de la consola. Usa punto para los decimales.
+
+<Playground id="logica-02-variaveis-tipos-exemplo" mode="logic" html="" css="" js={variablesExample} />
+
+## Ejercicio: descubre el tipo
+
+`tipoDoValor(valor)` significa tipo del valor y siempre devuelve `'number'`. Sustituye el valor fijo de `tipo` por **`typeof valor`**.
+
+Mantén el nombre de la función y `return tipo`. No pongas comillas alrededor de `typeof valor`: quieres usar el operador, no devolver ese texto. Pulsa **Verificar** para comprobar números, texto y ambos booleanos. Los resultados están en portugués.
+
+<Playground id="logica-02-variaveis-tipos-exercicio" mode="logic" html="" css="" js={variablesStarter} exercise={variablesExercise} />
+
+## Comprueba lo aprendido
+
+Predice los tipos de `false`, `'false'` y `0` antes de ejecutar. Existen otros tipos que veremos más adelante.

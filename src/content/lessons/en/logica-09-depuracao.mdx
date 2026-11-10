@@ -1,0 +1,50 @@
+---
+title: "Debugging and edge cases"
+description: "Read errors, inspect console values and fix an off-by-one loop."
+order: 9
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-09-depuracao.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { debuggingExample, debuggingStarter, debuggingExercise } from '../../../config/logic-playgrounds';
+
+**Debugging** investigates the gap between expected and observed behavior. Write your expectation, reproduce the issue and follow the values instead of randomly changing symbols.
+
+| Error | Check first |
+| --- | --- |
+| `SyntaxError` | Parentheses, braces, quotes and statement structure |
+| `ReferenceError` | Spelling, declaration and variable scope |
+| `TypeError` | The value's type and the operation attempted |
+
+The message and line number provide a starting point; the cause may be a little earlier. Replacing a declared variable name with an undeclared one can cause `ReferenceError`. Read the Console message and use **Resetar** to restore the starter.
+
+## Logical errors
+
+Not every bug throws. The example runs but returns 3 instead of **1 + 2 + 3 = 6**. Its logs reveal which numbers entered the loop. Compare the last visited number with the limit.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — Reproduce the issue with a small input, then test the boundary and edge cases.</aside>
+
+## Try it
+
+Follow `i` and `total`. Add a log after the loop or set the limit to 1. Change one thing at a time.
+
+<Playground id="logica-09-depuracao-exemplo" mode="logic" html="" css="" js={debuggingExample} />
+
+## Exercise: include the final number
+
+`somarAte(limite)` must sum integers **from 1 through the limit, inclusive**. The input is an integer; for zero or a negative limit, the interval is empty and the result is 0.
+
+The starter excludes the final number. Fix its condition, keeping the counter update so the loop terminates. **Verificar** checks 1, 3, 5, zero and a negative value. Do not hardcode the answer for 3. Feedback is in Portuguese.
+
+<Playground id="logica-09-depuracao-exercicio" mode="logic" html="" css="" js={debuggingStarter} exercise={debuggingExercise} />
+
+## A debugging checklist
+
+1. Write the expected result.
+2. Use the smallest input that reproduces the issue.
+3. Inspect values with `console.log`.
+4. Fix one cause and run all checks again.
+
+The final project combines these techniques in an average calculator.

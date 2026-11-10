@@ -1,0 +1,45 @@
+---
+title: "Objetos: aluno e notas"
+description: "Agrupe propriedades relacionadas e combine objetos com listas e funções."
+order: 8
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-08-objetos.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { objectsExample, objectsStarter, objectsExercise } from '../../../config/logic-playgrounds';
+
+Um **objeto** agrupa propriedades com nome: `{ nome: 'Ana', notas: [8, 6] }`. `nome` guarda texto; `notas` guarda um array. Diferente do array, você acessa o dado pelo nome da propriedade: `aluno.nome` e `aluno.notas`.
+
+`aluno.notas.length` lê o tamanho do array dentro do objeto. Você também pode escrever `aluno['nome']`, útil quando o nome da propriedade vem de uma variável.
+
+## const não congela objetos
+
+`const aluno` impede reatribuir a variável a outro objeto, mas não impede atualizar uma propriedade: `aluno.nome = 'Bia'` é permitido. Cuidado: outra parte do programa pode estar usando esse mesmo objeto.
+
+Nesta aula, nossa função de média **só lê** os dados. Assim, calcular a média não modifica as notas originais e fica mais fácil repetir o teste.
+
+## De lista para média
+
+Some todas as notas e divida pela quantidade delas. Uma lista vazia precisa de tratamento antes da divisão: nesta trilha, retornamos `null` quando não há notas. Uma nota zero é um dado válido, não um sinal de ausência.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Um objeto pode guardar uma lista, e uma função pode receber esse objeto inteiro.</aside>
+
+## Experimente
+
+Altere nome e notas. Observe que atualizar `aluno.nome` é diferente de tentar reatribuir `aluno` inteiro.
+
+<Playground id="logica-08-objetos-exemplo" mode="logic" html="" css="" js={objectsExample} />
+
+## Seu exercício: média do aluno
+
+A função `mediaDoAluno(aluno)` recebe um objeto com `nome` (texto) e `notas` (array de números de 0 a 10). Ela já soma as notas, mas devolve a soma como se fosse a média.
+
+Corrija o retorno para dividir pela quantidade de notas. Mantenha o retorno `null` para uma lista vazia e não modifique o objeto. **Verificar** inclui três notas e a nota zero: não fixe o divisor em 2.
+
+<Playground id="logica-08-objetos-exercicio" mode="logic" html="" css="" js={objectsStarter} exercise={objectsExercise} />
+
+## Próximo passo
+
+Já temos dados estruturados e funções para processá-los. Na próxima aula, vamos aprender a investigar quando o resultado não bate com o esperado.

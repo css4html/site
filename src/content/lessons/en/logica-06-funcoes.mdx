@@ -1,0 +1,41 @@
+---
+title: "Functions"
+description: "Separate a task into inputs, processing and a reusable return value."
+order: 6
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-06-funcoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { functionsExample, functionsStarter, functionsExercise } from '../../../config/logic-playgrounds';
+
+A **function** groups statements for a task. In `function dobro(numero)`, `dobro` is the name and `numero` is a **parameter**, the local name for an input.
+
+When you call `dobro(6)`, 6 is an **argument**. The same function can receive 0 or 20 without changing its definition.
+
+## return versus console.log
+
+`return` gives a value back to the caller and ends that call. `console.log` only displays a message; it does not replace the return value. A call without a returned value produces `undefined`.
+
+A variable declared inside a function belongs to its scope. Code outside cannot read it directly. Prefer parameters over a changing global variable that silently affects the result.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — Clear inputs and an output make a function easier to test.</aside>
+
+## Try it
+
+Notice how `resultado` receives the return value of `dobro(6)`. Add calls with other arguments and inspect the Console, without dialogs.
+
+<Playground id="logica-06-funcoes-exemplo" mode="logic" html="" css="" js={functionsExample} />
+
+## Exercise: order total
+
+Implement `calcularTotal(preco, quantidade, frete)` using **unit price × quantity + shipping**. Add shipping once.
+
+Inputs are nonnegative numbers, with an integer quantity. In this teaching rule, zero quantity still returns the shipping charge; this is not a full store policy. Use the parameters, return a number and keep the function name. **Verificar** checks zero shipping and a decimal price. Feedback is in Portuguese.
+
+<Playground id="logica-06-funcoes-exercicio" mode="logic" html="" css="" js={functionsStarter} exercise={functionsExercise} />
+
+## Next step
+
+Functions make calculations reusable. Arrays let us pass a whole list rather than a separate parameter for every value.

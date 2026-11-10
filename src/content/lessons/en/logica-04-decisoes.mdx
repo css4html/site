@@ -1,0 +1,45 @@
+---
+title: "Decisions"
+description: "Choose paths with if/else and switch: odd or even and a simple age rule."
+order: 4
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-04-decisoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { decisionsExample, decisionsStarter, decisionsExercise } from '../../../config/logic-playgrounds';
+
+A **decision** chooses the next step based on a condition that is true or false.
+
+## if, else and blocks
+
+`if (condition) { ... }` runs a block when the condition is true. `else` runs the alternative block. Braces group statements, and only one of these two paths runs.
+
+To check whether an integer is even, use `numero % 2 === 0`. A zero remainder means exact division by 2, including zero and negative even integers.
+
+The example uses the simplified teaching rule **age 16 or older → may vote**. This is a practice condition, not a complete explanation of Brazilian election law or compulsory voting.
+
+## switch
+
+`switch (value)` compares a value against each `case` using strict equality. `break` exits that path; without it, execution continues into the next case. `default` handles values with no matching case. The example groups Saturday and Sunday before one `break`.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — Test both paths and their boundary: ages 15, 16 and 17, for example.</aside>
+
+## Try it
+
+Change `idade` (age), `numero` (number) and `dia` (day), one at a time. Predict the console messages.
+
+<Playground id="logica-04-decisoes-exemplo" mode="logic" html="" css="" js={decisionsExample} />
+
+## Exercise: odd or even
+
+`classificarNumero(numero)` receives an integer and must return **`'par'`** (even) or **`'impar'`** (odd, no accent). Its return values are reversed: fix them using `if/else`.
+
+Keep the function name. Use `return`, not only `console.log`. Click **Verificar** (Check): the cases include zero and a negative integer. Feedback and code identifiers remain in Portuguese.
+
+<Playground id="logica-04-decisoes-exercicio" mode="logic" html="" css="" js={decisionsStarter} exercise={decisionsExercise} />
+
+## Next step
+
+Decisions select a path; loops repeat steps. We will combine them in FizzBuzz next.

@@ -1,0 +1,41 @@
+---
+title: "Funções"
+description: "Separe uma tarefa em entradas, processamento e retorno reutilizável."
+order: 6
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-06-funcoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { functionsExample, functionsStarter, functionsExercise } from '../../../config/logic-playgrounds';
+
+Uma **função** reúne instruções para uma tarefa. Em `function dobro(numero)`, `dobro` é o nome e `numero` é um **parâmetro**: o nome de uma entrada que será recebida em cada chamada.
+
+Ao escrever `dobro(6)`, o valor 6 é um **argumento** dessa chamada. A mesma função pode receber 0 ou 20 sem mudar sua definição.
+
+## return não é console.log
+
+`return` entrega um resultado para quem chamou a função e encerra aquela chamada. `console.log` apenas mostra uma mensagem; não substitui o retorno. Se você não retornar um valor, o resultado da chamada será `undefined`.
+
+Uma variável declarada dentro da função fica naquele escopo: o código de fora não pode acessá-la diretamente. Prefira receber os dados por parâmetros em vez de depender de uma variável global que pode mudar sem você perceber.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Uma função com entradas claras e uma saída é mais fácil de testar.</aside>
+
+## Experimente
+
+Observe que `resultado` recebe o retorno de `dobro(6)`. Faça outras chamadas no Console do playground mudando o código, sem usar caixas de diálogo.
+
+<Playground id="logica-06-funcoes-exemplo" mode="logic" html="" css="" js={functionsExample} />
+
+## Seu exercício: total de uma compra
+
+Implemente `calcularTotal(preco, quantidade, frete)` com a regra **preço de cada unidade × quantidade + frete**. O frete entra uma vez só.
+
+As entradas são números não negativos, e `quantidade` é inteira. Nesta regra didática, quantidade zero ainda devolve o frete; não estamos simulando todas as regras de uma loja. Use apenas os parâmetros, devolva um número e mantenha o nome da função. **Verificar** inclui frete zero e preço decimal.
+
+<Playground id="logica-06-funcoes-exercicio" mode="logic" html="" css="" js={functionsStarter} exercise={functionsExercise} />
+
+## Próximo passo
+
+Funções deixam o cálculo pronto para reutilizar. Agora vamos organizar várias entradas em uma lista, em vez de criar um parâmetro para cada valor.

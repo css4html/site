@@ -1,0 +1,45 @@
+---
+title: "Qué es un algoritmo"
+description: "Convierte un problema en pasos claros: entrada, procesamiento y salida."
+order: 1
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-01-algoritmo.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { algorithmExample, algorithmStarter, algorithmExercise } from '../../../config/logic-playgrounds';
+
+Un **algoritmo** es una secuencia de pasos para resolver un problema. Una receta también tiene un orden: cada paso debe ser claro para poder repetirlo sin adivinar.
+
+## Entrada → procesamiento → salida
+
+Para calcular el cambio, suponiendo que el pago cubre el precio:
+
+1. **Entrada:** recibir el importe pagado y el precio.
+2. **Procesamiento:** restar el precio al importe pagado.
+3. **Salida:** mostrar el cambio.
+
+Escribe los pasos con tus palabras antes de programar. Invertir la resta cambia el resultado.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Primero entiende el problema; después convierte cada paso en código.</aside>
+
+## Prueba la consola
+
+`const` da nombre a un valor, `-` resta y `console.log` muestra la salida en el panel **Console**. Cambia el precio. Los identificadores del ejemplo están en portugués: `valorPago` es importe pagado, `preco` precio y `troco` cambio.
+
+<Playground id="logica-01-algoritmo-exemplo" mode="logic" html="" css="" js={algorithmExample} />
+
+## Ejercicio: corrige el cambio
+
+`calcularTroco(valorPago, preco)` hace la resta al revés. Cambia la expresión después de `return` para devolver **importe pagado menos precio**. Considera pagos suficientes.
+
+La estructura de la función está lista: los nombres entre paréntesis reciben entradas y `return` entrega la salida. Por ahora cambia solo la cuenta; las funciones tendrán su propia lección. No cambies el nombre.
+
+Pulsa **Verificar**. El pago exacto puede pasar aun con la resta invertida: por eso probamos varias entradas. Los resultados se muestran en portugués.
+
+<Playground id="logica-01-algoritmo-exercicio" mode="logic" html="" css="" js={algorithmStarter} exercise={algorithmExercise} />
+
+## Para recordar
+
+Un solo ejemplo correcto no garantiza que el algoritmo funcione. Prueba también pago exacto y decimales. El verificador ejecuta el código en tu navegador, sin guardarlo ni enviarlo.

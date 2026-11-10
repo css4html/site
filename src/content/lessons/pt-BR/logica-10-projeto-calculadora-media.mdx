@@ -1,0 +1,57 @@
+---
+title: "Projeto final: calculadora de média"
+description: "Combine decisões, laços, funções, arrays e objetos em um boletim testável."
+order: 10
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-10-projeto-calculadora-media.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { projectExample, projectStarter, projectExercise } from '../../../config/logic-playgrounds';
+
+Vamos montar uma **calculadora de média** que gera um boletim. Ela usa funções puras: recebe dados, devolve uma resposta e não altera a entrada. Não precisa de `prompt`, `alert`, página HTML, sorteio nem armazenamento.
+
+## Contrato do projeto
+
+A entrada é um aluno, por exemplo `{ nome: 'Ana', notas: [8, 6] }`. Considere `nome` sempre um texto e `notas` sempre um array de números finitos de **0 a 10**. Validar outros formatos fica como desafio extra, fora destes testes.
+
+A função `boletim(aluno)` deve devolver um objeto com estas três propriedades:
+
+| Propriedade | Regra |
+| --- | --- |
+| `nome` | Copiar exatamente o nome recebido |
+| `media` | Soma das notas dividida pela quantidade; `null` se não houver notas |
+| `situacao` | `'sem notas'` se a média for `null`; `'aprovado'` se a média for maior ou igual a 7; `'recuperacao'` caso contrário |
+
+Use exatamente esses textos no código, inclusive `'recuperacao'` sem acento. Não arredonde nem transforme a média em texto. Nota zero conta normalmente; ausência de notas **não** é média zero.
+
+## Divida em partes
+
+1. Uma função `calcularMedia(notas)` trata a lista vazia, soma e divide.
+2. `boletim(aluno)` usa esse retorno e decide a situação.
+3. Monte um novo objeto com nome, média e situação, sem modificar o aluno.
+
+O exemplo abaixo mostra a primeira parte funcionando. A ordem das propriedades no objeto de saída não importa para o verificador; os nomes e valores importam.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Um contrato claro transforma uma tarefa grande em pequenos casos verificáveis.</aside>
+
+## Experimente a função auxiliar
+
+Mude as notas para observar a média e compare uma lista vazia com uma lista contendo zero.
+
+<Playground id="logica-10-projeto-calculadora-media-exemplo" mode="logic" html="" css="" js={projectExample} />
+
+## Seu exercício: complete o boletim
+
+Preencha os dois pontos marcados com `TODO`: o acumulador de `calcularMedia` e a decisão em `boletim`. Use `if/else` e confira primeiro o caso `media === null`, antes de comparar com 7.
+
+O verificador chama **`boletim`** com diferentes alunos. Não fixe o nome, o número de notas nem o divisor. Retorne um objeto, não um texto JSON ou só um log. Quando todos os casos passarem, experimente adicionar suas próprias chamadas no final do código.
+
+<Playground id="logica-10-projeto-calculadora-media-exercicio" mode="logic" html="" css="" js={projectStarter} exercise={projectExercise} />
+
+## Você concluiu a trilha
+
+Você transformou um problema em etapas, escolheu caminhos, repetiu passos e organizou dados em funções, arrays e objetos. Para revisar, explique por que a lista vazia, a nota zero e a média exatamente 7 são três testes diferentes.
+
+Como desafio opcional, valide notas fora de 0 a 10 e depois construa uma interface na trilha JavaScript do zero ao DOM. Esses extras não fazem parte do contrato do exercício.

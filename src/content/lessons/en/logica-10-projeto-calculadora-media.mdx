@@ -1,0 +1,57 @@
+---
+title: "Final project: grade average calculator"
+description: "Combine decisions, loops, functions, arrays and objects in a testable report."
+order: 10
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-10-projeto-calculadora-media.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { projectExample, projectStarter, projectExercise } from '../../../config/logic-playgrounds';
+
+Build a **grade average calculator** that produces a report. Use pure functions: receive data, return a result and leave the input unchanged. No `prompt`, `alert`, HTML interface, randomness or storage is needed.
+
+## Project contract
+
+Input is a student such as `{ nome: 'Ana', notas: [8, 6] }`. Assume `nome` is text and `notas` is always an array of finite numbers from **0 to 10**. Validating other formats is an optional challenge outside these checks.
+
+`boletim(aluno)` must return an object with these three properties:
+
+| Property | Rule |
+| --- | --- |
+| `nome` | Copy the received name exactly |
+| `media` | Sum divided by count, or `null` with no grades |
+| `situacao` | `'sem notas'` if average is `null`; `'aprovado'` if average is at least 7; otherwise `'recuperacao'` |
+
+Use those exact Portuguese strings, without accents in `'recuperacao'`. Do not round or convert the average into text. Zero counts as a grade; no grades is **not** a zero average.
+
+## Break it down
+
+1. `calcularMedia(notas)` handles the empty list, sums and divides.
+2. `boletim(aluno)` uses that result to select a status.
+3. Return a new object without modifying the student.
+
+The example demonstrates the helper. Output object property order does not matter to the checker; property names and values do.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — A clear contract turns a large task into small, checkable cases.</aside>
+
+## Try the helper
+
+Change the grades and compare an empty list with a list containing zero.
+
+<Playground id="logica-10-projeto-calculadora-media-exemplo" mode="logic" html="" css="" js={projectExample} />
+
+## Exercise: complete the report
+
+Complete the two `TODO` sections: the sum in `calcularMedia` and the decision in `boletim`. Use `if/else`; check `media === null` before comparing it with 7.
+
+The checker calls **`boletim`** with different students. Do not hardcode names, grade counts or divisors. Return an object, not JSON text or only a log. Click **Verificar** for feedback in Portuguese, then add your own calls after all cases pass.
+
+<Playground id="logica-10-projeto-calculadora-media-exercicio" mode="logic" html="" css="" js={projectStarter} exercise={projectExercise} />
+
+## Trail complete
+
+You turned a problem into steps, selected paths, repeated work and organized data into functions, arrays and objects. Explain why an empty list, a zero grade and an average exactly 7 require different tests.
+
+As an optional extension, validate out-of-range grades and then build an interface in the JavaScript DOM trail. Those extras are outside this exercise's contract.

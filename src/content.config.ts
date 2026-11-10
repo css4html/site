@@ -38,6 +38,8 @@ const lessons = defineCollection({
     description: z.string(),
     order: z.number(),
     trail: z.string().default('css-do-zero-ao-layout'),
+    /** Capa OG 1200×630 em /public; fallback do BaseLayout quando ausente. */
+    cover: z.string().optional(),
     track,
     relatedExamples: z.array(z.string()).default([]),
     relatedSnippets: z.array(z.string()).default([]),

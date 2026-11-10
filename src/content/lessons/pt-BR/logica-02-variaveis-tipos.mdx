@@ -1,0 +1,51 @@
+---
+title: "Variáveis e tipos"
+description: "Guarde valores com let e const e reconheça número, texto e booleano."
+order: 2
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-02-variaveis-tipos.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { variablesExample, variablesStarter, variablesExercise } from '../../../config/logic-playgrounds';
+
+Uma **variável** associa um nome a um valor. Pense em uma etiqueta: `idade` ajuda a entender o que o número representa.
+
+## Quando usar let ou const
+
+- Use `const` quando não for reatribuir o valor.
+- Use `let` quando o valor precisar mudar.
+- Para mudar uma variável declarada com `let`, escreva `idade = 20`, sem declarar outro `let`.
+
+`=` aqui significa **atribuição**, não uma pergunta de igualdade. Tentar reatribuir uma `const` gera erro; você pode experimentar e depois clicar em **Resetar**.
+
+## Três tipos para começar
+
+| Tipo | Exemplo | O que representa |
+| --- | --- | --- |
+| `number` | `20` ou `7.5` | Número, com ou sem parte decimal |
+| `string` | `'Ana'` ou `'20'` | Texto entre aspas |
+| `boolean` | `true` ou `false` | Verdadeiro ou falso, sem aspas |
+
+O número `20` e o texto `'20'` não são a mesma coisa. O operador `typeof` revela o tipo: `typeof 20` produz o texto `'number'`.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Prefira nomes que expliquem o valor. `idade` diz mais que `x`.</aside>
+
+## Experimente
+
+Mude os valores e compare as duas linhas no Console. Use ponto, não vírgula, na parte decimal de um número.
+
+<Playground id="logica-02-variaveis-tipos-exemplo" mode="logic" html="" css="" js={variablesExample} />
+
+## Seu exercício: descubra o tipo
+
+A função `tipoDoValor(valor)` sempre devolve `'number'`, até quando recebe texto. Substitua o valor fixo da variável `tipo` por **`typeof valor`** e clique em **Verificar**.
+
+Mantenha o nome da função e a linha `return tipo`: ela entrega a resposta para o verificador. O resultado deve ser `'number'`, `'string'` ou `'boolean'`, conforme a entrada. Não coloque aspas em volta de `typeof valor`, ou você devolverá esse texto literalmente.
+
+<Playground id="logica-02-variaveis-tipos-exercicio" mode="logic" html="" css="" js={variablesStarter} exercise={variablesExercise} />
+
+## Confira o que aprendeu
+
+Antes de executar, tente prever o tipo de `false`, `'false'` e `0`. Todos são valores válidos, mas têm significados diferentes. Outros tipos existem e ficarão para depois.

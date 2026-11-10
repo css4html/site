@@ -1,0 +1,43 @@
+---
+title: "Arrays: iterate, sum and find the maximum"
+description: "Use lists, indexes, accumulators and the empty-list edge case."
+order: 7
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-07-arrays.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { arraysExample, arraysStarter, arraysExercise } from '../../../config/logic-playgrounds';
+
+An **array** is an ordered list, such as `[3, 7, 2]`. Indexes start at **0**, so `numeros[0]` is 3. `numeros.length` counts items; it is not the final index.
+
+## Iterate and accumulate
+
+`for (const numero of numeros)` visits each value. Start a sum with `let soma = 0`, then use `soma += numero`, shorthand for `soma = soma + numero`.
+
+For the maximum of a **nonempty** list, start with the first item and compare the rest. Starting at zero can produce a value that is not even in the list when all numbers are negative.
+
+## Empty lists
+
+An empty array has length 0. In this lesson, return **`null`** when there is no maximum. That is different from 0, which can be a valid maximum.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — Check empty lists, one item and all-negative lists before trusting the common case.</aside>
+
+## Try it
+
+The example starts with a nonempty list. Try negative values and check both the sum and maximum. Then try an empty list: its first item is `undefined`, showing why this needs a separate case.
+
+<Playground id="logica-07-arrays-exemplo" mode="logic" html="" css="" js={arraysExample} />
+
+## Exercise: find the maximum
+
+`maiorNumero(numeros)` receives a list of finite numbers. Empty-list handling is ready. Fix the initialization of `maior` so negative lists work instead of automatically returning zero.
+
+Return the greatest number, or `null` for an empty list. Do not mutate the input. Use a loop as in the example; sorting or a library is not needed. Click **Verificar** for feedback in Portuguese.
+
+<Playground id="logica-07-arrays-exercicio" mode="logic" html="" css="" js={arraysStarter} exercise={arraysExercise} />
+
+## Next step
+
+Arrays group ordered values. Objects group values by meaning, such as a student's name and list of grades.

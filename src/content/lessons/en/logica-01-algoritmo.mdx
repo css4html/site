@@ -1,0 +1,45 @@
+---
+title: "What is an algorithm"
+description: "Turn a problem into clear steps: input, processing and output."
+order: 1
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-01-algoritmo.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { algorithmExample, algorithmStarter, algorithmExercise } from '../../../config/logic-playgrounds';
+
+An **algorithm** is a sequence of steps that solves a problem. A recipe is an everyday example: order matters, and each instruction must be clear enough to follow without guessing.
+
+## Input → processing → output
+
+To calculate change when the payment covers the price:
+
+1. **Input:** receive the amount paid and the price.
+2. **Processing:** subtract the price from the amount paid.
+3. **Output:** show the change.
+
+Write the steps in your own words before typing. Reversing the subtraction changes the answer.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — Understand the problem first; then turn each step into code.</aside>
+
+## Try the console
+
+`const` names a value, `-` subtracts, and `console.log` displays the output in the **Console** panel. Change the price. The example uses Portuguese identifiers: `valorPago` means amount paid, `preco` price, and `troco` change.
+
+<Playground id="logica-01-algoritmo-exemplo" mode="logic" html="" css="" js={algorithmExample} />
+
+## Exercise: fix the change
+
+`calcularTroco(valorPago, preco)` calculates change in the wrong order. Change the expression after `return` to subtract the price from the amount paid. Assume sufficient payment.
+
+The function shell is ready: the names in parentheses receive input, and `return` gives back the output. Only edit the calculation; functions get their own lesson later. Keep the function name.
+
+Click **Verificar** (Check). The exact-payment case can pass even with reversed subtraction, which is why we check several inputs. Feedback is in Portuguese.
+
+<Playground id="logica-01-algoritmo-exercicio" mode="logic" html="" css="" js={algorithmStarter} exercise={algorithmExercise} />
+
+## Takeaway
+
+A single passing example is not enough. Also test exact payment and decimal amounts. Your code runs in your browser; the checker does not save or submit it.

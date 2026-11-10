@@ -1,0 +1,45 @@
+---
+title: "O que é um algoritmo"
+description: "Transforme um problema em passos claros: entrada, processamento e saída."
+order: 1
+trail: "logica-com-js"
+track: "js"
+cover: "/trilhas/logica-com-js/covers/logica-01-algoritmo.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { algorithmExample, algorithmStarter, algorithmExercise } from '../../../config/logic-playgrounds';
+
+Um **algoritmo** é uma sequência de passos para resolver um problema. Não precisa começar no computador: uma receita também tem uma ordem. Na programação, os passos precisam ser claros o bastante para outra pessoa repetir sem adivinhar.
+
+## Entrada → processamento → saída
+
+Vamos calcular um troco, considerando que o pagamento é suficiente:
+
+1. **Entrada:** receber o valor pago e o preço.
+2. **Processamento:** subtrair o preço do valor pago.
+3. **Saída:** mostrar quanto deve voltar para a pessoa.
+
+Mudar a ordem da subtração muda o resultado. Antes de digitar código, escreva esses três passos com suas palavras.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Primeiro entenda o problema. Depois transforme cada passo em código.</aside>
+
+## Experimente no console
+
+`const` dá um nome a um valor; `-` faz a subtração. `console.log` mostra a saída no painel **Console**. Edite o preço e observe o troco. Você verá variáveis em detalhe na próxima lição.
+
+<Playground id="logica-01-algoritmo-exemplo" mode="logic" html="" css="" js={algorithmExample} />
+
+## Seu exercício: conserte o troco
+
+O código abaixo faz a conta ao contrário. Ajuste a linha `return` para devolver **valor pago menos preço**. Considere apenas pagamentos suficientes; não vamos tratar dívida aqui.
+
+A estrutura `function calcularTroco(valorPago, preco)` já está pronta: os nomes entre parênteses recebem as entradas, e `return` entrega a saída. Por enquanto, mude só a conta — estudaremos funções com calma na lição 6. Não troque o nome da função.
+
+Clique em **Verificar**: cada caso mostra o que era esperado e o que sua função devolveu. O pagamento exato pode passar mesmo com a conta invertida; é por isso que usamos mais de um teste.
+
+<Playground id="logica-01-algoritmo-exercicio" mode="logic" html="" css="" js={algorithmStarter} exercise={algorithmExercise} />
+
+## Para levar para a próxima aula
+
+Um resultado certo em um único exemplo não garante que o algoritmo funciona. Teste também pagamento exato e valores com centavos. O verificador não salva nem envia seu código; a execução acontece no navegador.
