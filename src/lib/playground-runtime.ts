@@ -4,6 +4,8 @@
  */
 export interface Exercise {
   functionName: string;
+  /** Fail a check if the function changes its input data. */
+  preserveArgs?: boolean;
   tests: { label: string; args: unknown[]; expected: unknown }[];
 }
 
@@ -19,6 +21,20 @@ for (const level of ['log', 'info', 'warn', 'error']) {
     if (count++ < 80) postMessage({ type: 'console', level, text: args.map(format).join(' ') });
   };
 }
+// JSON-shaped results: object property order is irrelevant, array order is not.
+// Avoid JSON.stringify equality: NaN/Infinity must never compare equal to null.
+function sameValue(a, b) {
+  if (Object.is(a, b)) return true;
+  if (typeof a !== typeof b || a === null || b === null || typeof a !== 'object') return false;
+  if (Array.isArray(a) || Array.isArray(b)) {
+    if (!Array.isArray(a) || !Array.isArray(b) || a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) if (!sameValue(a[i], b[i])) return false;
+    return true;
+  }
+  if (Object.prototype.toString.call(a) !== '[object Object]' || Object.prototype.toString.call(b) !== '[object Object]') return false;
+  const keys = Object.keys(a);
+  return keys.length === Object.keys(b).length && keys.every(key => Object.prototype.hasOwnProperty.call(b, key) && sameValue(a[key], b[key]));
+}
 self.onmessage = ({ data }) => {
   try {
     const { code, exercise } = data;
@@ -31,9 +47,12 @@ self.onmessage = ({ data }) => {
         let message;
         try {
           if (!fn) throw new Error('Crie a função ' + name + ' antes de verificar.');
-          const actual = fn(...test.args);
-          passed = JSON.stringify(actual) === JSON.stringify(test.expected) && typeof actual === typeof test.expected;
-          message = passed ? 'Boa! Resultado correto.' : 'Esperado: ' + format(test.expected) + '. Recebido: ' + format(actual) + '. Revise e tente de novo.';
+          // Every case receives fresh data, even when a previous attempt mutated it.
+          const args = JSON.parse(JSON.stringify(test.args));
+          const actual = fn(...args);
+          const changedInput = exercise.preserveArgs && !sameValue(args, test.args);
+          passed = sameValue(actual, test.expected) && !changedInput;
+          message = changedInput ? 'Não altere a entrada. Calcule e devolva um novo resultado.' : passed ? 'Boa! Resultado correto.' : 'Esperado: ' + format(test.expected) + '. Recebido: ' + format(actual) + '. Revise e tente de novo.';
         } catch (error) { message = error.message; }
         postMessage({ type: 'result', passed, label: test.label, message });
       }

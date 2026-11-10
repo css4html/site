@@ -1,7 +1,12 @@
 import { test, expect, type Page, type Locator } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
+import { solutions as allSolutions } from './logic-solutions';
 const trail = '/trilhas/logica-com-js/';
-const slugs = ['logica-01-algoritmo', 'logica-02-variaveis-tipos', 'logica-03-operadores-expressoes'];
+const slugs = [
+  'logica-01-algoritmo', 'logica-02-variaveis-tipos', 'logica-03-operadores-expressoes',
+  'logica-04-decisoes', 'logica-05-repeticao', 'logica-06-funcoes', 'logica-07-arrays',
+  'logica-08-objetos', 'logica-09-depuracao', 'logica-10-projeto-calculadora-media',
+];
 
 async function replaceCode(page: Page, playground: Locator, code: string) {
   const editor = playground.locator('[data-editor="js"] .cm-content');
@@ -19,15 +24,30 @@ test('curriculum, lesson routes, i18n and OG metadata', async ({ page }) => {
     expect(hrefs.indexOf(prefix + trail)).toBeLessThan(hrefs.indexOf(prefix + '/trilhas/javascript-do-zero/'));
     await page.goto(prefix + trail);
     await expect(page.locator('.trail-item')).toHaveCount(10);
-    await expect(page.locator('a.trail-item')).toHaveCount(3);
-    await expect(page.locator('.trail-item[aria-disabled="true"]')).toHaveCount(7);
+    await expect(page.locator('a.trail-item')).toHaveCount(10);
+    await expect(page.locator('.trail-item[aria-disabled="true"]')).toHaveCount(0);
     for (const slug of slugs) {
       const response = await page.goto(prefix + trail + slug + '/');
       expect(response?.status()).toBe(200);
       await expect(page.locator('main article > h1')).toBeVisible();
-      await expect(page.locator('[data-growth-cta]')).not.toHaveAttribute('data-last', '1');
+      if (slug === slugs[9]) {
+        await expect(page.locator('[data-growth-cta]')).toHaveAttribute('data-last', '1');
+      } else {
+        await expect(page.locator('[data-growth-cta]')).not.toHaveAttribute('data-last', '1');
+      }
       await expect(page.locator('[data-editor="js"] .cm-editor')).toHaveCount(2);
       await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /CSS4HTML/);
+      const hasCover = slugs.indexOf(slug) < 3;
+      await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', 'https://css4html.com.br' + (hasCover ? '/trilhas/logica-com-js/covers/' + slug + '.png' : '/logo-fanpage.png'));
+      await expect(page.locator('main article > img.post-cover')).toHaveCount(hasCover ? 1 : 0);
+      if (hasCover) {
+        const image = page.locator('main article > img.post-cover');
+        await image.scrollIntoViewIfNeeded();
+        await expect(image).toBeVisible();
+        await expect.poll(() => image.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBe(1200);
+        await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+        await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content', /covers/);
+      }
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://css4html.com.br' + prefix + trail + slug + '/');
     }
   }
@@ -124,4 +144,59 @@ test('React/TSX still mounts the example', async ({ page }) => {
   await expect(page.frameLocator('[data-preview]').locator('#root')).not.toBeEmpty({ timeout: 20000 });
   await page.frameLocator('[data-preview]').locator('body').evaluate(() => { console.log('Console React funcionando'); });
   await expect(page.locator('[data-console]')).toContainText('Console React funcionando');
+});
+
+
+test('lessons 4–10 reject starters and accept pure solutions in every locale', async ({ page }) => {
+  for (const prefix of ['', '/en', '/es']) {
+    for (const [index, name] of ['decisions', 'loops', 'functions', 'arrays', 'objects', 'debugging', 'project'].entries()) {
+      await page.goto(prefix + trail + slugs[index + 3] + '/');
+      const example = page.locator('[data-playground]').first();
+      const exercise = page.locator('[data-exercise]');
+      await expect(example.locator('[data-console]')).not.toBeEmpty();
+      await exercise.locator('[data-action="check"]').click();
+      await expect(exercise.locator('[data-check-summary]')).toContainText('Revise');
+      await expect(exercise.locator('[data-passed="0"]').first()).toBeVisible();
+      await replaceCode(page, exercise, allSolutions[name as keyof typeof allSolutions]);
+      await exercise.locator('[data-action="check"]').click();
+      await expect(exercise.locator('[data-check-summary]')).toContainText('Mandou bem!');
+      await expect(exercise.locator('[data-passed="0"]')).toHaveCount(0);
+    }
+  }
+});
+
+test('FizzBuzz and final-project screenshots show real checked results', async ({ page }) => {
+  const directory = process.env.SCREENSHOT_DIR ?? 'test-results/screenshots';
+  await mkdir(directory, { recursive: true });
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await page.goto(trail + slugs[4] + '/');
+  await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
+  let exercise = page.locator('[data-exercise]');
+  await exercise.locator('[data-action="check"]').click();
+  await expect(exercise.locator('[data-check-summary]')).toContainText('4 de 6');
+  await exercise.screenshot({ path: directory + '/lesson-05-fizzbuzz-mixed-desktop.png' });
+  await replaceCode(page, exercise, allSolutions.loops + '\nconsole.log("FizzBuzz de 15:", fizzBuzz(15));');
+  await exercise.locator('[data-action="check"]').click();
+  await expect(exercise.locator('[data-check-summary]')).toContainText('6 de 6');
+  await expect(exercise.locator('[data-console]')).toContainText('FizzBuzz de 15: FizzBuzz');
+  await exercise.screenshot({ path: directory + '/lesson-05-fizzbuzz-passed-desktop.png' });
+  await page.goto(trail + slugs[9] + '/');
+  await page.addStyleTag({ content: 'astro-dev-toolbar { display: none !important; }' });
+  exercise = page.locator('[data-exercise]');
+  await replaceCode(page, exercise, allSolutions.project + '\nconsole.log(boletim({ nome: "Ana", notas: [8, 6] }));');
+  await exercise.locator('[data-action="check"]').click();
+  await expect(exercise.locator('[data-check-summary]')).toContainText('6 de 6');
+  await expect(exercise.locator('[data-console]')).toContainText('aprovado');
+  await exercise.screenshot({ path: directory + '/lesson-10-calculadora-media-passed-desktop.png' });
+});
+
+test('lesson covers are served intact from public assets', async ({ request }) => {
+  for (const slug of slugs.slice(0, 3)) {
+    const response = await request.get('/trilhas/logica-com-js/covers/' + slug + '.png');
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('image/png');
+    const bytes = await response.body();
+    expect(bytes.readUInt32BE(16)).toBe(1200);
+    expect(bytes.readUInt32BE(20)).toBe(630);
+  }
 });
