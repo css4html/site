@@ -1,0 +1,41 @@
+---
+title: "Variables and types"
+description: "Use let and const with type annotations, inference and the number | string | boolean union."
+order: 2
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-02-variaveis-tipos.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { variablesExample, variablesStarter, variablesExercise } from '../../../config/logic-ts-playgrounds';
+
+A **variable** gives a value a name. Use `const` when you will not reassign it and `let` when it changes.
+
+| Type | Example |
+| --- | --- |
+| `number` | `let idade: number = 19` |
+| `string` | `const nome: string = 'Ana'` |
+| `boolean` | `const estuda = true` |
+
+You don't need to annotate everything. In `const estuda = true`, TypeScript **infers** `boolean`. After `let idade: number`, assigning `idade = '20'` is a type error. At runtime, `typeof` still reports the actual type.
+
+`number | string | boolean` is a **union**: the value may be any of those types.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — Let TypeScript infer the obvious and annotate what needs to be clear.</aside>
+
+## Try it
+
+Change the values and compare the Console lines. `estuda` has no annotation but still has a type.
+
+<Playground id="logica-ts-02-variaveis-tipos-exemplo" mode="logic" language="ts" html="" css="" js={variablesExample} />
+
+## Exercise
+
+`tipoDoValor(valor: number | string | boolean): string` always returns `'number'`. Replace the fixed value of `tipo` with **`typeof valor`** and click **Verificar**. Do not put quotes around it. Feedback is in Portuguese.
+
+<Playground id="logica-ts-02-variaveis-tipos-exercicio" mode="logic" language="ts" html="" css="" js={variablesStarter} exercise={variablesExercise} />
+
+## Next step
+
+Predict the types of `false`, `'false'` and `0`. TypeScript checks types in the editor; `typeof` discovers them while the program runs.

@@ -1,0 +1,40 @@
+---
+title: "Debugging and edge cases"
+description: "See which mistakes the type checker catches, read console errors and fix an off-by-one loop."
+order: 9
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-09-depuracao.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { debuggingExample, debuggingStarter, debuggingExercise } from '../../../config/logic-ts-playgrounds';
+
+**Debugging** investigates the gap between expected and observed behavior.
+
+| Mistake | Caught by types? |
+| --- | --- |
+| `somarAte('3')`, text instead of `number` | Yes, before running |
+| `aluno.nota` instead of `aluno.notas` | Yes |
+| Returning `'Par'` for type `'par' \| 'impar'` | Yes |
+| `<` instead of `<=` in a loop | **No**: still a `number` |
+
+Types remove a whole family of bugs, but a **logic error** produces a correctly typed wrong value. Use small inputs, `console.log` and tests. In this playground types are stripped before running; full type checking happens in your TypeScript editor.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — Types catch shape mistakes; tests catch logic mistakes. Use both.</aside>
+
+## Try it
+
+The example should sum **1 + 2 + 3 = 6** but returns 3. Follow `i` and `total` in the Console.
+
+<Playground id="logica-ts-09-depuracao-exemplo" mode="logic" language="ts" html="" css="" js={debuggingExample} />
+
+## Exercise
+
+`somarAte(limite: number): number` must sum integers **from 1 through the limit, inclusive**; zero or negative gives 0. The starter excludes the final number: fix the condition. Feedback is in Portuguese.
+
+<Playground id="logica-ts-09-depuracao-exercicio" mode="logic" language="ts" html="" css="" js={debuggingStarter} exercise={debuggingExercise} />
+
+## Next step
+
+The final project combines everything in a typed average calculator.

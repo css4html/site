@@ -12,6 +12,7 @@ const TRAILS = [
   'html-do-zero',
   'css-do-zero-ao-layout',
   'logica-com-js',
+  'logica-com-ts',
   'javascript-do-zero',
   'react-do-basico-ao-estado',
   'webcomponents-com-vite',

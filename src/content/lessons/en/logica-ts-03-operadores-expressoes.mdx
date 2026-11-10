@@ -1,0 +1,35 @@
+---
+title: "Operators and expressions"
+description: "Do math, compare values and combine typed boolean conditions with && and ||."
+order: 3
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-03-operadores-expressoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { operatorsExample, operatorsStarter, operatorsExercise } from '../../../config/logic-ts-playgrounds';
+
+An **expression** produces a value: `3 * 10` is a `number`, `30 >= 18` is a `boolean`. Use `+ - * /`, `%` for the remainder, `===`/`!==` for strict equality and `> < >= <=` to compare.
+
+TypeScript helps here: `20 === '20'` is flagged, because a `number` can never equal a `string`. Plain JavaScript would just return `false` silently.
+
+`&&` means **AND**, `||` means **OR**. The party rule: at least 18 **AND** (invitation **OR** companion): `idade >= 18 && (temConvite || acompanhado)`. The result is a `boolean`, the function's return type.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — Read the signature as a sentence: takes numbers and booleans, returns a boolean.</aside>
+
+## Try it
+
+Change the quantity, price and balance. `total` has no annotation: TypeScript infers `number`.
+
+<Playground id="logica-ts-03-operadores-expressoes-exemplo" mode="logic" language="ts" html="" css="" js={operatorsExample} />
+
+## Exercise
+
+Complete `podeEntrar(idade: number, temConvite: boolean, acompanhado: boolean): boolean`. The starter forgets the companion and excludes exactly 18. Fix the expression after `return` using `>=`, `&&`, `||` and parentheses. Feedback is in Portuguese.
+
+<Playground id="logica-ts-03-operadores-expressoes-exercicio" mode="logic" language="ts" html="" css="" js={operatorsStarter} exercise={operatorsExercise} />
+
+## Next step
+
+Next, these boolean expressions choose paths with `if/else`, `switch` and literal types.

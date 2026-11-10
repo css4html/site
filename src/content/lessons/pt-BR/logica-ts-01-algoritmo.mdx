@@ -1,0 +1,45 @@
+---
+title: "O que é um algoritmo"
+description: "Transforme um problema em passos claros e dê tipos às entradas e à saída."
+order: 1
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-01-algoritmo.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { algorithmExample, algorithmStarter, algorithmExercise } from '../../../config/logic-ts-playgrounds';
+
+Um **algoritmo** é uma sequência de passos para resolver um problema. Uma receita também tem ordem: cada passo precisa ser claro o bastante para outra pessoa repetir sem adivinhar.
+
+Nesta trilha usamos **TypeScript**: JavaScript com **tipos**. Os tipos não mudam o que o programa faz; eles descrevem que tipo de valor cada nome guarda, para o editor e o verificador de tipos apontarem enganos antes da execução.
+
+## Entrada → processamento → saída
+
+Para calcular um troco, considerando que o pagamento é suficiente:
+
+1. **Entrada:** o valor pago e o preço, ambos do tipo `number`.
+2. **Processamento:** subtrair o preço do valor pago.
+3. **Saída:** o troco, também `number`.
+
+Em TypeScript escrevemos o tipo depois de dois-pontos: `const preco: number = 12`. Isso é uma **anotação de tipo**.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Primeiro entenda o problema; depois dê um tipo a cada entrada e à saída.</aside>
+
+## Experimente
+
+`console.log` mostra a saída no painel **Console**. Edite o preço e observe o troco. O playground remove as anotações de tipo e executa o JavaScript resultante no navegador.
+
+<Playground id="logica-ts-01-algoritmo-exemplo" mode="logic" language="ts" html="" css="" js={algorithmExample} />
+
+## Seu exercício
+
+A função `calcularTroco(valorPago: number, preco: number): number` faz a conta ao contrário. Os tipos dizem que ela recebe dois números e devolve um número. Ajuste só a linha `return` para devolver **valor pago menos preço**.
+
+Mantenha o nome da função. Clique em **Verificar**: o pagamento exato pode passar mesmo com a conta invertida; é por isso que usamos mais de um teste.
+
+<Playground id="logica-ts-01-algoritmo-exercicio" mode="logic" language="ts" html="" css="" js={algorithmStarter} exercise={algorithmExercise} />
+
+## Próximo passo
+
+Tipos garantem que você passou números, mas não que a conta está certa. Testes continuam necessários: tipos e testes se completam.

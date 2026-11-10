@@ -1,0 +1,48 @@
+---
+title: "Depuração e casos de borda"
+description: "Veja que erros o verificador de tipos pega, leia erros no console e corrija um laço com limite errado."
+order: 9
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-09-depuracao.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { debuggingExample, debuggingStarter, debuggingExercise } from '../../../config/logic-ts-playgrounds';
+
+**Depurar** é investigar a diferença entre o comportamento esperado e o observado.
+
+## O que o verificador de tipos pega
+
+| Engano | Pego pelos tipos? |
+| --- | --- |
+| `somarAte('3')`, texto onde se espera `number` | Sim, antes de executar |
+| `aluno.nota` em vez de `aluno.notas` | Sim, propriedade inexistente |
+| Retornar `'Par'` quando o tipo é `'par' \| 'impar'` | Sim |
+| Usar `<` em vez de `<=` num laço | **Não**: o tipo continua `number` |
+
+Os tipos eliminam uma família inteira de erros, mas um **erro de lógica** produz um valor do tipo certo com o conteúdo errado. Para esses, use entradas pequenas, `console.log` e testes.
+
+## Erros no Console
+
+Um `SyntaxError` aparece quando o código não pode ser lido, por exemplo com uma chave faltando. Um `ReferenceError` ou `TypeError` aparece durante a execução. Neste playground, os tipos são removidos antes de rodar; a checagem completa de tipos acontece no seu editor com TypeScript.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Tipos pegam enganos de formato; testes pegam enganos de lógica. Use os dois.</aside>
+
+## Experimente
+
+O exemplo roda, mas deveria somar **1 + 2 + 3 = 6** e entrega 3. Acompanhe `i` e `total` no Console e compare o último valor com o limite.
+
+<Playground id="logica-ts-09-depuracao-exemplo" mode="logic" language="ts" html="" css="" js={debuggingExample} />
+
+## Seu exercício
+
+`somarAte(limite: number): number` deve somar os inteiros **de 1 até o limite, inclusive**. Para zero ou negativo, o intervalo está vazio e a resposta é 0.
+
+O laço exclui o último número. Corrija a condição, mantendo a atualização de `i`. **Verificar** testa 1, 3, 5, zero e um negativo.
+
+<Playground id="logica-ts-09-depuracao-exercicio" mode="logic" language="ts" html="" css="" js={debuggingStarter} exercise={debuggingExercise} />
+
+## Próximo passo
+
+Roteiro: escreva a saída esperada, reproduza com a menor entrada, acompanhe valores e corrija uma causa por vez. O projeto final junta tudo numa calculadora de média tipada.

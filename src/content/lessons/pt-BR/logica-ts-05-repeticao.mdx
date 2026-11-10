@@ -1,0 +1,43 @@
+---
+title: "Repetição: tabuada e FizzBuzz"
+description: "Repita passos com for e while, com contadores tipados, e resolva o FizzBuzz."
+order: 5
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-05-repeticao.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { loopsExample, loopsStarter, loopsExercise } from '../../../config/logic-ts-playgrounds';
+
+Um **laço** repete instruções enquanto uma condição permite. Em `for (let i: number = 1; i <= 5; i++)`, a primeira parte cria o contador, a segunda decide se haverá outra volta e a terceira soma 1 depois de cada volta.
+
+A anotação `: number` no contador é opcional: `let i = 1` já é inferido como `number`. Mostramos a anotação para deixar o tipo visível.
+
+## while
+
+`while (condicao)` testa antes de cada volta. Na contagem regressiva, `restante--` subtrai 1. Sem atualizar o valor, a condição pode continuar verdadeira para sempre. Os tipos não impedem um laço infinito: o playground interrompe a execução após 1,5 s.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Os tipos não fazem o laço terminar: explique o que encerra cada repetição.</aside>
+
+## Experimente
+
+Edite a base da tabuada ou o início da contagem e acompanhe cada passo no Console.
+
+<Playground id="logica-ts-05-repeticao-exemplo" mode="logic" language="ts" html="" css="" js={loopsExample} />
+
+## Seu exercício
+
+Complete `fizzBuzz(numero: number): string` para inteiros positivos:
+
+- Múltiplo de 3 **e** 5: `'FizzBuzz'`.
+- Só de 3: `'Fizz'`. Só de 5: `'Buzz'`.
+- Caso contrário: o número como texto, com `String(numero)`.
+
+O retorno é `string` em todos os caminhos. Por isso usamos `String(numero)`: devolver `numero` direto seria um `number`, e o TypeScript apontaria o erro. Coloque a condição mais específica **antes** das outras. **Verificar** também testa 30.
+
+<Playground id="logica-ts-05-repeticao-exercicio" mode="logic" language="ts" html="" css="" js={loopsStarter} exercise={loopsExercise} />
+
+## Próximo passo
+
+Qual seria a saída de 10? E de 15? Funções tipadas vão nos ajudar a separar a regra da repetição.

@@ -1,0 +1,50 @@
+---
+title: "Objetos: aluno e notas"
+description: "Descreva o formato de um objeto com interface e combine objetos, arrays e funções."
+order: 8
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-08-objetos.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { objectsExample, objectsStarter, objectsExercise } from '../../../config/logic-ts-playgrounds';
+
+Um **objeto** agrupa propriedades com nome: `{ nome: 'Ana', notas: [8, 6] }`. Em TypeScript, descrevemos esse formato com uma **interface**:
+
+```ts
+interface Aluno {
+  nome: string;
+  notas: number[];
+}
+```
+
+Com `const aluno: Aluno`, o editor sabe que `aluno.nome` é `string` e `aluno.notas` é `number[]`. Esquecer uma propriedade ou digitar `aluno.nota` vira erro de tipo. `type Aluno = { ... }` funciona de forma parecida.
+
+## const não congela objetos
+
+`const aluno` impede reatribuir a variável, mas `aluno.nome = 'Bia'` é permitido. Para proibir, a interface pode marcar `readonly nome: string`.
+
+## De lista para média
+
+Some as notas e divida pela quantidade. Lista vazia devolve `null`; nota zero é dado válido.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Uma interface descreve o formato do dado uma vez e protege todos os usos.</aside>
+
+## Experimente
+
+Altere nome e notas. Tente remover `notas` do objeto: o editor com TypeScript reclamaria que falta uma propriedade obrigatória de `Aluno`.
+
+<Playground id="logica-ts-08-objetos-exemplo" mode="logic" language="ts" html="" css="" js={objectsExample} />
+
+## Seu exercício
+
+`mediaDoAluno(aluno: Aluno): number | null` já soma as notas, mas devolve a soma como se fosse a média. Corrija o retorno para dividir pela quantidade.
+
+Mantenha `null` para lista vazia e não modifique o objeto. **Verificar** inclui três notas e a nota zero: não fixe o divisor em 2.
+
+<Playground id="logica-ts-08-objetos-exercicio" mode="logic" language="ts" html="" css="" js={objectsStarter} exercise={objectsExercise} />
+
+## Próximo passo
+
+Já temos dados tipados e funções para processá-los. Na próxima aula, vamos ver o que o verificador de tipos pega e o que ele não pega.

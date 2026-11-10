@@ -1,0 +1,33 @@
+---
+title: "Arrays: loop, sum and find the largest"
+description: "Use typed arrays, loop with for...of and handle empty lists with number | null."
+order: 7
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-07-arrays.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { arraysExample, arraysStarter, arraysExercise } from '../../../config/logic-ts-playgrounds';
+
+An **array** stores values in order. `number[]` means **a list of numbers**; `numeros[0]` is the first item and `numeros.length` the size. Inside `for (const numero of numeros)`, TypeScript knows `numero` is a `number`.
+
+`readonly number[]` promises the function only reads the list: `numeros.push(1)` inside it is a type error. An empty list has no largest number, so the return type `number | null` makes callers handle `null`. Zero is a valid result, not absence.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — Returning number | null forces callers to think about the empty list.</aside>
+
+## Try it
+
+Make the values negative and check the sum and the largest. In an empty list, `numeros[0]` is `undefined`.
+
+<Playground id="logica-ts-07-arrays-exemplo" mode="logic" language="ts" html="" css="" js={arraysExample} />
+
+## Exercise
+
+`maiorNumero(numeros: readonly number[]): number | null` already handles the empty list. Fix how `maior` starts so negative numbers work. Do not change the input. Feedback is in Portuguese.
+
+<Playground id="logica-ts-07-arrays-exercicio" mode="logic" language="ts" html="" css="" js={arraysStarter} exercise={arraysExercise} />
+
+## Next step
+
+Next, objects and interfaces group values by meaning.

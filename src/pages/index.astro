@@ -13,6 +13,7 @@ const lessons = await getLessons(locale);
 const htmlLessons = lessons.filter((l) => l.data.trail === 'html-do-zero');
 const cssLessons = lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout');
 const logicLessons = lessons.filter((l) => l.data.trail === 'logica-com-js');
+const logicTsLessons = lessons.filter((l) => l.data.trail === 'logica-com-ts');
 const jsLessons = lessons.filter((l) => l.data.trail === 'javascript-do-zero');
 const reactLessons = lessons.filter((l) => l.data.trail === 'react-do-basico-ao-estado');
 const wcLessons = lessons.filter((l) => l.data.trail === 'webcomponents-com-vite');
@@ -58,6 +59,12 @@ function diffLabel(d: string) {
         <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/logica-com-js/')}>{t('trail.logic.title')}</a></h3>
         <p>{t('trail.logic.desc')}</p>
         <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/logica-com-js/')}>{t('home.logicCta')}</a></p>
+      </article>
+      <article class="card">
+        <span class="badge track-logic">{logicTsLessons.length} {t('home.lessonsCount')}</span>
+        <h3 style="margin-top:0.5rem"><a href={lp('/trilhas/logica-com-ts/')}>{t('trail.logicTs.title')}</a></h3>
+        <p>{t('trail.logicTs.desc')}</p>
+        <p style="margin-top:0.75rem"><a class="btn btn-primary" href={lp('/trilhas/logica-com-ts/')}>{t('home.logicTsCta')}</a></p>
       </article>
       <article class="card">
         <span class="badge">{jsLessons.length} {t('home.lessonsCount')}</span>

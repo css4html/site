@@ -1,0 +1,57 @@
+---
+title: "Projeto final: calculadora de média"
+description: "Combine interfaces, tipos literais, funções tipadas, laços e decisões em um boletim testável."
+order: 10
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-10-projeto-calculadora-media.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { projectExample, projectStarter, projectExercise } from '../../../config/logic-ts-playgrounds';
+
+Vamos montar uma **calculadora de média** que gera um boletim, com funções puras: recebem dados, devolvem uma resposta e não alteram a entrada.
+
+## Contrato em tipos
+
+Em TypeScript, o contrato do projeto vira código:
+
+```ts
+interface Aluno { nome: string; notas: number[] }
+type Situacao = 'aprovado' | 'recuperacao' | 'sem notas';
+interface Boletim { nome: string; media: number | null; situacao: Situacao }
+```
+
+| Propriedade | Regra |
+| --- | --- |
+| `nome` | Copiar exatamente o nome recebido |
+| `media` | Soma das notas dividida pela quantidade; `null` sem notas |
+| `situacao` | `'sem notas'` se a média for `null`; `'aprovado'` se ≥ 7; `'recuperacao'` caso contrário |
+
+Como `media` é `number | null`, o TypeScript obriga você a tratar o `null` antes de comparar com 7. Como `situacao` é uma união de literais, um texto errado como `'reprovado'` é recusado pelo editor.
+
+## Divida em partes
+
+1. `calcularMedia(notas: readonly number[]): number | null` trata a lista vazia, soma e divide.
+2. `boletim(aluno: Aluno): Boletim` usa esse retorno e decide a situação.
+3. Monte um novo objeto, sem modificar o aluno.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Escreva o contrato em tipos antes de implementar: ele guia cada passo.</aside>
+
+## Experimente
+
+Mude as notas para observar a média e compare uma lista vazia com uma lista contendo zero.
+
+<Playground id="logica-ts-10-projeto-calculadora-media-exemplo" mode="logic" language="ts" html="" css="" js={projectExample} />
+
+## Seu exercício
+
+Preencha os dois `TODO`: o acumulador de `calcularMedia` e a decisão em `boletim`. Confira primeiro `media === null`, antes de comparar com 7.
+
+O verificador chama **`boletim`** com diferentes alunos. Não fixe nome, número de notas nem divisor. Retorne um objeto `Boletim`.
+
+<Playground id="logica-ts-10-projeto-calculadora-media-exercicio" mode="logic" language="ts" html="" css="" js={projectStarter} exercise={projectExercise} />
+
+## Você concluiu a trilha
+
+Você transformou problemas em etapas e deu tipos a cada parte: variáveis, uniões, assinaturas, arrays e interfaces. Para revisar, explique por que lista vazia, nota zero e média exatamente 7 são três testes diferentes, e por que os tipos sozinhos não substituem esses testes.

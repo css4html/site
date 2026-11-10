@@ -1,0 +1,33 @@
+---
+title: "Arrays: recorrer, sumar y hallar el mayor"
+description: "Usa arrays tipados, recorre con for...of y trata la lista vacía con number | null."
+order: 7
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-07-arrays.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { arraysExample, arraysStarter, arraysExercise } from '../../../config/logic-ts-playgrounds';
+
+Un **array** guarda valores en orden. `number[]` significa **lista de números**; `numeros[0]` es el primero y `numeros.length` el tamaño. Dentro de `for (const numero of numeros)`, TypeScript sabe que `numero` es `number`.
+
+`readonly number[]` promete que la función solo lee la lista: `numeros.push(1)` es un error de tipo. Una lista vacía no tiene mayor, por eso `number | null` obliga a tratar `null`. Cero es un resultado válido.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Devolver number | null obliga a quien llama a pensar en la lista vacía.</aside>
+
+## Prueba
+
+Pon valores negativos y revisa la suma y el mayor. En una lista vacía, `numeros[0]` es `undefined`.
+
+<Playground id="logica-ts-07-arrays-exemplo" mode="logic" language="ts" html="" css="" js={arraysExample} />
+
+## Tu ejercicio
+
+`maiorNumero(numeros: readonly number[]): number | null` ya trata la lista vacía. Corrige cómo empieza `maior` para que funcionen los negativos. No cambies la entrada.
+
+<Playground id="logica-ts-07-arrays-exercicio" mode="logic" language="ts" html="" css="" js={arraysStarter} exercise={arraysExercise} />
+
+## Siguiente paso
+
+Luego, objetos e interfaces agrupan valores por significado.

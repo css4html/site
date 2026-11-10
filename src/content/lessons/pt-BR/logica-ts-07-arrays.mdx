@@ -1,0 +1,41 @@
+---
+title: "Arrays: percorrer, somar e achar o maior"
+description: "Use arrays tipados, percorra com for...of e trate a lista vazia com number | null."
+order: 7
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-07-arrays.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { arraysExample, arraysStarter, arraysExercise } from '../../../config/logic-ts-playgrounds';
+
+Um **array** guarda valores em ordem: `[3, 7, 2]`. Em TypeScript, `number[]` significa **lista de números**. O primeiro item é `numeros[0]` e o tamanho é `numeros.length`.
+
+`for (const numero of numeros)` visita cada item. Dentro do laço, o TypeScript já sabe que `numero` é `number`.
+
+## readonly e lista vazia
+
+`readonly number[]` promete que a função **só lê** a lista: chamar `numeros.push(1)` dentro dela vira erro de tipo.
+
+Uma lista vazia não tem maior número. O retorno `number | null` deixa isso explícito: quem chama a função precisa tratar o `null`. Não confunda com 0, que pode ser o maior de uma lista válida.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Retornar number | null obriga quem chama a pensar na lista vazia.</aside>
+
+## Experimente
+
+Mude os valores para negativos e confira a soma e o maior. Em uma lista vazia, `numeros[0]` é `undefined`, por isso tratamos esse caso.
+
+<Playground id="logica-ts-07-arrays-exemplo" mode="logic" language="ts" html="" css="" js={arraysExample} />
+
+## Seu exercício
+
+`maiorNumero(numeros: readonly number[]): number | null` recebe uma lista de números finitos. A verificação de lista vazia está pronta. Corrija a inicialização de `maior` para que os negativos funcionem.
+
+Devolva o maior número, ou `null` para lista vazia. Não altere a lista recebida.
+
+<Playground id="logica-ts-07-arrays-exercicio" mode="logic" language="ts" html="" css="" js={arraysStarter} exercise={arraysExercise} />
+
+## Próximo passo
+
+Listas agrupam valores em sequência. Objetos e interfaces vão agrupar valores por significado, como o nome de um aluno e suas notas.

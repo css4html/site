@@ -1,0 +1,49 @@
+---
+title: "Decisões"
+description: "Escolha caminhos com if/else e switch e restrinja respostas com tipos literais e uniões."
+order: 4
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-04-decisoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { decisionsExample, decisionsStarter, decisionsExercise } from '../../../config/logic-ts-playgrounds';
+
+Uma **decisão** escolhe o próximo passo a partir de uma condição. `if (condicao) { ... } else { ... }` executa só um dos dois blocos.
+
+Para saber se um inteiro é par, teste `numero % 2 === 0`. Isso funciona para zero e negativos. O exemplo usa a regra didática **idade ≥ 16 → pode votar**, uma simplificação para praticar condições.
+
+## Tipos literais e uniões
+
+Em TypeScript, um texto também pode ser um tipo: `'par'` é um **tipo literal**. Juntando literais numa união, criamos uma lista fechada de respostas válidas:
+
+```ts
+type Paridade = 'par' | 'impar';
+```
+
+Uma função com retorno `Paridade` só pode devolver `'par'` ou `'impar'`. Um erro de digitação como `'ímpar'` ou `'Par'` vira erro de tipo no editor, antes de qualquer teste.
+
+## switch com uniões
+
+`switch (dia)` compara o valor com cada `case`. Com `type Dia = 'sabado' | 'domingo' | 'segunda'`, o editor sugere os casos possíveis e avisa se você escrever um `case` que não existe. `break` encerra o caminho; `default` cobre o resto.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Uma união de literais transforma respostas possíveis numa lista que o editor confere.</aside>
+
+## Experimente
+
+Mude `idade`, `numero` e `dia`, um de cada vez. Tente trocar `dia` para `'feriado'`: o editor com TypeScript marcaria erro, porque esse valor não está na união.
+
+<Playground id="logica-ts-04-decisoes-exemplo" mode="logic" language="ts" html="" css="" js={decisionsExample} />
+
+## Seu exercício
+
+`classificarNumero(numero: number): Paridade` deve devolver **`'par'`** ou **`'impar'`** (sem acento). Os retornos estão trocados: corrija-os usando `if/else`.
+
+Mantenha o `type Paridade` e o nome da função. **Verificar** inclui zero e um inteiro negativo.
+
+<Playground id="logica-ts-04-decisoes-exercicio" mode="logic" language="ts" html="" css="" js={decisionsStarter} exercise={decisionsExercise} />
+
+## Próximo passo
+
+Decisões escolhem caminhos; repetições executam um caminho várias vezes. Na próxima lição, vamos combinar as duas no FizzBuzz.

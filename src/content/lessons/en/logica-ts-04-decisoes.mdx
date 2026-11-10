@@ -1,0 +1,41 @@
+---
+title: "Decisions"
+description: "Choose paths with if/else and switch and restrict answers with literal and union types."
+order: 4
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-04-decisoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { decisionsExample, decisionsStarter, decisionsExercise } from '../../../config/logic-ts-playgrounds';
+
+A **decision** picks the next step from a condition. `numero % 2 === 0` tells whether an integer is even, including zero and negatives. The example uses a simplified teaching rule: **age ≥ 16 → may vote**.
+
+## Literal and union types
+
+A string can be a type: `'par'` (even) is a **literal type**. A union of literals is a closed list of valid answers:
+
+```ts
+type Paridade = 'par' | 'impar';
+```
+
+A function returning `Paridade` can only return `'par'` or `'impar'`; a typo such as `'Par'` becomes a type error before any test runs. With `type Dia = 'sabado' | 'domingo' | 'segunda'`, the editor suggests the `switch` cases and flags impossible ones.
+
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — A union of literals turns possible answers into a list the editor checks.</aside>
+
+## Try it
+
+Change `idade`, `numero` and `dia`. Setting `dia` to `'feriado'` would be a type error in a TypeScript editor.
+
+<Playground id="logica-ts-04-decisoes-exemplo" mode="logic" language="ts" html="" css="" js={decisionsExample} />
+
+## Exercise
+
+`classificarNumero(numero: number): Paridade` must return **`'par'`** or **`'impar'`**. The returns are swapped; fix them with `if/else`. **Verificar** includes zero and a negative integer. Feedback is in Portuguese.
+
+<Playground id="logica-ts-04-decisoes-exercicio" mode="logic" language="ts" html="" css="" js={decisionsStarter} exercise={decisionsExercise} />
+
+## Next step
+
+Decisions choose paths; loops repeat one. Next we combine both in FizzBuzz.

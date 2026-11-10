@@ -1,0 +1,47 @@
+---
+title: "Funções"
+description: "Escreva assinaturas tipadas: parâmetros, retorno e parâmetros opcionais."
+order: 6
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-06-funcoes.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { functionsExample, functionsStarter, functionsExercise } from '../../../config/logic-ts-playgrounds';
+
+Uma **função** reúne instruções para uma tarefa. Em TypeScript, a **assinatura** descreve o contrato:
+
+```ts
+function dobro(numero: number): number
+```
+
+`numero: number` é o parâmetro e seu tipo; o `: number` depois dos parênteses é o **tipo de retorno**. Quem chama `dobro('6')` recebe um erro de tipo no editor, em vez de um resultado estranho.
+
+## return não é console.log
+
+`return` entrega o resultado e encerra a chamada. `console.log` só mostra uma mensagem. Se a função declara `: number` e esquece o `return` em algum caminho, o TypeScript avisa.
+
+## Parâmetros opcionais
+
+`sobrenome?: string` marca um parâmetro **opcional**: dentro da função, seu tipo é `string | undefined`, então confira se ele existe antes de usar.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Uma assinatura tipada é a documentação que o editor confere por você.</aside>
+
+## Experimente
+
+Observe que `resultado` recebe o retorno de `dobro(6)` e tem o tipo inferido `number`. Chame `mensagem` com e sem sobrenome.
+
+<Playground id="logica-ts-06-funcoes-exemplo" mode="logic" language="ts" html="" css="" js={functionsExample} />
+
+## Seu exercício
+
+Implemente `calcularTotal(preco: number, quantidade: number, frete: number): number` com a regra **preço × quantidade + frete**. O frete entra uma vez só.
+
+As entradas são números não negativos. Quantidade zero ainda devolve o frete. Use apenas os parâmetros e mantenha a assinatura. **Verificar** inclui frete zero e preço decimal.
+
+<Playground id="logica-ts-06-funcoes-exercicio" mode="logic" language="ts" html="" css="" js={functionsStarter} exercise={functionsExercise} />
+
+## Próximo passo
+
+Assinaturas claras deixam a função pronta para reutilizar. Agora vamos guardar várias entradas numa lista tipada.

@@ -1,0 +1,49 @@
+---
+title: "Variáveis e tipos"
+description: "Use let e const com anotações de tipo, inferência e a união number | string | boolean."
+order: 2
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-02-variaveis-tipos.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { variablesExample, variablesStarter, variablesExercise } from '../../../config/logic-ts-playgrounds';
+
+Uma **variável** associa um nome a um valor. Use `const` quando não for reatribuir e `let` quando o valor mudar.
+
+## Anotação e inferência
+
+| Tipo | Exemplo | O que representa |
+| --- | --- | --- |
+| `number` | `let idade: number = 19` | Número, com ou sem parte decimal |
+| `string` | `const nome: string = 'Ana'` | Texto entre aspas |
+| `boolean` | `const estuda = true` | Verdadeiro ou falso |
+
+Você não precisa anotar tudo. Em `const estuda = true`, o TypeScript **infere** o tipo `boolean` pelo valor inicial. Anote quando o tipo não for óbvio ou em parâmetros de função.
+
+Depois de declarar `let idade: number`, o verificador reclama de `idade = '20'`: o texto `'20'` não é `number`. Em tempo de execução, `typeof` continua revelando o tipo real: `typeof 20` produz `'number'`.
+
+## Uniões de tipos
+
+`number | string | boolean` é uma **união**: o valor pode ser qualquer um desses tipos. Ela aparece no exercício.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Deixe o TypeScript inferir o óbvio e anote o que precisa ficar claro.</aside>
+
+## Experimente
+
+Mude os valores e compare as linhas no Console. Repare que `estuda` não tem anotação, mas tem tipo.
+
+<Playground id="logica-ts-02-variaveis-tipos-exemplo" mode="logic" language="ts" html="" css="" js={variablesExample} />
+
+## Seu exercício
+
+`tipoDoValor(valor: number | string | boolean): string` sempre devolve `'number'`. Substitua o valor fixo de `tipo` por **`typeof valor`** e clique em **Verificar**.
+
+Mantenha o nome da função e a linha `return tipo`. Não coloque aspas em volta de `typeof valor`.
+
+<Playground id="logica-ts-02-variaveis-tipos-exercicio" mode="logic" language="ts" html="" css="" js={variablesStarter} exercise={variablesExercise} />
+
+## Próximo passo
+
+Antes de executar, preveja o tipo de `false`, `'false'` e `0`. O TypeScript checa tipos no editor; `typeof` descobre o tipo enquanto o programa roda.

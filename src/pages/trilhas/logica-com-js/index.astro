@@ -21,6 +21,7 @@ const lessons = (await getLessons(locale))
   <div class="container page-header">
     <p><a href={lp('/trilhas/')}>{t('trails.back')}</a></p>
     <h1>{t('trail.logic.title')}</h1>
+    <p><a data-trail-switch href={lp('/trilhas/logica-com-ts/')}>{t('trail.logic.toTs')}</a></p>
     <p>
       {lessons.length} {t('trail.logic.availability')}
     </p>

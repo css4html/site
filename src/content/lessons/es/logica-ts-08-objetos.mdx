@@ -1,0 +1,42 @@
+---
+title: "Objetos: alumno y notas"
+description: "Describe la forma de un objeto con interface y combina objetos, arrays y funciones."
+order: 8
+trail: "logica-com-ts"
+track: "js"
+cover: "/trilhas/logica-com-ts/covers/logica-ts-08-objetos.png"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { objectsExample, objectsStarter, objectsExercise } from '../../../config/logic-ts-playgrounds';
+
+Un **objeto** agrupa propiedades con nombre. En TypeScript, una **interface** describe su forma:
+
+```ts
+interface Aluno {
+  nome: string;
+  notas: number[];
+}
+```
+
+Con `const aluno: Aluno`, el editor sabe que `aluno.nome` es `string` y `aluno.notas` es `number[]`. Una propiedad ausente o un error como `aluno.nota` es un error de tipo. `type Aluno = { ... }` funciona de forma parecida.
+
+`const` impide reasignar la variable, pero `aluno.nome = 'Bia'` está permitido salvo que la interface use `readonly`. Para el promedio, suma y divide por la cantidad; lista vacía devuelve `null` y cero es una nota válida.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA TS</strong> — Una interface describe la forma del dato una vez y protege cada uso.</aside>
+
+## Prueba
+
+Cambia el nombre y las notas. Si quitas `notas`, el editor indicaría que falta una propiedad obligatoria.
+
+<Playground id="logica-ts-08-objetos-exemplo" mode="logic" language="ts" html="" css="" js={objectsExample} />
+
+## Tu ejercicio
+
+`mediaDoAluno(aluno: Aluno): number | null` devuelve la suma en vez del promedio. Divide por la cantidad, mantén `null` para lista vacía y no modifiques el objeto.
+
+<Playground id="logica-ts-08-objetos-exercicio" mode="logic" language="ts" html="" css="" js={objectsStarter} exercise={objectsExercise} />
+
+## Siguiente paso
+
+Luego: qué detecta el verificador de tipos y qué no.
