@@ -1,0 +1,42 @@
+---
+title: "Arrays: recorrer, sumar y hallar el mayor"
+description: "Usa listas, índices, acumuladores y el caso de una lista vacía."
+order: 7
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { arraysExample, arraysStarter, arraysExercise } from '../../../config/logic-playgrounds';
+
+Un **array** es una lista ordenada como `[3, 7, 2]`. Los índices empiezan en **0**, así que `numeros[0]` vale 3. `numeros.length` cuenta elementos, no indica el último índice.
+
+## Recorrer y acumular
+
+`for (const numero of numeros)` visita cada valor. Para sumar, empieza con `let soma = 0` y usa `soma += numero`, abreviatura de `soma = soma + numero`.
+
+Para hallar el mayor de una lista **no vacía**, empieza con el primer elemento y compara los demás. Empezar en cero puede producir un valor que ni siquiera está en la lista si todos son negativos.
+
+## Lista vacía
+
+Su tamaño es 0. En esta lección devuelve **`null`** si no hay un máximo. No lo confundas con 0, que puede ser un máximo válido.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Comprueba listas vacías, con un elemento y solo con negativos.</aside>
+
+## Experimenta
+
+El ejemplo empieza con una lista no vacía. Prueba valores negativos y comprueba suma y máximo. Después prueba una lista vacía: el primer elemento será `undefined`, mostrando por qué hay que tratar ese caso.
+
+<Playground id="logica-07-arrays-exemplo" mode="logic" html="" css="" js={arraysExample} />
+
+## Ejercicio: el mayor de la lista
+
+`maiorNumero(numeros)` recibe números finitos. El tratamiento de lista vacía está listo. Corrige la inicialización de `maior` para que funcione con negativos y no devuelva cero automáticamente.
+
+Devuelve el número mayor o `null` si no hay elementos. No modifiques la lista. Usa un bucle; no necesitas ordenar ni instalar bibliotecas. Pulsa **Verificar** para ver los resultados en portugués.
+
+<Playground id="logica-07-arrays-exercicio" mode="logic" html="" css="" js={arraysStarter} exercise={arraysExercise} />
+
+## Próximo paso
+
+Los arrays agrupan valores ordenados. Los objetos agrupan datos por significado, como nombre y notas de un alumno.

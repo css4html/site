@@ -1,0 +1,47 @@
+---
+title: "Loops: multiplication tables and FizzBuzz"
+description: "Repeat steps with for and while, then combine decisions in FizzBuzz."
+order: 5
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { loopsExample, loopsStarter, loopsExercise } from '../../../config/logic-playgrounds';
+
+A **loop** repeats statements while a condition allows it. Instead of copying the same calculation, change a counter.
+
+## The three parts of for
+
+In `for (let i = 1; i <= 5; i++)`, the first part creates the counter, the second decides whether to run another iteration, and the third increments `i` afterward. `i++` adds 1. The body runs with 1, 2, 3, 4 and 5.
+
+The example prints a multiplication table. Change `base`; then replace `<=` with `<` to see the last row disappear.
+
+## while
+
+`while (condition)` checks before every iteration. The countdown uses `restante--` to subtract 1. Without that update, the condition could stay true forever. If it starts false, the body never runs.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — Explain what stops a loop before running it. This playground interrupts execution after 1.5 seconds to keep the page responsive.</aside>
+
+## Try it
+
+Change the multiplication-table base or countdown start. Follow each step in the Console rather than using blocking dialogs.
+
+<Playground id="logica-05-repeticao-exemplo" mode="logic" html="" css="" js={loopsExample} />
+
+## Exercise: FizzBuzz
+
+Complete `fizzBuzz(numero)` for **positive integers**:
+
+- Divisible by both 3 and 5: return `'FizzBuzz'`.
+- Only divisible by 3: `'Fizz'`.
+- Only divisible by 5: `'Buzz'`.
+- Otherwise: return the number as text with `String(numero)`.
+
+The starter passes several cases but returns `'Fizz'` for 15. Put the most specific condition **first**: `return` ends the call, so later code cannot fix its result. The loop prints 1 through 15, and **Verificar** also checks 30 so a hardcoded exception for 15 is not enough. Feedback is in Portuguese.
+
+<Playground id="logica-05-repeticao-exercicio" mode="logic" html="" css="" js={loopsStarter} exercise={loopsExercise} />
+
+## Check your reasoning
+
+What should 10 produce? What about 15? Temporarily comment out the loop to inspect a single call. Functions help separate a rule from its repetition.

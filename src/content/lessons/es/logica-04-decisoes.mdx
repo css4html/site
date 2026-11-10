@@ -1,0 +1,44 @@
+---
+title: "Decisiones"
+description: "Elige caminos con if/else y switch: par o impar y una regla de edad."
+order: 4
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { decisionsExample, decisionsStarter, decisionsExercise } from '../../../config/logic-playgrounds';
+
+Una **decisión** elige el siguiente paso a partir de una condición verdadera o falsa.
+
+## if, else y bloques
+
+`if (condicion) { ... }` ejecuta un bloque si la condición es verdadera. `else` ejecuta la alternativa. Las llaves agrupan instrucciones; solo se ejecuta uno de esos dos caminos.
+
+Para saber si un entero es par, usa `numero % 2 === 0`. Resto cero significa división exacta entre 2, también con cero y enteros negativos.
+
+El ejemplo usa la regla didáctica **edad de 16 o más → puede votar**. Es una simplificación para practicar, no una explicación completa de la legislación electoral brasileña ni del voto obligatorio.
+
+## switch
+
+`switch (valor)` compara por igualdad estricta con cada `case`. `break` termina ese camino; sin él se continúa en el siguiente caso. `default` atiende valores sin coincidencia. El ejemplo agrupa sábado y domingo antes de un único `break`.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Prueba ambos caminos y el límite: 15, 16 y 17, por ejemplo.</aside>
+
+## Experimenta
+
+Cambia `idade` (edad), `numero` y `dia`, uno a la vez. Predice los mensajes de la consola.
+
+<Playground id="logica-04-decisoes-exemplo" mode="logic" html="" css="" js={decisionsExample} />
+
+## Ejercicio: par o impar
+
+`classificarNumero(numero)` recibe un entero y debe devolver **`'par'`** o **`'impar'`** (sin acento). Los retornos están invertidos: corrígelos con `if/else`.
+
+Mantén el nombre de la función y usa `return`, no solo `console.log`. Pulsa **Verificar**: se incluyen cero y un entero negativo. Los identificadores y resultados están en portugués.
+
+<Playground id="logica-04-decisoes-exercicio" mode="logic" html="" css="" js={decisionsStarter} exercise={decisionsExercise} />
+
+## Próximo paso
+
+Las decisiones eligen caminos; los bucles repiten pasos. Combinaremos ambas ideas en FizzBuzz.

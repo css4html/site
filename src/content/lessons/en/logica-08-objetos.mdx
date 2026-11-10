@@ -1,0 +1,44 @@
+---
+title: "Objects: a student and grades"
+description: "Group named properties and combine objects, arrays and functions."
+order: 8
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { objectsExample, objectsStarter, objectsExercise } from '../../../config/logic-playgrounds';
+
+An **object** groups named properties: `{ nome: 'Ana', notas: [8, 6] }`. `nome` stores text and `notas` stores an array. Access them by name: `aluno.nome` and `aluno.notas`.
+
+`aluno.notas.length` reads the size of the nested array. `aluno['nome']` is another way to access a property, useful when its name comes from a variable.
+
+## const does not freeze objects
+
+`const aluno` prevents reassigning the variable to another object, but changing `aluno.nome = 'Bia'` is allowed. Be careful: other code may refer to the same object.
+
+Our average function will **read without changing** its input, making it easier to repeat the test.
+
+## From a list to an average
+
+Sum the grades and divide by their count. Handle an empty array before dividing: return `null` if there are no grades. A zero grade is valid data, not an absent value.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — An object can contain a list, and a function can receive the entire object.</aside>
+
+## Try it
+
+Change the name and grades. Updating a property is different from reassigning the entire `const` variable.
+
+<Playground id="logica-08-objetos-exemplo" mode="logic" html="" css="" js={objectsExample} />
+
+## Exercise: student average
+
+`mediaDoAluno(aluno)` receives `nome` (text) and `notas` (an array of numbers from 0 to 10). It sums the grades, but incorrectly returns that sum as the average.
+
+Fix the return value by dividing by the count. Keep `null` for an empty array and do not modify the object. **Verificar** includes three grades and a zero: do not hardcode a divisor of 2. Feedback is in Portuguese.
+
+<Playground id="logica-08-objetos-exercicio" mode="logic" html="" css="" js={objectsStarter} exercise={objectsExercise} />
+
+## Next step
+
+We can structure and process data. Next, learn how to investigate when the result differs from your expectation.

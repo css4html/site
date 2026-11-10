@@ -1,0 +1,47 @@
+---
+title: "Repetición: tablas de multiplicar y FizzBuzz"
+description: "Repite pasos con for y while y combina decisiones en FizzBuzz."
+order: 5
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { loopsExample, loopsStarter, loopsExercise } from '../../../config/logic-playgrounds';
+
+Un **bucle** repite instrucciones mientras una condición lo permita. En lugar de copiar una cuenta varias veces, cambiamos un contador.
+
+## Las tres partes de for
+
+En `for (let i = 1; i <= 5; i++)`, primero se crea el contador, después se comprueba si habrá otra vuelta y al final se aumenta `i`. `i++` suma 1. El cuerpo se ejecuta con 1, 2, 3, 4 y 5.
+
+El ejemplo imprime una tabla de multiplicar. Cambia `base`; después sustituye `<=` por `<` para excluir la última línea.
+
+## while
+
+`while (condicion)` comprueba antes de cada vuelta. La cuenta atrás usa `restante--` para restar 1. Sin actualizarlo, la condición podría seguir verdadera para siempre. Si empieza falsa, el cuerpo no se ejecuta.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Explica qué termina el bucle antes de ejecutarlo. Este playground interrumpe la ejecución tras 1,5 s para no bloquear la página.</aside>
+
+## Experimenta
+
+Cambia la base o el inicio de la cuenta atrás. Sigue los pasos en la consola, sin cuadros de diálogo bloqueantes.
+
+<Playground id="logica-05-repeticao-exemplo" mode="logic" html="" css="" js={loopsExample} />
+
+## Ejercicio: FizzBuzz
+
+Completa `fizzBuzz(numero)` para **enteros positivos**:
+
+- Múltiplo de 3 **y** 5: devuelve `'FizzBuzz'`.
+- Solo de 3: `'Fizz'`.
+- Solo de 5: `'Buzz'`.
+- En otro caso: el número como texto con `String(numero)`.
+
+El código inicial acierta varios casos, pero devuelve `'Fizz'` para 15. Coloca la condición más específica **primero**: `return` termina la llamada. El bucle muestra 1 a 15, y **Verificar** también prueba 30 para evitar una excepción fija solo para 15. Los resultados están en portugués.
+
+<Playground id="logica-05-repeticao-exercicio" mode="logic" html="" css="" js={loopsStarter} exercise={loopsExercise} />
+
+## Para comprobar
+
+¿Qué produce 10? ¿Y 15? Comenta temporalmente el `for` para inspeccionar una llamada. Las funciones separan una regla de su repetición.

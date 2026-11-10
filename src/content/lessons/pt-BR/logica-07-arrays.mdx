@@ -1,0 +1,42 @@
+---
+title: "Arrays: percorrer, somar e achar o maior"
+description: "Trabalhe com listas, índices, acumuladores e o caso de uma lista vazia."
+order: 7
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { arraysExample, arraysStarter, arraysExercise } from '../../../config/logic-playgrounds';
+
+Um **array** guarda uma lista ordenada: `[3, 7, 2]`. O primeiro índice é **0**; por isso `numeros[0]` vale 3. `numeros.length` informa quantos itens existem, não o índice do último item.
+
+## Percorrer e acumular
+
+`for (const numero of numeros)` visita cada valor da lista. Para somar, começamos com `let soma = 0` e fazemos `soma += numero`, que é uma forma curta de escrever `soma = soma + numero`.
+
+Para achar o maior de uma lista **não vazia**, comece com o primeiro item e compare os seguintes. Começar em zero parece funcionar com positivos, mas dá uma resposta que nem pertence à lista quando todos os valores são negativos.
+
+## E quando não há itens?
+
+Uma lista vazia tem tamanho 0. Nesta aula, a função que procura o maior deve devolver **`null`**, que representa ausência de resultado. Não confunda com 0: zero pode ser o maior de uma lista válida.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Teste listas vazias, com um item e só com negativos antes de confiar no caminho comum.</aside>
+
+## Experimente
+
+O exemplo parte de uma lista não vazia. Mude os valores para negativos e confira tanto a soma quanto o maior. Depois experimente uma lista vazia: o primeiro item será `undefined`, mostrando por que precisamos tratar esse caso.
+
+<Playground id="logica-07-arrays-exemplo" mode="logic" html="" css="" js={arraysExample} />
+
+## Seu exercício: o maior da lista
+
+`maiorNumero(numeros)` recebe uma lista de números finitos. A verificação de lista vazia já está pronta. Corrija a inicialização de `maior` para que os negativos funcionem, sem retornar zero automaticamente.
+
+Devolva o maior número, ou `null` quando a lista estiver vazia. Não altere a lista recebida. Use o laço como no exemplo; não precisa ordenar nem usar uma biblioteca.
+
+<Playground id="logica-07-arrays-exercicio" mode="logic" html="" css="" js={arraysStarter} exercise={arraysExercise} />
+
+## Próximo passo
+
+Listas agrupam valores em sequência. Objetos vão agrupar valores por significado, como o nome de um aluno e sua lista de notas.

@@ -1,0 +1,44 @@
+---
+title: "Objetos: alumno y notas"
+description: "Agrupa propiedades con nombre y combina objetos, arrays y funciones."
+order: 8
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { objectsExample, objectsStarter, objectsExercise } from '../../../config/logic-playgrounds';
+
+Un **objeto** agrupa propiedades con nombre: `{ nome: 'Ana', notas: [8, 6] }`. `nome` guarda texto y `notas` un array. Accede por nombre: `aluno.nome` y `aluno.notas`.
+
+`aluno.notas.length` lee el tamaño de la lista interna. También existe `aluno['nome']`, útil cuando el nombre de una propiedad viene de una variable.
+
+## const no congela objetos
+
+`const aluno` impide reasignar la variable a otro objeto, pero permite cambiar `aluno.nome = 'Bia'`. Ten cuidado: otra parte del programa puede usar el mismo objeto.
+
+Nuestra función de promedio **solo lee** la entrada, sin modificar las notas. Así es más fácil repetir la prueba.
+
+## De lista a promedio
+
+Suma las notas y divide entre su cantidad. Trata la lista vacía antes de dividir: devuelve `null` si no hay notas. Una nota cero es un dato válido, no una ausencia.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Un objeto puede contener una lista y una función puede recibir el objeto completo.</aside>
+
+## Experimenta
+
+Cambia nombre y notas. Actualizar una propiedad no es lo mismo que reasignar la variable `const` completa.
+
+<Playground id="logica-08-objetos-exemplo" mode="logic" html="" css="" js={objectsExample} />
+
+## Ejercicio: promedio del alumno
+
+`mediaDoAluno(aluno)` recibe `nome` (texto) y `notas` (array de números de 0 a 10). Ya suma las notas, pero devuelve esa suma como si fuera el promedio.
+
+Corrige el retorno dividiendo entre la cantidad. Conserva `null` para la lista vacía y no modifiques el objeto. **Verificar** incluye tres notas y un cero: no fijes el divisor en 2. Los resultados están en portugués.
+
+<Playground id="logica-08-objetos-exercicio" mode="logic" html="" css="" js={objectsStarter} exercise={objectsExercise} />
+
+## Próximo paso
+
+Ya podemos organizar y procesar datos. Ahora aprenderemos a investigar por qué un resultado no coincide con lo esperado.

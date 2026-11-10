@@ -1,0 +1,47 @@
+---
+title: "Repetição: tabuada e FizzBuzz"
+description: "Repita passos com for e while e combine decisões no desafio FizzBuzz."
+order: 5
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { loopsExample, loopsStarter, loopsExercise } from '../../../config/logic-playgrounds';
+
+Um **laço** repete instruções enquanto uma condição permite. Em vez de copiar a mesma conta cinco vezes, mudamos um contador.
+
+## As três partes do for
+
+Em `for (let i = 1; i <= 5; i++)`, a primeira parte cria o contador; a segunda decide se haverá outra volta; a terceira aumenta `i` depois de cada volta. `i++` soma 1. Assim, o corpo roda com 1, 2, 3, 4 e 5.
+
+O exemplo gera uma tabuada. Troque `base` e observe o que muda. Trocar `<=` por `<` exclui a última linha.
+
+## Quando usar while
+
+`while (condicao)` testa a condição antes de cada volta. Na contagem regressiva, `restante--` subtrai 1. Sem atualizar o valor, a condição pode continuar verdadeira para sempre. Um `while` cuja condição já começa falsa não executa o corpo.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Antes de rodar um laço, explique o que faz ele terminar. Aqui o playground interrompe a execução após 1,5 s para não travar a página.</aside>
+
+## Experimente
+
+Edite a base da tabuada ou o início da contagem. Veja cada passo no Console; não use `prompt` ou `alert` para acompanhar o resultado.
+
+<Playground id="logica-05-repeticao-exemplo" mode="logic" html="" css="" js={loopsExample} />
+
+## Seu exercício: FizzBuzz
+
+Complete `fizzBuzz(numero)` para **inteiros positivos**:
+
+- Múltiplo de 3 **e** 5: devolva `'FizzBuzz'`.
+- Só múltiplo de 3: `'Fizz'`.
+- Só múltiplo de 5: `'Buzz'`.
+- Caso contrário: o número como texto, com `String(numero)`.
+
+A função inicial já acerta vários casos, mas devolve `'Fizz'` para 15. Coloque a condição mais específica **antes** das outras: `return` encerra a função, então não dá para corrigir a resposta depois dele. O `for` abaixo da função mostra as saídas de 1 a 15; **Verificar** também testa 30 para evitar uma solução que trate só o número 15.
+
+<Playground id="logica-05-repeticao-exercicio" mode="logic" html="" css="" js={loopsStarter} exercise={loopsExercise} />
+
+## Para conferir
+
+Qual seria a saída de 10? E de 15? Comente temporariamente o `for` se quiser testar uma única chamada. Funções vão nos ajudar a separar a regra da repetição.

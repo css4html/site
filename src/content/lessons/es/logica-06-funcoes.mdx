@@ -1,0 +1,40 @@
+---
+title: "Funciones"
+description: "Separa una tarea en entradas, procesamiento y un retorno reutilizable."
+order: 6
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { functionsExample, functionsStarter, functionsExercise } from '../../../config/logic-playgrounds';
+
+Una **función** agrupa instrucciones para una tarea. En `function dobro(numero)`, `dobro` es el nombre y `numero` es un **parámetro**, el nombre local de una entrada.
+
+Al llamar `dobro(6)`, 6 es un **argumento**. La misma función puede recibir 0 o 20 sin cambiar su definición.
+
+## return no es console.log
+
+`return` entrega un valor a quien llamó y termina esa llamada. `console.log` solo muestra un mensaje: no sustituye el retorno. Si no devuelves un valor, la llamada produce `undefined`.
+
+Una variable declarada dentro de la función pertenece a ese ámbito; el código de fuera no puede leerla directamente. Prefiere parámetros a variables globales que cambian el resultado sin que lo notes.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Entradas claras y una salida facilitan las pruebas.</aside>
+
+## Experimenta
+
+Observa cómo `resultado` recibe el retorno de `dobro(6)`. Añade otras llamadas e inspecciona la consola sin diálogos.
+
+<Playground id="logica-06-funcoes-exemplo" mode="logic" html="" css="" js={functionsExample} />
+
+## Ejercicio: total de una compra
+
+Implementa `calcularTotal(preco, quantidade, frete)` con **precio unitario × cantidad + envío**. Suma el envío una sola vez.
+
+Las entradas son números no negativos y la cantidad es entera. En esta regla didáctica, cantidad cero devuelve el envío: no es una política completa de tienda. Usa los parámetros, devuelve un número y conserva el nombre. **Verificar** incluye envío cero y precio decimal. Los resultados están en portugués.
+
+<Playground id="logica-06-funcoes-exercicio" mode="logic" html="" css="" js={functionsStarter} exercise={functionsExercise} />
+
+## Próximo paso
+
+Las funciones hacen reutilizables los cálculos. Los arrays permiten pasar una lista completa en lugar de un parámetro por valor.

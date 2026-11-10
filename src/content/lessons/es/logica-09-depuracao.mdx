@@ -1,0 +1,49 @@
+---
+title: "Depuración y casos límite"
+description: "Lee errores, sigue valores en la consola y corrige el límite de un bucle."
+order: 9
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { debuggingExample, debuggingStarter, debuggingExercise } from '../../../config/logic-playgrounds';
+
+**Depurar** es investigar la diferencia entre lo esperado y lo observado. Escribe la expectativa, reproduce el problema y sigue los valores, sin cambiar símbolos al azar.
+
+| Error | Qué comprobar primero |
+| --- | --- |
+| `SyntaxError` | Paréntesis, llaves, comillas y estructura |
+| `ReferenceError` | Nombre, declaración y ámbito de la variable |
+| `TypeError` | Tipo del valor y operación intentada |
+
+El mensaje y la línea dan un punto de partida; la causa puede estar antes. Cambiar un nombre declarado por otro inexistente puede causar `ReferenceError`. Lee el mensaje en la consola y pulsa **Resetar** para volver al inicio.
+
+## Errores lógicos
+
+No todos lanzan excepciones. El ejemplo se ejecuta, pero devuelve 3 cuando debería sumar **1 + 2 + 3 = 6**. Los logs revelan los valores que entraron en el bucle. Compara el último con el límite.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Reproduce con una entrada pequeña; después revisa límites y casos especiales.</aside>
+
+## Experimenta
+
+Sigue `i` y `total`. Añade un log después del bucle o cambia el límite a 1. Modifica una cosa a la vez.
+
+<Playground id="logica-09-depuracao-exemplo" mode="logic" html="" css="" js={debuggingExample} />
+
+## Ejercicio: incluye el último número
+
+`somarAte(limite)` debe sumar enteros **desde 1 hasta el límite, inclusive**. La entrada es entera. Si es cero o negativa, el intervalo está vacío y el resultado es 0.
+
+El bucle inicial excluye el último número. Corrige la condición sin quitar la actualización del contador. **Verificar** prueba 1, 3, 5, cero y un negativo. No fijes una respuesta solo para 3. Los resultados están en portugués.
+
+<Playground id="logica-09-depuracao-exercicio" mode="logic" html="" css="" js={debuggingStarter} exercise={debuggingExercise} />
+
+## Guía para investigar
+
+1. Escribe la salida esperada.
+2. Usa la menor entrada que reproduzca el fallo.
+3. Sigue valores con `console.log`.
+4. Corrige una causa y ejecuta todas las pruebas.
+
+El proyecto final reúne estas ideas en una calculadora de promedio.
