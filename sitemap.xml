@@ -190,6 +190,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/"/>
   </url>
   <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/"/>
+  </url>
+  <url>
     <loc>https://css4html.com.br/trilhas/javascript-do-zero/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/javascript-do-zero/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/javascript-do-zero/"/>
@@ -2857,6 +2878,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-01-algoritmo/"/>
   </url>
   <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-01-algoritmo/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-01-algoritmo/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-01-algoritmo/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-01-algoritmo/"/>
+  </url>
+  <url>
     <loc>https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-01-componentes-jsx/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-01-componentes-jsx/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/react-do-basico-ao-estado/react-01-componentes-jsx/"/>
@@ -3002,6 +3044,27 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-js/logica-02-variaveis-tipos/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-js/logica-02-variaveis-tipos/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-02-variaveis-tipos/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-02-variaveis-tipos/"/>
   </url>
   <url>
     <loc>https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-02-props/</loc>
@@ -3151,6 +3214,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-03-operadores-expressoes/"/>
   </url>
   <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/"/>
+  </url>
+  <url>
     <loc>https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-03-estado-usestate/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-03-estado-usestate/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/react-do-basico-ao-estado/react-03-estado-usestate/"/>
@@ -3296,6 +3380,27 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-js/logica-04-decisoes/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-js/logica-04-decisoes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-04-decisoes/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-04-decisoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-04-decisoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/"/>
   </url>
   <url>
     <loc>https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-04-efeitos-useeffect/</loc>
@@ -3445,6 +3550,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-05-repeticao/"/>
   </url>
   <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-05-repeticao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-05-repeticao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-05-repeticao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-05-repeticao/"/>
+  </url>
+  <url>
     <loc>https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-05-listas-keys/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-05-listas-keys/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/react-do-basico-ao-estado/react-05-listas-keys/"/>
@@ -3590,6 +3716,27 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-js/logica-06-funcoes/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-js/logica-06-funcoes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-06-funcoes/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-06-funcoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-06-funcoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-06-funcoes/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-06-funcoes/"/>
   </url>
   <url>
     <loc>https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-06-react-query-fetch/</loc>
@@ -3739,6 +3886,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-07-arrays/"/>
   </url>
   <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-07-arrays/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-07-arrays/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-07-arrays/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-07-arrays/"/>
+  </url>
+  <url>
     <loc>https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-07-react-query-mutations/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-07-react-query-mutations/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/react-do-basico-ao-estado/react-07-react-query-mutations/"/>
@@ -3842,6 +4010,27 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-js/logica-08-objetos/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-js/logica-08-objetos/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-08-objetos/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-08-objetos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-08-objetos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-08-objetos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-08-objetos/"/>
   </url>
   <url>
     <loc>https://css4html.com.br/trilhas/react-do-basico-ao-estado/react-08-zustand-estado-global/</loc>
@@ -3949,6 +4138,27 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-09-depuracao/"/>
   </url>
   <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-09-depuracao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-09-depuracao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-09-depuracao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-09-depuracao/"/>
+  </url>
+  <url>
     <loc>https://css4html.com.br/trilhas/logica-com-js/logica-10-projeto-calculadora-media/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-js/logica-10-projeto-calculadora-media/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-js/logica-10-projeto-calculadora-media/"/>
@@ -3968,6 +4178,27 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-js/logica-10-projeto-calculadora-media/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-js/logica-10-projeto-calculadora-media/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-js/logica-10-projeto-calculadora-media/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+  </url>
+  <url>
+    <loc>https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://css4html.com.br/en/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://css4html.com.br/es/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-10-projeto-calculadora-media/"/>
   </url>
   <url>
     <loc>https://css4html.com.br/blog/overlay-de-live-com-html-css/</loc>

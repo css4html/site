@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Escolha caminhos com if/else e switch e restrinja respostas com tipos literais e uniões."><meta name="generator" content="Astro v7.3.3"><meta property="og:title" content="Decisões · CSS4HTML"><meta property="og:description" content="Escolha caminhos com if/else e switch e restrinja respostas com tipos literais e uniões."><meta property="og:image" content="https://css4html.com.br/trilhas/logica-com-ts/covers/logica-ts-04-decisoes.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://css4html.com.br/trilhas/logica-com-ts/covers/logica-ts-04-decisoes.png"><meta property="og:url" content="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/"><link rel="canonical" href="https://css4html.com.br/trilhas/logica-com-ts/logica-ts-04-decisoes/"><link rel="icon" href="/favicon.ico" type="image/x-icon"><title>Decisões · CSS4HTML</title><script>
+      (function () {
+        try {
+          var KEY = 'css4html-theme';
+          var saved = localStorage.getItem(KEY);
+          var theme = (saved === 'light' || saved === 'dark')
+            ? saved
+            : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XVQNHT82RS"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XVQNHT82RS');
+    </script><!-- Eventos de engajamento (delegação de cliques, um único listener) --><script>
+      (function () {
+        function send(name, params) {
+          try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {}
+        }
+        document.addEventListener('click', function (ev) {
+          var target = ev.target;
+          if (!target || !target.closest) return;
+          var path = location.pathname;
+
+          // Copiar snippet
+          var copyBtn = target.closest('[data-copy]');
+          if (copyBtn) { send('snippet_copy', { page_path: path }); return; }
+
+          // Copiar código no playground
+          var pgBtn = target.closest('[data-action^="copy-"]');
+          if (pgBtn) { send('playground_copy', { page_path: path, lang: pgBtn.getAttribute('data-action').slice(5) }); return; }
+
+          // Elementos marcados com data-track
+          var tracked = target.closest('[data-track]');
+          if (tracked) {
+            send(tracked.getAttribute('data-track'), { label: tracked.getAttribute('data-track-label') || undefined, page_path: path });
+            return;
+          }
+
+          var link = target.closest('a[href]');
+          if (!link) return;
+          var url;
+          try { url = new URL(link.getAttribute('href'), location.href); } catch (e) { return; }
+
+          // Clique para a consultoria vindo de outra página
+          if (url.host === location.host && /\/consultoria\/?$/.test(url.pathname) && !/\/consultoria\/?$/.test(path)) {
+            send('consultoria_cta_click', { source_path: path });
+            return;
+          }
+
+          // Links externos
+          if (url.host !== location.host && /^https?:$/.test(url.protocol) && url.host !== 'wa.me') {
+            send('outbound_click', { link_domain: url.host, link_url: url.href, page_path: path });
+          }
+        }, { capture: true });
+      })();
+    </script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CSS4HTML","url":"https://css4html.com.br/","inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"CSS4HTML","url":"https://css4html.com.br/","logo":"https://css4html.com.br/logo-fanpage.png","sameAs":["https://www.instagram.com/css4html/","https://www.facebook.com/CSS4HTML","https://github.com/css4html"]}}</script><link rel="sitemap" type="application/xml" href="/sitemap.xml"><link rel="stylesheet" href="/_astro/BaseLayout.DtVv-qX2.css"><style>.growth-cta[data-astro-cid-53i73k7e]{margin-top:2.5rem}.growth-cta__done[data-astro-cid-53i73k7e]{color:var(--color-success);margin-bottom:1rem;font-size:1.15rem;font-weight:700}.growth-cta__grid[data-astro-cid-53i73k7e]{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1rem;display:grid}.growth-cta__box[data-astro-cid-53i73k7e]{background:var(--color-surface);border:1px solid var(--color-border);border-radius:12px;padding:1.25rem}.growth-cta__box--consult[data-astro-cid-53i73k7e]{border-color:var(--color-accent)}.growth-cta__box[data-astro-cid-53i73k7e] h2[data-astro-cid-53i73k7e]{margin:0 0 .5rem;font-size:1.15rem}.growth-cta__box[data-astro-cid-53i73k7e] p[data-astro-cid-53i73k7e]{color:var(--color-muted);margin:0 0 1rem}.growth-cta__form[data-astro-cid-53i73k7e]{flex-wrap:wrap;gap:.5rem;display:flex}.growth-cta__form[data-astro-cid-53i73k7e] input[data-astro-cid-53i73k7e]{border:1px solid var(--color-border);background:var(--color-bg);min-width:0;color:var(--color-text);font:inherit;border-radius:8px;flex:180px;padding:.6rem .75rem}.growth-cta__links[data-astro-cid-53i73k7e]{gap:1rem;display:flex}.growth-cta__thanks[data-astro-cid-53i73k7e]{color:var(--color-success);margin-top:.75rem}
+</style></head><body><a class="sr-only" href="#conteudo">Ir para o conteúdo</a><header class="site-header" data-site-header><div class="container inner"><a class="logo" href="/" title="CSS4HTML"><img src="/logo-fanpage.png" alt="" width="32" height="32"><span>CSS4HTML</span></a><nav class="nav-desktop" aria-label="Principal"><ul class="nav"><li><a href="/">Início</a></li><li><a href="/trilhas/" aria-current="page">Trilhas</a></li><li><a href="/exemplos/">Exemplos</a></li><li><a href="/snippets/">Snippets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/consultoria/">Consultoria</a></li></ul></nav><div class="header-actions"><!-- Designer slot: language selector (PT / EN / ES) --><div class="lang-switcher" data-lang-switcher role="navigation" aria-label="Idioma"><a href="/trilhas/logica-com-ts/logica-ts-04-decisoes/" class="lang-btn is-active" hreflang="pt-BR" aria-current="page" lang="pt-BR">PT</a><a href="/en/trilhas/logica-com-ts/logica-ts-04-decisoes/" class="lang-btn" hreflang="en" lang="en">EN</a><a href="/es/trilhas/logica-com-ts/logica-ts-04-decisoes/" class="lang-btn" hreflang="es" lang="es">ES</a></div><button type="button" class="icon-btn theme-toggle" data-theme-toggle data-label-light="Ativar tema claro" data-label-dark="Ativar tema escuro" aria-label="Alternar tema claro ou escuro" title="Alternar tema"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path></svg></button><button type="button" class="icon-btn menu-toggle" data-menu-toggle data-label-open="Abrir menu de navegação" data-label-close="Fechar menu de navegação" aria-expanded="false" aria-controls="nav-drawer" aria-label="Abrir menu de navegação"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div></div><div class="nav-drawer" id="nav-drawer" data-nav-drawer hidden><div class="nav-drawer-backdrop" data-menu-close tabindex="-1"></div><div class="nav-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação"><p class="drawer-label">Navegação</p><nav aria-label="Menu mobile"><ul class="nav"><li><a href="/" data-menu-close>Início</a></li><li><a href="/trilhas/" aria-current="page" data-menu-close>Trilhas</a></li><li><a href="/exemplos/" data-menu-close>Exemplos</a></li><li><a href="/snippets/" data-menu-close>Snippets</a></li><li><a href="/blog/" data-menu-close>Blog</a></li><li><a href="/consultoria/" data-menu-close>Consultoria</a></li></ul></nav><p class="drawer-label" style="margin-top:1.25rem">Trilhas</p><nav aria-label="Trilhas"><ul class="nav"><li><a href="/trilhas/html-do-zero/" data-menu-close>HTML do zero</a></li><li><a href="/trilhas/css-do-zero-ao-layout/" data-menu-close>CSS do zero ao layout</a></li><li><a href="/trilhas/logica-com-js/" data-menu-close>LÓGICA com JS</a></li><li><a href="/trilhas/logica-com-ts/" data-menu-close>LÓGICA com TS</a></li><li><a href="/trilhas/javascript-do-zero/" data-menu-close>JavaScript do zero</a></li><li><a href="/trilhas/react-do-basico-ao-estado/" data-menu-close>React do básico ao estado</a></li><li><a href="/trilhas/webcomponents-com-vite/" data-menu-close>Web Components com Vite</a></li><li><a href="/trilhas/git-na-pratica/" data-menu-close>Git na prática</a></li></ul></nav></div></div></header><script>
+  (function () {
+    var KEY = 'css4html-theme';
+
+    function preferred() {
+      try {
+        var saved = localStorage.getItem(KEY);
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {}
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function themeLabels(btn) {
+      return {
+        light: btn.getAttribute('data-label-light') || 'Light theme',
+        dark: btn.getAttribute('data-label-dark') || 'Dark theme',
+      };
+    }
+
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      try { localStorage.setItem(KEY, theme); } catch (e) {}
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        var labels = themeLabels(btn);
+        btn.setAttribute('aria-label', theme === 'dark' ? labels.light : labels.dark);
+      });
+    }
+
+    if (!document.documentElement.getAttribute('data-theme')) {
+      apply(preferred());
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-theme-toggle]');
+      if (!t) return;
+      var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      apply(next);
+    });
+
+    var header = document.querySelector('[data-site-header]');
+    var toggle = document.querySelector('[data-menu-toggle]');
+    var drawer = document.querySelector('[data-nav-drawer]');
+    if (!toggle || !drawer) return;
+
+    function openMenu() {
+      drawer.hidden = false;
+      requestAnimationFrame(function () {
+        drawer.classList.add('is-open');
+      });
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-close') || 'Close');
+      document.body.classList.add('nav-open');
+      var first = drawer.querySelector('.nav a');
+      if (first) first.focus();
+    }
+
+    function closeMenu() {
+      drawer.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', toggle.getAttribute('data-label-open') || 'Open');
+      document.body.classList.remove('nav-open');
+      setTimeout(function () {
+        if (!drawer.classList.contains('is-open')) drawer.hidden = true;
+      }, 250);
+      toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (toggle.getAttribute('aria-expanded') === 'true') closeMenu();
+      else openMenu();
+    });
+
+    drawer.addEventListener('click', function (e) {
+      if (e.target.closest('[data-menu-close]')) closeMenu();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+      }
+    });
+
+    function onScroll() {
+      if (!header) return;
+      header.classList.toggle('is-scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script><main id="conteudo"><article class="container page-header"><p><a href="/trilhas/logica-com-ts/">← Trilha</a>· Lição 4 de 10</p><p><a data-trail-switch href="/trilhas/logica-com-js/logica-04-decisoes/">Ver esta aula em JavaScript →</a></p><h1>Decisões</h1><p>Escolha caminhos com if/else e switch e restrinja respostas com tipos literais e uniões.</p><img class="post-cover" src="/trilhas/logica-com-ts/covers/logica-ts-04-decisoes.png" alt="Decisões" width="1200" height="630" loading="lazy" decoding="async"><div class="prose"><p>Uma <strong>decisão</strong> escolhe o próximo passo a partir de uma condição. <code>if (condicao) { ... } else { ... }</code> executa só um dos dois blocos.</p>
+<p>Para saber se um inteiro é par, teste <code>numero % 2 === 0</code>. Isso funciona para zero e negativos. O exemplo usa a regra didática <strong>idade ≥ 16 → pode votar</strong>, uma simplificação para praticar condições.</p>
+<h2 id="tipos-literais-e-uniões">Tipos literais e uniões</h2>
+<p>Em TypeScript, um texto também pode ser um tipo: <code>&#39;par&#39;</code> é um <strong>tipo literal</strong>. Juntando literais numa união, criamos uma lista fechada de respostas válidas:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">type</span><span style="color:#B392F0"> Paridade</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> &#39;par&#39;</span><span style="color:#F97583"> |</span><span style="color:#9ECBFF"> &#39;impar&#39;</span><span style="color:#E1E4E8">;</span></span></code></pre>
+<p>Uma função com retorno <code>Paridade</code> só pode devolver <code>&#39;par&#39;</code> ou <code>&#39;impar&#39;</code>. Um erro de digitação como <code>&#39;ímpar&#39;</code> ou <code>&#39;Par&#39;</code> vira erro de tipo no editor, antes de qualquer teste.</p>
+<h2 id="switch-com-uniões">switch com uniões</h2>
+<p><code>switch (dia)</code> compara o valor com cada <code>case</code>. Com <code>type Dia = &#39;sabado&#39; | &#39;domingo&#39; | &#39;segunda&#39;</code>, o editor sugere os casos possíveis e avisa se você escrever um <code>case</code> que não existe. <code>break</code> encerra o caminho; <code>default</code> cobre o resto.</p>
+<aside class="tip tip-logic"><strong>DICA LÓGICA TS</strong> — Uma união de literais transforma respostas possíveis numa lista que o editor confere.</aside>
+<h2 id="experimente">Experimente</h2>
+<p>Mude <code>idade</code>, <code>numero</code> e <code>dia</code>, um de cada vez. Tente trocar <code>dia</code> para <code>&#39;feriado&#39;</code>: o editor com TypeScript marcaria erro, porque esse valor não está na união.</p>
+<div class="playground" data-playground="logica-ts-04-decisoes-exemplo" data-mobile-tab="js" data-console-enabled="1" data-show-js="1" data-mode="logic" data-language="ts"><div class="playground-toolbar" role="toolbar" aria-label="Ações do playground"><button type="button" class="pg-btn" data-action="reset" title="Restaurar código original">Resetar</button><button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">Copiar HTML</button><button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">Copiar CSS</button><button type="button" class="pg-btn" data-action="copy-js" title="Copiar JavaScript">Copiar TS</button><button type="button" class="pg-btn" data-action="run">Executar</button><span class="spacer" aria-hidden="true"></span><span class="sr-only" data-status aria-live="polite"></span></div><div class="playground-tabs" role="tablist" aria-label="Painéis do playground"><button type="button" class="playground-tab" role="tab" id="logica-ts-04-decisoes-exemplo-tab-html" aria-controls="logica-ts-04-decisoes-exemplo-panel-editors" aria-selected="false" data-tab="html">HTML</button><button type="button" class="playground-tab" role="tab" id="logica-ts-04-decisoes-exemplo-tab-css" aria-controls="logica-ts-04-decisoes-exemplo-panel-editors" aria-selected="false" data-tab="css">CSS</button><button type="button" class="playground-tab" role="tab" id="logica-ts-04-decisoes-exemplo-tab-js" aria-controls="logica-ts-04-decisoes-exemplo-panel-editors" aria-selected="true" data-tab="js">TS</button><button type="button" class="playground-tab" role="tab" id="logica-ts-04-decisoes-exemplo-tab-preview" aria-controls="logica-ts-04-decisoes-exemplo-panel-preview" aria-selected="false" data-tab="preview">Preview</button></div><div class="playground-wrap"><div class="editor-panel" id="logica-ts-04-decisoes-exemplo-panel-editors" role="tabpanel" aria-label="Editores"><div class="editor-box" data-pane="html"><div class="label"><span id="logica-ts-04-decisoes-exemplo-label-html">HTML</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-html" aria-describedby="logica-ts-04-decisoes-exemplo-label-html">Copiar</button></div></div><div class="cm-host" data-editor="html" data-initial role="textbox" aria-label="Editor HTML" aria-multiline="true"></div></div><div class="editor-box" data-pane="css"><div class="label"><span id="logica-ts-04-decisoes-exemplo-label-css">CSS</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-css" aria-describedby="logica-ts-04-decisoes-exemplo-label-css">Copiar</button></div></div><div class="cm-host" data-editor="css" data-initial role="textbox" aria-label="Editor CSS" aria-multiline="true"></div></div><div class="editor-box" data-pane="js"><div class="label"><span id="logica-ts-04-decisoes-exemplo-label-js">TypeScript</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-js" aria-describedby="logica-ts-04-decisoes-exemplo-label-js">Copiar</button></div></div><div class="cm-host" data-editor="js" data-initial="dHlwZSBQYXJpZGFkZSA9ICdwYXInIHwgJ2ltcGFyJzsKdHlwZSBEaWEgPSAnc2FiYWRvJyB8ICdkb21pbmdvJyB8ICdzZWd1bmRhJzsKCmNvbnN0IGlkYWRlOiBudW1iZXIgPSAxNzsKaWYgKGlkYWRlID49IDE2KSB7CiAgY29uc29sZS5sb2coJ05hIHJlZ3JhIHNpbXBsaWZpY2FkYSBkYSBhdWxhLCBwb2RlIHZvdGFyLicpOwp9IGVsc2UgewogIGNvbnNvbGUubG9nKCdBaW5kYSBuw6NvIGF0aW5naXUgYSBpZGFkZSBkYSByZWdyYS4nKTsKfQpjb25zdCBudW1lcm86IG51bWJlciA9IDc7CmNvbnN0IHJlc3VsdGFkbzogUGFyaWRhZGUgPSBudW1lcm8gJSAyID09PSAwID8gJ3BhcicgOiAnaW1wYXInOwpjb25zb2xlLmxvZyhyZXN1bHRhZG8pOwpjb25zdCBkaWE6IERpYSA9ICdzYWJhZG8nOwpzd2l0Y2ggKGRpYSkgewogIGNhc2UgJ3NhYmFkbyc6CiAgY2FzZSAnZG9taW5nbyc6CiAgICBjb25zb2xlLmxvZygnRmltIGRlIHNlbWFuYScpOwogICAgYnJlYWs7CiAgZGVmYXVsdDoKICAgIGNvbnNvbGUubG9nKCdEaWEgZGUgc2VtYW5hJyk7Cn0=" role="textbox" aria-label="Editor TypeScript" aria-multiline="true"></div></div></div><div class="preview-panel" id="logica-ts-04-decisoes-exemplo-panel-preview" role="tabpanel" aria-label="Pré-visualização"><div class="label"><span>Pré-visualização ao vivo</span></div><iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts"></iframe></div></div><section class="pg-console" aria-label="Console do código"><div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">Limpar console</button></div><pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>Execute o código para ver a saída aqui.</span></pre></section></div><script type="module" src="/_astro/Playground.astro_astro_type_script_index_0_lang.BclEbX98.js"></script>
+<h2 id="seu-exercício">Seu exercício</h2>
+<p><code>classificarNumero(numero: number): Paridade</code> deve devolver <strong><code>&#39;par&#39;</code></strong> ou <strong><code>&#39;impar&#39;</code></strong> (sem acento). Os retornos estão trocados: corrija-os usando <code>if/else</code>.</p>
+<p>Mantenha o <code>type Paridade</code> e o nome da função. <strong>Verificar</strong> inclui zero e um inteiro negativo.</p>
+<div class="playground" data-playground="logica-ts-04-decisoes-exercicio" data-mobile-tab="js" data-console-enabled="1" data-exercise="{&quot;functionName&quot;:&quot;classificarNumero&quot;,&quot;tests&quot;:[{&quot;label&quot;:&quot;Número par positivo&quot;,&quot;args&quot;:[4],&quot;expected&quot;:&quot;par&quot;},{&quot;label&quot;:&quot;Número ímpar positivo&quot;,&quot;args&quot;:[7],&quot;expected&quot;:&quot;impar&quot;},{&quot;label&quot;:&quot;Zero também é par&quot;,&quot;args&quot;:[0],&quot;expected&quot;:&quot;par&quot;},{&quot;label&quot;:&quot;Ímpar negativo&quot;,&quot;args&quot;:[-3],&quot;expected&quot;:&quot;impar&quot;}]}" data-show-js="1" data-mode="logic" data-language="ts"><div class="playground-toolbar" role="toolbar" aria-label="Ações do playground"><button type="button" class="pg-btn" data-action="reset" title="Restaurar código original">Resetar</button><button type="button" class="pg-btn" data-action="copy-html" title="Copiar HTML">Copiar HTML</button><button type="button" class="pg-btn" data-action="copy-css" title="Copiar CSS">Copiar CSS</button><button type="button" class="pg-btn" data-action="copy-js" title="Copiar JavaScript">Copiar TS</button><button type="button" class="pg-btn" data-action="run">Executar</button><button type="button" class="pg-btn" data-action="check">Verificar</button><span class="spacer" aria-hidden="true"></span><span class="sr-only" data-status aria-live="polite"></span></div><div class="playground-tabs" role="tablist" aria-label="Painéis do playground"><button type="button" class="playground-tab" role="tab" id="logica-ts-04-decisoes-exercicio-tab-html" aria-controls="logica-ts-04-decisoes-exercicio-panel-editors" aria-selected="false" data-tab="html">HTML</button><button type="button" class="playground-tab" role="tab" id="logica-ts-04-decisoes-exercicio-tab-css" aria-controls="logica-ts-04-decisoes-exercicio-panel-editors" aria-selected="false" data-tab="css">CSS</button><button type="button" class="playground-tab" role="tab" id="logica-ts-04-decisoes-exercicio-tab-js" aria-controls="logica-ts-04-decisoes-exercicio-panel-editors" aria-selected="true" data-tab="js">TS</button><button type="button" class="playground-tab" role="tab" id="logica-ts-04-decisoes-exercicio-tab-preview" aria-controls="logica-ts-04-decisoes-exercicio-panel-preview" aria-selected="false" data-tab="preview">Preview</button></div><div class="playground-wrap"><div class="editor-panel" id="logica-ts-04-decisoes-exercicio-panel-editors" role="tabpanel" aria-label="Editores"><div class="editor-box" data-pane="html"><div class="label"><span id="logica-ts-04-decisoes-exercicio-label-html">HTML</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-html" aria-describedby="logica-ts-04-decisoes-exercicio-label-html">Copiar</button></div></div><div class="cm-host" data-editor="html" data-initial role="textbox" aria-label="Editor HTML" aria-multiline="true"></div></div><div class="editor-box" data-pane="css"><div class="label"><span id="logica-ts-04-decisoes-exercicio-label-css">CSS</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-css" aria-describedby="logica-ts-04-decisoes-exercicio-label-css">Copiar</button></div></div><div class="cm-host" data-editor="css" data-initial role="textbox" aria-label="Editor CSS" aria-multiline="true"></div></div><div class="editor-box" data-pane="js"><div class="label"><span id="logica-ts-04-decisoes-exercicio-label-js">TypeScript</span><div class="label-actions"><button type="button" class="pg-btn" data-action="copy-js" aria-describedby="logica-ts-04-decisoes-exercicio-label-js">Copiar</button></div></div><div class="cm-host" data-editor="js" data-initial="dHlwZSBQYXJpZGFkZSA9ICdwYXInIHwgJ2ltcGFyJzsKCmZ1bmN0aW9uIGNsYXNzaWZpY2FyTnVtZXJvKG51bWVybzogbnVtYmVyKTogUGFyaWRhZGUgewogIGlmIChudW1lcm8gJSAyID09PSAwKSB7CiAgICByZXR1cm4gJ2ltcGFyJzsgLy8gUmV2aXNlIG9zIHJldG9ybm9zIGRlIGNhZGEgY2FtaW5oby4KICB9IGVsc2UgewogICAgcmV0dXJuICdwYXInOwogIH0KfQpjb25zb2xlLmxvZygnTWV1IHRlc3RlOicsIGNsYXNzaWZpY2FyTnVtZXJvKDQpKTs=" role="textbox" aria-label="Editor TypeScript" aria-multiline="true"></div></div></div><div class="preview-panel" id="logica-ts-04-decisoes-exercicio-panel-preview" role="tabpanel" aria-label="Pré-visualização"><div class="label"><span>Pré-visualização ao vivo</span></div><iframe title="Pré-visualização do exemplo" data-preview sandbox="allow-scripts"></iframe></div></div><section class="pg-console" aria-label="Console do código"><div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">Limpar console</button></div><pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>Execute o código para ver a saída aqui.</span></pre></section><section class="pg-checks" aria-label="Resultado do exercício" aria-live="polite" aria-atomic="true"><p data-check-summary>Edite o TypeScript e clique em Verificar.</p><ul data-check-results></ul></section></div>
+<h2 id="próximo-passo">Próximo passo</h2>
+<p>Decisões escolhem caminhos; repetições executam um caminho várias vezes. Na próxima lição, vamos combinar as duas no FizzBuzz.</p></div><aside class="growth-cta" data-growth-cta data-kind="lesson" data-trail="logica-com-ts" data-order="4" data-astro-cid-53i73k7e><div class="growth-cta__grid" data-astro-cid-53i73k7e><section class="growth-cta__box" data-astro-cid-53i73k7e><h2 data-astro-cid-53i73k7e>Continue aprendendo</h2><p data-astro-cid-53i73k7e>Novos exemplos e lições toda semana no Instagram e no GitHub.</p><p class="growth-cta__links" data-astro-cid-53i73k7e><a href="https://www.instagram.com/css4html/" target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="instagram" data-astro-cid-53i73k7e>Instagram</a><a href="https://github.com/css4html" target="_blank" rel="noopener noreferrer" data-track="follow_click" data-track-label="github" data-astro-cid-53i73k7e>GitHub</a></p></section><section class="growth-cta__box growth-cta__box--consult" data-astro-cid-53i73k7e><h2 data-astro-cid-53i73k7e>Precisa de um site ou sistema?</h2><p data-astro-cid-53i73k7e>O mesmo time que escreve estas trilhas desenvolve sites, sistemas e apps sob medida.</p><a class="btn btn-primary" href="/consultoria/?utm_source=lesson" data-astro-cid-53i73k7e>Conhecer a consultoria</a></section></div></aside><script type="module">function e(e,t){try{let n=window.gtag;typeof n==`function`&&n(`event`,e,t)}catch{}}document.querySelectorAll(`[data-growth-cta]`).forEach(t=>{let{kind:n,trail:r,order:i,last:a}=t.dataset;if(`IntersectionObserver`in window){let o=new IntersectionObserver(t=>{t.some(e=>e.isIntersecting)&&(o.disconnect(),n===`lesson`?(e(`lesson_complete`,{trail:r,lesson_order:Number(i)||void 0}),a===`1`&&e(`trail_complete`,{trail:r})):e(`post_read`,{page_path:location.pathname}))});o.observe(t)}t.querySelectorAll(`[data-newsletter-form]`).forEach(r=>{r.addEventListener(`submit`,()=>{e(`newsletter_signup`,{source:n,page_path:location.pathname});let i=t.querySelector(`[data-newsletter-thanks]`);i&&setTimeout(()=>{i.hidden=!1,r.reset()},300)})})});</script><nav class="meta-row" style="margin-top:2rem;justify-content:space-between" aria-label="Navegação da trilha"><a href="/trilhas/logica-com-ts/logica-ts-03-operadores-expressoes/">← Operadores e expressões</a><a href="/trilhas/logica-com-ts/logica-ts-05-repeticao/">Repetição: tabuada e FizzBuzz →</a></nav></article></main><footer class="site-footer"><div class="container"><div class="inner"><div><p class="brand">CSS4HTML</p><p>Hub educacional de HTML, CSS, JavaScript, React e Web Components: exemplos editáveis, snippets práticos e trilhas do zero à prática.</p></div><div><h3>Aprender</h3><ul><li><a href="/trilhas/html-do-zero/">Trilha HTML</a></li><li><a href="/trilhas/css-do-zero-ao-layout/">Trilha CSS</a></li><li><a href="/trilhas/logica-com-js/">Trilha LÓGICA com JS</a></li><li><a href="/trilhas/logica-com-ts/">Trilha LÓGICA com TS</a></li><li><a href="/trilhas/javascript-do-zero/">Trilha JavaScript</a></li><li><a href="/trilhas/react-do-basico-ao-estado/">Trilha React</a></li><li><a href="/trilhas/webcomponents-com-vite/">Trilha Web Components</a></li><li><a href="/trilhas/git-na-pratica/">Trilha Git</a></li><li><a href="/exemplos/">Exemplos vivos</a></li><li><a href="/snippets/">Biblioteca de snippets</a></li><li><a href="/blog/">Blog</a></li><li><a href="/consultoria/">Consultoria</a></li></ul></div><div><h3>Projeto</h3><ul><li><a href="https://github.com/css4html" rel="noopener noreferrer">GitHub</a></li><li><a href="https://www.facebook.com/CSS4HTML" rel="noopener noreferrer">Facebook</a></li><li><a href="https://www.instagram.com/css4html/" rel="noopener noreferrer">Instagram</a></li><li><a href="/">Início</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 CSS4HTML — HTML, CSS, JS, React e Web Components de verdade.</p><p>css4html.com.br</p></div></div></footer></body></html>
