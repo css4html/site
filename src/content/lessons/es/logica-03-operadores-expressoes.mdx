@@ -1,0 +1,48 @@
+---
+title: "Operadores y expresiones"
+description: "Calcula, compara valores y combina condiciones con && y ||."
+order: 3
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { operatorsExample, operatorsStarter, operatorsExercise } from '../../../config/logic-playgrounds';
+
+Una **expresión** combina valores y operadores para producir un resultado. `3 * 10` da `30`; `30 >= 18` da `true`.
+
+| Operador | Uso | Ejemplo |
+| --- | --- | --- |
+| `+`, `-` | Sumar y restar | `10 - 3` → `7` |
+| `*`, `/` | Multiplicar y dividir | `3 * 10` → `30` |
+| `%` | Resto de la división | `7 % 2` → `1` |
+| `===`, `!==` | Igualdad y diferencia estrictas | `20 === '20'` → `false` |
+| `>`, `<`, `>=`, `<=` | Comparar valores | `18 >= 18` → `true` |
+
+Prefiere `===` a `==` al empezar: no convierte automáticamente texto en número. Con texto, `+` puede concatenar: `'2' + 3` da `'23'`.
+
+## Combinar condiciones
+
+Para booleanos, `&&` significa **Y**: ambas condiciones deben ser verdaderas. `||` significa **O**: basta una verdadera. Una regla ficticia de fiesta es: tener al menos 18 años Y (invitación O acompañante).
+
+Escribe `idade >= 18 && (temConvite || acompanhado)`. Los paréntesis aclaran la regla. `>` excluye 18; `>=` lo incluye.
+
+<aside class="tip tip-logic"><strong>TIP DE LÓGICA</strong> — Explica la regla con palabras antes de juntar operadores.</aside>
+
+## Experimenta
+
+Cambia cantidad, precio y saldo. Intenta predecir la salida antes de mirar la consola.
+
+<Playground id="logica-03-operadores-expressoes-exemplo" mode="logic" html="" css="" js={operatorsExample} />
+
+## Ejercicio: aplica la regla de la fiesta
+
+Completa `podeEntrar(idade, temConvite, acompanhado)` (puede entrar, edad, tiene invitación, está acompañado). Devuelve un booleano: **18 años o más** Y (**invitación O acompañante**).
+
+El código inicial excluye a quien tiene exactamente 18 años y olvida al acompañante. Corrige la expresión después de `return`, manteniendo el nombre. Usa `>=`, `&&`, `||` y paréntesis. Pulsa **Verificar**; los resultados están en portugués.
+
+<Playground id="logica-03-operadores-expressoes-exercicio" mode="logic" html="" css="" js={operatorsStarter} exercise={operatorsExercise} />
+
+## Próximo paso
+
+Las expresiones booleanas serán la base de `if/else`. Las lecciones 4–10 están en preparación; vuelve a la ruta para ver el plan completo.

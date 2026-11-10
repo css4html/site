@@ -1,0 +1,48 @@
+---
+title: "Operators and expressions"
+description: "Calculate, compare values and combine conditions with && and ||."
+order: 3
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { operatorsExample, operatorsStarter, operatorsExercise } from '../../../config/logic-playgrounds';
+
+An **expression** combines values and operators to produce a result. `3 * 10` gives `30`; `30 >= 18` gives `true`.
+
+| Operator | Purpose | Example |
+| --- | --- | --- |
+| `+`, `-` | Add and subtract | `10 - 3` → `7` |
+| `*`, `/` | Multiply and divide | `3 * 10` → `30` |
+| `%` | Division remainder | `7 % 2` → `1` |
+| `===`, `!==` | Strict equality and inequality | `20 === '20'` → `false` |
+| `>`, `<`, `>=`, `<=` | Compare values | `18 >= 18` → `true` |
+
+Prefer `===` to `==` as you start: strict comparison does not automatically convert text to numbers. With text, `+` may concatenate: `'2' + 3` gives `'23'`.
+
+## Combine conditions
+
+For booleans, `&&` means **AND**: both must be true. `||` means **OR**: at least one must be true. A fictional party rule is: at least 18 years old AND (has an invitation OR is accompanied).
+
+Write `idade >= 18 && (temConvite || acompanhado)`. Parentheses make the rule clear. `>` excludes 18; `>=` includes it.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — State the rule in words before combining operators.</aside>
+
+## Try it
+
+Change quantity, price and balance. Predict the console output before reading it.
+
+<Playground id="logica-03-operadores-expressoes-exemplo" mode="logic" html="" css="" js={operatorsExample} />
+
+## Exercise: apply the party rule
+
+Complete `podeEntrar(idade, temConvite, acompanhado)` (may enter, age, has invitation, is accompanied). Return a boolean: age **18 or more** AND (**invitation OR companion**).
+
+The starter excludes exactly 18 and ignores the companion. Fix the expression after `return`, keeping the name. Use `>=`, `&&`, `||` and parentheses, then click **Verificar**. Feedback is in Portuguese.
+
+<Playground id="logica-03-operadores-expressoes-exercicio" mode="logic" html="" css="" js={operatorsStarter} exercise={operatorsExercise} />
+
+## Next step
+
+Boolean expressions will power `if/else` decisions. Lessons 4–10 are coming soon; return to the trail to see the full plan.

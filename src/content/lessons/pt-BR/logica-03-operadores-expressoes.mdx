@@ -1,0 +1,50 @@
+---
+title: "Operadores e expressões"
+description: "Faça contas, compare valores e combine condições com && e ||."
+order: 3
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { operatorsExample, operatorsStarter, operatorsExercise } from '../../../config/logic-playgrounds';
+
+Uma **expressão** combina valores e operadores para produzir um resultado. `3 * 10` resulta em `30`; `30 >= 18` resulta em `true`.
+
+## Contas e comparações
+
+| Operador | Uso | Exemplo |
+| --- | --- | --- |
+| `+`, `-` | Somar e subtrair | `10 - 3` → `7` |
+| `*`, `/` | Multiplicar e dividir | `3 * 10` → `30` |
+| `%` | Resto da divisão | `7 % 2` → `1` |
+| `===`, `!==` | Igualdade e diferença estritas | `20 === '20'` → `false` |
+| `>`, `<`, `>=`, `<=` | Comparar tamanhos | `18 >= 18` → `true` |
+
+Prefira `===` a `==` neste começo: a comparação estrita não transforma automaticamente texto em número. Com texto, `+` pode concatenar: `'2' + 3` vira `'23'`, não `5`.
+
+## Combinar condições
+
+Para condições booleanas, `&&` significa **E**: as duas precisam ser verdadeiras. `||` significa **OU**: basta uma ser verdadeira. Por exemplo, a regra fictícia de uma festa pode ser: ter pelo menos 18 anos **E** (ter convite **OU** estar acompanhado).
+
+Use parênteses para deixar a regra explícita: `idade >= 18 && (temConvite || acompanhado)`. O limite importa: `>` exclui 18, enquanto `>=` inclui.
+
+<aside class="tip tip-logic"><strong>DICA LÓGICA</strong> — Traduza a regra em uma frase antes de juntar os operadores.</aside>
+
+## Experimente
+
+Altere quantidade, preço e saldo. Tente prever as saídas antes de olhar o Console.
+
+<Playground id="logica-03-operadores-expressoes-exemplo" mode="logic" html="" css="" js={operatorsExample} />
+
+## Seu exercício: aplique a regra da festa
+
+Complete `podeEntrar(idade, temConvite, acompanhado)` para devolver um booleano. A pessoa precisa ter **18 anos ou mais** e **convite ou acompanhante**. Esses dois últimos parâmetros já são booleanos.
+
+O código inicial esquece o acompanhante e exclui quem tem exatamente 18 anos. Corrija a expressão depois de `return`, mantendo o nome da função. Use `>=`, `&&`, `||` e parênteses. Clique em **Verificar** para testar os limites e as combinações.
+
+<Playground id="logica-03-operadores-expressoes-exercicio" mode="logic" html="" css="" js={operatorsStarter} exercise={operatorsExercise} />
+
+## Próximo passo
+
+Expressões booleanas serão a base das decisões com `if/else`. As lições 4 a 10 ainda estão em preparação; você pode voltar à trilha para conferir o plano completo.

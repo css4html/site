@@ -24,6 +24,13 @@ const trails = [
     count: lessons.filter((l) => l.data.trail === 'css-do-zero-ao-layout').length,
   },
   {
+    id: 'logica-com-js',
+    href: lp('/trilhas/logica-com-js/'),
+    title: t('trail.logic.title'),
+    description: t('trail.logic.desc'),
+    count: lessons.filter((l) => l.data.trail === 'logica-com-js').length,
+  },
+  {
     id: 'javascript-do-zero',
     href: lp('/trilhas/javascript-do-zero/'),
     title: t('trail.js.title'),
@@ -62,7 +69,7 @@ const trails = [
     <div class="card-grid">
       {trails.map((trail) => (
         <article class="card">
-          <span class="badge">{trail.count} {t('trails.lessons')}</span>
+          <span class:list={["badge", { "track-logic": trail.id === "logica-com-js" }]}>{trail.count} {t('trails.lessons')}</span>
           <h2 style="margin:0.5rem 0;font-size:1.25rem">
             <a href={trail.href}>{trail.title}</a>
           </h2>

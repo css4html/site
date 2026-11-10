@@ -1,0 +1,48 @@
+---
+title: "Variables and types"
+description: "Store values with let and const; recognize numbers, strings and booleans."
+order: 2
+trail: "logica-com-js"
+track: "js"
+---
+
+import Playground from '../../../components/Playground.astro';
+import { variablesExample, variablesStarter, variablesExercise } from '../../../config/logic-playgrounds';
+
+A **variable** gives a value a meaningful name, like a label. `idade` means age in the examples.
+
+## let or const?
+
+- Use `const` if you will not reassign the value.
+- Use `let` if the value needs to change.
+- Update an existing variable with `idade = 20`, without another `let`.
+
+`=` assigns a value; it does not compare values. Reassigning a `const` causes an error. Try it, then click **Resetar** (Reset).
+
+| Type | Example | Meaning |
+| --- | --- | --- |
+| `number` | `20`, `7.5` | A number, possibly with a decimal part |
+| `string` | `'Ana'`, `'20'` | Text in quotes |
+| `boolean` | `true`, `false` | True or false, without quotes |
+
+`20` and `'20'` are different. `typeof 20` gives the string `'number'`.
+
+<aside class="tip tip-logic"><strong>LOGIC TIP</strong> — Prefer names that explain the value rather than single-letter labels.</aside>
+
+## Try it
+
+Change the values and compare the two console lines. Use a dot for decimal numbers.
+
+<Playground id="logica-02-variaveis-tipos-exemplo" mode="logic" html="" css="" js={variablesExample} />
+
+## Exercise: discover the type
+
+`tipoDoValor(valor)` means type of a value. It currently always returns `'number'`. Replace the fixed value assigned to `tipo` with **`typeof valor`**.
+
+Keep the function name and `return tipo`. Do not put quotes around `typeof valor`: you want the operator, not literal text. Click **Verificar** to check numbers, text and both boolean values. Feedback is in Portuguese.
+
+<Playground id="logica-02-variaveis-tipos-exercicio" mode="logic" html="" css="" js={variablesStarter} exercise={variablesExercise} />
+
+## Check your understanding
+
+Predict the types of `false`, `'false'` and `0` before running the code. Other types exist; we will cover them later.
