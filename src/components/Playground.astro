@@ -11,6 +11,9 @@ interface Props {
   exercise?: Exercise;
   id?: string;
   labels?: {
+    consoleLabel?: string;
+    clearConsole?: string;
+    consoleEmpty?: string;
     actions?: string;
     reset?: string;
     resetTitle?: string;
@@ -43,6 +46,9 @@ const exercise = Astro.props.exercise;
 const showConsole = Astro.props.showConsole ?? (Boolean(js) || isReact || isLogic);
 const showJs = Astro.props.showJs ?? (Boolean(js) || isReact || isLogic);
 const L = {
+  consoleLabel: labels.consoleLabel ?? 'Console do código',
+  clearConsole: labels.clearConsole ?? 'Limpar console',
+  consoleEmpty: labels.consoleEmpty ?? 'Execute o código para ver a saída aqui.',
   actions: labels.actions ?? 'Ações do playground',
   reset: labels.reset ?? 'Resetar',
   resetTitle: labels.resetTitle ?? 'Restaurar código original',
@@ -208,9 +214,9 @@ const jsB64 = Buffer.from(js, 'utf8').toString('base64');
     </div>
   </div>
   {showConsole && (
-    <section class="pg-console" aria-label="Console do código">
-      <div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">Limpar console</button></div>
-      <pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>Execute o código para ver a saída aqui.</span></pre>
+    <section class="pg-console" aria-label={L.consoleLabel}>
+      <div class="label"><strong>Console</strong><button type="button" class="pg-btn" data-action="clear-console">{L.clearConsole}</button></div>
+      <pre data-console role="log" aria-live="polite" aria-relevant="additions"><span data-console-empty>{L.consoleEmpty}</span></pre>
     </section>
   )}
   {exercise && (
@@ -444,6 +450,7 @@ try {
     const sharedTheme = [
       basicSetup,
       oneDark,
+      ...(isLogic ? [EditorView.lineWrapping] : []),
       EditorView.theme({
         '&': { fontSize: '13px' },
         '.cm-scroller': { overflow: 'auto', maxHeight: '280px' },

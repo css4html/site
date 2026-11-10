@@ -5,6 +5,9 @@ export function playgroundLabels(locale: Locale, mode: 'html' | 'react' = 'html'
   const t = useTranslations(locale);
   const isReact = mode === 'react';
   return {
+    consoleLabel: t('pg.consoleLabel'),
+    clearConsole: t('pg.clearConsole'),
+    consoleEmpty: t('pg.consoleEmpty'),
     actions: t('pg.actions'),
     reset: t('pg.reset'),
     resetTitle: t('pg.resetTitle'),
