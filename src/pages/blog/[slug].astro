@@ -31,7 +31,7 @@ const snippets = await getSnippets(locale);
 const exTitle = Object.fromEntries(examples.map((e) => [e.id, e.data.title]));
 const snTitle = Object.fromEntries(snippets.map((s) => [s.id, s.data.title]));
 ---
-<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale} image={post.data.cover}>
+<BaseLayout title={post.data.title} description={post.data.description} current="blog" locale={locale} image={post.data.cover} published={post.data.pubDate}>
   <article class="container page-header">
     <p><a href={lp('/blog/')}>{t('blog.back')}</a></p>
     <h1>{post.data.title}</h1>
