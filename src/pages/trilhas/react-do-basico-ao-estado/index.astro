@@ -40,7 +40,7 @@ const lessons = (await getLessons(locale))
     </div>
     <p>
       {lessons[0] && (
-        <a class="btn btn-primary" href={lp(`/trilhas/react-do-basico-ao-estado/${entrySlug(lessons[0])}/`)}>
+        <a class="btn btn-primary" data-track="trail_start" data-track-label="react-do-basico-ao-estado" href={lp(`/trilhas/react-do-basico-ao-estado/${entrySlug(lessons[0])}/`)}>
           {t('trails.startLesson1')}
         </a>
       )}

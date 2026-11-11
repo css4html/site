@@ -12,6 +12,8 @@ interface Props {
   locale?: Locale;
   /** Imagem de compartilhamento (caminho relativo ou URL absoluta). Padrão: logo-fanpage.png */
   image?: string;
+  /** Data de publicação (posts do blog). Ativa o JSON-LD `Article`. */
+  published?: Date;
 }
 
 const locale = Astro.props.locale ?? getLocaleFromUrl(Astro.url);
@@ -21,11 +23,86 @@ const {
   description = t('home.desc'),
   current = '',
   image,
+  published,
 } = Astro.props;
 const ogImage = image
   ? new URL(image, Astro.site).href
   : 'https://css4html.com.br/logo-fanpage.png';
 const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// ---- Dados estruturados por página (BreadcrumbList + Article/LearningResource) ----
+const SECTION_KEYS: Record<string, string> = {
+  trilhas: 'nav.trails',
+  blog: 'blog.title',
+  exemplos: 'nav.examples',
+  snippets: 'nav.snippets',
+  consultoria: 'nav.consultoria',
+};
+const TRAIL_KEYS: Record<string, string> = {
+  'html-do-zero': 'trail.html.title',
+  'css-do-zero-ao-layout': 'trail.css.title',
+  'javascript-do-zero': 'trail.js.title',
+  'react-do-basico-ao-estado': 'trail.react.title',
+  'webcomponents-com-vite': 'trail.wc.title',
+  'git-na-pratica': 'trail.git.title',
+  'logica-com-js': 'trail.logic.title',
+  'logica-com-ts': 'trail.logicTs.title',
+};
+const tk = t as (key: string) => string;
+const segments = Astro.url.pathname.split('/').filter(Boolean);
+const localePrefix = segments[0] === 'en' || segments[0] === 'es' ? segments.shift()! : '';
+const base = localePrefix ? `/${localePrefix}/` : '/';
+const crumbs: { name: string; url: string }[] = [{ name: tk('nav.home'), url: new URL(base, Astro.site).href }];
+segments.forEach((seg, i) => {
+  const isLast = i === segments.length - 1;
+  const key = i === 0 ? SECTION_KEYS[seg] : i === 1 && segments[0] === 'trilhas' ? TRAIL_KEYS[seg] : undefined;
+  const name = isLast ? title.replace(/ · CSS4HTML$/, '') : key ? tk(key) : seg;
+  crumbs.push({ name, url: new URL(`${base}${segments.slice(0, i + 1).join('/')}/`, Astro.site).href });
+});
+
+const isLesson = segments[0] === 'trilhas' && segments.length === 3;
+// Lições com o mesmo título em trilhas diferentes ("Funções", "O que é um algoritmo"...)
+// ganham o nome da trilha no <title> para não competirem entre si no Google.
+const lessonTrailName = isLesson && TRAIL_KEYS[segments[1]] ? tk(TRAIL_KEYS[segments[1]]) : '';
+const docTitle = lessonTrailName && !fullTitle.includes(lessonTrailName)
+  ? fullTitle.replace(/ · CSS4HTML$/, ` — ${lessonTrailName} · CSS4HTML`)
+  : fullTitle;
+const pageSchemas: Record<string, unknown>[] = [];
+if (crumbs.length > 1) {
+  pageSchemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: c.url })),
+  });
+}
+if (published || isLesson) {
+  const trailKey = isLesson ? TRAIL_KEYS[segments[1]] : undefined;
+  pageSchemas.push({
+    '@context': 'https://schema.org',
+    '@type': published ? 'Article' : 'LearningResource',
+    headline: title,
+    name: title,
+    description,
+    image: ogImage,
+    url: canonical,
+    inLanguage: localeHtmlLang[locale],
+    mainEntityOfPage: canonical,
+    ...(published && { datePublished: published.toISOString() }),
+    ...(isLesson && {
+      learningResourceType: 'Lesson',
+      educationalLevel: 'Beginner',
+      isAccessibleForFree: true,
+      ...(trailKey && { isPartOf: { '@type': 'Course', name: tk(trailKey), url: crumbs[2]?.url } }),
+    }),
+    author: { '@type': 'Organization', name: 'CSS4HTML', url: 'https://css4html.com.br/' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CSS4HTML',
+      logo: { '@type': 'ImageObject', url: 'https://css4html.com.br/logo-fanpage.png' },
+    },
+  });
+}
 ---
 <!doctype html>
 <html lang={localeHtmlLang[locale]}>
@@ -34,7 +111,7 @@ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title" content={docTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     {image && <meta property="og:image:width" content="1200" />}
@@ -42,9 +119,9 @@ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
     {image && <meta name="twitter:card" content="summary_large_image" />}
     {image && <meta name="twitter:image" content={ogImage} />}
     <meta property="og:url" content={Astro.url.href} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <title>{fullTitle}</title>
+    <title>{docTitle}</title>
     <script is:inline>
       (function () {
         try {
@@ -78,6 +155,13 @@ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
           if (!target || !target.closest) return;
           var path = location.pathname;
 
+          // Executar / verificar código no playground (trilhas de lógica)
+          var runBtn = target.closest('[data-action="run"], [data-action="check"]');
+          if (runBtn) {
+            send(runBtn.getAttribute('data-action') === 'run' ? 'example_run' : 'exercise_check', { page_path: path });
+            return;
+          }
+
           // Copiar snippet
           var copyBtn = target.closest('[data-copy]');
           if (copyBtn) { send('snippet_copy', { page_path: path }); return; }
@@ -109,6 +193,14 @@ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
             send('outbound_click', { link_domain: url.host, link_url: url.href, page_path: path });
           }
         }, { capture: true });
+
+        // Primeira edição de código no playground (uma vez por página): mostra quem "pôs a mão no código"
+        var edited = false;
+        document.addEventListener('input', function (ev) {
+          if (edited || !ev.target || !ev.target.closest || !ev.target.closest('.cm-editor')) return;
+          edited = true;
+          send('playground_edit', { page_path: location.pathname });
+        }, { capture: true });
       })();
     </script>
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -125,6 +217,7 @@ const fullTitle = title.includes('CSS4HTML') ? title : `${title} · CSS4HTML`;
         sameAs: ['https://www.instagram.com/css4html/', 'https://www.facebook.com/CSS4HTML', 'https://github.com/css4html'],
       },
     })} />
+    {pageSchemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   </head>
   <body>
