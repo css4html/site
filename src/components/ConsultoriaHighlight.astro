@@ -26,7 +26,7 @@ const lp = (p: string) => localizePath(locale, p);
     <ul>
       {consultoriaClients.map((client) => (
         <li>
-          <a href={client.href} target="_blank" rel="noopener noreferrer">
+          <a href={client.href} target="_blank" rel="noopener">
             <img src={client.icon} alt="" width="24" height="24" />
             <span>
               <strong>{client.name}</strong>
