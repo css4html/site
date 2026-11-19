@@ -70,7 +70,7 @@ const pt = {
   'footer.copy': 'HTML, CSS, JS, React e Web Components de verdade.',
 
   // Home
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React e Web Components na prática',
+  'home.title': 'CSS4HTML - HTML, CSS, JavaScript, React e Web Components na prática',
   'home.desc':
     'Hub de aprendizado de HTML, CSS, JavaScript, React e Web Components: exemplos vivos, snippets, trilhas e blog.',
   'home.badge': 'Aprendizado prático',
@@ -80,7 +80,7 @@ const pt = {
   'home.ctaTrails': 'Ver trilhas',
   'home.ctaExamples': 'Abrir exemplos',
   'home.threeTrails': 'Oito trilhas, um hub',
-  'home.threeTrailsDesc': 'Escolha por onde começar — ou combine as oito.',
+  'home.threeTrailsDesc': 'Escolha por onde começar - ou combine as oito.',
   'home.lessonsCount': 'lições',
   'home.htmlTitle': 'HTML do zero à página',
   'home.htmlDesc':
@@ -93,24 +93,24 @@ const pt = {
   'home.jsDesc': 'Variáveis, funções, eventos, arrays e um primeiro contato com fetch e o DOM.',
   'home.jsCta': 'Começar JS',
   'home.reactTitle': 'React do básico ao estado',
-  'home.reactDesc': 'Componentes, hooks, React Query e Zustand — com playground TSX.',
+  'home.reactDesc': 'Componentes, hooks, React Query e Zustand - com playground TSX.',
   'home.reactCta': 'Começar React',
   'home.wcTitle': 'Web Components com Vite',
   'home.wcDesc': 'Custom Elements agnósticos, Shadow DOM, empacote com Vite e consuma em React ou Vue.',
   'home.wcCta': 'Começar WC',
   'home.gitTitle': 'Git na prática',
-  'home.gitDesc': 'Do primeiro commit ao pull request e uma página no GitHub Pages — sem rebase.',
+  'home.gitDesc': 'Do primeiro commit ao pull request e uma página no GitHub Pages - sem rebase.',
   'home.gitCta': 'Começar Git',
   'home.how': 'Como estudar',
   'home.howDesc': 'Vários caminhos, o mesmo objetivo: entender a web na prática.',
   'home.step1Title': 'Siga uma trilha',
-  'home.step1': '— lições curtas ligadas a exemplos e snippets.',
+  'home.step1': '- lições curtas ligadas a exemplos e snippets.',
   'home.step1Link': 'Todas as trilhas →',
   'home.step2Title': 'Quebre coisas no playground',
-  'home.step2': '— HTML + CSS (+ JS/TSX) editáveis com pré-visualização ao vivo.',
+  'home.step2': '- HTML + CSS (+ JS/TSX) editáveis com pré-visualização ao vivo.',
   'home.step2Link': 'Ver exemplos →',
   'home.step3Title': 'Monte seu kit',
-  'home.step3': '— filtre snippets por trilha e tags.',
+  'home.step3': '- filtre snippets por trilha e tags.',
   'home.step3Link': 'Biblioteca de snippets →',
   'home.featuredExamples': 'Exemplos em destaque',
   'home.featuredExamplesDesc': 'Abra, edite e veja o resultado na hora.',
@@ -254,7 +254,7 @@ const pt = {
 
   // Consultoria
   'nav.consultoria': 'Consultoria',
-  'consultoria.title': 'Consultoria CSS4HTML — sites, sistemas, apps e setup de IA',
+  'consultoria.title': 'Consultoria CSS4HTML - sites, sistemas, apps e setup de IA',
   'consultoria.desc':
     'Desenvolvemos sites, sistemas e aplicativos sob medida, e também pacotes de setup de IA da ideia à produção: ambiente com agentes de programação, deploy, domínio no Registro.br e o link final no ar.',
   'consultoria.kicker': 'CONSULTORIA CSS4HTML',
@@ -316,7 +316,7 @@ const pt = {
     'Sistema online para consultórios odontológicos: agenda, prontuário, odontograma e confirmação de consultas por WhatsApp.',
   'consultoria.clientVisit': 'Visitar o site',
   'consultoria.iaKicker': '02 / DA IDEIA À PRODUÇÃO',
-  'consultoria.iaTitle': 'Pacotes de setup de IA — da ideia à produção',
+  'consultoria.iaTitle': 'Pacotes de setup de IA - da ideia à produção',
   'consultoria.iaLead':
     'Do ambiente de desenvolvimento ao domínio no ar: configuramos o projeto com agentes de programação e entregamos o link final em produção.',
   'consultoria.iaItem1Title': 'Ambiente com agentes de programação',
@@ -421,7 +421,7 @@ const en: Record<UiKey, string> = {
   'footer.home': 'Home',
   'footer.copy': 'Real HTML, CSS, JS, React, and Web Components.',
 
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React, and Web Components in practice',
+  'home.title': 'CSS4HTML - HTML, CSS, JavaScript, React, and Web Components in practice',
   'home.desc':
     
     'Learning hub for HTML, CSS, JavaScript, React, and Web Components: live examples, snippets, trails, and blog.',
@@ -433,7 +433,7 @@ const en: Record<UiKey, string> = {
   'home.ctaTrails': 'View trails',
   'home.ctaExamples': 'Open examples',
   'home.threeTrails': 'Eight trails, one hub',
-  'home.threeTrailsDesc': 'Pick where to start — or combine all eight.',
+  'home.threeTrailsDesc': 'Pick where to start - or combine all eight.',
   'home.lessonsCount': 'lessons',
   'home.htmlTitle': 'HTML from scratch to a page',
   'home.htmlDesc':
@@ -446,24 +446,24 @@ const en: Record<UiKey, string> = {
   'home.jsDesc': 'Variables, functions, events, arrays, and a first look at fetch and the DOM.',
   'home.jsCta': 'Start JS',
   'home.reactTitle': 'React from basics to state',
-  'home.reactDesc': 'Components, hooks, React Query, and Zustand — with a TSX playground.',
+  'home.reactDesc': 'Components, hooks, React Query, and Zustand - with a TSX playground.',
   'home.reactCta': 'Start React',
   'home.wcTitle': 'Web Components with Vite',
   'home.wcDesc': 'Framework-agnostic Custom Elements, Shadow DOM, package with Vite, consume in React or Vue.',
   'home.wcCta': 'Start WC',
   'home.gitTitle': 'Git in practice',
-  'home.gitDesc': 'From the first commit to a pull request and a page on GitHub Pages — no rebase.',
+  'home.gitDesc': 'From the first commit to a pull request and a page on GitHub Pages - no rebase.',
   'home.gitCta': 'Start Git',
   'home.how': 'How to study',
   'home.howDesc': 'Several paths, one goal: understand the web in practice.',
   'home.step1Title': 'Follow a trail',
-  'home.step1': '— short lessons linked to examples and snippets.',
+  'home.step1': '- short lessons linked to examples and snippets.',
   'home.step1Link': 'All trails →',
   'home.step2Title': 'Break things in the playground',
-  'home.step2': '— editable HTML + CSS (+ JS/TSX) with live preview.',
+  'home.step2': '- editable HTML + CSS (+ JS/TSX) with live preview.',
   'home.step2Link': 'See examples →',
   'home.step3Title': 'Build your kit',
-  'home.step3': '— filter snippets by trail and tags.',
+  'home.step3': '- filter snippets by trail and tags.',
   'home.step3Link': 'Snippet library →',
   'home.featuredExamples': 'Featured examples',
   'home.featuredExamplesDesc': 'Open, edit, and see the result instantly.',
@@ -600,7 +600,7 @@ const en: Record<UiKey, string> = {
 
   
   'nav.consultoria': 'Consulting',
-  'consultoria.title': 'CSS4HTML Consulting — sites, systems, apps, and AI setup',
+  'consultoria.title': 'CSS4HTML Consulting - sites, systems, apps, and AI setup',
   'consultoria.desc':
     'We build custom websites, systems, and apps, plus AI setup packages from idea to production: a development environment with coding agents, deploy, domain setup at Registro.br, and the live project URL.',
   'consultoria.kicker': 'CSS4HTML CONSULTING',
@@ -662,7 +662,7 @@ const en: Record<UiKey, string> = {
     'Online system for dental clinics: scheduling, patient records, odontogram, and appointment confirmation via WhatsApp.',
   'consultoria.clientVisit': 'Visit the site',
   'consultoria.iaKicker': '02 / FROM IDEA TO PRODUCTION',
-  'consultoria.iaTitle': 'AI setup packages — from idea to production',
+  'consultoria.iaTitle': 'AI setup packages - from idea to production',
   'consultoria.iaLead':
     'From the development environment to a live domain: we set up the project with coding agents and deliver the final production URL.',
   'consultoria.iaItem1Title': 'Environment with coding agents',
@@ -765,7 +765,7 @@ const es: Record<UiKey, string> = {
   'footer.home': 'Inicio',
   'footer.copy': 'HTML, CSS, JS, React y Web Components de verdad.',
 
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React y Web Components en la práctica',
+  'home.title': 'CSS4HTML - HTML, CSS, JavaScript, React y Web Components en la práctica',
   'home.desc':
     
     'Hub de aprendizaje de HTML, CSS, JavaScript, React y Web Components: ejemplos vivos, snippets, rutas y blog.',
@@ -777,7 +777,7 @@ const es: Record<UiKey, string> = {
   'home.ctaTrails': 'Ver rutas',
   'home.ctaExamples': 'Abrir ejemplos',
   'home.threeTrails': 'Ocho rutas, un hub',
-  'home.threeTrailsDesc': 'Elige por dónde empezar — o combina las ocho.',
+  'home.threeTrailsDesc': 'Elige por dónde empezar - o combina las ocho.',
   'home.lessonsCount': 'lecciones',
   'home.htmlTitle': 'HTML de cero a una página',
   'home.htmlDesc':
@@ -790,24 +790,24 @@ const es: Record<UiKey, string> = {
   'home.jsDesc': 'Variables, funciones, eventos, arrays y un primer contacto con fetch y el DOM.',
   'home.jsCta': 'Empezar JS',
   'home.reactTitle': 'React de lo básico al estado',
-  'home.reactDesc': 'Componentes, hooks, React Query y Zustand — con playground TSX.',
+  'home.reactDesc': 'Componentes, hooks, React Query y Zustand - con playground TSX.',
   'home.reactCta': 'Empezar React',
   'home.wcTitle': 'Web Components con Vite',
   'home.wcDesc': 'Custom Elements agnósticos, Shadow DOM, empaqueta con Vite y consume en React o Vue.',
   'home.wcCta': 'Empezar WC',
   'home.gitTitle': 'Git en la práctica',
-  'home.gitDesc': 'Del primer commit al pull request y una página en GitHub Pages — sin rebase.',
+  'home.gitDesc': 'Del primer commit al pull request y una página en GitHub Pages - sin rebase.',
   'home.gitCta': 'Empezar Git',
   'home.how': 'Cómo estudiar',
   'home.howDesc': 'Varios caminos, el mismo objetivo: entender la web en la práctica.',
   'home.step1Title': 'Sigue una ruta',
-  'home.step1': '— lecciones cortas ligadas a ejemplos y snippets.',
+  'home.step1': '- lecciones cortas ligadas a ejemplos y snippets.',
   'home.step1Link': 'Todas las rutas →',
   'home.step2Title': 'Rompe cosas en el playground',
-  'home.step2': '— HTML + CSS (+ JS/TSX) editables con vista previa en vivo.',
+  'home.step2': '- HTML + CSS (+ JS/TSX) editables con vista previa en vivo.',
   'home.step2Link': 'Ver ejemplos →',
   'home.step3Title': 'Arma tu kit',
-  'home.step3': '— filtra snippets por ruta y etiquetas.',
+  'home.step3': '- filtra snippets por ruta y etiquetas.',
   'home.step3Link': 'Biblioteca de snippets →',
   'home.featuredExamples': 'Ejemplos destacados',
   'home.featuredExamplesDesc': 'Abre, edita y ve el resultado al instante.',
@@ -944,7 +944,7 @@ const es: Record<UiKey, string> = {
 
   
   'nav.consultoria': 'Consultoría',
-  'consultoria.title': 'Consultoría CSS4HTML — sitios, sistemas, apps y setup de IA',
+  'consultoria.title': 'Consultoría CSS4HTML - sitios, sistemas, apps y setup de IA',
   'consultoria.desc':
     'Desarrollamos sitios, sistemas y aplicaciones a medida, y también paquetes de setup de IA de la idea a producción: entorno con agentes de programación, deploy, dominio en Registro.br y el enlace final en el aire.',
   'consultoria.kicker': 'CONSULTORÍA CSS4HTML',
@@ -1006,7 +1006,7 @@ const es: Record<UiKey, string> = {
     'Sistema online para consultorios odontológicos: agenda, historial clínico, odontograma y confirmación de consultas por WhatsApp.',
   'consultoria.clientVisit': 'Visitar el sitio',
   'consultoria.iaKicker': '02 / DE LA IDEA A PRODUCCIÓN',
-  'consultoria.iaTitle': 'Paquetes de setup de IA — de la idea a producción',
+  'consultoria.iaTitle': 'Paquetes de setup de IA - de la idea a producción',
   'consultoria.iaLead':
     'Del entorno de desarrollo al dominio en el aire: configuramos el proyecto con agentes de programación y entregamos el enlace final en producción.',
   'consultoria.iaItem1Title': 'Entorno con agentes de programación',
