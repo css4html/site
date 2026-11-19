@@ -341,7 +341,7 @@ const pt = {
   'cta.followTitle': 'Continue aprendendo',
   'cta.followLead': 'Novos exemplos e lições toda semana no Instagram e no GitHub.',
   'cta.consultTitle': 'Precisa de um site ou sistema?',
-  'cta.consultLead': 'Desenvolvemos sites, sistemas e apps sob medida. Com setup de IA, aceleramos sua ideia à produção.',
+  'cta.consultLead': 'Desenvolvemos sites, sistemas e apps sob medida. Com setup de IA, aceleramos sua ideia até a produção.',
   'cta.consultButton': 'Conhecer a consultoria',
   'cta.trailDone': 'Você concluiu a trilha! 🎉',
 
