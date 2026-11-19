@@ -122,8 +122,6 @@ const pt = {
   'home.allPosts': 'Todos os posts →',
   'home.consultKicker': 'CONSULTORIA',
   'home.consultTitle': 'Consultoria CSS4HTML',
-  'home.consultLead':
-    'O mesmo time que ensina nas trilhas desenvolve sites, sistemas e apps sob medida - com código limpo, performance e manutenção contínua.',
   'home.consultIaNote':
     'Também oferecemos pacotes de setup de IA, da ideia à produção: ambiente com agentes de programação, deploy, domínio no Registro.br e o link final no ar.',
   'home.consultCtaPage': 'Conhecer a consultoria',
@@ -303,7 +301,7 @@ const pt = {
   'consultoria.check1': 'código limpo e documentado',
   'consultoria.check2': 'tecnologia moderna',
   'consultoria.check3': 'comunicação clara do começo ao fim',
-  'consultoria.check4': 'o mesmo time que produz o conteúdo e as trilhas do site',
+  'consultoria.check4': 'do ambiente com IA ao link final em produção',
   'consultoria.stackLabel': 'NOSSA STACK',
   'consultoria.finalTitle': 'Vamos tirar seu projeto do papel?',
   'consultoria.finalLead': 'Conte sua ideia e a gente responde pelo WhatsApp.',
@@ -343,7 +341,7 @@ const pt = {
   'cta.followTitle': 'Continue aprendendo',
   'cta.followLead': 'Novos exemplos e lições toda semana no Instagram e no GitHub.',
   'cta.consultTitle': 'Precisa de um site ou sistema?',
-  'cta.consultLead': 'O mesmo time que escreve estas trilhas desenvolve sites, sistemas e apps sob medida.',
+  'cta.consultLead': 'Desenvolvemos sites, sistemas e apps sob medida, com setup de IA da ideia à produção.',
   'cta.consultButton': 'Conhecer a consultoria',
   'cta.trailDone': 'Você concluiu a trilha! 🎉',
 
@@ -475,8 +473,6 @@ const en: Record<UiKey, string> = {
   'home.allPosts': 'All posts →',
   'home.consultKicker': 'CONSULTING',
   'home.consultTitle': 'CSS4HTML consulting',
-  'home.consultLead':
-    'The same team that teaches the trails builds custom websites, systems, and apps - with clean code, performance, and ongoing maintenance.',
   'home.consultIaNote':
     'We also offer AI setup packages, from idea to production: a development environment with coding agents, deploy, domain setup at Registro.br, and the live project URL.',
   'home.consultCtaPage': 'See our consulting',
@@ -649,7 +645,7 @@ const en: Record<UiKey, string> = {
   'consultoria.check1': 'clean, documented code',
   'consultoria.check2': 'modern technology',
   'consultoria.check3': 'clear communication from start to finish',
-  'consultoria.check4': 'the same team that creates the site content and trails',
+  'consultoria.check4': 'from the AI-ready environment to the live production link',
   'consultoria.stackLabel': 'OUR STACK',
   'consultoria.finalTitle': 'Ready to get your project off the ground?',
   'consultoria.finalLead': 'Tell us your idea and we reply on WhatsApp.',
@@ -689,7 +685,7 @@ const en: Record<UiKey, string> = {
   'cta.followTitle': 'Keep learning',
   'cta.followLead': 'New examples and lessons every week on Instagram and GitHub.',
   'cta.consultTitle': 'Need a website or a system?',
-  'cta.consultLead': 'The same team that writes these tracks builds custom websites, systems and apps.',
+  'cta.consultLead': 'We build custom websites, systems and apps, with AI setup from idea to production.',
   'cta.consultButton': 'See our consulting',
   'cta.trailDone': 'You finished the track! 🎉',
 
@@ -819,8 +815,6 @@ const es: Record<UiKey, string> = {
   'home.allPosts': 'Todos los posts →',
   'home.consultKicker': 'CONSULTORÍA',
   'home.consultTitle': 'Consultoría CSS4HTML',
-  'home.consultLead':
-    'El mismo equipo que enseña en las rutas desarrolla sitios, sistemas y apps a medida - con código limpio, rendimiento y mantenimiento continuo.',
   'home.consultIaNote':
     'También ofrecemos paquetes de setup de IA, de la idea a producción: entorno con agentes de programación, deploy, dominio en Registro.br y el enlace final en el aire.',
   'home.consultCtaPage': 'Conocer la consultoría',
@@ -993,7 +987,7 @@ const es: Record<UiKey, string> = {
   'consultoria.check1': 'código limpio y documentado',
   'consultoria.check2': 'tecnología moderna',
   'consultoria.check3': 'comunicación clara de principio a fin',
-  'consultoria.check4': 'el mismo equipo que produce el contenido y las rutas del sitio',
+  'consultoria.check4': 'del entorno con IA al enlace final en producción',
   'consultoria.stackLabel': 'NUESTRA STACK',
   'consultoria.finalTitle': '¿Sacamos tu proyecto del papel?',
   'consultoria.finalLead': 'Cuéntanos tu idea y respondemos por WhatsApp.',
@@ -1033,7 +1027,7 @@ const es: Record<UiKey, string> = {
   'cta.followTitle': 'Sigue aprendiendo',
   'cta.followLead': 'Nuevos ejemplos y lecciones cada semana en Instagram y GitHub.',
   'cta.consultTitle': '¿Necesitas un sitio o un sistema?',
-  'cta.consultLead': 'El mismo equipo que escribe estas rutas desarrolla sitios, sistemas y apps a medida.',
+  'cta.consultLead': 'Desarrollamos sitios, sistemas y apps a medida, con setup de IA de la idea a producción.',
   'cta.consultButton': 'Conocer la consultoría',
   'cta.trailDone': '¡Terminaste la ruta! 🎉',
 
