@@ -319,7 +319,7 @@ const pt = {
   'consultoria.cycle2': 'Agente de IA escrevendo',
   'consultoria.cycle3': 'Build e deploy',
   'consultoria.cycle4': 'Site no ar',
-  'consultoria.cycleAria': 'Ciclo do setup de IA: editor de código, agente de IA escrevendo o código, build e deploy, e o site publicado.',
+  'consultoria.cycleAria': 'Ciclo do setup de IA: agente de IA escrevendo o código, editor de código, build e deploy, e o site publicado.',
   'consultoria.cycleTyping': 'crie a home com hero e CTA...',
   'consultoria.cycleLive': 'no ar em seudominio.com.br',
   'consultoria.iaLead':
@@ -669,7 +669,7 @@ const en: Record<UiKey, string> = {
   'consultoria.cycle2': 'AI agent writing',
   'consultoria.cycle3': 'Build and deploy',
   'consultoria.cycle4': 'Site live',
-  'consultoria.cycleAria': 'AI setup cycle: code editor, AI agent writing the code, build and deploy, and the published site.',
+  'consultoria.cycleAria': 'AI setup cycle: AI agent writing the code, code editor, build and deploy, and the published site.',
   'consultoria.cycleTyping': 'build the home with hero and CTA...',
   'consultoria.cycleLive': 'live at yourdomain.com',
   'consultoria.iaLead':
@@ -1017,7 +1017,7 @@ const es: Record<UiKey, string> = {
   'consultoria.cycle2': 'Agente de IA escribiendo',
   'consultoria.cycle3': 'Build y deploy',
   'consultoria.cycle4': 'Sitio en línea',
-  'consultoria.cycleAria': 'Ciclo del setup de IA: editor de código, agente de IA escribiendo el código, build y deploy, y el sitio publicado.',
+  'consultoria.cycleAria': 'Ciclo del setup de IA: agente de IA escribiendo el código, editor de código, build y deploy, y el sitio publicado.',
   'consultoria.cycleTyping': 'crea la home con hero y CTA...',
   'consultoria.cycleLive': 'en línea en tudominio.com',
   'consultoria.iaLead':

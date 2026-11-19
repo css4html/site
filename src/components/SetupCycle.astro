@@ -1,7 +1,7 @@
 ---
 /**
  * Ciclo animado do pacote de setup de IA:
- * editor de código -> texto sendo digitado -> engrenagem (deploy) -> site pronto.
+ * agente de IA digitando -> editor de código -> engrenagem (deploy) -> site pronto.
  * Só CSS/SVG. Com prefers-reduced-motion, mostra as 4 etapas estáticas.
  */
 import { useTranslations, type Locale } from '../i18n/utils';
@@ -13,8 +13,8 @@ interface Props {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 const steps = [
-  t('consultoria.cycle1'),
   t('consultoria.cycle2'),
+  t('consultoria.cycle1'),
   t('consultoria.cycle3'),
   t('consultoria.cycle4'),
 ];
@@ -26,7 +26,14 @@ const steps = [
       <p class="sc-url">css4html.com.br</p>
     </div>
     <div class="sc-stage">
-      <!-- 1. Editor de código -->
+      <!-- 1. Texto sendo digitado (agente de IA) -->
+      <div class="sc-scene sc-s2">
+        <div class="sc-prompt">
+          <p class="sc-ai">✦ agente</p>
+          <p class="sc-type"><span>{t('consultoria.cycleTyping')}</span></p>
+        </div>
+      </div>
+      <!-- 2. Editor de código -->
       <div class="sc-scene sc-s1">
         <div class="sc-editor">
           <div class="sc-gutter">1<br />2<br />3<br />4<br />5</div>
@@ -37,13 +44,6 @@ const steps = [
             <i style="--w:64%;--c:var(--sc-blue);--x:1.2rem"></i>
             <i style="--w:30%;--c:var(--sc-pink)"></i>
           </div>
-        </div>
-      </div>
-      <!-- 2. Texto sendo digitado (agente de IA) -->
-      <div class="sc-scene sc-s2">
-        <div class="sc-prompt">
-          <p class="sc-ai">✦ agente</p>
-          <p class="sc-type"><span>{t('consultoria.cycleTyping')}</span></p>
         </div>
       </div>
       <!-- 3. Engrenagem rodando (build + deploy) -->
@@ -117,7 +117,7 @@ const steps = [
     opacity: 0;
     animation: sc-show var(--sc-dur) infinite;
   }
-  .sc-s2 { animation-delay: calc(var(--sc-dur) * 0.25); }
+  .sc-s1 { animation-delay: calc(var(--sc-dur) * 0.25); }
   .sc-s3 { animation-delay: calc(var(--sc-dur) * 0.5); }
   .sc-s4 { animation-delay: calc(var(--sc-dur) * 0.75); }
   @keyframes sc-show {
@@ -144,6 +144,7 @@ const steps = [
     border-radius: 4px;
     background: var(--c);
     animation: sc-line var(--sc-dur) infinite;
+    animation-delay: calc(var(--sc-dur) * 0.25);
   }
   .sc-lines i:nth-child(2) { animation-name: sc-line2; }
   .sc-lines i:nth-child(3) { animation-name: sc-line3; }
@@ -178,7 +179,6 @@ const steps = [
     vertical-align: bottom;
     border-right: 2px solid var(--color-accent);
     animation: sc-type var(--sc-dur) steps(34, end) infinite;
-    animation-delay: calc(var(--sc-dur) * 0.25);
   }
   @keyframes sc-type {
     0%, 2% { max-width: 0; }
