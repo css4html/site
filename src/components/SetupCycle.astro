@@ -1,0 +1,284 @@
+---
+/**
+ * Ciclo animado do pacote de setup de IA:
+ * agente de IA digitando -> editor de código -> engrenagem (deploy) -> site pronto.
+ * Só CSS/SVG. Com prefers-reduced-motion, mostra as 4 etapas estáticas.
+ */
+import { useTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const steps = [
+  t('consultoria.cycle2'),
+  t('consultoria.cycle1'),
+  t('consultoria.cycle3'),
+  t('consultoria.cycle4'),
+];
+---
+<figure class="sc" aria-label={t('consultoria.cycleAria')}>
+  <div class="sc-window" aria-hidden="true">
+    <div class="sc-bar">
+      <span></span><span></span><span></span>
+      <p class="sc-url">css4html.com.br</p>
+    </div>
+    <div class="sc-stage">
+      <!-- 1. Texto sendo digitado (agente de IA) -->
+      <div class="sc-scene sc-s2">
+        <div class="sc-prompt">
+          <p class="sc-ai">✦ agente</p>
+          <p class="sc-type"><span>{t('consultoria.cycleTyping')}</span></p>
+        </div>
+      </div>
+      <!-- 2. Editor de código -->
+      <div class="sc-scene sc-s1">
+        <div class="sc-editor">
+          <div class="sc-gutter">1<br />2<br />3<br />4<br />5</div>
+          <div class="sc-lines">
+            <i style="--w:55%;--c:var(--sc-pink)"></i>
+            <i style="--w:72%;--c:var(--sc-blue);--x:1.2rem"></i>
+            <i style="--w:48%;--c:var(--sc-green);--x:2.4rem"></i>
+            <i style="--w:64%;--c:var(--sc-blue);--x:1.2rem"></i>
+            <i style="--w:30%;--c:var(--sc-pink)"></i>
+          </div>
+        </div>
+      </div>
+      <!-- 3. Engrenagem rodando (build + deploy) -->
+      <div class="sc-scene sc-s3">
+        <svg class="sc-gear sc-gear-a" viewBox="0 0 100 100"><path d="M43 4h14l2 12a36 36 0 0 1 9 4l10-7 10 10-7 10a36 36 0 0 1 4 9l12 2v14l-12 2a36 36 0 0 1-4 9l7 10-10 10-10-7a36 36 0 0 1-9 4l-2 12H43l-2-12a36 36 0 0 1-9-4l-10 7-10-10 7-10a36 36 0 0 1-4-9L3 57V43l12-2a36 36 0 0 1 4-9l-7-10 10-10 10 7a36 36 0 0 1 9-4z M50 34a16 16 0 1 0 0 32a16 16 0 1 0 0-32z" fill-rule="evenodd" /></svg>
+        <svg class="sc-gear sc-gear-b" viewBox="0 0 100 100"><path d="M43 4h14l2 12a36 36 0 0 1 9 4l10-7 10 10-7 10a36 36 0 0 1 4 9l12 2v14l-12 2a36 36 0 0 1-4 9l7 10-10 10-10-7a36 36 0 0 1-9 4l-2 12H43l-2-12a36 36 0 0 1-9-4l-10 7-10-10 7-10a36 36 0 0 1-4-9L3 57V43l12-2a36 36 0 0 1 4-9l-7-10 10-10 10 7a36 36 0 0 1 9-4z M50 34a16 16 0 1 0 0 32a16 16 0 1 0 0-32z" fill-rule="evenodd" /></svg>
+        <div class="sc-progress"><i></i></div>
+      </div>
+      <!-- 4. Site pronto -->
+      <div class="sc-scene sc-s4">
+        <div class="sc-site">
+          <div class="sc-site-hero"><i></i><i></i><b></b></div>
+          <div class="sc-site-cards"><i></i><i></i><i></i></div>
+        </div>
+        <p class="sc-live">● {t('consultoria.cycleLive')}</p>
+      </div>
+    </div>
+  </div>
+  <ol class="sc-steps">
+    {steps.map((s, i) => (
+      <li style={`--i:${i}`}><span>{i + 1}</span>{s}</li>
+    ))}
+  </ol>
+</figure>
+
+<style>
+  .sc {
+    --sc-dur: 12s;
+    --sc-pink: #e85d9b;
+    --sc-blue: #5b8def;
+    --sc-green: #3fb27f;
+    margin: 0 0 var(--space-6);
+  }
+  .sc-window {
+    max-width: 36rem;
+    margin: 0 auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    overflow: hidden;
+    box-shadow: 0 18px 40px -24px rgb(0 0 0 / 0.35);
+  }
+  .sc-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .sc-bar > span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-border);
+  }
+  .sc-url {
+    margin: 0 0 0 10px;
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .sc-stage {
+    position: relative;
+    height: 15rem;
+  }
+  .sc-scene {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: var(--space-5);
+    opacity: 0;
+    animation: sc-show var(--sc-dur) infinite;
+  }
+  .sc-s1 { animation-delay: calc(var(--sc-dur) * 0.25); }
+  .sc-s3 { animation-delay: calc(var(--sc-dur) * 0.5); }
+  .sc-s4 { animation-delay: calc(var(--sc-dur) * 0.75); }
+  @keyframes sc-show {
+    0% { opacity: 0; transform: translateY(8px); }
+    3%, 22% { opacity: 1; transform: none; }
+    25%, 100% { opacity: 0; transform: translateY(-8px); }
+  }
+
+  /* 1. editor */
+  .sc-editor {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+    font: 500 0.8rem/1.9 ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  .sc-gutter { color: var(--color-muted); opacity: 0.6; text-align: right; }
+  .sc-lines { flex: 1; display: grid; align-content: start; }
+  .sc-lines i {
+    display: block;
+    height: 0.55rem;
+    margin: 0.48rem 0 0.47rem var(--x, 0);
+    width: 0;
+    max-width: var(--w);
+    border-radius: 4px;
+    background: var(--c);
+    animation: sc-line var(--sc-dur) infinite;
+    animation-delay: calc(var(--sc-dur) * 0.25);
+  }
+  .sc-lines i:nth-child(2) { animation-name: sc-line2; }
+  .sc-lines i:nth-child(3) { animation-name: sc-line3; }
+  .sc-lines i:nth-child(4) { animation-name: sc-line4; }
+  .sc-lines i:nth-child(5) { animation-name: sc-line5; }
+  @keyframes sc-line { 0% { width: 0; } 5%, 100% { width: var(--w); } }
+  @keyframes sc-line2 { 0%, 5% { width: 0; } 9%, 100% { width: var(--w); } }
+  @keyframes sc-line3 { 0%, 9% { width: 0; } 13%, 100% { width: var(--w); } }
+  @keyframes sc-line4 { 0%, 13% { width: 0; } 17%, 100% { width: var(--w); } }
+  @keyframes sc-line5 { 0%, 17% { width: 0; } 20%, 100% { width: var(--w); } }
+
+  /* 2. digitação */
+  .sc-prompt { width: 100%; }
+  .sc-ai {
+    margin: 0 0 var(--space-2);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .sc-type {
+    margin: 0;
+    font: 500 0.95rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--color-text);
+  }
+  .sc-type span {
+    display: inline-block;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: bottom;
+    border-right: 2px solid var(--color-accent);
+    animation: sc-type var(--sc-dur) steps(34, end) infinite;
+  }
+  @keyframes sc-type {
+    0%, 2% { max-width: 0; }
+    18%, 100% { max-width: 100%; }
+  }
+
+  /* 3. engrenagens */
+  .sc-s3 { grid-template-rows: 1fr auto; }
+  .sc-gear { fill: var(--color-accent); }
+  .sc-gear-a {
+    width: 5.5rem;
+    animation: sc-spin 2.4s linear infinite;
+    transform-origin: 50% 50%;
+    translate: -1.6rem 0;
+  }
+  .sc-gear-b {
+    position: absolute;
+    top: 36%;
+    left: calc(50% + 1.4rem);
+    width: 3.4rem;
+    fill: var(--sc-pink);
+    animation: sc-spin 1.6s linear infinite reverse;
+  }
+  @keyframes sc-spin { to { rotate: 360deg; } }
+  .sc-progress {
+    width: 70%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--color-border);
+    overflow: hidden;
+  }
+  .sc-progress i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--sc-green);
+    animation: sc-bar var(--sc-dur) infinite;
+    animation-delay: calc(var(--sc-dur) * 0.5);
+  }
+  @keyframes sc-bar { 0%, 2% { width: 0; } 21%, 100% { width: 100%; } }
+
+  /* 4. site pronto */
+  .sc-s4 { grid-template-rows: 1fr auto; gap: var(--space-2); }
+  .sc-site { width: 100%; display: grid; gap: 10px; }
+  .sc-site-hero {
+    display: grid;
+    gap: 7px;
+    padding: 14px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(120deg, var(--color-accent), var(--sc-pink));
+  }
+  .sc-site-hero i { height: 9px; width: 60%; border-radius: 4px; background: rgb(255 255 255 / 0.9); }
+  .sc-site-hero i + i { width: 40%; background: rgb(255 255 255 / 0.6); }
+  .sc-site-hero b { height: 16px; width: 26%; border-radius: 8px; background: #fff; }
+  .sc-site-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .sc-site-cards i { height: 2.6rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); }
+  .sc-live { margin: 0; font-size: var(--text-sm); font-weight: 700; color: var(--sc-green); }
+
+  /* etapas */
+  .sc-steps {
+    list-style: none;
+    margin: var(--space-4) auto 0;
+    padding: 0;
+    max-width: 36rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+    text-align: center;
+  }
+  .sc-steps li {
+    display: grid;
+    justify-items: center;
+    gap: 4px;
+    animation: sc-step var(--sc-dur) infinite;
+    animation-delay: calc(var(--sc-dur) * 0.25 * var(--i));
+  }
+  .sc-steps span {
+    display: grid;
+    place-items: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    font-weight: 700;
+  }
+  @keyframes sc-step {
+    0%, 24% { color: var(--color-text); font-weight: 600; }
+    25%, 100% { color: var(--color-muted); font-weight: 400; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sc-stage { height: auto; display: grid; grid-template-columns: 1fr 1fr; }
+    .sc-scene { position: static; opacity: 1; animation: none; min-height: 9rem; }
+    .sc *, .sc-steps li { animation: none !important; }
+    .sc-lines i { width: var(--w); }
+    .sc-type span { max-width: 100%; white-space: normal; border: 0; }
+    .sc-progress i { width: 100%; }
+    .sc-gear-b { display: none; }
+    .sc-gear-a { translate: none; }
+  }
+</style>
