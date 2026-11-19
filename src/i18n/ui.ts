@@ -258,7 +258,7 @@ const pt = {
   'consultoria.kicker': 'CONSULTORIA CSS4HTML',
   'consultoria.h1': 'Seu projeto, do jeito certo, feito por quem ensina na prática',
   'consultoria.lead':
-    'Desenvolvemos sites, sistemas e aplicativos sob medida, com código limpo, performance e manutenção contínua. Contamos com uma equipe de desenvolvedores front-end, back-end e full stack.',
+    'Contamos com uma equipe de desenvolvedores front-end, back-end e full stack para criar sites, sistemas e apps sob medida. Com setup de IA, aceleramos sua ideia até a produção.',
   'consultoria.ctaWa': 'Falar no WhatsApp',
   'consultoria.ctaHow': 'Ver como trabalhamos',
   'consultoria.waMessage':
@@ -602,7 +602,7 @@ const en: Record<UiKey, string> = {
   'consultoria.kicker': 'CSS4HTML CONSULTING',
   'consultoria.h1': 'Your project, done right, by people who teach in practice',
   'consultoria.lead':
-    'We build custom websites, systems, and apps with clean code, performance, and ongoing maintenance. Our team includes front-end, back-end, and full stack developers.',
+    'Our team of front-end, back-end, and full stack developers builds custom websites, systems, and apps. With AI setup, we speed your idea up to production.',
   'consultoria.ctaWa': 'Chat on WhatsApp',
   'consultoria.ctaHow': 'See how we work',
   'consultoria.waMessage':
@@ -944,7 +944,7 @@ const es: Record<UiKey, string> = {
   'consultoria.kicker': 'CONSULTORÍA CSS4HTML',
   'consultoria.h1': 'Tu proyecto, bien hecho, por quien enseña en la práctica',
   'consultoria.lead':
-    'Desarrollamos sitios, sistemas y aplicaciones a medida, con código limpio, rendimiento y mantenimiento continuo. Contamos con un equipo de desarrolladores front-end, back-end y full stack.',
+    'Contamos con un equipo de desarrolladores front-end, back-end y full stack para crear sitios, sistemas y apps a medida. Con setup de IA, aceleramos tu idea hasta producción.',
   'consultoria.ctaWa': 'Hablar por WhatsApp',
   'consultoria.ctaHow': 'Ver cómo trabajamos',
   'consultoria.waMessage':
