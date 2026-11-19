@@ -24,7 +24,7 @@ interface Boletim { nome: string; media: number | null; situacao: Situacao }
 
 Because `media` is `number | null`, TypeScript makes you handle `null` before comparing with 7. Because `situacao` is a literal union, a wrong string is rejected by the editor.
 
-<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> — Write the contract as types before implementing: it guides every step.</aside>
+<aside class="tip tip-logic"><strong>LOGIC TS TIP</strong> - Write the contract as types before implementing: it guides every step.</aside>
 
 ## Try it
 

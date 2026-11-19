@@ -22,4 +22,4 @@ Acessibilidade não é um “extra”: começa com HTML bem estruturado.
 
 ## dialog e details
 
-Elementos nativos como `<details>` e `<dialog>` já trazem teclado e semântica — prefira-os a widgets caseiros quando bastarem.
+Elementos nativos como `<details>` e `<dialog>` já trazem teclado e semântica - prefira-os a widgets caseiros quando bastarem.

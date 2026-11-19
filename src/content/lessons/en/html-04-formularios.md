@@ -10,7 +10,7 @@ relatedSnippets: ["html-label-input","html-button-types"]
 > **TODO i18n:** Full body translation pending. Title and description are localized; the body below remains in Portuguese for now.
 
 
-Formulários bons começam no HTML — antes de qualquer JavaScript.
+Formulários bons começam no HTML - antes de qualquer JavaScript.
 
 ## Regras de ouro
 

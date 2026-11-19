@@ -34,7 +34,7 @@ git push -u origin feature/titulo-pagina
 
 No GitHub: **Compare & pull request** → título claro → descrição do que mudou → Create.
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — PR bom tem escopo pequeno, mensagem que explica o *porquê*, e (quando der) um print ou URL de preview. Revise o próprio diff antes de pedir review.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - PR bom tem escopo pequeno, mensagem que explica o *porquê*, e (quando der) um print ou URL de preview. Revise o próprio diff antes de pedir review.</aside>
 
 ## Atualizar o PR
 

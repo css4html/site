@@ -1,6 +1,6 @@
 ---
 title: "DOM + classes CSS: o combo do front-end"
-description: "Como JavaScript e CSS conversam via classList — sem misturar estilo inline."
+description: "Como JavaScript e CSS conversam via classList - sem misturar estilo inline."
 pubDate: 2026-09-18
 tags: ["javascript","css","dom"]
 relatedExamples: ["js-tabs","js-localstorage-theme"]
@@ -15,4 +15,4 @@ O JavaScript moderno quase nunca deveria setar `element.style.color = …` para 
 
 Esse contrato simples aparece nos exemplos de [abas](/exemplos/js-tabs/), [tema com localStorage](/exemplos/js-localstorage-theme/) e no snippet [toggle de classe](/snippets/js-toggle-class/).
 
-Quando HTML estrutura, CSS apresenta e JS orquestra classes, o código fica legível — e testável.
+Quando HTML estrutura, CSS apresenta e JS orquestra classes, o código fica legível - e testável.

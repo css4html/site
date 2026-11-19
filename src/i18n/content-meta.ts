@@ -27,11 +27,11 @@ export const examplesI18n: Record<string, LocaleMeta> = {
   "box-model": {
     "en": {
       "title": "Box model in practice",
-      "description": "Content, padding, border, and margin — the CSS box model."
+      "description": "Content, padding, border, and margin - the CSS box model."
     },
     "es": {
       "title": "Box model en la práctica",
-      "description": "Content, padding, border y margin — el modelo de caja de CSS."
+      "description": "Content, padding, border y margin - el modelo de caja de CSS."
     }
   },
   "cards-responsivos": {
@@ -107,11 +107,11 @@ export const examplesI18n: Record<string, LocaleMeta> = {
   "has-parent-selector": {
     "en": {
       "title": ":has() parent selector",
-      "description": "Style the container based on what is inside — modern CSS."
+      "description": "Style the container based on what is inside - modern CSS."
     },
     "es": {
       "title": "Selector :has() en el padre",
-      "description": "Estiliza el contenedor según lo que tiene dentro — CSS moderno."
+      "description": "Estiliza el contenedor según lo que tiene dentro - CSS moderno."
     }
   },
   "html-artigo-semantico": {
@@ -177,11 +177,11 @@ export const examplesI18n: Record<string, LocaleMeta> = {
   "html-tabela-dados": {
     "en": {
       "title": "Data table",
-      "description": "caption, thead, th with scope — an accessible table."
+      "description": "caption, thead, th with scope - an accessible table."
     },
     "es": {
       "title": "Tabla de datos",
-      "description": "caption, thead, th con scope — tabla accesible."
+      "description": "caption, thead, th con scope - tabla accesible."
     }
   },
   "js-accordion": {
@@ -287,11 +287,11 @@ export const examplesI18n: Record<string, LocaleMeta> = {
   "scroll-snap-carrossel": {
     "en": {
       "title": "Carousel with scroll-snap",
-      "description": "Horizontal scroll with snap points — no library needed."
+      "description": "Horizontal scroll with snap points - no library needed."
     },
     "es": {
       "title": "Carrusel con scroll-snap",
-      "description": "Scroll horizontal con puntos de ajuste — sin librería."
+      "description": "Scroll horizontal con puntos de ajuste - sin librería."
     }
   },
   "seletores-basicos": {
@@ -449,8 +449,8 @@ export const examplesI18n: Record<string, LocaleMeta> = {
     "es": { "title": "Atributos y columns", "description": "observedAttributes actualiza el grid cuando cambia columns." }
   },
   "wc-vite-lib-tree": {
-    "en": { "title": "Vite lib tree (conceptual)", "description": "Mental map of a library-mode package — entry, dist, and preview HTML." },
-    "es": { "title": "Árbol Vite lib (conceptual)", "description": "Mapa mental del paquete en library mode — entry, dist y HTML de preview." }
+    "en": { "title": "Vite lib tree (conceptual)", "description": "Mental map of a library-mode package - entry, dist, and preview HTML." },
+    "es": { "title": "Árbol Vite lib (conceptual)", "description": "Mapa mental del paquete en library mode - entry, dist y HTML de preview." }
   },
   "wc-dual-export": {
     "en": { "title": "Dual export (class + register)", "description": "register() with guard + auto-register on the entry." },
@@ -796,11 +796,11 @@ export const snippetsI18n: Record<string, LocaleMeta> = {
   "object-fit-cover": {
     "en": {
       "title": "Image object-fit cover",
-      "description": "Fill the frame without distortion — smart crop."
+      "description": "Fill the frame without distortion - smart crop."
     },
     "es": {
       "title": "Imagen object-fit cover",
-      "description": "Rellena el marco sin distorsionar — crop inteligente."
+      "description": "Rellena el marco sin distorsionar - crop inteligente."
     }
   },
   "pill-badge": {
@@ -916,11 +916,11 @@ export const snippetsI18n: Record<string, LocaleMeta> = {
   "underline-animation": {
     "en": {
       "title": "Animated underline on hover",
-      "description": "Line that grows with transform — light and accessible."
+      "description": "Line that grows with transform - light and accessible."
     },
     "es": {
       "title": "Underline animado al hover",
-      "description": "Línea que crece con transform — ligera y accesible."
+      "description": "Línea que crece con transform - ligera y accesible."
     }
   },
   "react-functional-component": {

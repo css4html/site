@@ -10,9 +10,9 @@ relatedSnippets: ["react-functional-component", "react-conditional-render"]
 
 > **TODO i18n:** Full body translation pending. Title and description are localized; los primeros párrafos siguen en portugués. Las secciones del árbol Vite y del esqueleto HTML están en español.
 
-React organiza a interface em **componentes** — funções que recebem dados e devolvem elementos descritivos.
+React organiza a interface em **componentes** - funções que recebem dados e devolvem elementos descritivos.
 
-<aside class="tip tip-react"><strong>CONSEJO REACT</strong> — JSX parece HTML, mas é JavaScript. Use `className` em vez de `class`, e feche tags como `<img />`.</aside>
+<aside class="tip tip-react"><strong>CONSEJO REACT</strong> - JSX parece HTML, mas é JavaScript. Use `className` em vez de `class`, e feche tags como `<img />`.</aside>
 
 ## Um componente mínimo
 
@@ -42,7 +42,7 @@ mi-app/
     └── services/       ← clientes de API
 ```
 
-<aside class="tip tip-react"><strong>CONSEJO</strong> — Vista corta del día a día: `public/` · `src/main.tsx` · `App.tsx`. Carpetas como `components/`, `hooks/`, `pages/` y `services/` crecen con la app.</aside>
+<aside class="tip tip-react"><strong>CONSEJO</strong> - Vista corta del día a día: `public/` · `src/main.tsx` · `App.tsx`. Carpetas como `components/`, `hooks/`, `pages/` y `services/` crecen con la app.</aside>
 
 ### `index.html` → `main.tsx` → `#root`
 
@@ -115,10 +115,10 @@ En este sitio no hay bundler local: el playground inyecta un documento con **imp
 
 ### Qué hace cada parte (playground)
 
-1. **`<div id="root">`** — el único nodo que React controla (igual que Vite).
-2. **Import map** — resuelve `react` / `react-dom/client` vía esm.sh.
-3. **Sucrase** — compila TypeScript + JSX en el navegador.
-4. **`App` → `createRoot(...).render(...)`** — el mismo puente que `main.tsx`.
+1. **`<div id="root">`** - el único nodo que React controla (igual que Vite).
+2. **Import map** - resuelve `react` / `react-dom/client` vía esm.sh.
+3. **Sucrase** - compila TypeScript + JSX en el navegador.
+4. **`App` → `createRoot(...).render(...)`** - el mismo puente que `main.tsx`.
 
 La pestaña **HTML** solo edita markup *extra* (después de `#root`). Abre el panel “Esqueleto HTML” en el playground React para ver el documento inyectado.
 

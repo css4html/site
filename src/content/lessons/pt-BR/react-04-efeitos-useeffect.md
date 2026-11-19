@@ -8,9 +8,9 @@ relatedExamples: ["react-efeito-document-title"]
 relatedSnippets: ["react-useeffect-mount"]
 ---
 
-`useEffect` roda **depois** do paint. Use para título do documento, subscriptions e timers — não para calcular UI.
+`useEffect` roda **depois** do paint. Use para título do documento, subscriptions e timers - não para calcular UI.
 
-<aside class="tip tip-react"><strong>DICA REACT</strong> — Declare dependências corretas. Array vazio (`[]`) = só na montagem; omitir o array = a cada render (quase nunca o que você quer).</aside>
+<aside class="tip tip-react"><strong>DICA REACT</strong> - Declare dependências corretas. Array vazio (`[]`) = só na montagem; omitir o array = a cada render (quase nunca o que você quer).</aside>
 
 ```tsx
 import { useEffect, useState } from 'react';

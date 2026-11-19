@@ -19,7 +19,7 @@ cd meu-site
 git init
 ```
 
-Isso cria a pasta oculta `.git/` — o banco de dados do histórico.
+Isso cria a pasta oculta `.git/` - o banco de dados do histórico.
 
 ## Ver o estado
 
@@ -46,7 +46,7 @@ git status
 
 Agora o arquivo está no **staging** (pronto para commit).
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — `git add .` adiciona tudo da pasta atual. No começo é prático; depois prefira `git add caminho/arquivo` para commits mais cirúrgicos.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - `git add .` adiciona tudo da pasta atual. No começo é prático; depois prefira `git add caminho/arquivo` para commits mais cirúrgicos.</aside>
 
 ## Clonar (alternativa)
 
@@ -57,7 +57,7 @@ git clone https://github.com/USUARIO/REPO.git
 cd REPO
 ```
 
-`clone` já traz o remoto `origin` configurado — veremos isso nas lições de PR e Pages.
+`clone` já traz o remoto `origin` configurado - veremos isso nas lições de PR e Pages.
 
 ## Checklist
 

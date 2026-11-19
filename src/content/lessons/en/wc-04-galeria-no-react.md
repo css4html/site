@@ -1,6 +1,6 @@
 ---
 title: "Same gallery in React"
-description: "Use the Custom Element inside JSX — props become attributes."
+description: "Use the Custom Element inside JSX - props become attributes."
 order: 4
 trail: "webcomponents-com-vite"
 track: "wc"
@@ -12,7 +12,7 @@ relatedSnippets: ["wc-react-host", "wc-custom-elements-define"]
 
 O mesmo `<image-gallery>` da lição 3 roda **dentro** do React. O playground usa esm.sh + Sucrase (como na trilha React).
 
-<aside class="tip tip-wc"><strong>DICA WC</strong> — Em JSX, atributos DOM são strings. Passe `columns={3}` ou `columns="3"`. Eventos custom: `ref` + `addEventListener`, ou wrapper fino.</aside>
+<aside class="tip tip-wc"><strong>DICA WC</strong> - Em JSX, atributos DOM são strings. Passe `columns={3}` ou `columns="3"`. Eventos custom: `ref` + `addEventListener`, ou wrapper fino.</aside>
 
 ## Padrão
 
@@ -30,7 +30,7 @@ function App() {
 }
 ```
 
-TypeScript pode reclamar da tag desconhecida — declare em `jsx.d.ts` no app real.
+TypeScript pode reclamar da tag desconhecida - declare em `jsx.d.ts` no app real.
 
 ## Por que isso importa
 

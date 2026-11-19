@@ -52,4 +52,4 @@ code: |
     </style>
 ---
 
-Nunca remova o `<input>` — só o esconda visualmente. Experimente no [formulário básico](/exemplos/formulario-basico/).
+Nunca remova o `<input>` - só o esconda visualmente. Experimente no [formulário básico](/exemplos/formulario-basico/).

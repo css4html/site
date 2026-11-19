@@ -24,4 +24,4 @@ Prefira `const` por padrão; use `let` quando precisar reatribuir. Evite `var`.
 
 `string`, `number`, `boolean`, `null`, `undefined`, `bigint`, `symbol`.
 
-Use `typeof` para inspecionar — e lembre: `typeof null === "object"` é uma peculiaridade histórica.
+Use `typeof` para inspecionar - e lembre: `typeof null === "object"` é uma peculiaridade histórica.

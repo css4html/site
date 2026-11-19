@@ -12,7 +12,7 @@ html: |
       <p id="erro" class="erro" role="alert" hidden></p>
       <button type="submit">Continuar</button>
     </form>
-    <p id="ok" hidden>Formulário válido — pronto para enviar.</p>
+    <p id="ok" hidden>Formulário válido - pronto para enviar.</p>
 css: |
     form { font-family: system-ui, sans-serif; max-width: 20rem; }
     label { display: block; font-weight: 600; margin-bottom: 0.25rem; }

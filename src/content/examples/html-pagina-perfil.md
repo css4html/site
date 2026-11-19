@@ -45,4 +45,4 @@ css: |
     button { margin-top: 0.5rem; padding: 0.5rem 1rem; background: #2563eb; color: #fff; border: 0; border-radius: 8px; }
 ---
 
-Base do projeto da trilha HTML — adapte textos e estrutura.
+Base do projeto da trilha HTML - adapte textos e estrutura.

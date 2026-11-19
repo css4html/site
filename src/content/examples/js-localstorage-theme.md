@@ -45,4 +45,4 @@ js: |
     });
 ---
 
-Mesma ideia do toggle de tema do site — versão mínima.
+Mesma ideia do toggle de tema do site - versão mínima.

@@ -44,9 +44,9 @@ git commit -m "feat: atualiza título da página"
 git switch main
 ```
 
-Em `main`, o arquivo **não** tem essa mudança — ela vive só na feature até o merge.
+Em `main`, o arquivo **não** tem essa mudança - ela vive só na feature até o merge.
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — Nomes descritivos ajudam: `feature/…`, `fix/…`, `docs/…`. Evite `teste`, `nova`, `asdf`.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - Nomes descritivos ajudam: `feature/…`, `fix/…`, `docs/…`. Evite `teste`, `nova`, `asdf`.</aside>
 
 ## Remover branch local (depois do merge)
 

@@ -9,10 +9,10 @@ relatedSnippets: ["focus-ring"]
 
 Seletores apontam para elementos. Comece simples:
 
-- `p` — todos os parágrafos
-- `.card` — classe
-- `#menu` — ID (alta especificidade)
-- `ul li.ativo` — combinação
+- `p` - todos os parágrafos
+- `.card` - classe
+- `#menu` - ID (alta especificidade)
+- `ul li.ativo` - combinação
 
 ## Especificidade (resumo)
 

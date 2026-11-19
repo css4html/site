@@ -1,6 +1,6 @@
 ---
 title: "Underline animado no hover"
-description: "Linha que cresce com transform — leve e acessível."
+description: "Linha que cresce com transform - leve e acessível."
 tags: ["hover","animacao","links"]
 language: css
 code: |

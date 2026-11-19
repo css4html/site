@@ -63,4 +63,4 @@ js: |
     }
 ---
 
-Dois `Panel` leem o mesmo store — sem prop drilling.
+Dois `Panel` leem o mesmo store - sem prop drilling.

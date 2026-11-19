@@ -1,6 +1,6 @@
 ---
 title: "CSS accessibility"
-description: "Visible focus, forms, contrast, and motion — CSS in service of everyone."
+description: "Visible focus, forms, contrast, and motion - CSS in service of everyone."
 order: 9
 trail: css-do-zero-ao-layout
 relatedExamples: ["formulario-basico","has-parent-selector","botao-hover","tema-toggle-custom-properties"]
@@ -13,9 +13,9 @@ Um layout bonito que some o foco do teclado **não está pronto**.
 
 ## Pratique no playground
 
-- [Formulário acessível](/exemplos/formulario-basico/) — labels, estados e foco.
-- [`:has()` no pai](/exemplos/has-parent-selector/) — feedback visual sem JS.
-- [Botão com hover](/exemplos/botao-hover/) — não dependa só de cor; inclua `:focus-visible`.
+- [Formulário acessível](/exemplos/formulario-basico/) - labels, estados e foco.
+- [`:has()` no pai](/exemplos/has-parent-selector/) - feedback visual sem JS.
+- [Botão com hover](/exemplos/botao-hover/) - não dependa só de cor; inclua `:focus-visible`.
 
 ## Kit de snippets
 

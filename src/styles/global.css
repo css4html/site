@@ -152,7 +152,7 @@ textarea:focus-visible,
   margin-inline: auto;
 }
 
-/* —— Header —— */
+/* -- Header -- */
 .site-header {
   position: sticky;
   top: 0;
@@ -406,7 +406,7 @@ body.nav-open {
   }
 }
 
-/* —— Footer —— */
+/* -- Footer -- */
 .site-footer {
   margin-top: var(--space-8);
   border-top: 1px solid var(--color-border);
@@ -477,7 +477,7 @@ body.nav-open {
   font-size: var(--text-xs);
 }
 
-/* —— Hero / sections —— */
+/* -- Hero / sections -- */
 .hero {
   padding: var(--space-7) 0 var(--space-6);
 }
@@ -659,7 +659,7 @@ html[data-theme="light"] .badge.avancado {
 }
 
 
-/* —— React tip callout —— */
+/* -- React tip callout -- */
 .tip {
   margin: var(--space-5) 0;
   padding: 0.85rem 1rem;
@@ -686,7 +686,7 @@ html[data-theme="dark"] .badge.track-react {
   color: var(--color-react);
 }
 
-/* —— Web Components tip callout —— */
+/* -- Web Components tip callout -- */
 .tip-wc {
   border-color: color-mix(in srgb, var(--color-wc) 45%, var(--color-border));
   background: color-mix(in srgb, var(--color-wc) 12%, var(--color-surface));
@@ -705,7 +705,7 @@ html[data-theme="dark"] .badge.track-wc {
 }
 
 
-/* —— Git tip callout —— */
+/* -- Git tip callout -- */
 .tip-git {
   border-color: color-mix(in srgb, var(--color-git) 45%, var(--color-border));
   background: color-mix(in srgb, var(--color-git) 12%, var(--color-surface));
@@ -723,7 +723,7 @@ html[data-theme="dark"] .badge.track-git {
   color: var(--color-git-2);
 }
 
-/* —— Prose —— */
+/* -- Prose -- */
 .prose {
   max-width: var(--prose-max);
   line-height: var(--leading-relaxed);
@@ -846,7 +846,7 @@ html[data-theme="dark"] .badge.track-git {
   font-size: 0.9rem;
 }
 
-/* —— Playground —— */
+/* -- Playground -- */
 .playground {
   margin: var(--space-5) 0;
 }
@@ -1181,7 +1181,7 @@ html[data-theme="dark"] .badge.track-git {
 }
 
 
-/* —— React playground HTML shell hint —— */
+/* -- React playground HTML shell hint -- */
 .pg-react-shell {
   margin: 0 0 var(--space-3);
   padding: 0.65rem 0.85rem;

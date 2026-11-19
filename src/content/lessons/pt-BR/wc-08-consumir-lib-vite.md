@@ -1,6 +1,6 @@
 ---
 title: "Consumir a lib em app Vite"
-description: "Import ESM + tag no HTML/JSX — o ciclo completo do pacote ao app."
+description: "Import ESM + tag no HTML/JSX - o ciclo completo do pacote ao app."
 order: 8
 trail: "webcomponents-com-vite"
 track: "wc"
@@ -10,7 +10,7 @@ relatedSnippets: ["wc-package-exports", "wc-react-host", "wc-export-dual-pattern
 
 No app consumidor (Vite + React, Vue ou vanilla):
 
-<aside class="tip tip-wc"><strong>DICA WC</strong> — Um único `import` registra a tag. Depois disso, use `<image-gallery>` em qualquer arquivo do app.</aside>
+<aside class="tip tip-wc"><strong>DICA WC</strong> - Um único `import` registra a tag. Depois disso, use `<image-gallery>` em qualquer arquivo do app.</aside>
 
 ## Vanilla / HTML
 

@@ -12,7 +12,7 @@ relatedSnippets: ["react-zustand-store"]
 
 **Zustand** cria um store com um hook. Qualquer componente pode ler/escrever sem Context excessivo.
 
-<aside class="tip tip-react"><strong>CONSEJO REACT</strong> — Prefira selectors (`useStore(s => s.theme)`) para evitar re-renders desnecessários.</aside>
+<aside class="tip tip-react"><strong>CONSEJO REACT</strong> - Prefira selectors (`useStore(s => s.theme)`) para evitar re-renders desnecessários.</aside>
 
 ```tsx
 import { create } from 'zustand';

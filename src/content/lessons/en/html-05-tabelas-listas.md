@@ -12,9 +12,9 @@ relatedSnippets: ["html-details-summary"]
 
 ## Listas
 
-- `ul` — itens sem ordem rígida
-- `ol` — sequência (passos, ranking)
-- `dl` — termos e definições (glossário)
+- `ul` - itens sem ordem rígida
+- `ol` - sequência (passos, ranking)
+- `dl` - termos e definições (glossário)
 
 ## Tabelas de dados
 

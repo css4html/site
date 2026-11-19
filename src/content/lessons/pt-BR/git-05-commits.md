@@ -35,12 +35,12 @@ git diff --staged   # staging vs último commit
 ## Fluxo do dia a dia
 
 1. Editar arquivos
-2. `git status` — o que mudou?
-3. `git add …` — escolher o que entra
-4. `git commit -m "…"` — registrar
+2. `git status` - o que mudou?
+3. `git add …` - escolher o que entra
+4. `git commit -m "…"` - registrar
 5. Repetir
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — Commits pequenos e frequentes são mais fáceis de revisar e de reverter. Evite um único commit gigante "tudo de uma vez" no fim do dia.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - Commits pequenos e frequentes são mais fáceis de revisar e de reverter. Evite um único commit gigante "tudo de uma vez" no fim do dia.</aside>
 
 ## O que evitar por enquanto
 

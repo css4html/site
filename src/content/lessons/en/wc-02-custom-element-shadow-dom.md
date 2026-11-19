@@ -12,7 +12,7 @@ relatedSnippets: ["wc-custom-elements-define", "wc-shadow-dom-attach", "wc-obser
 
 Um Custom Element é uma **classe** que estende `HTMLElement` e é registrada com um nome que contenha hífen.
 
-<aside class="tip tip-wc"><strong>DICA WC</strong> — Nomes de tag precisam de hífen (`hello-badge`, não `hellobadge`). Isso evita colisão com HTML futuro.</aside>
+<aside class="tip tip-wc"><strong>DICA WC</strong> - Nomes de tag precisam de hífen (`hello-badge`, não `hellobadge`). Isso evita colisão com HTML futuro.</aside>
 
 ## Anatomia mínima
 
@@ -45,8 +45,8 @@ connectedCallback() {
 }
 ```
 
-- `mode: 'open'` — `element.shadowRoot` fica acessível (útil para debug e testes)
-- `<slot>` — projeta filhos do light DOM para dentro do shadow
+- `mode: 'open'` - `element.shadowRoot` fica acessível (útil para debug e testes)
+- `<slot>` - projeta filhos do light DOM para dentro do shadow
 
 ## Atributos observados
 

@@ -7,7 +7,7 @@ relatedExamples: ['wc-dual-export']
 relatedSnippets: ['wc-export-dual-pattern', 'wc-register-guard', 'wc-package-exports']
 draft: false
 cover: /blog/covers/wc-07-export-dual.png
-coverAlt: "Capa DICA WC — Web Components, lição 7: Export dual: classe + register"
+coverAlt: "Capa DICA WC - Web Components, lição 7: Export dual: classe + register"
 ---
 
 Com o `<image-gallery>` empacotado, falta decidir como ele chega no app. Uma boa lib de Web Components oferece dois caminhos.

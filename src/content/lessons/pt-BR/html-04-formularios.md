@@ -8,7 +8,7 @@ relatedExamples: ["html-formulario-acessivel"]
 relatedSnippets: ["html-label-input","html-button-types"]
 ---
 
-Formulários bons começam no HTML — antes de qualquer JavaScript.
+Formulários bons começam no HTML - antes de qualquer JavaScript.
 
 ## Regras de ouro
 

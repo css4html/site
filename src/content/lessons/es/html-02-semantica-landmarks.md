@@ -10,7 +10,7 @@ relatedSnippets: ["html-skip-link"]
 > **TODO i18n:** Traducción completa del cuerpo pendiente. Título y descripción ya están localizados; el cuerpo permanece en portugués por ahora.
 
 
-Tags semânticas comunicam o **papel** de cada região — para humanos, CSS e tecnologias assistivas.
+Tags semânticas comunicam o **papel** de cada região - para humanos, CSS e tecnologias assistivas.
 
 ## Landmarks comuns
 
@@ -24,4 +24,4 @@ Tags semânticas comunicam o **papel** de cada região — para humanos, CSS e t
 | `aside` | Conteúdo complementar |
 | `footer` | Rodapé da página ou do article |
 
-Evite landmarks vazios só “para layout” — isso é papel do CSS.
+Evite landmarks vazios só “para layout” - isso é papel do CSS.

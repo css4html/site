@@ -16,13 +16,12 @@ const t = useTranslations(locale);
 const lp = (p: string) => localizePath(locale, p);
 ---
 <section class="consult-highlight container" data-consult-highlight aria-labelledby="consult-highlight-title">
-  <h2 id="consult-highlight-title" class="sr-only">{t('consultoria.clientsTitle')}</h2>
   <p class="consult-highlight__ia">
     {t('home.consultIaNote')}
     <a href={lp('/consultoria/#setup-ia')}>{t('consultoria.iaTitle')} →</a>
   </p>
   <div class="consult-highlight__clients">
-    <p class="consult-highlight__clients-label">{t('consultoria.clientsTitle')}</p>
+    <h2 id="consult-highlight-title" class="consult-highlight__clients-label">{t('consultoria.clientsTitle')}</h2>
     <ul>
       {consultoriaClients.map((client) => (
         <li>

@@ -13,9 +13,9 @@ CSS (Cascading Style Sheets) descreve a **apresentação** de documentos HTML: c
 
 ## Três formas de aplicar
 
-1. **Inline** — atributo `style` (evite no dia a dia).
-2. **Interno** — tag `<style>` no documento.
-3. **Externo** — arquivo `.css` referenciado com `<link>` (preferível).
+1. **Inline** - atributo `style` (evite no dia a dia).
+2. **Interno** - tag `<style>` no documento.
+3. **Externo** - arquivo `.css` referenciado com `<link>` (preferível).
 
 ## Cascata em uma frase
 

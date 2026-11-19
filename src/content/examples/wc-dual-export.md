@@ -6,7 +6,7 @@ difficulty: "avancado"
 track: "wc"
 order: 408
 html: |
-    <p class="note">Simulação do entry da lib — veja o console e a tag abaixo.</p>
+    <p class="note">Simulação do entry da lib - veja o console e a tag abaixo.</p>
     <hello-dual></hello-dual>
 css: |
     body { background: #0f172a; color: #e2e8f0; font-family: system-ui, sans-serif; }

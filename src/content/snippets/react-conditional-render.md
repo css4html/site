@@ -9,4 +9,4 @@ code: |
     {error ? <ErrorMsg error={error} /> : <List items={items} />}
 ---
 
-Cuidado com `0 && <X />` — `0` é renderizado.
+Cuidado com `0 && <X />` - `0` é renderizado.

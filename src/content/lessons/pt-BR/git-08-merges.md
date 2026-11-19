@@ -46,7 +46,7 @@ versão da feature
 2. `git add arquivo`
 3. `git commit` (ou conclua o merge)
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — Esta trilha **não** usa rebase. Em time, combine o fluxo (merge commit vs squash) e seja consistente. Reescrever histórico compartilhado é assunto avançado.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - Esta trilha **não** usa rebase. Em time, combine o fluxo (merge commit vs squash) e seja consistente. Reescrever histórico compartilhado é assunto avançado.</aside>
 
 ## Depois do merge
 

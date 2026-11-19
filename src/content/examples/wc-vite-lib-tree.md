@@ -1,6 +1,6 @@
 ---
 title: "Árvore Vite lib (conceitual)"
-description: "Mapa mental do pacote em library mode — entry, dist e HTML de preview."
+description: "Mapa mental do pacote em library mode - entry, dist e HTML de preview."
 tags: ["vite","lib-mode","estrutura"]
 difficulty: "intermediario"
 track: "wc"

@@ -10,7 +10,7 @@ relatedSnippets: ["react-query-usequery"]
 
 **TanStack Query** (React Query) gerencia fetching, cache e revalidação fora do componente.
 
-<aside class="tip tip-react"><strong>DICA REACT</strong> — Envolva a árvore com `QueryClientProvider`. A `queryKey` identifica o cache.</aside>
+<aside class="tip tip-react"><strong>DICA REACT</strong> - Envolva a árvore com `QueryClientProvider`. A `queryKey` identifica o cache.</aside>
 
 ```tsx
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';

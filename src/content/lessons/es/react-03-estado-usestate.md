@@ -12,7 +12,7 @@ relatedSnippets: ["react-usestate-toggle"]
 
 `useState` guarda um valor entre renders e agenda uma atualização da UI quando muda.
 
-<aside class="tip tip-react"><strong>CONSEJO REACT</strong> — Nunca mute o estado in-place. Sempre chame o setter (`setCount(c => c + 1)`).</aside>
+<aside class="tip tip-react"><strong>CONSEJO REACT</strong> - Nunca mute o estado in-place. Sempre chame o setter (`setCount(c => c + 1)`).</aside>
 
 ```tsx
 import { useState } from 'react';

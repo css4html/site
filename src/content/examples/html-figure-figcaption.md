@@ -13,7 +13,7 @@ html: |
         height="240"
         alt="Diagrama simplificado do fluxo HTML → CSS → JS"
       />
-      <figcaption>Figura 1 — Ordem sugerida: estrutura, estilo, comportamento.</figcaption>
+      <figcaption>Figura 1 - Ordem sugerida: estrutura, estilo, comportamento.</figcaption>
     </figure>
 css: |
     figure {
@@ -29,4 +29,4 @@ css: |
     }
 ---
 
-Troque o alt e a legenda — eles devem se complementar, não repetir.
+Troque o alt e a legenda - eles devem se complementar, não repetir.
