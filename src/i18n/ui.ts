@@ -70,9 +70,9 @@ const pt = {
   'footer.copy': 'HTML, CSS, JS, React e Web Components de verdade.',
 
   // Home
-  'home.title': 'CSS4HTML - HTML, CSS, JavaScript, React e Web Components na prática',
+  'home.title': 'CSS4HTML - Consultoria web, setup de IA e trilhas de HTML, CSS e JavaScript',
   'home.desc':
-    'Hub de aprendizado de HTML, CSS, JavaScript, React e Web Components: exemplos vivos, snippets, trilhas e blog.',
+    'Consultoria com equipe front-end, back-end e full stack: sites, sistemas, apps e setup de IA da ideia até a produção. E um hub de aprendizado com trilhas, exemplos vivos, snippets e blog.',
   'home.badge': 'Aprendizado prático',
   'home.h1': 'Aprenda HTML, CSS, JavaScript, React e Web Components com exemplos vivos',
   'home.lead':
@@ -419,10 +419,9 @@ const en: Record<UiKey, string> = {
   'footer.home': 'Home',
   'footer.copy': 'Real HTML, CSS, JS, React, and Web Components.',
 
-  'home.title': 'CSS4HTML - HTML, CSS, JavaScript, React, and Web Components in practice',
+  'home.title': 'CSS4HTML - Web consulting, AI setup, and HTML, CSS, and JavaScript trails',
   'home.desc':
-    
-    'Learning hub for HTML, CSS, JavaScript, React, and Web Components: live examples, snippets, trails, and blog.',
+    'Consulting with front-end, back-end, and full stack developers: websites, systems, apps, and AI setup from idea to production. Plus a learning hub with trails, live examples, snippets, and a blog.',
   'home.badge': 'Hands-on learning',
   'home.h1': 'Learn HTML, CSS, JavaScript, React, and Web Components with live examples',
   'home.lead':
@@ -761,10 +760,9 @@ const es: Record<UiKey, string> = {
   'footer.home': 'Inicio',
   'footer.copy': 'HTML, CSS, JS, React y Web Components de verdad.',
 
-  'home.title': 'CSS4HTML - HTML, CSS, JavaScript, React y Web Components en la práctica',
+  'home.title': 'CSS4HTML - Consultoría web, setup de IA y rutas de HTML, CSS y JavaScript',
   'home.desc':
-    
-    'Hub de aprendizaje de HTML, CSS, JavaScript, React y Web Components: ejemplos vivos, snippets, rutas y blog.',
+    'Consultoría con equipo front-end, back-end y full stack: sitios, sistemas, apps y setup de IA de la idea a producción. Y un hub de aprendizaje con rutas, ejemplos vivos, snippets y blog.',
   'home.badge': 'Aprendizaje práctico',
   'home.h1': 'Aprende HTML, CSS, JavaScript, React y Web Components con ejemplos vivos',
   'home.lead':

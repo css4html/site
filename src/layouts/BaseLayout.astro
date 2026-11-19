@@ -69,6 +69,30 @@ const docTitle = lessonTrailName && !fullTitle.includes(lessonTrailName)
   ? fullTitle.replace(/ · CSS4HTML$/, ` — ${lessonTrailName} · CSS4HTML`)
   : fullTitle;
 const pageSchemas: Record<string, unknown>[] = [];
+// Consultoria (home abre com ela e /consultoria/): serviço profissional + clientes no ar.
+if (segments.length === 0 || (segments[0] === 'consultoria' && segments.length === 1)) {
+  pageSchemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: tk('nav.consultoria') + ' CSS4HTML',
+    url: new URL(`${base}consultoria/`, Astro.site).href,
+    description: tk('consultoria.desc'),
+    image: 'https://css4html.com.br/consultoria/og.png',
+    telephone: '+55-12-99215-9872',
+    areaServed: 'BR',
+    inLanguage: localeHtmlLang[locale],
+    parentOrganization: { '@type': 'Organization', name: 'CSS4HTML', url: 'https://css4html.com.br/' },
+    knowsAbout: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Vue', 'Web Components', 'Firebase', 'Node.js', 'CI/CD', 'Registro.br'],
+    makesOffer: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: tk('consultoria.iaTitle') } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: tk('consultoria.svc1Title') } },
+    ],
+    subjectOf: [
+      { '@type': 'WebSite', name: 'Girotela', url: 'https://girotela.com.br' },
+      { '@type': 'WebSite', name: 'Ágil Odonto', url: 'https://agilodonto.com.br' },
+    ],
+  });
+}
 if (crumbs.length > 1) {
   pageSchemas.push({
     '@context': 'https://schema.org',
