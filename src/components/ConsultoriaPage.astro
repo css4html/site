@@ -3,6 +3,8 @@ import '../styles/consultoria.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { type Locale } from '../i18n/config';
 import { localizePath, useTranslations } from '../i18n/utils';
+import ConsultoriaHero from './ConsultoriaHero.astro';
+import { consultoriaClients } from '../data/consultoria-clients';
 
 interface Props {
   locale: Locale;
@@ -35,6 +37,13 @@ const checks = [
   t('consultoria.check4'),
 ];
 
+const iaItems = [
+  { title: t('consultoria.iaItem1Title'), desc: t('consultoria.iaItem1Desc') },
+  { title: t('consultoria.iaItem2Title'), desc: t('consultoria.iaItem2Desc') },
+  { title: t('consultoria.iaItem3Title'), desc: t('consultoria.iaItem3Desc') },
+  { title: t('consultoria.iaItem4Title'), desc: t('consultoria.iaItem4Desc') },
+];
+
 const stack = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Vite', 'React', 'Vue', 'Web Components', 'Firebase', 'C#', 'Ruby on Rails', 'Node.js', 'PHP', 'Elixir'];
 
 const icon = (name: string) => `/consultoria/icons/${name}`;
@@ -48,65 +57,7 @@ const waBaseMsg = t('consultoria.waMessage');
   image="/consultoria/og.png"
 >
   <div class="consultoria" data-consultoria data-wa-msg={waBaseMsg}>
-    <section class="c-hero c-wrap">
-      <div>
-        <p class="c-kicker">{t('consultoria.kicker')}</p>
-        <h1>{t('consultoria.h1')}</h1>
-        <p class="c-lead">{t('consultoria.lead')}</p>
-        <div class="c-actions">
-          <a
-            class="c-btn c-btn-wa"
-            href="https://wa.me/5512992159872"
-            data-wa-cta
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={icon('whatsapp.svg')} alt="" width="22" height="22" />
-            {t('consultoria.ctaWa')}
-          </a>
-          <a class="c-btn c-btn-ghost" href="#como-trabalhamos">
-            {t('consultoria.ctaHow')}
-          </a>
-        </div>
-      </div>
-
-      <aside class="c-code-card" aria-hidden="true">
-        <div class="c-code-head">
-          <p class="c-code-label">{t('consultoria.cardLabel')}</p>
-          <img src={icon('code-xml-card.svg')} alt="" width="24" height="24" />
-        </div>
-        <hr style="border:0;border-top:1px solid var(--c-card-border);margin:0" />
-        <pre class="c-code-block"><span class="tag">&lt;seu-projeto&gt;</span>
-<span class="dim">    {t('consultoria.cardLine1')}</span>
-<span class="bright">    {t('consultoria.cardLine2')}</span>
-<span class="tag">&lt;/seu-projeto&gt;</span></pre>
-        <div class="c-mini-ui">
-          <div class="c-mini-ui-top">
-            <span>{t('consultoria.cardProduct')}</span>
-            <img src={icon('arrow-up-right.svg')} alt="" width="18" height="18" />
-          </div>
-          <div class="c-mini-grid">
-            <div class="c-mini-tile">
-              <img src={icon('panels-top-left.svg')} alt="" width="24" height="24" />
-              <div class="c-bar"></div>
-              <div class="c-bar short"></div>
-            </div>
-            <div class="c-mini-tile">
-              <img src={icon('smartphone-card.svg')} alt="" width="24" height="24" />
-              <div class="c-bar"></div>
-              <div class="c-bar short"></div>
-            </div>
-          </div>
-        </div>
-        <p class="c-principles">
-          <span>{t('consultoria.principle1')}</span>
-          <span class="sep">/</span>
-          <span>{t('consultoria.principle2')}</span>
-          <span class="sep">/</span>
-          <span>{t('consultoria.principle3')}</span>
-        </p>
-      </aside>
-    </section>
+    <ConsultoriaHero locale={locale} context="consultoria" />
 
     <section class="c-section" id="servicos">
       <div class="c-wrap">
@@ -124,6 +75,39 @@ const waBaseMsg = t('consultoria.waMessage');
               </div>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="c-section" id="setup-ia">
+      <div class="c-wrap">
+        <header class="c-section-head">
+          <p class="c-kicker">{t('consultoria.iaKicker')}</p>
+          <h2>{t('consultoria.iaTitle')}</h2>
+          <p class="c-section-lead">{t('consultoria.iaLead')}</p>
+        </header>
+        <div class="c-services">
+          {iaItems.map((item) => (
+            <article class="c-service">
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="c-ia-actions">
+          <a
+            class="c-btn c-btn-wa"
+            href="https://wa.me/5512992159872"
+            data-wa-cta="setup-ia"
+            data-wa-msg={t('consultoria.iaWaMessage')}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={icon('whatsapp.svg')} alt="" width="22" height="22" />
+            {t('consultoria.iaCta')}
+          </a>
         </div>
       </div>
     </section>
@@ -165,6 +149,31 @@ const waBaseMsg = t('consultoria.waMessage');
             </li>
           ))}
         </ul>
+      </div>
+    </section>
+
+    <section class="c-section" id="clientes">
+      <div class="c-wrap">
+        <header class="c-section-head">
+          <p class="c-kicker">{t('consultoria.clientsKicker')}</p>
+          <h2>{t('consultoria.clientsTitle')}</h2>
+          <p class="c-section-lead">{t('consultoria.clientsLead')}</p>
+        </header>
+        <div class="c-clients">
+          {consultoriaClients.map((client) => (
+            <article class="c-client">
+              <div class="c-client-head">
+                <img src={client.icon} alt="" width="32" height="32" />
+                <h3>{client.name}</h3>
+              </div>
+              <p>{t(client.descKey)}</p>
+              <a href={client.href} target="_blank" rel="noopener">
+                {t('consultoria.clientVisit')}
+                <span aria-hidden="true"> ↗</span>
+              </a>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -213,20 +222,20 @@ const waBaseMsg = t('consultoria.waMessage');
       var baseMsg = root.getAttribute('data-wa-msg') || '';
       var params = new URLSearchParams(window.location.search);
       var utm = params.get('utm_source');
-      function buildHref() {
-        var msg = baseMsg;
+      function buildHref(customMsg) {
+        var msg = customMsg || baseMsg;
         if (utm) msg = msg + ' (via ' + utm + ')';
         return 'https://wa.me/5512992159872?text=' + encodeURIComponent(msg);
       }
-      var href = buildHref();
       document.querySelectorAll('[data-wa-cta]').forEach(function (a) {
-        a.setAttribute('href', href);
+        var custom = a.getAttribute('data-wa-msg') || '';
+        a.setAttribute('href', buildHref(custom));
         a.addEventListener('click', function () {
           try {
             if (typeof gtag === 'function') {
               gtag('event', 'consultoria_whatsapp_click', {
                 event_category: 'consultoria',
-                event_label: utm || 'direct',
+                event_label: a.getAttribute('data-wa-cta') || utm || 'direct',
                 utm_source: utm || undefined,
               });
             }

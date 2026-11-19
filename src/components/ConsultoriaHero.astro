@@ -1,0 +1,83 @@
+---
+/** Primeira dobra da consultoria, compartilhada pela /consultoria/ e pela home. */
+import '../styles/consultoria.css';
+import { type Locale } from '../i18n/config';
+import { localizePath, useTranslations } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  /** 'consultoria': o script da página cuida do link e do GA. 'home': link e GA via data-track. */
+  context: 'consultoria' | 'home';
+}
+
+const { locale, context } = Astro.props;
+const t = useTranslations(locale);
+const icon = (name: string) => `/consultoria/icons/${name}`;
+const isHome = context === 'home';
+const waHref = `https://wa.me/5512992159872?text=${encodeURIComponent(t('consultoria.waMessage'))}`;
+const waAttrs = isHome
+  ? { 'data-track': 'consultoria_whatsapp_click', 'data-track-label': 'home-hero' }
+  : { 'data-wa-cta': '' };
+const secondaryHref = isHome ? localizePath(locale, '/consultoria/') : '#como-trabalhamos';
+const secondaryLabel = isHome ? t('home.consultCtaPage') : t('consultoria.ctaHow');
+---
+    <section class="c-hero c-wrap">
+      <div>
+        <p class="c-kicker">{t('consultoria.kicker')}</p>
+        <h1>{t('consultoria.h1')}</h1>
+        <p class="c-lead">{t('consultoria.lead')}</p>
+        <div class="c-actions">
+          <a
+            class="c-btn c-btn-wa"
+            href={waHref}
+            {...waAttrs}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={icon('whatsapp.svg')} alt="" width="22" height="22" />
+            {t('consultoria.ctaWa')}
+          </a>
+          <a class="c-btn c-btn-ghost" href={secondaryHref}>
+            {secondaryLabel}
+          </a>
+        </div>
+      </div>
+
+      <aside class="c-code-card" aria-hidden="true">
+        <div class="c-code-head">
+          <p class="c-code-label">{t('consultoria.cardLabel')}</p>
+          <img src={icon('code-xml-card.svg')} alt="" width="24" height="24" />
+        </div>
+        <hr style="border:0;border-top:1px solid var(--c-card-border);margin:0" />
+        <pre class="c-code-block"><span class="tag">&lt;seu-projeto&gt;</span>
+<span class="dim">    {t('consultoria.cardLine1')}</span>
+<span class="bright">    {t('consultoria.cardLine2')}</span>
+<span class="tag">&lt;/seu-projeto&gt;</span></pre>
+        <div class="c-mini-ui">
+          <div class="c-mini-ui-top">
+            <span>{t('consultoria.cardProduct')}</span>
+            <img src={icon('arrow-up-right.svg')} alt="" width="18" height="18" />
+          </div>
+          <div class="c-mini-grid">
+            <div class="c-mini-tile">
+              <img src={icon('panels-top-left.svg')} alt="" width="24" height="24" />
+              <div class="c-bar"></div>
+              <div class="c-bar short"></div>
+            </div>
+            <div class="c-mini-tile">
+              <img src={icon('smartphone-card.svg')} alt="" width="24" height="24" />
+              <div class="c-bar"></div>
+              <div class="c-bar short"></div>
+            </div>
+          </div>
+        </div>
+        <p class="c-principles">
+          <span>{t('consultoria.principle1')}</span>
+          <span class="sep">/</span>
+          <span>{t('consultoria.principle2')}</span>
+          <span class="sep">/</span>
+          <span>{t('consultoria.principle3')}</span>
+        </p>
+      </aside>
+    </section>
+

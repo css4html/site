@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getLessons, getExamples, getSnippets, getBlogPosts, entrySlug } from '../i18n/collections';
 import { localizePath, useTranslations, type Locale } from '../i18n/utils';
+import ConsultoriaHighlight from '../components/ConsultoriaHighlight.astro';
+import ConsultoriaHero from '../components/ConsultoriaHero.astro';
 
 const locale = 'pt-BR' as Locale;
 const t = useTranslations(locale);
@@ -28,15 +30,22 @@ function diffLabel(d: string) {
 }
 ---
 <BaseLayout title={t('home.title')} description={t('home.desc')} current="inicio" locale={locale}>
+  <div class="consultoria consultoria--embed">
+    <ConsultoriaHero locale={locale} context="home" />
+  </div>
+
+  <ConsultoriaHighlight locale={locale} />
+
   <section class="hero container">
     <p class="badge">{t('home.badge')}</p>
-    <h1>{t('home.h1')}</h1>
+    <h2 class="hero-title">{t('home.h1')}</h2>
     <p class="lead">{t('home.lead')}</p>
     <div class="btn-row">
       <a class="btn btn-primary" href={lp('/trilhas/')}>{t('home.ctaTrails')}</a>
       <a class="btn btn-ghost" href={lp('/exemplos/')}>{t('home.ctaExamples')}</a>
     </div>
   </section>
+
 
   <section class="section container">
     <h2>{t('home.threeTrails')}</h2>

@@ -23,9 +23,14 @@ const prefix = (locale: Locale) => (locale === 'pt-BR' ? '' : `/${locale}`);
 const abs = (locale: Locale, path: string) => `${SITE}${prefix(locale)}${path}`;
 
 /** Um caminho (sem idioma) e os idiomas em que ele existe. */
-type Entry = { path: string; langs: Locale[] };
+type Entry = { path: string; langs: Locale[]; lastmod?: string; priority?: string };
 
-function urlBlock({ path, langs }: Entry): string {
+/** Datas de atualização relevantes (AAAA-MM-DD). */
+const LASTMOD: Record<string, string> = { '/': '2026-11-19', '/consultoria/': '2026-11-19' };
+const PRIORITY: Record<string, string> = { '/': '1.0', '/consultoria/': '0.9' };
+
+function urlBlock({ path, langs, lastmod, priority }: Entry): string {
+  const extra = `${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}${priority ? `\n    <priority>${priority}</priority>` : ''}`;
   const alternates =
     langs.length > 1
       ? [
@@ -34,7 +39,7 @@ function urlBlock({ path, langs }: Entry): string {
         ].join('\n')
       : '';
   return langs
-    .map((l) => `  <url>\n    <loc>${abs(l, path)}</loc>${alternates ? `\n${alternates}` : ''}\n  </url>`)
+    .map((l) => `  <url>\n    <loc>${abs(l, path)}</loc>${extra}${alternates ? `\n${alternates}` : ''}\n  </url>`)
     .join('\n');
 }
 
@@ -44,7 +49,7 @@ export const GET: APIRoute = async () => {
 
   // Páginas fixas (existem nos três idiomas)
   for (const p of ['/', '/trilhas/', '/exemplos/', '/snippets/', '/blog/', '/consultoria/', ...TRAILS.map((t) => `/trilhas/${t}/`)]) {
-    entries.push({ path: p, langs: all });
+    entries.push({ path: p, langs: all, lastmod: LASTMOD[p], priority: PRIORITY[p] });
   }
 
   // Exemplos e snippets (mesmo slug em todos os idiomas)

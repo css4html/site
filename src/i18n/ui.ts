@@ -70,17 +70,17 @@ const pt = {
   'footer.copy': 'HTML, CSS, JS, React e Web Components de verdade.',
 
   // Home
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React e Web Components na prática',
+  'home.title': 'CSS4HTML - Consultoria web, setup de IA e trilhas de HTML, CSS e JavaScript',
   'home.desc':
-    'Hub de aprendizado de HTML, CSS, JavaScript, React e Web Components: exemplos vivos, snippets, trilhas e blog.',
+    'Consultoria com equipe front-end, back-end e full stack: sites, sistemas, apps e setup de IA da ideia até a produção. E um hub de aprendizado com trilhas, exemplos vivos, snippets e blog.',
   'home.badge': 'Aprendizado prático',
   'home.h1': 'Aprenda HTML, CSS, JavaScript, React e Web Components com exemplos vivos',
   'home.lead':
-    'O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras — do HTML ao React e Web Components, passando por CSS e JavaScript.',
+    'O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras - do HTML ao React e Web Components, passando por CSS e JavaScript.',
   'home.ctaTrails': 'Ver trilhas',
   'home.ctaExamples': 'Abrir exemplos',
   'home.threeTrails': 'Oito trilhas, um hub',
-  'home.threeTrailsDesc': 'Escolha por onde começar — ou combine as oito.',
+  'home.threeTrailsDesc': 'Escolha por onde começar - ou combine as oito.',
   'home.lessonsCount': 'lições',
   'home.htmlTitle': 'HTML do zero à página',
   'home.htmlDesc':
@@ -93,24 +93,24 @@ const pt = {
   'home.jsDesc': 'Variáveis, funções, eventos, arrays e um primeiro contato com fetch e o DOM.',
   'home.jsCta': 'Começar JS',
   'home.reactTitle': 'React do básico ao estado',
-  'home.reactDesc': 'Componentes, hooks, React Query e Zustand — com playground TSX.',
+  'home.reactDesc': 'Componentes, hooks, React Query e Zustand - com playground TSX.',
   'home.reactCta': 'Começar React',
   'home.wcTitle': 'Web Components com Vite',
   'home.wcDesc': 'Custom Elements agnósticos, Shadow DOM, empacote com Vite e consuma em React ou Vue.',
   'home.wcCta': 'Começar WC',
   'home.gitTitle': 'Git na prática',
-  'home.gitDesc': 'Do primeiro commit ao pull request e uma página no GitHub Pages — sem rebase.',
+  'home.gitDesc': 'Do primeiro commit ao pull request e uma página no GitHub Pages - sem rebase.',
   'home.gitCta': 'Começar Git',
   'home.how': 'Como estudar',
   'home.howDesc': 'Vários caminhos, o mesmo objetivo: entender a web na prática.',
   'home.step1Title': 'Siga uma trilha',
-  'home.step1': '— lições curtas ligadas a exemplos e snippets.',
+  'home.step1': '- lições curtas ligadas a exemplos e snippets.',
   'home.step1Link': 'Todas as trilhas →',
   'home.step2Title': 'Quebre coisas no playground',
-  'home.step2': '— HTML + CSS (+ JS/TSX) editáveis com pré-visualização ao vivo.',
+  'home.step2': '- HTML + CSS (+ JS/TSX) editáveis com pré-visualização ao vivo.',
   'home.step2Link': 'Ver exemplos →',
   'home.step3Title': 'Monte seu kit',
-  'home.step3': '— filtre snippets por trilha e tags.',
+  'home.step3': '- filtre snippets por trilha e tags.',
   'home.step3Link': 'Biblioteca de snippets →',
   'home.featuredExamples': 'Exemplos em destaque',
   'home.featuredExamplesDesc': 'Abra, edite e veja o resultado na hora.',
@@ -120,12 +120,17 @@ const pt = {
   'home.allSnippets': 'Ver biblioteca →',
   'home.fromBlog': 'Do blog',
   'home.allPosts': 'Todos os posts →',
+  'home.consultKicker': 'CONSULTORIA',
+  'home.consultTitle': 'Consultoria CSS4HTML',
+  'home.consultIaNote':
+    'Também oferecemos pacotes de setup de IA, da ideia à produção: ambiente com agentes de programação, deploy, domínio no Registro.br e o link final no ar.',
+  'home.consultCtaPage': 'Conhecer a consultoria',
 
   // Trails
   'trails.title': 'Trilhas',
   'trails.desc': 'Percursos guiados de HTML, CSS, JavaScript, React e Web Components.',
   'trails.intro':
-    'Percursos curtos que ligam teoria, playground e snippets — trilhas irmãs no mesmo hub.',
+    'Percursos curtos que ligam teoria, playground e snippets - trilhas irmãs no mesmo hub.',
   'trails.open': 'Abrir trilha',
   'trails.back': '← Trilhas',
   'trails.lessons': 'lições',
@@ -161,7 +166,7 @@ const pt = {
     'Sete lições para ir de variáveis e funções até eventos, arrays e um projeto no DOM.',
   'trail.react.title': 'React do básico ao estado',
   'trail.react.desc':
-    'Componentes, props, hooks, listas, React Query e Zustand — oito lições práticas.',
+    'Componentes, props, hooks, listas, React Query e Zustand - oito lições práticas.',
   'trail.react.pageTitle': 'Trilha: React do básico ao estado',
   'trail.react.pageDesc':
     'Oito lições do JSX ao estado global com exemplos editáveis em TSX.',
@@ -170,13 +175,13 @@ const pt = {
     'Custom Elements, Shadow DOM, a mesma galeria em React/Vue, lib mode no Vite e export dual.',
   'trail.wc.pageTitle': 'Trilha: Web Components com Vite',
   'trail.wc.pageDesc':
-    'Oito lições do custom element à lib consumível em apps Vite — agnóstico a framework.',
+    'Oito lições do custom element à lib consumível em apps Vite - agnóstico a framework.',
   'trail.git.title': 'Git na prática',
   'trail.git.desc':
     'Instalação, commits, branches, pull requests, merges e uma página publicada no GitHub Pages.',
   'trail.git.pageTitle': 'Trilha: Git na prática',
   'trail.git.pageDesc':
-    'Nove lições do zero ao Pages — fluxo feliz sem rebase nem cherry-pick.',
+    'Nove lições do zero ao Pages - fluxo feliz sem rebase nem cherry-pick.',
 
   // Examples
   'examples.title': 'Exemplos vivos',
@@ -190,7 +195,7 @@ const pt = {
   // Snippets
   'snippets.title': 'Biblioteca de snippets',
   'snippets.desc': 'Padrões HTML, CSS, JS, React e Web Components com tags e filtro.',
-  'snippets.intro': 'Padrões curtos com tags — HTML, CSS, JavaScript, React e Web Components para colar e adaptar.',
+  'snippets.intro': 'Padrões curtos com tags - HTML, CSS, JavaScript, React e Web Components para colar e adaptar.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copiar',
   'snippets.copied': 'Copiado!',
@@ -247,13 +252,13 @@ const pt = {
 
   // Consultoria
   'nav.consultoria': 'Consultoria',
-  'consultoria.title': 'Consultoria CSS4HTML — sites, sistemas e apps sob medida',
+  'consultoria.title': 'Consultoria CSS4HTML - sites, sistemas, apps e setup de IA',
   'consultoria.desc':
-    'Desenvolvemos sites, sistemas e aplicativos sob medida, com código limpo, performance e manutenção contínua.',
+    'Desenvolvemos sites, sistemas e aplicativos sob medida, e também pacotes de setup de IA da ideia à produção: ambiente com agentes de programação, deploy, domínio no Registro.br e o link final no ar.',
   'consultoria.kicker': 'CONSULTORIA CSS4HTML',
   'consultoria.h1': 'Seu projeto, do jeito certo, feito por quem ensina na prática',
   'consultoria.lead':
-    'Desenvolvemos sites, sistemas e aplicativos sob medida, com código limpo, performance e manutenção contínua.',
+    'Contamos com uma equipe de desenvolvedores front-end, back-end e full stack para criar sites, sistemas e apps sob medida. Com setup de IA, aceleramos sua ideia até a produção.',
   'consultoria.ctaWa': 'Falar no WhatsApp',
   'consultoria.ctaHow': 'Ver como trabalhamos',
   'consultoria.waMessage':
@@ -279,7 +284,7 @@ const pt = {
   'consultoria.svc5Desc': 'auditoria e otimização.',
   'consultoria.svc6Title': 'Consultoria técnica',
   'consultoria.svc6Desc': 'revisão de código, arquitetura e mentoria do time.',
-  'consultoria.howKicker': '02 / DO DIAGNÓSTICO À EVOLUÇÃO',
+  'consultoria.howKicker': '03 / DO DIAGNÓSTICO À EVOLUÇÃO',
   'consultoria.howTitle': 'Como trabalhamos',
   'consultoria.step1Title': 'Conversa e diagnóstico',
   'consultoria.step1Desc': 'Entendemos sua ideia, o contexto e os objetivos do projeto.',
@@ -289,17 +294,43 @@ const pt = {
   'consultoria.step3Desc': 'Você acompanha a evolução e participa de cada etapa.',
   'consultoria.step4Title': 'Entrega, suporte e manutenção',
   'consultoria.step4Desc': 'Colocamos no ar e seguimos cuidando da evolução.',
-  'consultoria.whyKicker': '03 / CONHECIMENTO EM PRÁTICA',
+  'consultoria.whyKicker': '04 / CONHECIMENTO EM PRÁTICA',
   'consultoria.whyTitle': 'Por que a CSS4HTML',
   'consultoria.whyLead':
     'Quem ensina também constrói. Levamos o cuidado de cada exemplo e de cada trilha para o seu projeto.',
   'consultoria.check1': 'código limpo e documentado',
   'consultoria.check2': 'tecnologia moderna',
   'consultoria.check3': 'comunicação clara do começo ao fim',
-  'consultoria.check4': 'o mesmo time que produz o conteúdo e as trilhas do site',
+  'consultoria.check4': 'equipe de desenvolvedores front-end, back-end e full stack',
   'consultoria.stackLabel': 'NOSSA STACK',
   'consultoria.finalTitle': 'Vamos tirar seu projeto do papel?',
   'consultoria.finalLead': 'Conte sua ideia e a gente responde pelo WhatsApp.',
+  'consultoria.clientsKicker': 'CLIENTES',
+  'consultoria.clientsTitle': 'Projetos no ar',
+  'consultoria.clientsLead': 'Alguns produtos que a CSS4HTML desenvolveu e segue evoluindo.',
+  'consultoria.clientGirotelaDesc':
+    'Mídia indoor na smart TV, sem app e sem pen drive: cadastre imagens e vídeos, agende por horário e cole um link na TV ou no OBS.',
+  'consultoria.clientAgilDesc':
+    'Sistema online para consultórios odontológicos: agenda, prontuário, odontograma e confirmação de consultas por WhatsApp.',
+  'consultoria.clientVisit': 'Visitar o site',
+  'consultoria.iaKicker': '02 / DA IDEIA À PRODUÇÃO',
+  'consultoria.iaTitle': 'Pacotes de setup de IA - da ideia à produção',
+  'consultoria.iaLead':
+    'Do ambiente de desenvolvimento ao domínio no ar: configuramos o projeto com agentes de programação e entregamos o link final em produção.',
+  'consultoria.iaItem1Title': 'Ambiente com agentes de programação',
+  'consultoria.iaItem1Desc':
+    'Configuração do ambiente de desenvolvimento com agentes de IA para o time programar com assistência do início ao fim.',
+  'consultoria.iaItem2Title': 'Ambiente de deploy',
+  'consultoria.iaItem2Desc':
+    'Pipeline de CI/CD e o ambiente de publicação prontos para cada nova versão ir para produção.',
+  'consultoria.iaItem3Title': 'Domínio no Registro.br',
+  'consultoria.iaItem3Desc':
+    'Configuração do domínio e do DNS no Registro.br para o projeto responder no endereço certo.',
+  'consultoria.iaItem4Title': 'Link final em produção',
+  'consultoria.iaItem4Desc': 'O projeto no ar, com o endereço final pronto para compartilhar e usar.',
+  'consultoria.iaCta': 'Falar no WhatsApp sobre o setup de IA',
+  'consultoria.iaWaMessage':
+    'Olá! Vim pela CSS4HTML e quero conversar sobre o pacote de setup de IA, da ideia à produção.',
 
   // Growth CTA
   'cta.newsTitle': 'Receba um snippet por semana',
@@ -310,7 +341,7 @@ const pt = {
   'cta.followTitle': 'Continue aprendendo',
   'cta.followLead': 'Novos exemplos e lições toda semana no Instagram e no GitHub.',
   'cta.consultTitle': 'Precisa de um site ou sistema?',
-  'cta.consultLead': 'O mesmo time que escreve estas trilhas desenvolve sites, sistemas e apps sob medida.',
+  'cta.consultLead': 'Contamos com uma equipe de desenvolvedores front-end, back-end e full stack para criar sites, sistemas e apps sob medida. Com setup de IA, aceleramos sua ideia até a produção.',
   'cta.consultButton': 'Conhecer a consultoria',
   'cta.trailDone': 'Você concluiu a trilha! 🎉',
 
@@ -388,19 +419,18 @@ const en: Record<UiKey, string> = {
   'footer.home': 'Home',
   'footer.copy': 'Real HTML, CSS, JS, React, and Web Components.',
 
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React, and Web Components in practice',
+  'home.title': 'CSS4HTML - Web consulting, AI setup, and HTML, CSS, and JavaScript trails',
   'home.desc':
-    
-    'Learning hub for HTML, CSS, JavaScript, React, and Web Components: live examples, snippets, trails, and blog.',
+    'Consulting with front-end, back-end, and full stack developers: websites, systems, apps, and AI setup from idea to production. Plus a learning hub with trails, live examples, snippets, and a blog.',
   'home.badge': 'Hands-on learning',
   'home.h1': 'Learn HTML, CSS, JavaScript, React, and Web Components with live examples',
   'home.lead':
     
-    'CSS4HTML is a unified hub: edit code in the playground, copy ready-made patterns, and follow clear trails — from HTML to React and Web Components, through CSS and JavaScript.',
+    'CSS4HTML is a unified hub: edit code in the playground, copy ready-made patterns, and follow clear trails - from HTML to React and Web Components, through CSS and JavaScript.',
   'home.ctaTrails': 'View trails',
   'home.ctaExamples': 'Open examples',
   'home.threeTrails': 'Eight trails, one hub',
-  'home.threeTrailsDesc': 'Pick where to start — or combine all eight.',
+  'home.threeTrailsDesc': 'Pick where to start - or combine all eight.',
   'home.lessonsCount': 'lessons',
   'home.htmlTitle': 'HTML from scratch to a page',
   'home.htmlDesc':
@@ -413,24 +443,24 @@ const en: Record<UiKey, string> = {
   'home.jsDesc': 'Variables, functions, events, arrays, and a first look at fetch and the DOM.',
   'home.jsCta': 'Start JS',
   'home.reactTitle': 'React from basics to state',
-  'home.reactDesc': 'Components, hooks, React Query, and Zustand — with a TSX playground.',
+  'home.reactDesc': 'Components, hooks, React Query, and Zustand - with a TSX playground.',
   'home.reactCta': 'Start React',
   'home.wcTitle': 'Web Components with Vite',
   'home.wcDesc': 'Framework-agnostic Custom Elements, Shadow DOM, package with Vite, consume in React or Vue.',
   'home.wcCta': 'Start WC',
   'home.gitTitle': 'Git in practice',
-  'home.gitDesc': 'From the first commit to a pull request and a page on GitHub Pages — no rebase.',
+  'home.gitDesc': 'From the first commit to a pull request and a page on GitHub Pages - no rebase.',
   'home.gitCta': 'Start Git',
   'home.how': 'How to study',
   'home.howDesc': 'Several paths, one goal: understand the web in practice.',
   'home.step1Title': 'Follow a trail',
-  'home.step1': '— short lessons linked to examples and snippets.',
+  'home.step1': '- short lessons linked to examples and snippets.',
   'home.step1Link': 'All trails →',
   'home.step2Title': 'Break things in the playground',
-  'home.step2': '— editable HTML + CSS (+ JS/TSX) with live preview.',
+  'home.step2': '- editable HTML + CSS (+ JS/TSX) with live preview.',
   'home.step2Link': 'See examples →',
   'home.step3Title': 'Build your kit',
-  'home.step3': '— filter snippets by trail and tags.',
+  'home.step3': '- filter snippets by trail and tags.',
   'home.step3Link': 'Snippet library →',
   'home.featuredExamples': 'Featured examples',
   'home.featuredExamplesDesc': 'Open, edit, and see the result instantly.',
@@ -440,11 +470,16 @@ const en: Record<UiKey, string> = {
   'home.allSnippets': 'Browse library →',
   'home.fromBlog': 'From the blog',
   'home.allPosts': 'All posts →',
+  'home.consultKicker': 'CONSULTING',
+  'home.consultTitle': 'CSS4HTML consulting',
+  'home.consultIaNote':
+    'We also offer AI setup packages, from idea to production: a development environment with coding agents, deploy, domain setup at Registro.br, and the live project URL.',
+  'home.consultCtaPage': 'See our consulting',
 
   'trails.title': 'Trails',
   'trails.desc': 'Guided paths for HTML, CSS, JavaScript, React, and Web Components.',
   'trails.intro':
-    'Short paths that connect theory, playground, and snippets — sibling trails in one hub.',
+    'Short paths that connect theory, playground, and snippets - sibling trails in one hub.',
   'trails.open': 'Open trail',
   'trails.back': '← Trails',
   'trails.lessons': 'lessons',
@@ -480,7 +515,7 @@ const en: Record<UiKey, string> = {
     'Seven lessons from variables and functions to events, arrays, and a DOM project.',
   'trail.react.title': 'React from basics to state',
   'trail.react.desc':
-    'Components, props, hooks, lists, React Query, and Zustand — eight hands-on lessons.',
+    'Components, props, hooks, lists, React Query, and Zustand - eight hands-on lessons.',
   'trail.react.pageTitle': 'Trail: React from basics to state',
   'trail.react.pageDesc':
     'Eight lessons from JSX to global state with editable TSX examples.',
@@ -489,13 +524,13 @@ const en: Record<UiKey, string> = {
     'Custom Elements, Shadow DOM, the same gallery in React/Vue, Vite lib mode, and dual export.',
   'trail.wc.pageTitle': 'Trail: Web Components with Vite',
   'trail.wc.pageDesc':
-    'Eight lessons from a custom element to a lib you can consume in Vite apps — framework-agnostic.',
+    'Eight lessons from a custom element to a lib you can consume in Vite apps - framework-agnostic.',
   'trail.git.title': 'Git in practice',
   'trail.git.desc':
     'Install, commits, branches, pull requests, merges, and a page published on GitHub Pages.',
   'trail.git.pageTitle': 'Trail: Git in practice',
   'trail.git.pageDesc':
-    'Nine lessons from zero to Pages — happy path without rebase or cherry-pick.',
+    'Nine lessons from zero to Pages - happy path without rebase or cherry-pick.',
 
   'examples.title': 'Live examples',
   'examples.desc': 'HTML+CSS+JS/TSX playground with live preview.',
@@ -508,7 +543,7 @@ const en: Record<UiKey, string> = {
 
   'snippets.title': 'Snippet library',
   'snippets.desc': 'HTML, CSS, JS, React, and Web Components patterns with tags and filters.',
-  'snippets.intro': 'Short tagged patterns — HTML, CSS, JavaScript, React, and Web Components to paste and adapt.',
+  'snippets.intro': 'Short tagged patterns - HTML, CSS, JavaScript, React, and Web Components to paste and adapt.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copy',
   'snippets.copied': 'Copied!',
@@ -560,13 +595,13 @@ const en: Record<UiKey, string> = {
 
   
   'nav.consultoria': 'Consulting',
-  'consultoria.title': 'CSS4HTML Consulting — custom sites, systems, and apps',
+  'consultoria.title': 'CSS4HTML Consulting - sites, systems, apps, and AI setup',
   'consultoria.desc':
-    'We build custom websites, systems, and apps with clean code, performance, and ongoing maintenance.',
+    'We build custom websites, systems, and apps, plus AI setup packages from idea to production: a development environment with coding agents, deploy, domain setup at Registro.br, and the live project URL.',
   'consultoria.kicker': 'CSS4HTML CONSULTING',
   'consultoria.h1': 'Your project, done right, by people who teach in practice',
   'consultoria.lead':
-    'We build custom websites, systems, and apps with clean code, performance, and ongoing maintenance.',
+    'Our team of front-end, back-end, and full stack developers builds custom websites, systems, and apps. With AI setup, we speed your idea up to production.',
   'consultoria.ctaWa': 'Chat on WhatsApp',
   'consultoria.ctaHow': 'See how we work',
   'consultoria.waMessage':
@@ -592,7 +627,7 @@ const en: Record<UiKey, string> = {
   'consultoria.svc5Desc': 'audit and optimization.',
   'consultoria.svc6Title': 'Technical consulting',
   'consultoria.svc6Desc': 'code review, architecture, and team mentoring.',
-  'consultoria.howKicker': '02 / FROM DIAGNOSIS TO EVOLUTION',
+  'consultoria.howKicker': '03 / FROM DIAGNOSIS TO EVOLUTION',
   'consultoria.howTitle': 'How we work',
   'consultoria.step1Title': 'Conversation and diagnosis',
   'consultoria.step1Desc': 'We understand your idea, context, and project goals.',
@@ -602,17 +637,43 @@ const en: Record<UiKey, string> = {
   'consultoria.step3Desc': 'You follow progress and take part in every step.',
   'consultoria.step4Title': 'Delivery, support, and maintenance',
   'consultoria.step4Desc': 'We ship it and keep caring for its evolution.',
-  'consultoria.whyKicker': '03 / KNOWLEDGE IN PRACTICE',
+  'consultoria.whyKicker': '04 / KNOWLEDGE IN PRACTICE',
   'consultoria.whyTitle': 'Why CSS4HTML',
   'consultoria.whyLead':
     'Those who teach also build. We bring the care from every example and trail into your project.',
   'consultoria.check1': 'clean, documented code',
   'consultoria.check2': 'modern technology',
   'consultoria.check3': 'clear communication from start to finish',
-  'consultoria.check4': 'the same team that creates the site content and trails',
+  'consultoria.check4': 'a team of front-end, back-end, and full stack developers',
   'consultoria.stackLabel': 'OUR STACK',
   'consultoria.finalTitle': 'Ready to get your project off the ground?',
   'consultoria.finalLead': 'Tell us your idea and we reply on WhatsApp.',
+  'consultoria.clientsKicker': 'CLIENTS',
+  'consultoria.clientsTitle': 'Projects online',
+  'consultoria.clientsLead': 'A few products CSS4HTML built and keeps evolving.',
+  'consultoria.clientGirotelaDesc':
+    'Indoor media on a smart TV, with no app and no USB drive: upload images and videos, schedule by time, and paste a link on the TV or in OBS.',
+  'consultoria.clientAgilDesc':
+    'Online system for dental clinics: scheduling, patient records, odontogram, and appointment confirmation via WhatsApp.',
+  'consultoria.clientVisit': 'Visit the site',
+  'consultoria.iaKicker': '02 / FROM IDEA TO PRODUCTION',
+  'consultoria.iaTitle': 'AI setup packages - from idea to production',
+  'consultoria.iaLead':
+    'From the development environment to a live domain: we set up the project with coding agents and deliver the final production URL.',
+  'consultoria.iaItem1Title': 'Environment with coding agents',
+  'consultoria.iaItem1Desc':
+    'A development environment configured with AI coding agents so the team can work with assistance from start to finish.',
+  'consultoria.iaItem2Title': 'Deploy environment',
+  'consultoria.iaItem2Desc':
+    'A CI/CD pipeline and publishing environment ready to ship each new version to production.',
+  'consultoria.iaItem3Title': 'Domain at Registro.br',
+  'consultoria.iaItem3Desc':
+    'Domain and DNS setup at Registro.br so the project responds at the right address.',
+  'consultoria.iaItem4Title': 'Live production URL',
+  'consultoria.iaItem4Desc': 'The project online, with the final address ready to share and use.',
+  'consultoria.iaCta': 'Chat on WhatsApp about the AI setup',
+  'consultoria.iaWaMessage':
+    'Hi! I came from CSS4HTML and want to talk about the AI setup package, from idea to production.',
 
   // Growth CTA
   'cta.newsTitle': 'Get one snippet a week',
@@ -623,7 +684,7 @@ const en: Record<UiKey, string> = {
   'cta.followTitle': 'Keep learning',
   'cta.followLead': 'New examples and lessons every week on Instagram and GitHub.',
   'cta.consultTitle': 'Need a website or a system?',
-  'cta.consultLead': 'The same team that writes these tracks builds custom websites, systems and apps.',
+  'cta.consultLead': 'Our team of front-end, back-end, and full stack developers builds custom websites, systems, and apps. With AI setup, we speed your idea up to production.',
   'cta.consultButton': 'See our consulting',
   'cta.trailDone': 'You finished the track! 🎉',
 
@@ -699,19 +760,18 @@ const es: Record<UiKey, string> = {
   'footer.home': 'Inicio',
   'footer.copy': 'HTML, CSS, JS, React y Web Components de verdad.',
 
-  'home.title': 'CSS4HTML — HTML, CSS, JavaScript, React y Web Components en la práctica',
+  'home.title': 'CSS4HTML - Consultoría web, setup de IA y rutas de HTML, CSS y JavaScript',
   'home.desc':
-    
-    'Hub de aprendizaje de HTML, CSS, JavaScript, React y Web Components: ejemplos vivos, snippets, rutas y blog.',
+    'Consultoría con equipo front-end, back-end y full stack: sitios, sistemas, apps y setup de IA de la idea a producción. Y un hub de aprendizaje con rutas, ejemplos vivos, snippets y blog.',
   'home.badge': 'Aprendizaje práctico',
   'home.h1': 'Aprende HTML, CSS, JavaScript, React y Web Components con ejemplos vivos',
   'home.lead':
     
-    'CSS4HTML es un hub unificado: edita código en el playground, copia patrones listos y sigue rutas claras — del HTML a React, pasando por CSS y JavaScript y Web Components.',
+    'CSS4HTML es un hub unificado: edita código en el playground, copia patrones listos y sigue rutas claras - del HTML a React, pasando por CSS y JavaScript y Web Components.',
   'home.ctaTrails': 'Ver rutas',
   'home.ctaExamples': 'Abrir ejemplos',
   'home.threeTrails': 'Ocho rutas, un hub',
-  'home.threeTrailsDesc': 'Elige por dónde empezar — o combina las ocho.',
+  'home.threeTrailsDesc': 'Elige por dónde empezar - o combina las ocho.',
   'home.lessonsCount': 'lecciones',
   'home.htmlTitle': 'HTML de cero a una página',
   'home.htmlDesc':
@@ -724,24 +784,24 @@ const es: Record<UiKey, string> = {
   'home.jsDesc': 'Variables, funciones, eventos, arrays y un primer contacto con fetch y el DOM.',
   'home.jsCta': 'Empezar JS',
   'home.reactTitle': 'React de lo básico al estado',
-  'home.reactDesc': 'Componentes, hooks, React Query y Zustand — con playground TSX.',
+  'home.reactDesc': 'Componentes, hooks, React Query y Zustand - con playground TSX.',
   'home.reactCta': 'Empezar React',
   'home.wcTitle': 'Web Components con Vite',
   'home.wcDesc': 'Custom Elements agnósticos, Shadow DOM, empaqueta con Vite y consume en React o Vue.',
   'home.wcCta': 'Empezar WC',
   'home.gitTitle': 'Git en la práctica',
-  'home.gitDesc': 'Del primer commit al pull request y una página en GitHub Pages — sin rebase.',
+  'home.gitDesc': 'Del primer commit al pull request y una página en GitHub Pages - sin rebase.',
   'home.gitCta': 'Empezar Git',
   'home.how': 'Cómo estudiar',
   'home.howDesc': 'Varios caminos, el mismo objetivo: entender la web en la práctica.',
   'home.step1Title': 'Sigue una ruta',
-  'home.step1': '— lecciones cortas ligadas a ejemplos y snippets.',
+  'home.step1': '- lecciones cortas ligadas a ejemplos y snippets.',
   'home.step1Link': 'Todas las rutas →',
   'home.step2Title': 'Rompe cosas en el playground',
-  'home.step2': '— HTML + CSS (+ JS/TSX) editables con vista previa en vivo.',
+  'home.step2': '- HTML + CSS (+ JS/TSX) editables con vista previa en vivo.',
   'home.step2Link': 'Ver ejemplos →',
   'home.step3Title': 'Arma tu kit',
-  'home.step3': '— filtra snippets por ruta y etiquetas.',
+  'home.step3': '- filtra snippets por ruta y etiquetas.',
   'home.step3Link': 'Biblioteca de snippets →',
   'home.featuredExamples': 'Ejemplos destacados',
   'home.featuredExamplesDesc': 'Abre, edita y ve el resultado al instante.',
@@ -751,11 +811,16 @@ const es: Record<UiKey, string> = {
   'home.allSnippets': 'Ver biblioteca →',
   'home.fromBlog': 'Del blog',
   'home.allPosts': 'Todos los posts →',
+  'home.consultKicker': 'CONSULTORÍA',
+  'home.consultTitle': 'Consultoría CSS4HTML',
+  'home.consultIaNote':
+    'También ofrecemos paquetes de setup de IA, de la idea a producción: entorno con agentes de programación, deploy, dominio en Registro.br y el enlace final en el aire.',
+  'home.consultCtaPage': 'Conocer la consultoría',
 
   'trails.title': 'Rutas',
   'trails.desc': 'Recorridos guiados de HTML, CSS, JavaScript, React y Web Components.',
   'trails.intro':
-    'Recorridos cortos que unen teoría, playground y snippets — rutas hermanas en el mismo hub.',
+    'Recorridos cortos que unen teoría, playground y snippets - rutas hermanas en el mismo hub.',
   'trails.open': 'Abrir ruta',
   'trails.back': '← Rutas',
   'trails.lessons': 'lecciones',
@@ -791,7 +856,7 @@ const es: Record<UiKey, string> = {
     'Siete lecciones desde variables y funciones hasta eventos, arrays y un proyecto en el DOM.',
   'trail.react.title': 'React de lo básico al estado',
   'trail.react.desc':
-    'Componentes, props, hooks, listas, React Query y Zustand — ocho lecciones prácticas.',
+    'Componentes, props, hooks, listas, React Query y Zustand - ocho lecciones prácticas.',
   'trail.react.pageTitle': 'Ruta: React de lo básico al estado',
   'trail.react.pageDesc':
     'Ocho lecciones desde JSX hasta estado global con ejemplos editables en TSX.',
@@ -800,13 +865,13 @@ const es: Record<UiKey, string> = {
     'Custom Elements, Shadow DOM, la misma galería en React/Vue, lib mode en Vite y export dual.',
   'trail.wc.pageTitle': 'Ruta: Web Components con Vite',
   'trail.wc.pageDesc':
-    'Ocho lecciones del custom element a una lib consumible en apps Vite — agnóstico a frameworks.',
+    'Ocho lecciones del custom element a una lib consumible en apps Vite - agnóstico a frameworks.',
   'trail.git.title': 'Git en la práctica',
   'trail.git.desc':
     'Instalación, commits, branches, pull requests, merges y una página publicada en GitHub Pages.',
   'trail.git.pageTitle': 'Ruta: Git en la práctica',
   'trail.git.pageDesc':
-    'Nueve lecciones de cero a Pages — camino feliz sin rebase ni cherry-pick.',
+    'Nueve lecciones de cero a Pages - camino feliz sin rebase ni cherry-pick.',
 
   'examples.title': 'Ejemplos vivos',
   'examples.desc': 'Playground HTML+CSS+JS/TSX con vista previa en vivo.',
@@ -819,7 +884,7 @@ const es: Record<UiKey, string> = {
 
   'snippets.title': 'Biblioteca de snippets',
   'snippets.desc': 'Patrones HTML, CSS, JS, React y Web Components con etiquetas y filtro.',
-  'snippets.intro': 'Patrones cortos con etiquetas — HTML, CSS, JavaScript, React y Web Components para pegar y adaptar.',
+  'snippets.intro': 'Patrones cortos con etiquetas - HTML, CSS, JavaScript, React y Web Components para pegar y adaptar.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copiar',
   'snippets.copied': '¡Copiado!',
@@ -871,13 +936,13 @@ const es: Record<UiKey, string> = {
 
   
   'nav.consultoria': 'Consultoría',
-  'consultoria.title': 'Consultoría CSS4HTML — sitios, sistemas y apps a medida',
+  'consultoria.title': 'Consultoría CSS4HTML - sitios, sistemas, apps y setup de IA',
   'consultoria.desc':
-    'Desarrollamos sitios, sistemas y aplicaciones a medida, con código limpio, rendimiento y mantenimiento continuo.',
+    'Desarrollamos sitios, sistemas y aplicaciones a medida, y también paquetes de setup de IA de la idea a producción: entorno con agentes de programación, deploy, dominio en Registro.br y el enlace final en el aire.',
   'consultoria.kicker': 'CONSULTORÍA CSS4HTML',
   'consultoria.h1': 'Tu proyecto, bien hecho, por quien enseña en la práctica',
   'consultoria.lead':
-    'Desarrollamos sitios, sistemas y aplicaciones a medida, con código limpio, rendimiento y mantenimiento continuo.',
+    'Contamos con un equipo de desarrolladores front-end, back-end y full stack para crear sitios, sistemas y apps a medida. Con setup de IA, aceleramos tu idea hasta producción.',
   'consultoria.ctaWa': 'Hablar por WhatsApp',
   'consultoria.ctaHow': 'Ver cómo trabajamos',
   'consultoria.waMessage':
@@ -903,7 +968,7 @@ const es: Record<UiKey, string> = {
   'consultoria.svc5Desc': 'auditoría y optimización.',
   'consultoria.svc6Title': 'Consultoría técnica',
   'consultoria.svc6Desc': 'revisión de código, arquitectura y mentoría del equipo.',
-  'consultoria.howKicker': '02 / DEL DIAGNÓSTICO A LA EVOLUCIÓN',
+  'consultoria.howKicker': '03 / DEL DIAGNÓSTICO A LA EVOLUCIÓN',
   'consultoria.howTitle': 'Cómo trabajamos',
   'consultoria.step1Title': 'Conversación y diagnóstico',
   'consultoria.step1Desc': 'Entendemos tu idea, el contexto y los objetivos del proyecto.',
@@ -913,17 +978,43 @@ const es: Record<UiKey, string> = {
   'consultoria.step3Desc': 'Sigues la evolución y participas en cada etapa.',
   'consultoria.step4Title': 'Entrega, soporte y mantenimiento',
   'consultoria.step4Desc': 'Lo publicamos y seguimos cuidando la evolución.',
-  'consultoria.whyKicker': '03 / CONOCIMIENTO EN LA PRÁCTICA',
+  'consultoria.whyKicker': '04 / CONOCIMIENTO EN LA PRÁCTICA',
   'consultoria.whyTitle': 'Por qué CSS4HTML',
   'consultoria.whyLead':
     'Quien enseña también construye. Llevamos el cuidado de cada ejemplo y de cada ruta a tu proyecto.',
   'consultoria.check1': 'código limpio y documentado',
   'consultoria.check2': 'tecnología moderna',
   'consultoria.check3': 'comunicación clara de principio a fin',
-  'consultoria.check4': 'el mismo equipo que produce el contenido y las rutas del sitio',
+  'consultoria.check4': 'equipo de desarrolladores front-end, back-end y full stack',
   'consultoria.stackLabel': 'NUESTRA STACK',
   'consultoria.finalTitle': '¿Sacamos tu proyecto del papel?',
   'consultoria.finalLead': 'Cuéntanos tu idea y respondemos por WhatsApp.',
+  'consultoria.clientsKicker': 'CLIENTES',
+  'consultoria.clientsTitle': 'Proyectos en el aire',
+  'consultoria.clientsLead': 'Algunos productos que CSS4HTML desarrolló y sigue evolucionando.',
+  'consultoria.clientGirotelaDesc':
+    'Media indoor en la smart TV, sin app y sin pendrive: carga imágenes y videos, programa por horario y pega un enlace en la TV o en OBS.',
+  'consultoria.clientAgilDesc':
+    'Sistema online para consultorios odontológicos: agenda, historial clínico, odontograma y confirmación de consultas por WhatsApp.',
+  'consultoria.clientVisit': 'Visitar el sitio',
+  'consultoria.iaKicker': '02 / DE LA IDEA A PRODUCCIÓN',
+  'consultoria.iaTitle': 'Paquetes de setup de IA - de la idea a producción',
+  'consultoria.iaLead':
+    'Del entorno de desarrollo al dominio en el aire: configuramos el proyecto con agentes de programación y entregamos el enlace final en producción.',
+  'consultoria.iaItem1Title': 'Entorno con agentes de programación',
+  'consultoria.iaItem1Desc':
+    'Configuración del entorno de desarrollo con agentes de IA para que el equipo programe con asistencia de principio a fin.',
+  'consultoria.iaItem2Title': 'Entorno de deploy',
+  'consultoria.iaItem2Desc':
+    'Pipeline de CI/CD y el entorno de publicación listos para que cada nueva versión vaya a producción.',
+  'consultoria.iaItem3Title': 'Dominio en Registro.br',
+  'consultoria.iaItem3Desc':
+    'Configuración del dominio y del DNS en Registro.br para que el proyecto responda en la dirección correcta.',
+  'consultoria.iaItem4Title': 'Enlace final en producción',
+  'consultoria.iaItem4Desc': 'El proyecto en el aire, con la dirección final lista para compartir y usar.',
+  'consultoria.iaCta': 'Hablar por WhatsApp sobre el setup de IA',
+  'consultoria.iaWaMessage':
+    '¡Hola! Llegué desde CSS4HTML y quiero hablar sobre el paquete de setup de IA, de la idea a producción.',
 
   // Growth CTA
   'cta.newsTitle': 'Recibe un snippet por semana',
@@ -934,7 +1025,7 @@ const es: Record<UiKey, string> = {
   'cta.followTitle': 'Sigue aprendiendo',
   'cta.followLead': 'Nuevos ejemplos y lecciones cada semana en Instagram y GitHub.',
   'cta.consultTitle': '¿Necesitas un sitio o un sistema?',
-  'cta.consultLead': 'El mismo equipo que escribe estas rutas desarrolla sitios, sistemas y apps a medida.',
+  'cta.consultLead': 'Contamos con un equipo de desarrolladores front-end, back-end y full stack para crear sitios, sistemas y apps a medida. Con setup de IA, aceleramos tu idea hasta producción.',
   'cta.consultButton': 'Conocer la consultoría',
   'cta.trailDone': '¡Terminaste la ruta! 🎉',
 
