@@ -258,7 +258,7 @@ const pt = {
   'consultoria.kicker': 'CONSULTORIA CSS4HTML',
   'consultoria.h1': 'Seu projeto, do jeito certo, feito por quem ensina na prática',
   'consultoria.lead':
-    'Desenvolvemos sites, sistemas e aplicativos sob medida, com código limpo, performance e manutenção contínua.',
+    'Desenvolvemos sites, sistemas e aplicativos sob medida, com código limpo, performance e manutenção contínua. Contamos com uma equipe de desenvolvedores front-end, back-end e full stack.',
   'consultoria.ctaWa': 'Falar no WhatsApp',
   'consultoria.ctaHow': 'Ver como trabalhamos',
   'consultoria.waMessage':
@@ -301,7 +301,7 @@ const pt = {
   'consultoria.check1': 'código limpo e documentado',
   'consultoria.check2': 'tecnologia moderna',
   'consultoria.check3': 'comunicação clara do começo ao fim',
-  'consultoria.check4': 'do ambiente com IA ao link final em produção',
+  'consultoria.check4': 'equipe de desenvolvedores front-end, back-end e full stack',
   'consultoria.stackLabel': 'NOSSA STACK',
   'consultoria.finalTitle': 'Vamos tirar seu projeto do papel?',
   'consultoria.finalLead': 'Conte sua ideia e a gente responde pelo WhatsApp.',
@@ -602,7 +602,7 @@ const en: Record<UiKey, string> = {
   'consultoria.kicker': 'CSS4HTML CONSULTING',
   'consultoria.h1': 'Your project, done right, by people who teach in practice',
   'consultoria.lead':
-    'We build custom websites, systems, and apps with clean code, performance, and ongoing maintenance.',
+    'We build custom websites, systems, and apps with clean code, performance, and ongoing maintenance. Our team includes front-end, back-end, and full stack developers.',
   'consultoria.ctaWa': 'Chat on WhatsApp',
   'consultoria.ctaHow': 'See how we work',
   'consultoria.waMessage':
@@ -645,7 +645,7 @@ const en: Record<UiKey, string> = {
   'consultoria.check1': 'clean, documented code',
   'consultoria.check2': 'modern technology',
   'consultoria.check3': 'clear communication from start to finish',
-  'consultoria.check4': 'from the AI-ready environment to the live production link',
+  'consultoria.check4': 'a team of front-end, back-end, and full stack developers',
   'consultoria.stackLabel': 'OUR STACK',
   'consultoria.finalTitle': 'Ready to get your project off the ground?',
   'consultoria.finalLead': 'Tell us your idea and we reply on WhatsApp.',
@@ -944,7 +944,7 @@ const es: Record<UiKey, string> = {
   'consultoria.kicker': 'CONSULTORÍA CSS4HTML',
   'consultoria.h1': 'Tu proyecto, bien hecho, por quien enseña en la práctica',
   'consultoria.lead':
-    'Desarrollamos sitios, sistemas y aplicaciones a medida, con código limpio, rendimiento y mantenimiento continuo.',
+    'Desarrollamos sitios, sistemas y aplicaciones a medida, con código limpio, rendimiento y mantenimiento continuo. Contamos con un equipo de desarrolladores front-end, back-end y full stack.',
   'consultoria.ctaWa': 'Hablar por WhatsApp',
   'consultoria.ctaHow': 'Ver cómo trabajamos',
   'consultoria.waMessage':
@@ -987,7 +987,7 @@ const es: Record<UiKey, string> = {
   'consultoria.check1': 'código limpio y documentado',
   'consultoria.check2': 'tecnología moderna',
   'consultoria.check3': 'comunicación clara de principio a fin',
-  'consultoria.check4': 'del entorno con IA al enlace final en producción',
+  'consultoria.check4': 'equipo de desarrolladores front-end, back-end y full stack',
   'consultoria.stackLabel': 'NUESTRA STACK',
   'consultoria.finalTitle': '¿Sacamos tu proyecto del papel?',
   'consultoria.finalLead': 'Cuéntanos tu idea y respondemos por WhatsApp.',
