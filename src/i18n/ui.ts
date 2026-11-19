@@ -341,7 +341,7 @@ const pt = {
   'cta.followTitle': 'Continue aprendendo',
   'cta.followLead': 'Novos exemplos e lições toda semana no Instagram e no GitHub.',
   'cta.consultTitle': 'Precisa de um site ou sistema?',
-  'cta.consultLead': 'Desenvolvemos sites, sistemas e apps sob medida, com setup de IA da ideia à produção.',
+  'cta.consultLead': 'Desenvolvemos sites, sistemas e apps sob medida. Com setup de IA, aceleramos sua ideia à produção.',
   'cta.consultButton': 'Conhecer a consultoria',
   'cta.trailDone': 'Você concluiu a trilha! 🎉',
 
@@ -685,7 +685,7 @@ const en: Record<UiKey, string> = {
   'cta.followTitle': 'Keep learning',
   'cta.followLead': 'New examples and lessons every week on Instagram and GitHub.',
   'cta.consultTitle': 'Need a website or a system?',
-  'cta.consultLead': 'We build custom websites, systems and apps, with AI setup from idea to production.',
+  'cta.consultLead': 'We build custom websites, systems and apps. With AI setup, we speed your idea up to production.',
   'cta.consultButton': 'See our consulting',
   'cta.trailDone': 'You finished the track! 🎉',
 
@@ -1027,7 +1027,7 @@ const es: Record<UiKey, string> = {
   'cta.followTitle': 'Sigue aprendiendo',
   'cta.followLead': 'Nuevos ejemplos y lecciones cada semana en Instagram y GitHub.',
   'cta.consultTitle': '¿Necesitas un sitio o un sistema?',
-  'cta.consultLead': 'Desarrollamos sitios, sistemas y apps a medida, con setup de IA de la idea a producción.',
+  'cta.consultLead': 'Desarrollamos sitios, sistemas y apps a medida. Con setup de IA, aceleramos tu idea hasta producción.',
   'cta.consultButton': 'Conocer la consultoría',
   'cta.trailDone': '¡Terminaste la ruta! 🎉',
 
