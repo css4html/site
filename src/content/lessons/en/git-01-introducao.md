@@ -11,7 +11,7 @@ relatedSnippets: []
 
 Git é um **sistema de controle de versão**: ele registra o histórico do seu projeto em "fotografias" chamadas *commits*.
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — Git ≠ GitHub. Git roda na sua máquina; GitHub (GitLab, Bitbucket…) hospeda cópias remotas e adiciona PRs, issues e Pages.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - Git ≠ GitHub. Git roda na sua máquina; GitHub (GitLab, Bitbucket…) hospeda cópias remotas e adiciona PRs, issues e Pages.</aside>
 
 ## Por que usar
 

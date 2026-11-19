@@ -42,7 +42,7 @@ sudo apt install git
 git --version
 ```
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — Prefira uma versão recente (2.30+). Comandos como `git switch` e `git restore` existem nas versões modernas e deixam o fluxo mais claro que o antigo `checkout` coringa.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - Prefira uma versão recente (2.30+). Comandos como `git switch` e `git restore` existem nas versões modernas e deixam o fluxo mais claro que o antigo `checkout` coringa.</aside>
 
 ## Checklist
 

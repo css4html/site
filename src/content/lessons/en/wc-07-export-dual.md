@@ -1,6 +1,6 @@
 ---
 title: "Dual export: ES module + Custom Element"
-description: "Export the class and register the tag — two ways to consume the same lib."
+description: "Export the class and register the tag - two ways to consume the same lib."
 order: 7
 trail: "webcomponents-com-vite"
 track: "wc"
@@ -12,10 +12,10 @@ relatedSnippets: ["wc-export-dual-pattern", "wc-register-guard", "wc-package-exp
 
 Uma boa lib de Web Components oferece **dois caminhos**:
 
-1. **Side-effect / auto-register** — `import 'image-gallery'` define a tag
-2. **Named export** — `import { ImageGallery, register } from 'image-gallery'`
+1. **Side-effect / auto-register** - `import 'image-gallery'` define a tag
+2. **Named export** - `import { ImageGallery, register } from 'image-gallery'`
 
-<aside class="tip tip-wc"><strong>DICA WC</strong> — Sempre proteja o `define` com `customElements.get(name)` para não estourar erro se o módulo for importado duas vezes.</aside>
+<aside class="tip tip-wc"><strong>DICA WC</strong> - Sempre proteja o `define` com `customElements.get(name)` para não estourar erro se o módulo for importado duas vezes.</aside>
 
 ## Padrão
 

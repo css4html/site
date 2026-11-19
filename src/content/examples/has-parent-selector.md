@@ -1,6 +1,6 @@
 ---
 title: "Seletor :has() no pai"
-description: "Estilize o container com base no que tem dentro — CSS moderno."
+description: "Estilize o container com base no que tem dentro - CSS moderno."
 tags: [":has","seletores","moderno"]
 difficulty: intermediario
 order: 16
@@ -57,4 +57,4 @@ css: |
     .dica { color: #64748b; font-size: 0.9rem; }
 ---
 
-`:has()` permite que o pai reaja ao estado dos filhos — útil para formulários, cards e menus.
+`:has()` permite que o pai reaja ao estado dos filhos - útil para formulários, cards e menus.

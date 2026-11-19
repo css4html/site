@@ -416,7 +416,7 @@ try {
         if (data.passed) passed++;
         const li = document.createElement('li');
         li.dataset.passed = data.passed ? '1' : '0';
-        li.textContent = `${data.passed ? '✓ Passou' : '✗ Ainda não'} — ${data.label}: ${data.message}`;
+        li.textContent = `${data.passed ? '✓ Passou' : '✗ Ainda não'} - ${data.label}: ${data.message}`;
         results.append(li);
       }
       if (data.type === 'done') finish();

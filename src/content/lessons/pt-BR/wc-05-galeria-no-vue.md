@@ -10,7 +10,7 @@ relatedSnippets: ["wc-vue-host", "wc-custom-elements-define"]
 
 Vue 3 trata Custom Elements de forma amigável: tags com hífen passam para o DOM.
 
-<aside class="tip tip-wc"><strong>DICA WC</strong> — No playground usamos o build **global** do Vue (script UMD) para ficar estático e compatível com GitHub Pages — sem bundler local.</aside>
+<aside class="tip tip-wc"><strong>DICA WC</strong> - No playground usamos o build **global** do Vue (script UMD) para ficar estático e compatível com GitHub Pages - sem bundler local.</aside>
 
 ## Ideia
 

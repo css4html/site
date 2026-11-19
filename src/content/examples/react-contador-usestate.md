@@ -32,4 +32,4 @@ js: |
     }
 ---
 
-Compare com o contador em JavaScript puro da trilha JS — aqui o React atualiza a UI por você.
+Compare com o contador em JavaScript puro da trilha JS - aqui o React atualiza a UI por você.

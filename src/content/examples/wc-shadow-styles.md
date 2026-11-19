@@ -9,11 +9,11 @@ html: |
     <p class="page-title">Título da página (vermelho via CSS global)</p>
     <styled-card>
       <strong>Dentro do shadow</strong>
-      <p>Este texto usa o CSS do componente — não o da página.</p>
+      <p>Este texto usa o CSS do componente - não o da página.</p>
     </styled-card>
 css: |
     .page-title { color: #ef4444; font: 700 1.1rem system-ui; }
-    /* Tentativa de afetar o card — não entra no shadow */
+    /* Tentativa de afetar o card - não entra no shadow */
     strong { color: #ef4444 !important; }
 js: |
     class StyledCard extends HTMLElement {
@@ -44,4 +44,4 @@ js: |
     }
 ---
 
-O `strong` vermelho da página **não** pinta o conteúdo do card — o Shadow DOM isola os estilos.
+O `strong` vermelho da página **não** pinta o conteúdo do card - o Shadow DOM isola os estilos.

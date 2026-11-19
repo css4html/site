@@ -19,4 +19,4 @@ async function carregar() {
 }
 ```
 
-No playground usamos dados mock em memória — a API é a mesma. Sempre trate erro e estado de carregamento na UI.
+No playground usamos dados mock em memória - a API é a mesma. Sempre trate erro e estado de carregamento na UI.

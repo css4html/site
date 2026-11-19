@@ -66,7 +66,7 @@ const isLesson = segments[0] === 'trilhas' && segments.length === 3;
 // ganham o nome da trilha no <title> para não competirem entre si no Google.
 const lessonTrailName = isLesson && TRAIL_KEYS[segments[1]] ? tk(TRAIL_KEYS[segments[1]]) : '';
 const docTitle = lessonTrailName && !fullTitle.includes(lessonTrailName)
-  ? fullTitle.replace(/ · CSS4HTML$/, ` — ${lessonTrailName} · CSS4HTML`)
+  ? fullTitle.replace(/ · CSS4HTML$/, ` - ${lessonTrailName} · CSS4HTML`)
   : fullTitle;
 const pageSchemas: Record<string, unknown>[] = [];
 // Consultoria (home abre com ela e /consultoria/): serviço profissional + clientes no ar.

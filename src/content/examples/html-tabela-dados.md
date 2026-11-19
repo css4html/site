@@ -1,6 +1,6 @@
 ---
 title: "Tabela de dados"
-description: "caption, thead, th com scope — tabela acessível."
+description: "caption, thead, th com scope - tabela acessível."
 tags: ["tabela","dados","acessibilidade"]
 difficulty: "iniciante"
 track: "html"
@@ -34,4 +34,4 @@ css: |
     thead { background: #e2e8f0; }
 ---
 
-Tabelas são para dados — não use para posicionar layout.
+Tabelas são para dados - não use para posicionar layout.

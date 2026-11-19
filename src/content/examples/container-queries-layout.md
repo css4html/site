@@ -60,4 +60,4 @@ css: |
     .dica { color: #64748b; font-size: 0.85rem; margin-top: 0.75rem; }
 ---
 
-Diferente de media queries, `@container` responde ao tamanho do **pai** — ideal para componentes reutilizáveis.
+Diferente de media queries, `@container` responde ao tamanho do **pai** - ideal para componentes reutilizáveis.

@@ -8,7 +8,7 @@ order: 203
 html: |
     <div class="acc">
       <button type="button" class="acc-btn" aria-expanded="false" aria-controls="acc-1">O que é DOM?</button>
-      <div id="acc-1" class="acc-panel" hidden>Document Object Model — a árvore de nós da página.</div>
+      <div id="acc-1" class="acc-panel" hidden>Document Object Model - a árvore de nós da página.</div>
       <button type="button" class="acc-btn" aria-expanded="false" aria-controls="acc-2">Por que eventos?</button>
       <div id="acc-2" class="acc-panel" hidden>Para reagir a cliques, teclado, submit e muito mais.</div>
     </div>
@@ -31,4 +31,4 @@ js: |
     });
 ---
 
-Compare com details/summary nativo — às vezes o HTML basta.
+Compare com details/summary nativo - às vezes o HTML basta.

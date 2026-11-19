@@ -10,9 +10,9 @@ relatedSnippets: ["react-functional-component", "react-conditional-render"]
 
 > **TODO i18n:** Full body translation pending. Title and description are localized; early paragraphs stay in Portuguese. The Vite tree and HTML-shell sections below are in English.
 
-React organiza a interface em **componentes** — funções que recebem dados e devolvem elementos descritivos.
+React organiza a interface em **componentes** - funções que recebem dados e devolvem elementos descritivos.
 
-<aside class="tip tip-react"><strong>REACT TIP</strong> — JSX parece HTML, mas é JavaScript. Use `className` em vez de `class`, e feche tags como `<img />`.</aside>
+<aside class="tip tip-react"><strong>REACT TIP</strong> - JSX parece HTML, mas é JavaScript. Use `className` em vez de `class`, e feche tags como `<img />`.</aside>
 
 ## Um componente mínimo
 
@@ -42,7 +42,7 @@ my-app/
     └── services/       ← API clients
 ```
 
-<aside class="tip tip-react"><strong>TIP</strong> — Day-to-day lean view: `public/` · `src/main.tsx` · `App.tsx`. Folders like `components/`, `hooks/`, `pages/`, and `services/` grow with the app.</aside>
+<aside class="tip tip-react"><strong>TIP</strong> - Day-to-day lean view: `public/` · `src/main.tsx` · `App.tsx`. Folders like `components/`, `hooks/`, `pages/`, and `services/` grow with the app.</aside>
 
 ### `index.html` → `main.tsx` → `#root`
 
@@ -115,10 +115,10 @@ This site has no local bundler: the playground injects a document with an **impo
 
 ### What each part does (playground)
 
-1. **`<div id="root">`** — the single node React owns (same as Vite).
-2. **Import map** — resolves `react` / `react-dom/client` via esm.sh.
-3. **Sucrase** — compiles TypeScript + JSX in the browser (Vite’s role in local dev).
-4. **`App` → `createRoot(...).render(...)`** — same bridge as `main.tsx`.
+1. **`<div id="root">`** - the single node React owns (same as Vite).
+2. **Import map** - resolves `react` / `react-dom/client` via esm.sh.
+3. **Sucrase** - compiles TypeScript + JSX in the browser (Vite’s role in local dev).
+4. **`App` → `createRoot(...).render(...)`** - same bridge as `main.tsx`.
 
 The playground **HTML** tab only edits *extra* markup (after `#root`). Open the “HTML shell” panel in the React playground to see the injected document again.
 

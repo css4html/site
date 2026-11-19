@@ -10,7 +10,7 @@ relatedSnippets: ["html-label-input","html-button-types"]
 > **TODO i18n:** Traducción completa del cuerpo pendiente. Título y descripción ya están localizados; el cuerpo permanece en portugués por ahora.
 
 
-Formulários bons começam no HTML — antes de qualquer JavaScript.
+Formulários bons começam no HTML - antes de qualquer JavaScript.
 
 ## Regras de ouro
 

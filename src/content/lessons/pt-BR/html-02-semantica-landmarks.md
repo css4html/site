@@ -8,7 +8,7 @@ relatedExamples: ["html-nav-landmarks","html-artigo-semantico"]
 relatedSnippets: ["html-skip-link"]
 ---
 
-Tags semânticas comunicam o **papel** de cada região — para humanos, CSS e tecnologias assistivas.
+Tags semânticas comunicam o **papel** de cada região - para humanos, CSS e tecnologias assistivas.
 
 ## Landmarks comuns
 
@@ -22,4 +22,4 @@ Tags semânticas comunicam o **papel** de cada região — para humanos, CSS e t
 | `aside` | Conteúdo complementar |
 | `footer` | Rodapé da página ou do article |
 
-Evite landmarks vazios só “para layout” — isso é papel do CSS.
+Evite landmarks vazios só “para layout” - isso é papel do CSS.

@@ -1,6 +1,6 @@
 ---
 title: "Imagem object-fit cover"
-description: "Preenche o quadro sem distorcer — crop inteligente."
+description: "Preenche o quadro sem distorcer - crop inteligente."
 tags: ["imagem","object-fit","midia"]
 language: css
 code: |

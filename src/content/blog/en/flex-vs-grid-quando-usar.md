@@ -11,8 +11,8 @@ relatedSnippets: ["centralizar-flex","centralizar-grid"]
 
 Regra prática:
 
-- **Flexbox** — alinhar e distribuir em **um** eixo (nav, botões, centralizar).
-- **Grid** — estruturar a página ou um componente em **linhas e colunas**.
+- **Flexbox** - alinhar e distribuir em **um** eixo (nav, botões, centralizar).
+- **Grid** - estruturar a página ou um componente em **linhas e colunas**.
 
 Você pode (e deve) combinar: grid no layout externo, flex nos miolos.
 

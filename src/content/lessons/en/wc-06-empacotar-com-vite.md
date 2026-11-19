@@ -12,7 +12,7 @@ relatedSnippets: ["wc-vite-lib-config", "wc-package-exports"]
 
 Até aqui o CE vivia no playground. Em produção você publica uma **lib**.
 
-<aside class="tip tip-wc"><strong>DICA WC</strong> — Vite **library mode** gera um (ou mais) bundles a partir de um entry, em vez de um app com `index.html`.</aside>
+<aside class="tip tip-wc"><strong>DICA WC</strong> - Vite **library mode** gera um (ou mais) bundles a partir de um entry, em vez de um app com `index.html`.</aside>
 
 ## Árvore típica
 

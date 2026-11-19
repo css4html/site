@@ -1,6 +1,6 @@
 ---
 title: "Toggle de tema com custom properties"
-description: "Claro/escuro com classe no root e botão — complementar ao prefers-color-scheme."
+description: "Claro/escuro com classe no root e botão - complementar ao prefers-color-scheme."
 tags: ["variaveis","temas","dark-mode","interacao"]
 difficulty: intermediario
 order: 20
@@ -70,4 +70,4 @@ css: |
     .body p { margin: 0; color: var(--muted); line-height: 1.5; }
 ---
 
-Este exemplo usa um toggle **manual** (classe/atributo). Combine com `prefers-color-scheme` no site real — como fazemos no próprio CSS4HTML.
+Este exemplo usa um toggle **manual** (classe/atributo). Combine com `prefers-color-scheme` no site real - como fazemos no próprio CSS4HTML.

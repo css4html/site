@@ -18,7 +18,7 @@ const itens = document.querySelectorAll('[data-item]');
 titulo.textContent = 'Atualizado';
 ```
 
-- `querySelector` — o primeiro que casa com o seletor CSS.
-- `querySelectorAll` — lista estática (NodeList) de todos.
+- `querySelector` - o primeiro que casa com o seletor CSS.
+- `querySelectorAll` - lista estática (NodeList) de todos.
 
 Prefira seletores estáveis (`id`, `data-*`) a caminhos frágeis baseados em posição.

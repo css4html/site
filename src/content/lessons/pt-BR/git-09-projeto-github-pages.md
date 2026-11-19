@@ -27,7 +27,7 @@ Use o HTML de exemplo desta trilha:
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Meu site — Git na prática</title>
+    <title>Meu site - Git na prática</title>
     <style>
       :root { font-family: system-ui, sans-serif; color: #e8eef7; background: #0f1419; }
       body { max-width: 40rem; margin: 3rem auto; padding: 0 1rem; line-height: 1.6; }
@@ -69,7 +69,7 @@ No GitHub: **Settings → Pages → Build and deployment → Source: Deploy from
 
 Espere 1–2 minutos e abra a URL do Pages.
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — Quer treinar PR? Faça o HTML numa branch `feature/pages`, abra o PR, mergeie, e só então ative o Pages na `main`.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - Quer treinar PR? Faça o HTML numa branch `feature/pages`, abra o PR, mergeie, e só então ative o Pages na `main`.</aside>
 
 ## Checklist final da trilha
 
@@ -79,4 +79,4 @@ Espere 1–2 minutos e abra a URL do Pages.
 - [ ] Um PR aberto (mesmo que solo) e mergeado
 - [ ] Página HTML respondendo no GitHub Pages
 
-Parabéns — você fechou o ciclo do Git na prática. Para estilizar melhor a página, siga a [trilha de HTML](/trilhas/html-do-zero/) e a de [CSS](/trilhas/css-do-zero-ao-layout/).
+Parabéns - você fechou o ciclo do Git na prática. Para estilizar melhor a página, siga a [trilha de HTML](/trilhas/html-do-zero/) e a de [CSS](/trilhas/css-do-zero-ao-layout/).

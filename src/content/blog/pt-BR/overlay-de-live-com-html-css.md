@@ -1,13 +1,13 @@
 ---
 title: "Crie um overlay para sua live com HTML e CSS"
-description: "Monte um alerta animado com fundo transparente e use como Fonte de Navegador no OBS — sem plugin pago."
+description: "Monte um alerta animado com fundo transparente e use como Fonte de Navegador no OBS - sem plugin pago."
 pubDate: 2026-11-04
 tags: ["css","animacao","obs","live"]
 relatedExamples: ["animacao-fade","tipografia-clamp"]
 relatedSnippets: ["card-sombra","pill-badge"]
 ---
 
-Todo overlay de live — alerta de seguidor, placar, "agora tocando" — é, no fim das contas, **uma página web com fundo transparente**. O OBS Studio renderiza essa página por cima do seu jogo usando a **Fonte de Navegador** (Browser Source). Se você sabe HTML e CSS, já sabe fazer overlay.
+Todo overlay de live - alerta de seguidor, placar, "agora tocando" - é, no fim das contas, **uma página web com fundo transparente**. O OBS Studio renderiza essa página por cima do seu jogo usando a **Fonte de Navegador** (Browser Source). Se você sabe HTML e CSS, já sabe fazer overlay.
 
 ## 1. O HTML: um card simples
 
@@ -86,7 +86,7 @@ O card usa o mesmo padrão do [card com sombra suave](/snippets/card-sombra/), a
 
 1. Em **Fontes**, clique em **+** → **Navegador**.
 2. Marque **Arquivo local** e selecione o `overlay.html` (ou cole a URL, se hospedar a página).
-3. Defina **largura 1920** e **altura 1080** — o mesmo tamanho da sua cena.
+3. Defina **largura 1920** e **altura 1080** - o mesmo tamanho da sua cena.
 4. Pronto: o fundo transparente deixa o jogo aparecer por trás.
 
 Dica: depois de editar o CSS, clique com o botão direito na fonte → **Atualizar** para ver a mudança.

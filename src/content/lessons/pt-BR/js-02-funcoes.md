@@ -22,4 +22,4 @@ const dobra = (n) => n * 2;
 
 - Nomes que descrevem a ação (`atualizarContador`, não `faz`).
 - Funções curtas; uma responsabilidade.
-- Evite efeitos colaterais escondidos — deixe claro o que a função muda no DOM.
+- Evite efeitos colaterais escondidos - deixe claro o que a função muda no DOM.

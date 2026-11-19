@@ -44,7 +44,7 @@ git config user.name
 git config user.email
 ```
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — `--global` grava em `~/.gitconfig` (vale para todos os repos da máquina). Sem `--global`, a config vale só no repositório atual.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - `--global` grava em `~/.gitconfig` (vale para todos os repos da máquina). Sem `--global`, a config vale só no repositório atual.</aside>
 
 ## Chave SSH (GitHub)
 
@@ -89,7 +89,7 @@ ssh -T git@github.com
 
 Na primeira vez, confirme o host. Em seguida deve aparecer algo como: `Hi usuario! You've successfully authenticated...`
 
-<aside class="tip tip-git"><strong>DICA GIT</strong> — repositórios remotos em SSH usam `git@github.com:org/repo.git`. HTTPS pede token a cada push; SSH usa a chave que você acabou de cadastrar.</aside>
+<aside class="tip tip-git"><strong>DICA GIT</strong> - repositórios remotos em SSH usam `git@github.com:org/repo.git`. HTTPS pede token a cada push; SSH usa a chave que você acabou de cadastrar.</aside>
 
 ## Checklist
 

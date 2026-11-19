@@ -1,6 +1,6 @@
 ---
 title: "Box model na prática"
-description: "Content, padding, border e margin — o modelo de caixa do CSS."
+description: "Content, padding, border e margin - o modelo de caixa do CSS."
 tags: ["box-model","espacamento","fundamentos"]
 difficulty: iniciante
 order: 2

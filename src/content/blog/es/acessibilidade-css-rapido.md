@@ -1,6 +1,6 @@
 ---
 title: "Accesibilidad con CSS: checklist rápido"
-description: "Foco visible, contraste, motion y formularios — lo que CSS resuelve (y lo que no)."
+description: "Foco visible, contraste, motion y formularios - lo que CSS resuelve (y lo que no)."
 pubDate: 2026-09-16
 tags: ["acessibilidade","formulario","focus"]
 relatedExamples: ["formulario-basico","has-parent-selector","botao-hover"]
@@ -15,7 +15,7 @@ CSS não substitui HTML semântico, mas decide se a pessoa **enxerga o foco**, s
 
 - **Foco**: nunca `outline: none` sem substituto. Use o [focus ring](/snippets/focus-ring/).
 - **Formulários**: label ligado ao controle; estados `:invalid` / `:focus-visible`. Veja o [formulário básico](/exemplos/formulario-basico/).
-- **Controles custom**: esconda o input de forma acessível e espelhe `:checked` / `:focus-visible` — [checkbox](/snippets/checkbox-custom/) e [radio](/snippets/radio-custom/).
+- **Controles custom**: esconda o input de forma acessível e espelhe `:checked` / `:focus-visible` - [checkbox](/snippets/checkbox-custom/) e [radio](/snippets/radio-custom/).
 - **Conteúdo só para leitores de tela**: [sr-only](/snippets/sr-only/).
 - **Motion**: respeite `prefers-reduced-motion` (o hub já faz isso no CSS global).
 

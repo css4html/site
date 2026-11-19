@@ -8,9 +8,9 @@ relatedExamples: ["react-hello-jsx"]
 relatedSnippets: ["react-functional-component", "react-conditional-render"]
 ---
 
-React organiza a interface em **componentes** — funções que recebem dados e devolvem elementos descritivos.
+React organiza a interface em **componentes** - funções que recebem dados e devolvem elementos descritivos.
 
-<aside class="tip tip-react"><strong>DICA REACT</strong> — JSX parece HTML, mas é JavaScript. Use `className` em vez de `class`, e feche tags como `<img />`.</aside>
+<aside class="tip tip-react"><strong>DICA REACT</strong> - JSX parece HTML, mas é JavaScript. Use `className` em vez de `class`, e feche tags como `<img />`.</aside>
 
 ## Um componente mínimo
 
@@ -40,7 +40,7 @@ meu-app/
     └── services/       ← chamadas de API, clientes
 ```
 
-<aside class="tip tip-react"><strong>DICA</strong> — No dia a dia: `public/` · `src/main.tsx` · `App.tsx`. Pastas como `components/`, `hooks/`, `pages/` e `services/` crescem com o app.</aside>
+<aside class="tip tip-react"><strong>DICA</strong> - No dia a dia: `public/` · `src/main.tsx` · `App.tsx`. Pastas como `components/`, `hooks/`, `pages/` e `services/` crescem com o app.</aside>
 
 ### `index.html` → `main.tsx` → `#root`
 
@@ -113,12 +113,12 @@ Aqui no site não há bundler local: o playground injeta um documento com **impo
 
 ### O que cada parte faz (playground)
 
-1. **`<div id="root">`** — único nó em que o React controla a UI (igual ao Vite).
-2. **Import map** — resolve `react` / `react-dom/client` via esm.sh.
-3. **Sucrase** — compila TypeScript + JSX no browser (papel parecido ao do Vite no dev).
-4. **`App` → `createRoot(...).render(...)`** — mesma ponte `main.tsx` ↔ DOM.
+1. **`<div id="root">`** - único nó em que o React controla a UI (igual ao Vite).
+2. **Import map** - resolve `react` / `react-dom/client` via esm.sh.
+3. **Sucrase** - compila TypeScript + JSX no browser (papel parecido ao do Vite no dev).
+4. **`App` → `createRoot(...).render(...)`** - mesma ponte `main.tsx` ↔ DOM.
 
-Na aba **HTML** do playground você só edita markup *extra* (depois do `#root`). O esqueleto é injetado automaticamente — abra o painel “Esqueleto HTML” no playground React para vê-lo de novo.
+Na aba **HTML** do playground você só edita markup *extra* (depois do `#root`). O esqueleto é injetado automaticamente - abra o painel “Esqueleto HTML” no playground React para vê-lo de novo.
 
 ## Expressões
 

@@ -23,4 +23,4 @@ js: |
     }
 ---
 
-Defina `App` na aba TSX: o playground compila com Sucrase e monta em `#root` (veja o painel “Esqueleto HTML”). A aba HTML é só para markup extra fora do React — experimente mudar o texto do componente.
+Defina `App` na aba TSX: o playground compila com Sucrase e monta em `#root` (veja o painel “Esqueleto HTML”). A aba HTML é só para markup extra fora do React - experimente mudar o texto do componente.

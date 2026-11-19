@@ -15,5 +15,5 @@ export function transpileTs(code: string): { code: string; error?: undefined } |
 export function tsToLogicCode(code: string): string {
   const result = transpileTs(code);
   if (result.error === undefined) return result.code;
-  return 'throw new SyntaxError(' + JSON.stringify('TypeScript: ' + result.error + ' — confira parênteses, chaves e anotações de tipo.') + ');';
+  return 'throw new SyntaxError(' + JSON.stringify('TypeScript: ' + result.error + ' - confira parênteses, chaves e anotações de tipo.') + ');';
 }
