@@ -14,28 +14,13 @@ interface Props {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 const lp = (p: string) => localizePath(locale, p);
-const waHref = `https://wa.me/5512992159872?text=${encodeURIComponent(t('consultoria.waMessage'))}`;
 ---
 <section class="consult-highlight container" data-consult-highlight aria-labelledby="consult-highlight-title">
-  <p class="consult-highlight__kicker">{t('home.consultKicker')}</p>
-  <h2 id="consult-highlight-title">{t('home.consultTitle')}</h2>
-  <p class="consult-highlight__lead">{t('home.consultLead')}</p>
-  <p class="consult-highlight__ia">{t('home.consultIaNote')}</p>
-  <div class="btn-row">
-    <a
-      class="btn btn-primary"
-      href={waHref}
-      data-track="consultoria_whatsapp_click"
-      data-track-label="home"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {t('consultoria.ctaWa')}
-    </a>
-    <a class="btn btn-ghost" href={lp('/consultoria/')}>
-      {t('home.consultCtaPage')}
-    </a>
-  </div>
+  <h2 id="consult-highlight-title" class="sr-only">{t('consultoria.clientsTitle')}</h2>
+  <p class="consult-highlight__ia">
+    {t('home.consultIaNote')}
+    <a href={lp('/consultoria/#setup-ia')}>{t('consultoria.iaTitle')} →</a>
+  </p>
   <div class="consult-highlight__clients">
     <p class="consult-highlight__clients-label">{t('consultoria.clientsTitle')}</p>
     <ul>
@@ -58,7 +43,7 @@ const waHref = `https://wa.me/5512992159872?text=${encodeURIComponent(t('consult
   /* Estilo mínimo com tokens do site. O layout visual segue o Figma do Designer. */
   .consult-highlight {
     margin: 0 auto var(--space-7);
-    padding: var(--space-6);
+    padding: var(--space-5);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -93,9 +78,14 @@ const waHref = `https://wa.me/5512992159872?text=${encodeURIComponent(t('consult
   }
 
   .consult-highlight__clients {
-    margin-top: var(--space-6);
-    padding-top: var(--space-5);
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
     border-top: 1px solid var(--color-border);
+  }
+  .consult-highlight__ia a {
+    display: inline-block;
+    margin-left: 0.25rem;
+    font-weight: 600;
   }
 
   .consult-highlight__clients-label {

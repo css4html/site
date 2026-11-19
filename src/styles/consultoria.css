@@ -617,3 +617,8 @@ html[data-theme="light"] .consultoria {
   --c-blue: var(--color-accent);
   --c-ink-on-blue: #fff;
 }
+
+/* Primeira dobra embutida na home (sem barra fixa de WhatsApp) */
+.consultoria.consultoria--embed {
+  padding-bottom: 0;
+}
