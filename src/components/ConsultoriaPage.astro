@@ -3,6 +3,7 @@ import '../styles/consultoria.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { type Locale } from '../i18n/config';
 import { localizePath, useTranslations } from '../i18n/utils';
+import { consultoriaClients } from '../data/consultoria-clients';
 
 interface Props {
   locale: Locale;
@@ -33,6 +34,13 @@ const checks = [
   t('consultoria.check2'),
   t('consultoria.check3'),
   t('consultoria.check4'),
+];
+
+const iaItems = [
+  { title: t('consultoria.iaItem1Title'), desc: t('consultoria.iaItem1Desc') },
+  { title: t('consultoria.iaItem2Title'), desc: t('consultoria.iaItem2Desc') },
+  { title: t('consultoria.iaItem3Title'), desc: t('consultoria.iaItem3Desc') },
+  { title: t('consultoria.iaItem4Title'), desc: t('consultoria.iaItem4Desc') },
 ];
 
 const stack = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Vite', 'React', 'Vue', 'Web Components', 'Firebase', 'C#', 'Ruby on Rails', 'Node.js', 'PHP', 'Elixir'];
@@ -128,6 +136,39 @@ const waBaseMsg = t('consultoria.waMessage');
       </div>
     </section>
 
+    <section class="c-section" id="setup-ia">
+      <div class="c-wrap">
+        <header class="c-section-head">
+          <p class="c-kicker">{t('consultoria.iaKicker')}</p>
+          <h2>{t('consultoria.iaTitle')}</h2>
+          <p class="c-section-lead">{t('consultoria.iaLead')}</p>
+        </header>
+        <div class="c-services">
+          {iaItems.map((item) => (
+            <article class="c-service">
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="c-ia-actions">
+          <a
+            class="c-btn c-btn-wa"
+            href="https://wa.me/5512992159872"
+            data-wa-cta="setup-ia"
+            data-wa-msg={t('consultoria.iaWaMessage')}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={icon('whatsapp.svg')} alt="" width="22" height="22" />
+            {t('consultoria.iaCta')}
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="c-section" id="como-trabalhamos">
       <div class="c-wrap">
         <header class="c-section-head">
@@ -165,6 +206,31 @@ const waBaseMsg = t('consultoria.waMessage');
             </li>
           ))}
         </ul>
+      </div>
+    </section>
+
+    <section class="c-section" id="clientes">
+      <div class="c-wrap">
+        <header class="c-section-head">
+          <p class="c-kicker">{t('consultoria.clientsKicker')}</p>
+          <h2>{t('consultoria.clientsTitle')}</h2>
+          <p class="c-section-lead">{t('consultoria.clientsLead')}</p>
+        </header>
+        <div class="c-clients">
+          {consultoriaClients.map((client) => (
+            <article class="c-client">
+              <div class="c-client-head">
+                <img src={client.icon} alt="" width="32" height="32" />
+                <h3>{client.name}</h3>
+              </div>
+              <p>{t(client.descKey)}</p>
+              <a href={client.href} target="_blank" rel="noopener noreferrer">
+                {t('consultoria.clientVisit')}
+                <span aria-hidden="true"> ↗</span>
+              </a>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
 
@@ -213,20 +279,20 @@ const waBaseMsg = t('consultoria.waMessage');
       var baseMsg = root.getAttribute('data-wa-msg') || '';
       var params = new URLSearchParams(window.location.search);
       var utm = params.get('utm_source');
-      function buildHref() {
-        var msg = baseMsg;
+      function buildHref(customMsg) {
+        var msg = customMsg || baseMsg;
         if (utm) msg = msg + ' (via ' + utm + ')';
         return 'https://wa.me/5512992159872?text=' + encodeURIComponent(msg);
       }
-      var href = buildHref();
       document.querySelectorAll('[data-wa-cta]').forEach(function (a) {
-        a.setAttribute('href', href);
+        var custom = a.getAttribute('data-wa-msg') || '';
+        a.setAttribute('href', buildHref(custom));
         a.addEventListener('click', function () {
           try {
             if (typeof gtag === 'function') {
               gtag('event', 'consultoria_whatsapp_click', {
                 event_category: 'consultoria',
-                event_label: utm || 'direct',
+                event_label: a.getAttribute('data-wa-cta') || utm || 'direct',
                 utm_source: utm || undefined,
               });
             }

@@ -274,6 +274,22 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
   box-shadow: inset 0 -2px 0 var(--color-accent);
 }
 
+.nav a.nav-consultoria {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.nav a.nav-consultoria:hover,
+.nav a.nav-consultoria[aria-current="page"] {
+  color: #fff;
+  background: var(--color-accent-hover);
+  box-shadow: none;
+}
+
 .menu-toggle {
   display: inline-grid;
 }
@@ -348,6 +364,19 @@ html[data-theme="light"] .theme-toggle .icon-moon { display: none; }
 .nav-drawer .nav a[aria-current="page"] {
   color: var(--color-accent);
   font-weight: 600;
+}
+
+.nav-drawer .nav a.nav-consultoria {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.7rem 1rem;
+  margin-top: 0.35rem;
+}
+
+.nav-drawer .nav a.nav-consultoria:hover,
+.nav-drawer .nav a.nav-consultoria[aria-current="page"] {
+  background: var(--color-accent-hover);
+  color: #fff;
 }
 
 .drawer-label {

@@ -1,0 +1,157 @@
+---
+/**
+ * Bloco de destaque da consultoria na home.
+ * Componente autônomo para o visual ser ajustado depois, quando o layout
+ * do Figma (desktop + mobile) chegar do Designer.
+ */
+import { consultoriaClients } from '../data/consultoria-clients';
+import { localizePath, useTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const lp = (p: string) => localizePath(locale, p);
+const waHref = `https://wa.me/5512992159872?text=${encodeURIComponent(t('consultoria.waMessage'))}`;
+---
+<section class="consult-highlight container" data-consult-highlight aria-labelledby="consult-highlight-title">
+  <p class="consult-highlight__kicker">{t('home.consultKicker')}</p>
+  <h2 id="consult-highlight-title">{t('home.consultTitle')}</h2>
+  <p class="consult-highlight__lead">{t('home.consultLead')}</p>
+  <p class="consult-highlight__ia">{t('home.consultIaNote')}</p>
+  <div class="btn-row">
+    <a
+      class="btn btn-primary"
+      href={waHref}
+      data-track="consultoria_whatsapp_click"
+      data-track-label="home"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {t('consultoria.ctaWa')}
+    </a>
+    <a class="btn btn-ghost" href={lp('/consultoria/')}>
+      {t('home.consultCtaPage')}
+    </a>
+  </div>
+  <div class="consult-highlight__clients">
+    <p class="consult-highlight__clients-label">{t('consultoria.clientsTitle')}</p>
+    <ul>
+      {consultoriaClients.map((client) => (
+        <li>
+          <a href={client.href} target="_blank" rel="noopener noreferrer">
+            <img src={client.icon} alt="" width="24" height="24" />
+            <span>
+              <strong>{client.name}</strong>
+              <span class="consult-highlight__client-desc">{t(client.descKey)}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Estilo mínimo com tokens do site. O layout visual segue o Figma do Designer. */
+  .consult-highlight {
+    margin: 0 auto var(--space-7);
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .consult-highlight__kicker {
+    margin: 0;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .consult-highlight h2 {
+    margin: var(--space-2) 0 var(--space-3);
+    font-size: var(--text-3xl);
+    line-height: var(--leading-tight);
+    letter-spacing: -0.02em;
+  }
+
+  .consult-highlight__lead,
+  .consult-highlight__ia {
+    margin: 0 0 var(--space-3);
+    color: var(--color-muted);
+    max-width: 42rem;
+    line-height: var(--leading-relaxed);
+  }
+
+  .consult-highlight__ia {
+    margin-bottom: var(--space-5);
+  }
+
+  .consult-highlight__clients {
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .consult-highlight__clients-label {
+    margin: 0 0 var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .consult-highlight__clients ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 700px) {
+    .consult-highlight__clients ul {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .consult-highlight__clients a {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .consult-highlight__clients a:hover {
+    border-color: var(--color-accent);
+  }
+
+  .consult-highlight__clients img {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    border-radius: 6px;
+  }
+
+  .consult-highlight__clients strong {
+    display: block;
+  }
+
+  .consult-highlight__client-desc {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--color-muted);
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+  }
+</style>

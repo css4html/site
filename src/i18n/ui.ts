@@ -120,6 +120,13 @@ const pt = {
   'home.allSnippets': 'Ver biblioteca →',
   'home.fromBlog': 'Do blog',
   'home.allPosts': 'Todos os posts →',
+  'home.consultKicker': 'CONSULTORIA',
+  'home.consultTitle': 'Consultoria CSS4HTML',
+  'home.consultLead':
+    'O mesmo time que ensina nas trilhas desenvolve sites, sistemas e apps sob medida — com código limpo, performance e manutenção contínua.',
+  'home.consultIaNote':
+    'Também oferecemos pacotes de setup de IA, da ideia à produção: ambiente com agentes de programação, deploy, domínio no Registro.br e o link final no ar.',
+  'home.consultCtaPage': 'Conhecer a consultoria',
 
   // Trails
   'trails.title': 'Trilhas',
@@ -247,9 +254,9 @@ const pt = {
 
   // Consultoria
   'nav.consultoria': 'Consultoria',
-  'consultoria.title': 'Consultoria CSS4HTML — sites, sistemas e apps sob medida',
+  'consultoria.title': 'Consultoria CSS4HTML — sites, sistemas, apps e setup de IA',
   'consultoria.desc':
-    'Desenvolvemos sites, sistemas e aplicativos sob medida, com código limpo, performance e manutenção contínua.',
+    'Desenvolvemos sites, sistemas e aplicativos sob medida, e também pacotes de setup de IA da ideia à produção: ambiente com agentes de programação, deploy, domínio no Registro.br e o link final no ar.',
   'consultoria.kicker': 'CONSULTORIA CSS4HTML',
   'consultoria.h1': 'Seu projeto, do jeito certo, feito por quem ensina na prática',
   'consultoria.lead':
@@ -279,7 +286,7 @@ const pt = {
   'consultoria.svc5Desc': 'auditoria e otimização.',
   'consultoria.svc6Title': 'Consultoria técnica',
   'consultoria.svc6Desc': 'revisão de código, arquitetura e mentoria do time.',
-  'consultoria.howKicker': '02 / DO DIAGNÓSTICO À EVOLUÇÃO',
+  'consultoria.howKicker': '03 / DO DIAGNÓSTICO À EVOLUÇÃO',
   'consultoria.howTitle': 'Como trabalhamos',
   'consultoria.step1Title': 'Conversa e diagnóstico',
   'consultoria.step1Desc': 'Entendemos sua ideia, o contexto e os objetivos do projeto.',
@@ -289,7 +296,7 @@ const pt = {
   'consultoria.step3Desc': 'Você acompanha a evolução e participa de cada etapa.',
   'consultoria.step4Title': 'Entrega, suporte e manutenção',
   'consultoria.step4Desc': 'Colocamos no ar e seguimos cuidando da evolução.',
-  'consultoria.whyKicker': '03 / CONHECIMENTO EM PRÁTICA',
+  'consultoria.whyKicker': '04 / CONHECIMENTO EM PRÁTICA',
   'consultoria.whyTitle': 'Por que a CSS4HTML',
   'consultoria.whyLead':
     'Quem ensina também constrói. Levamos o cuidado de cada exemplo e de cada trilha para o seu projeto.',
@@ -300,6 +307,32 @@ const pt = {
   'consultoria.stackLabel': 'NOSSA STACK',
   'consultoria.finalTitle': 'Vamos tirar seu projeto do papel?',
   'consultoria.finalLead': 'Conte sua ideia e a gente responde pelo WhatsApp.',
+  'consultoria.clientsKicker': 'CLIENTES',
+  'consultoria.clientsTitle': 'Projetos no ar',
+  'consultoria.clientsLead': 'Alguns produtos que a CSS4HTML desenvolveu e segue evoluindo.',
+  'consultoria.clientGirotelaDesc':
+    'Mídia indoor na smart TV, sem app e sem pen drive: cadastre imagens e vídeos, agende por horário e cole um link na TV ou no OBS.',
+  'consultoria.clientAgilDesc':
+    'Sistema online para consultórios odontológicos: agenda, prontuário, odontograma e confirmação de consultas por WhatsApp.',
+  'consultoria.clientVisit': 'Visitar o site',
+  'consultoria.iaKicker': '02 / DA IDEIA À PRODUÇÃO',
+  'consultoria.iaTitle': 'Pacotes de setup de IA — da ideia à produção',
+  'consultoria.iaLead':
+    'Do ambiente de desenvolvimento ao domínio no ar: configuramos o projeto com agentes de programação e entregamos o link final em produção.',
+  'consultoria.iaItem1Title': 'Ambiente com agentes de programação',
+  'consultoria.iaItem1Desc':
+    'Configuração do ambiente de desenvolvimento com agentes de IA para o time programar com assistência do início ao fim.',
+  'consultoria.iaItem2Title': 'Ambiente de deploy',
+  'consultoria.iaItem2Desc':
+    'Pipeline de CI/CD e o ambiente de publicação prontos para cada nova versão ir para produção.',
+  'consultoria.iaItem3Title': 'Domínio no Registro.br',
+  'consultoria.iaItem3Desc':
+    'Configuração do domínio e do DNS no Registro.br para o projeto responder no endereço certo.',
+  'consultoria.iaItem4Title': 'Link final em produção',
+  'consultoria.iaItem4Desc': 'O projeto no ar, com o endereço final pronto para compartilhar e usar.',
+  'consultoria.iaCta': 'Falar no WhatsApp sobre o setup de IA',
+  'consultoria.iaWaMessage':
+    'Olá! Vim pela CSS4HTML e quero conversar sobre o pacote de setup de IA, da ideia à produção.',
 
   // Growth CTA
   'cta.newsTitle': 'Receba um snippet por semana',
@@ -440,6 +473,13 @@ const en: Record<UiKey, string> = {
   'home.allSnippets': 'Browse library →',
   'home.fromBlog': 'From the blog',
   'home.allPosts': 'All posts →',
+  'home.consultKicker': 'CONSULTING',
+  'home.consultTitle': 'CSS4HTML consulting',
+  'home.consultLead':
+    'The same team that teaches the trails builds custom websites, systems, and apps — with clean code, performance, and ongoing maintenance.',
+  'home.consultIaNote':
+    'We also offer AI setup packages, from idea to production: a development environment with coding agents, deploy, domain setup at Registro.br, and the live project URL.',
+  'home.consultCtaPage': 'See our consulting',
 
   'trails.title': 'Trails',
   'trails.desc': 'Guided paths for HTML, CSS, JavaScript, React, and Web Components.',
@@ -560,9 +600,9 @@ const en: Record<UiKey, string> = {
 
   
   'nav.consultoria': 'Consulting',
-  'consultoria.title': 'CSS4HTML Consulting — custom sites, systems, and apps',
+  'consultoria.title': 'CSS4HTML Consulting — sites, systems, apps, and AI setup',
   'consultoria.desc':
-    'We build custom websites, systems, and apps with clean code, performance, and ongoing maintenance.',
+    'We build custom websites, systems, and apps, plus AI setup packages from idea to production: a development environment with coding agents, deploy, domain setup at Registro.br, and the live project URL.',
   'consultoria.kicker': 'CSS4HTML CONSULTING',
   'consultoria.h1': 'Your project, done right, by people who teach in practice',
   'consultoria.lead':
@@ -592,7 +632,7 @@ const en: Record<UiKey, string> = {
   'consultoria.svc5Desc': 'audit and optimization.',
   'consultoria.svc6Title': 'Technical consulting',
   'consultoria.svc6Desc': 'code review, architecture, and team mentoring.',
-  'consultoria.howKicker': '02 / FROM DIAGNOSIS TO EVOLUTION',
+  'consultoria.howKicker': '03 / FROM DIAGNOSIS TO EVOLUTION',
   'consultoria.howTitle': 'How we work',
   'consultoria.step1Title': 'Conversation and diagnosis',
   'consultoria.step1Desc': 'We understand your idea, context, and project goals.',
@@ -602,7 +642,7 @@ const en: Record<UiKey, string> = {
   'consultoria.step3Desc': 'You follow progress and take part in every step.',
   'consultoria.step4Title': 'Delivery, support, and maintenance',
   'consultoria.step4Desc': 'We ship it and keep caring for its evolution.',
-  'consultoria.whyKicker': '03 / KNOWLEDGE IN PRACTICE',
+  'consultoria.whyKicker': '04 / KNOWLEDGE IN PRACTICE',
   'consultoria.whyTitle': 'Why CSS4HTML',
   'consultoria.whyLead':
     'Those who teach also build. We bring the care from every example and trail into your project.',
@@ -613,6 +653,32 @@ const en: Record<UiKey, string> = {
   'consultoria.stackLabel': 'OUR STACK',
   'consultoria.finalTitle': 'Ready to get your project off the ground?',
   'consultoria.finalLead': 'Tell us your idea and we reply on WhatsApp.',
+  'consultoria.clientsKicker': 'CLIENTS',
+  'consultoria.clientsTitle': 'Projects online',
+  'consultoria.clientsLead': 'A few products CSS4HTML built and keeps evolving.',
+  'consultoria.clientGirotelaDesc':
+    'Indoor media on a smart TV, with no app and no USB drive: upload images and videos, schedule by time, and paste a link on the TV or in OBS.',
+  'consultoria.clientAgilDesc':
+    'Online system for dental clinics: scheduling, patient records, odontogram, and appointment confirmation via WhatsApp.',
+  'consultoria.clientVisit': 'Visit the site',
+  'consultoria.iaKicker': '02 / FROM IDEA TO PRODUCTION',
+  'consultoria.iaTitle': 'AI setup packages — from idea to production',
+  'consultoria.iaLead':
+    'From the development environment to a live domain: we set up the project with coding agents and deliver the final production URL.',
+  'consultoria.iaItem1Title': 'Environment with coding agents',
+  'consultoria.iaItem1Desc':
+    'A development environment configured with AI coding agents so the team can work with assistance from start to finish.',
+  'consultoria.iaItem2Title': 'Deploy environment',
+  'consultoria.iaItem2Desc':
+    'A CI/CD pipeline and publishing environment ready to ship each new version to production.',
+  'consultoria.iaItem3Title': 'Domain at Registro.br',
+  'consultoria.iaItem3Desc':
+    'Domain and DNS setup at Registro.br so the project responds at the right address.',
+  'consultoria.iaItem4Title': 'Live production URL',
+  'consultoria.iaItem4Desc': 'The project online, with the final address ready to share and use.',
+  'consultoria.iaCta': 'Chat on WhatsApp about the AI setup',
+  'consultoria.iaWaMessage':
+    'Hi! I came from CSS4HTML and want to talk about the AI setup package, from idea to production.',
 
   // Growth CTA
   'cta.newsTitle': 'Get one snippet a week',
@@ -751,6 +817,13 @@ const es: Record<UiKey, string> = {
   'home.allSnippets': 'Ver biblioteca →',
   'home.fromBlog': 'Del blog',
   'home.allPosts': 'Todos los posts →',
+  'home.consultKicker': 'CONSULTORÍA',
+  'home.consultTitle': 'Consultoría CSS4HTML',
+  'home.consultLead':
+    'El mismo equipo que enseña en las rutas desarrolla sitios, sistemas y apps a medida — con código limpio, rendimiento y mantenimiento continuo.',
+  'home.consultIaNote':
+    'También ofrecemos paquetes de setup de IA, de la idea a producción: entorno con agentes de programación, deploy, dominio en Registro.br y el enlace final en el aire.',
+  'home.consultCtaPage': 'Conocer la consultoría',
 
   'trails.title': 'Rutas',
   'trails.desc': 'Recorridos guiados de HTML, CSS, JavaScript, React y Web Components.',
@@ -871,9 +944,9 @@ const es: Record<UiKey, string> = {
 
   
   'nav.consultoria': 'Consultoría',
-  'consultoria.title': 'Consultoría CSS4HTML — sitios, sistemas y apps a medida',
+  'consultoria.title': 'Consultoría CSS4HTML — sitios, sistemas, apps y setup de IA',
   'consultoria.desc':
-    'Desarrollamos sitios, sistemas y aplicaciones a medida, con código limpio, rendimiento y mantenimiento continuo.',
+    'Desarrollamos sitios, sistemas y aplicaciones a medida, y también paquetes de setup de IA de la idea a producción: entorno con agentes de programación, deploy, dominio en Registro.br y el enlace final en el aire.',
   'consultoria.kicker': 'CONSULTORÍA CSS4HTML',
   'consultoria.h1': 'Tu proyecto, bien hecho, por quien enseña en la práctica',
   'consultoria.lead':
@@ -903,7 +976,7 @@ const es: Record<UiKey, string> = {
   'consultoria.svc5Desc': 'auditoría y optimización.',
   'consultoria.svc6Title': 'Consultoría técnica',
   'consultoria.svc6Desc': 'revisión de código, arquitectura y mentoría del equipo.',
-  'consultoria.howKicker': '02 / DEL DIAGNÓSTICO A LA EVOLUCIÓN',
+  'consultoria.howKicker': '03 / DEL DIAGNÓSTICO A LA EVOLUCIÓN',
   'consultoria.howTitle': 'Cómo trabajamos',
   'consultoria.step1Title': 'Conversación y diagnóstico',
   'consultoria.step1Desc': 'Entendemos tu idea, el contexto y los objetivos del proyecto.',
@@ -913,7 +986,7 @@ const es: Record<UiKey, string> = {
   'consultoria.step3Desc': 'Sigues la evolución y participas en cada etapa.',
   'consultoria.step4Title': 'Entrega, soporte y mantenimiento',
   'consultoria.step4Desc': 'Lo publicamos y seguimos cuidando la evolución.',
-  'consultoria.whyKicker': '03 / CONOCIMIENTO EN LA PRÁCTICA',
+  'consultoria.whyKicker': '04 / CONOCIMIENTO EN LA PRÁCTICA',
   'consultoria.whyTitle': 'Por qué CSS4HTML',
   'consultoria.whyLead':
     'Quien enseña también construye. Llevamos el cuidado de cada ejemplo y de cada ruta a tu proyecto.',
@@ -924,6 +997,32 @@ const es: Record<UiKey, string> = {
   'consultoria.stackLabel': 'NUESTRA STACK',
   'consultoria.finalTitle': '¿Sacamos tu proyecto del papel?',
   'consultoria.finalLead': 'Cuéntanos tu idea y respondemos por WhatsApp.',
+  'consultoria.clientsKicker': 'CLIENTES',
+  'consultoria.clientsTitle': 'Proyectos en el aire',
+  'consultoria.clientsLead': 'Algunos productos que CSS4HTML desarrolló y sigue evolucionando.',
+  'consultoria.clientGirotelaDesc':
+    'Media indoor en la smart TV, sin app y sin pendrive: carga imágenes y videos, programa por horario y pega un enlace en la TV o en OBS.',
+  'consultoria.clientAgilDesc':
+    'Sistema online para consultorios odontológicos: agenda, historial clínico, odontograma y confirmación de consultas por WhatsApp.',
+  'consultoria.clientVisit': 'Visitar el sitio',
+  'consultoria.iaKicker': '02 / DE LA IDEA A PRODUCCIÓN',
+  'consultoria.iaTitle': 'Paquetes de setup de IA — de la idea a producción',
+  'consultoria.iaLead':
+    'Del entorno de desarrollo al dominio en el aire: configuramos el proyecto con agentes de programación y entregamos el enlace final en producción.',
+  'consultoria.iaItem1Title': 'Entorno con agentes de programación',
+  'consultoria.iaItem1Desc':
+    'Configuración del entorno de desarrollo con agentes de IA para que el equipo programe con asistencia de principio a fin.',
+  'consultoria.iaItem2Title': 'Entorno de deploy',
+  'consultoria.iaItem2Desc':
+    'Pipeline de CI/CD y el entorno de publicación listos para que cada nueva versión vaya a producción.',
+  'consultoria.iaItem3Title': 'Dominio en Registro.br',
+  'consultoria.iaItem3Desc':
+    'Configuración del dominio y del DNS en Registro.br para que el proyecto responda en la dirección correcta.',
+  'consultoria.iaItem4Title': 'Enlace final en producción',
+  'consultoria.iaItem4Desc': 'El proyecto en el aire, con la dirección final lista para compartir y usar.',
+  'consultoria.iaCta': 'Hablar por WhatsApp sobre el setup de IA',
+  'consultoria.iaWaMessage':
+    '¡Hola! Llegué desde CSS4HTML y quiero hablar sobre el paquete de setup de IA, de la idea a producción.',
 
   // Growth CTA
   'cta.newsTitle': 'Recibe un snippet por semana',
