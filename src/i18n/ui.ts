@@ -76,7 +76,7 @@ const pt = {
   'home.badge': 'Aprendizado prático',
   'home.h1': 'Aprenda HTML, CSS, JavaScript, React e Web Components com exemplos vivos',
   'home.lead':
-    'O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras — do HTML ao React e Web Components, passando por CSS e JavaScript.',
+    'O CSS4HTML é um hub unificado: edite código no playground, copie padrões prontos e siga trilhas claras - do HTML ao React e Web Components, passando por CSS e JavaScript.',
   'home.ctaTrails': 'Ver trilhas',
   'home.ctaExamples': 'Abrir exemplos',
   'home.threeTrails': 'Oito trilhas, um hub',
@@ -123,7 +123,7 @@ const pt = {
   'home.consultKicker': 'CONSULTORIA',
   'home.consultTitle': 'Consultoria CSS4HTML',
   'home.consultLead':
-    'O mesmo time que ensina nas trilhas desenvolve sites, sistemas e apps sob medida — com código limpo, performance e manutenção contínua.',
+    'O mesmo time que ensina nas trilhas desenvolve sites, sistemas e apps sob medida - com código limpo, performance e manutenção contínua.',
   'home.consultIaNote':
     'Também oferecemos pacotes de setup de IA, da ideia à produção: ambiente com agentes de programação, deploy, domínio no Registro.br e o link final no ar.',
   'home.consultCtaPage': 'Conhecer a consultoria',
@@ -132,7 +132,7 @@ const pt = {
   'trails.title': 'Trilhas',
   'trails.desc': 'Percursos guiados de HTML, CSS, JavaScript, React e Web Components.',
   'trails.intro':
-    'Percursos curtos que ligam teoria, playground e snippets — trilhas irmãs no mesmo hub.',
+    'Percursos curtos que ligam teoria, playground e snippets - trilhas irmãs no mesmo hub.',
   'trails.open': 'Abrir trilha',
   'trails.back': '← Trilhas',
   'trails.lessons': 'lições',
@@ -168,7 +168,7 @@ const pt = {
     'Sete lições para ir de variáveis e funções até eventos, arrays e um projeto no DOM.',
   'trail.react.title': 'React do básico ao estado',
   'trail.react.desc':
-    'Componentes, props, hooks, listas, React Query e Zustand — oito lições práticas.',
+    'Componentes, props, hooks, listas, React Query e Zustand - oito lições práticas.',
   'trail.react.pageTitle': 'Trilha: React do básico ao estado',
   'trail.react.pageDesc':
     'Oito lições do JSX ao estado global com exemplos editáveis em TSX.',
@@ -177,13 +177,13 @@ const pt = {
     'Custom Elements, Shadow DOM, a mesma galeria em React/Vue, lib mode no Vite e export dual.',
   'trail.wc.pageTitle': 'Trilha: Web Components com Vite',
   'trail.wc.pageDesc':
-    'Oito lições do custom element à lib consumível em apps Vite — agnóstico a framework.',
+    'Oito lições do custom element à lib consumível em apps Vite - agnóstico a framework.',
   'trail.git.title': 'Git na prática',
   'trail.git.desc':
     'Instalação, commits, branches, pull requests, merges e uma página publicada no GitHub Pages.',
   'trail.git.pageTitle': 'Trilha: Git na prática',
   'trail.git.pageDesc':
-    'Nove lições do zero ao Pages — fluxo feliz sem rebase nem cherry-pick.',
+    'Nove lições do zero ao Pages - fluxo feliz sem rebase nem cherry-pick.',
 
   // Examples
   'examples.title': 'Exemplos vivos',
@@ -197,7 +197,7 @@ const pt = {
   // Snippets
   'snippets.title': 'Biblioteca de snippets',
   'snippets.desc': 'Padrões HTML, CSS, JS, React e Web Components com tags e filtro.',
-  'snippets.intro': 'Padrões curtos com tags — HTML, CSS, JavaScript, React e Web Components para colar e adaptar.',
+  'snippets.intro': 'Padrões curtos com tags - HTML, CSS, JavaScript, React e Web Components para colar e adaptar.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copiar',
   'snippets.copied': 'Copiado!',
@@ -429,7 +429,7 @@ const en: Record<UiKey, string> = {
   'home.h1': 'Learn HTML, CSS, JavaScript, React, and Web Components with live examples',
   'home.lead':
     
-    'CSS4HTML is a unified hub: edit code in the playground, copy ready-made patterns, and follow clear trails — from HTML to React and Web Components, through CSS and JavaScript.',
+    'CSS4HTML is a unified hub: edit code in the playground, copy ready-made patterns, and follow clear trails - from HTML to React and Web Components, through CSS and JavaScript.',
   'home.ctaTrails': 'View trails',
   'home.ctaExamples': 'Open examples',
   'home.threeTrails': 'Eight trails, one hub',
@@ -476,7 +476,7 @@ const en: Record<UiKey, string> = {
   'home.consultKicker': 'CONSULTING',
   'home.consultTitle': 'CSS4HTML consulting',
   'home.consultLead':
-    'The same team that teaches the trails builds custom websites, systems, and apps — with clean code, performance, and ongoing maintenance.',
+    'The same team that teaches the trails builds custom websites, systems, and apps - with clean code, performance, and ongoing maintenance.',
   'home.consultIaNote':
     'We also offer AI setup packages, from idea to production: a development environment with coding agents, deploy, domain setup at Registro.br, and the live project URL.',
   'home.consultCtaPage': 'See our consulting',
@@ -484,7 +484,7 @@ const en: Record<UiKey, string> = {
   'trails.title': 'Trails',
   'trails.desc': 'Guided paths for HTML, CSS, JavaScript, React, and Web Components.',
   'trails.intro':
-    'Short paths that connect theory, playground, and snippets — sibling trails in one hub.',
+    'Short paths that connect theory, playground, and snippets - sibling trails in one hub.',
   'trails.open': 'Open trail',
   'trails.back': '← Trails',
   'trails.lessons': 'lessons',
@@ -520,7 +520,7 @@ const en: Record<UiKey, string> = {
     'Seven lessons from variables and functions to events, arrays, and a DOM project.',
   'trail.react.title': 'React from basics to state',
   'trail.react.desc':
-    'Components, props, hooks, lists, React Query, and Zustand — eight hands-on lessons.',
+    'Components, props, hooks, lists, React Query, and Zustand - eight hands-on lessons.',
   'trail.react.pageTitle': 'Trail: React from basics to state',
   'trail.react.pageDesc':
     'Eight lessons from JSX to global state with editable TSX examples.',
@@ -529,13 +529,13 @@ const en: Record<UiKey, string> = {
     'Custom Elements, Shadow DOM, the same gallery in React/Vue, Vite lib mode, and dual export.',
   'trail.wc.pageTitle': 'Trail: Web Components with Vite',
   'trail.wc.pageDesc':
-    'Eight lessons from a custom element to a lib you can consume in Vite apps — framework-agnostic.',
+    'Eight lessons from a custom element to a lib you can consume in Vite apps - framework-agnostic.',
   'trail.git.title': 'Git in practice',
   'trail.git.desc':
     'Install, commits, branches, pull requests, merges, and a page published on GitHub Pages.',
   'trail.git.pageTitle': 'Trail: Git in practice',
   'trail.git.pageDesc':
-    'Nine lessons from zero to Pages — happy path without rebase or cherry-pick.',
+    'Nine lessons from zero to Pages - happy path without rebase or cherry-pick.',
 
   'examples.title': 'Live examples',
   'examples.desc': 'HTML+CSS+JS/TSX playground with live preview.',
@@ -548,7 +548,7 @@ const en: Record<UiKey, string> = {
 
   'snippets.title': 'Snippet library',
   'snippets.desc': 'HTML, CSS, JS, React, and Web Components patterns with tags and filters.',
-  'snippets.intro': 'Short tagged patterns — HTML, CSS, JavaScript, React, and Web Components to paste and adapt.',
+  'snippets.intro': 'Short tagged patterns - HTML, CSS, JavaScript, React, and Web Components to paste and adapt.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copy',
   'snippets.copied': 'Copied!',
@@ -773,7 +773,7 @@ const es: Record<UiKey, string> = {
   'home.h1': 'Aprende HTML, CSS, JavaScript, React y Web Components con ejemplos vivos',
   'home.lead':
     
-    'CSS4HTML es un hub unificado: edita código en el playground, copia patrones listos y sigue rutas claras — del HTML a React, pasando por CSS y JavaScript y Web Components.',
+    'CSS4HTML es un hub unificado: edita código en el playground, copia patrones listos y sigue rutas claras - del HTML a React, pasando por CSS y JavaScript y Web Components.',
   'home.ctaTrails': 'Ver rutas',
   'home.ctaExamples': 'Abrir ejemplos',
   'home.threeTrails': 'Ocho rutas, un hub',
@@ -820,7 +820,7 @@ const es: Record<UiKey, string> = {
   'home.consultKicker': 'CONSULTORÍA',
   'home.consultTitle': 'Consultoría CSS4HTML',
   'home.consultLead':
-    'El mismo equipo que enseña en las rutas desarrolla sitios, sistemas y apps a medida — con código limpio, rendimiento y mantenimiento continuo.',
+    'El mismo equipo que enseña en las rutas desarrolla sitios, sistemas y apps a medida - con código limpio, rendimiento y mantenimiento continuo.',
   'home.consultIaNote':
     'También ofrecemos paquetes de setup de IA, de la idea a producción: entorno con agentes de programación, deploy, dominio en Registro.br y el enlace final en el aire.',
   'home.consultCtaPage': 'Conocer la consultoría',
@@ -828,7 +828,7 @@ const es: Record<UiKey, string> = {
   'trails.title': 'Rutas',
   'trails.desc': 'Recorridos guiados de HTML, CSS, JavaScript, React y Web Components.',
   'trails.intro':
-    'Recorridos cortos que unen teoría, playground y snippets — rutas hermanas en el mismo hub.',
+    'Recorridos cortos que unen teoría, playground y snippets - rutas hermanas en el mismo hub.',
   'trails.open': 'Abrir ruta',
   'trails.back': '← Rutas',
   'trails.lessons': 'lecciones',
@@ -864,7 +864,7 @@ const es: Record<UiKey, string> = {
     'Siete lecciones desde variables y funciones hasta eventos, arrays y un proyecto en el DOM.',
   'trail.react.title': 'React de lo básico al estado',
   'trail.react.desc':
-    'Componentes, props, hooks, listas, React Query y Zustand — ocho lecciones prácticas.',
+    'Componentes, props, hooks, listas, React Query y Zustand - ocho lecciones prácticas.',
   'trail.react.pageTitle': 'Ruta: React de lo básico al estado',
   'trail.react.pageDesc':
     'Ocho lecciones desde JSX hasta estado global con ejemplos editables en TSX.',
@@ -873,13 +873,13 @@ const es: Record<UiKey, string> = {
     'Custom Elements, Shadow DOM, la misma galería en React/Vue, lib mode en Vite y export dual.',
   'trail.wc.pageTitle': 'Ruta: Web Components con Vite',
   'trail.wc.pageDesc':
-    'Ocho lecciones del custom element a una lib consumible en apps Vite — agnóstico a frameworks.',
+    'Ocho lecciones del custom element a una lib consumible en apps Vite - agnóstico a frameworks.',
   'trail.git.title': 'Git en la práctica',
   'trail.git.desc':
     'Instalación, commits, branches, pull requests, merges y una página publicada en GitHub Pages.',
   'trail.git.pageTitle': 'Ruta: Git en la práctica',
   'trail.git.pageDesc':
-    'Nueve lecciones de cero a Pages — camino feliz sin rebase ni cherry-pick.',
+    'Nueve lecciones de cero a Pages - camino feliz sin rebase ni cherry-pick.',
 
   'examples.title': 'Ejemplos vivos',
   'examples.desc': 'Playground HTML+CSS+JS/TSX con vista previa en vivo.',
@@ -892,7 +892,7 @@ const es: Record<UiKey, string> = {
 
   'snippets.title': 'Biblioteca de snippets',
   'snippets.desc': 'Patrones HTML, CSS, JS, React y Web Components con etiquetas y filtro.',
-  'snippets.intro': 'Patrones cortos con etiquetas — HTML, CSS, JavaScript, React y Web Components para pegar y adaptar.',
+  'snippets.intro': 'Patrones cortos con etiquetas - HTML, CSS, JavaScript, React y Web Components para pegar y adaptar.',
   'snippets.back': '← Snippets',
   'snippets.copy': 'Copiar',
   'snippets.copied': '¡Copiado!',
